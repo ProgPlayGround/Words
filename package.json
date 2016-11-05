@@ -18,6 +18,7 @@
     "karma-chrome-launcher": "^0.2.3",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
+    "npm-watch": "^0.1.6",
     "protractor": "^4.0.9"
   },
   "eslintConfig": {
@@ -40,11 +41,18 @@
       "react/no-unused-prop-types": "off"
     }
   },
+  "watch": {
+    "start": {
+        "patterns":["app"],
+        "extensions": "html,css,js"
+      }
+  },
   "scripts": {
     "lint:js": "eslint app e2e-tests",
     "postinstall": "bower install",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "watch": "npm-watch",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
