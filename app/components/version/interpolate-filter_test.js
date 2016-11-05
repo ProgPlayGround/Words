@@ -8,8 +8,8 @@ describe('myApp.version module', function() {
       $provide.value('version', 'TEST_VER');
     }));
 
-    it('should replace VERSION', inject(function(interpolateFilter) {
+    it('should replace VERSION', inject(['interpolateFilter', function(interpolateFilter) {
       expect(interpolateFilter('before %VERSION% after')).toEqual('before TEST_VER after');
-    }));
+    }]));
   });
 });
