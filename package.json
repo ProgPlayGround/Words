@@ -6,28 +6,103 @@
   "repository": "https://github.com/vinglfm/Words",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^7.1.0",
     "bower": "^1.7.7",
+    "eslint": "^3.9.1",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-plugin-angular": "^1.4.1",
+    "eslint-plugin-import": "^2.1.0",
+    "eslint-plugin-jasmine": "^2.0.0",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
-    "protractor": "^4.0.9"
+    "npm-watch": "^0.1.6",
+    "protractor": "^4.0.9",
+    "stylelint": "^7.5.0",
+    "stylelint-config-standard": "^14.0.0"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "plugins": [
+      "jasmine"
+    ],
+    "extends": [
+      "angular",
+      "eslint:recommended"
+    ],
+    "globals": {
+      "__DEV__": true
+    },
+    "env": {
+      "browser": true,
+      "jasmine": true
+    },
+    "rules": {
+      "angular/di": [
+        2,
+        "array"
+      ],
+      "angular/controller-name": [
+        2,
+        "/[A-Z].*Ctrl/"
+      ],
+      "no-unused-vars": ["error", { "vars": "all", "args": "after-used" }]
+    },
+    "globals": {
+      "module": false,
+      "inject": false,
+      "browser": false,
+      "exports": false,
+      "element": false,
+      "by": false
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "string-quotes": "single",
+      "property-no-unknown": [
+        true,
+        {
+          "ignoreProperties": [
+            "composes"
+          ]
+        }
+      ],
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": [
+            "global"
+          ]
+        }
+      ]
+    }
+  },
+  "watch": {
+    "start": {
+      "patterns": [
+        "app"
+      ],
+      "extensions": "html,css,js"
+    }
   },
   "scripts": {
+    "lint:js": "eslint app e2e-tests",
+    "lint:css": "stylelint \"app/**/*.{css,less,scss,sss}\"",
+    "lint": "npm run lint:js && npm run lint:css",
     "postinstall": "bower install",
-
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
-
+    "watch": "npm-watch",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
-
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
-
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js"
   }

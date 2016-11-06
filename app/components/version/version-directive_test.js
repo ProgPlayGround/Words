@@ -8,10 +8,10 @@ describe('myApp.version module', function() {
       module(function($provide) {
         $provide.value('version', 'TEST_VER');
       });
-      inject(function($compile, $rootScope) {
+      inject(['$compile', '$rootScope', function($compile, $rootScope) {
         var element = $compile('<span app-version></span>')($rootScope);
         expect(element.text()).toEqual('TEST_VER');
-      });
+      }]);
     });
   });
 });
