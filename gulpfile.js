@@ -14,6 +14,8 @@ var clean = require('gulp-clean');
 var imagemin = require('gulp-imagemin');
 var join = require('path').join;
 var asyncJs = require('async');
+var htmlhint = require('gulp-htmlhint');
+var gitmodified = require('gulp-gitmodified');
 
 var destDir = 'bin';
 
@@ -86,4 +88,11 @@ gulp.task('watch', function() {
   gulp.watch('app/**/*.@(css|less|scss|sss)', ['css:watch']);
   gulp.watch('app/**/*.@(png|jpg|svg)', ['img:watch']);
   gulp.watch('app/**/*.js', ['js:watch']);
+});
+
+gulp.task('html:style', function() {
+  return gulp.src(['app/**/*.html'])
+      .pipe(gulpif(!argv.all, gitmodified('modified')))
+      .pipe(htmlhint('.htmlhintrc'))
+      .pipe(htmlhint.reporter());
 });
