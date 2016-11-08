@@ -10,10 +10,20 @@ var browserSync = require('browser-sync');
 var htmlmin = require('gulp-htmlmin');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var clean = require('gulp-clean');
+var imagemin = require('gulp-imagemin');
+var join = require('path').join;
+var asyncJs = require('async');
+
 var destDir = 'bin';
 
 gulp.task('bower', function () {
   return bower('libs');
+});
+
+gulp.task('clean', function () {
+  return gulp.src(destDir, {read: false})
+        .pipe(clean({force: true}));
 });
 
 gulp.task('css', function() {
@@ -46,6 +56,25 @@ gulp.task('js', function() {
       .pipe(gulp.dest(destDir));
 });
 
+gulp.task('js:watch', ['js'], browserSync.reload);
+
+gulp.task('img', function() {
+  return gulp.src(['images/**/*.{png,jpg,svg}'])
+        .pipe(imagemin())
+        .pipe(gulp.dest(join(destDir, 'images')));
+});
+
+gulp.task('image:watch', ['img'], browserSync.reload);
+
+gulp.task('build', ['css', 'js', 'html', 'img']);
+
+gulp.task('libs', function() {
+  return gulp.src('libs/**/*.min.js')
+      .pipe(gulp.dest(join(destDir, 'libs')));
+});
+
+gulp.task('default', ['libs', 'build']);
+
 gulp.task('watch', function() {
   browserSync({
     server: {
@@ -55,4 +84,6 @@ gulp.task('watch', function() {
 
   gulp.watch('app/**/*.html', ['html:watch']);
   gulp.watch('app/**/*.@(css|less|scss|sss)', ['css:watch']);
+  gulp.watch('app/**/*.@(png|jpg|svg)', ['img:watch']);
+  gulp.watch('app/**/*.js', ['js:watch']);
 });
