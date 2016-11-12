@@ -113,8 +113,6 @@
     "style:html": "htmlhint app",
     "style:css": "stylelint \"app/**/*.{css,less,scss,sss}\"",
     "style": "npm run style:js && npm run style:html && npm run style:css",
-    "postinstall": "bower install",
-    "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
     "watch": "npm-watch",
     "pretest": "npm install",
