@@ -1,13 +1,13 @@
 'use strict';
 
-wordsApp.service('wordsLoaderService', [function() {
+angular.module('words').service('wordsLoaderService', [function() {
   this.getWords = function() {
     return {
-      'word':'car',
+      'word': 'car',
       'category': 'common',
-      'translation' : {
-        'ua':['автомобіль'],
-        'ru':['автомобиль']
+      'translation': {
+        'ua': ['автомобіль'],
+        'ru': ['автомобиль']
       }
     };
   }
