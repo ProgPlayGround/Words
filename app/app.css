@@ -82,8 +82,14 @@ img, iframe, video, object {
   border: 1px solid #74AFAD;
   border-radius: 5px;
   font-size: 2em;
-  min-width: 3%;
+  min-width: 4%;
   cursor: pointer;
+}
+
+.input_letter {
+  text-align: center;
+  width: 5%;
+  background-color: #ECECEA;
 }
 
 .letter:focus,
