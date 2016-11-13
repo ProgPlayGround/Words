@@ -1,4 +1,29 @@
 /* app css stylesheet */
-.center {
+.word_card {
   text-align: center;
+  margin: auto;
+  margin-top: 15%;
+  width: 50%;
+  padding: 1%;
+  border: 2px solid #ada791;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.letter {
+  display: inline-block;
+  padding: 1%;
+  margin-right: 0.5%;
+  border: 1px solid #ada791;
+  border-radius: 5px;
+  font-size: 2em;
+  min-width: 3%;
+  cursor: pointer;
+}
+
+.letter:focus,
+.letter:hover,
+.letter:active {
+	background-color: #ada791;
+	color: #fff;
 }

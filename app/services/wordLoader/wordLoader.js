@@ -3,7 +3,7 @@
 angular.module('words').service('wordsLoaderService', [function() {
   this.getWords = function() {
     return {
-      'word': 'car',
+      'word': 'sequance',
       'category': 'common',
       'translation': {
         'ua': ['автомобіль'],
