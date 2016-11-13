@@ -1,5 +1,5 @@
 <div class="center">
-  <p>Word: {{data.word}}</p>
+  <span ng-repeat="char in data.word | split:''">{{char}}</span>
   <p>Category: {{data.category}}</p>
   <p>Translation: {{data.translation.ua[0]}}</p>
 </div>

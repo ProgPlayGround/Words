@@ -1,5 +1,5 @@
 'use strict';
 
-wordsApp.controller('SprintCtrl', ['$scope', 'wordsLoaderService', function($scope, wordsLoaderService) {
-    $scope.data = wordsLoaderService.getWords();
+angular.module('words').controller('SprintCtrl', ['$scope', 'wordsLoaderService', function($scope, wordsLoader) {
+    $scope.data = wordsLoader.getWords();
 }]);

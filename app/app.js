@@ -1,18 +1,18 @@
 'use strict';
 
-var wordsApp = angular.module('words', ['ngRoute'])
-      .config(['$locationProvider', '$routeProvider',
-      function($locationProvider, $routeProvider) {
+angular.module('words', ['ngRoute'])
+    .config(['$locationProvider', '$routeProvider',
+    function($locationProvider, $routeProvider) {
 
-          $locationProvider.hashPrefix('!');
+        $locationProvider.hashPrefix('!');
 
-          $routeProvider.when('/sprint', {
-            templateUrl: 'controllers/sprint/sprint.html',
-            controller: 'SprintCtrl',
-            controllerAs: 'spt'
-          });
+        $routeProvider.when('/sprint', {
+          templateUrl: 'controllers/sprint/sprint.html',
+          controller: 'SprintCtrl',
+          controllerAs: 'spt'
+        });
 
-          $routeProvider.otherwise({
-            redirectTo: '/sprint'
-          });
+        $routeProvider.otherwise({
+          redirectTo: '/sprint'
+        });
 }]);
