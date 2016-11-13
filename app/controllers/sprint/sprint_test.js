@@ -4,11 +4,11 @@ describe('Sprint controller', function() {
 
   beforeEach(function() {
     module('words');
-    module(function($provide) {
+    module(['$provide', function($provide) {
         $provide.service('mockWordsLoader', function() {
         this.getWords = jasmine.createSpy('getWords').and.returnValue({"word":"mockWord"});
       });
-    });
+    }]);
   });
 
   it('should get words from loader service', inject(['$controller', '$rootScope', 'mockWordsLoader',
@@ -18,6 +18,7 @@ describe('Sprint controller', function() {
       '$scope': mockScope,
       'wordsLoaderService': mockWordsLoader
     });
+    
     expect(sprintCtrl).toBeDefined();
     expect(mockWordsLoader.getWords).toHaveBeenCalled();
     expect(mockScope.data).toEqual({"word":"mockWord"});
