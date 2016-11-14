@@ -1,7 +1,8 @@
 <div class="word_card">
   <span class="letter" ng-repeat="char in data.word track by $index">{{char}}</span>
   <hr>
-  <input maxlength="1" class="letter input_letter" ng-repeat="char in data.translation.ua[0] track by $index">{{char}}</input>
+  <input class='letter input_letter' maxlength='1' ng-model="answer.data[$index]"
+  ng-repeat="char in data.translation.ua[0] track by $index" letter char="char"></input>
 </div>
 <div class="buttons">
   <a href="#" class="button solution">Solution</a>

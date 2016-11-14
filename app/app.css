@@ -129,6 +129,14 @@ img, iframe, video, object {
   padding-top: 2%;
 }
 
+.right_answer {
+	background-color: #75AF73;
+}
+
+.wrong_answer {
+	background-color: #AF7375;
+}
+
 /*#558C89
 #74AFAD
 #D9853B
