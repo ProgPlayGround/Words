@@ -5,14 +5,20 @@ function($scope, wordsLoader) {
   $scope.data = wordsLoader.getWords();
   var translation = $scope.data.translation.ua[0];
   $scope.answer = initializeAnswer();
+  $scope.answerState = 'NA';
 
   $scope.checkAnswer = function() {
     for(var i = 0; i < $scope.answer.length; ++i) {
+      if(!$scope.answer[i].char) {
+        $scope.answerState = 'NA';
+        return;
+      }
       if($scope.answer[i].char != translation.charAt(i)) {
+        $scope.answerState = 'INCORRECT';
         return;
       }
     }
-    console.log('correct');
+    $scope.answerState = 'CORRECT';
   };
 
   function initializeAnswer() {

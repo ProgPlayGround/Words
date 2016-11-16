@@ -13,23 +13,23 @@ angular.module('words')
           },
           link: function(scope, element, attrs, focusCtrl) {
             focusCtrl.register(element[0]);
-            scope.$watch('model', function (value) {
+              scope.$watch('model', function (value) {
               if(value !== undefined) {
                 if(value == '') {
                   element.removeClass('wrong_answer');
-                  element.removeClass('right_answer');
+                  element.removeClass('correct_answer');
                   focusCtrl.previous(scope.index);
                 } else {
                   if(scope.char == value) {
                     element.removeClass('wrong_answer');
-                    element.addClass('right_answer');
+                    element.addClass('correct_answer');
                   } else {
-                    element.removeClass('right_answer');
+                    element.removeClass('correct_answer');
                     element.addClass('wrong_answer');
                   }
                   focusCtrl.next(scope.index);
-                  scope.onModelChange();
                 }
+                scope.onModelChange();
               }
             });
 

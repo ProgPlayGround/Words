@@ -64,15 +64,27 @@ img, iframe, video, object {
 .background {
   background-color: #ECECEA;
 }
+
 .word_card {
   text-align: center;
   margin: auto;
   margin-top: 15%;
   width: 50%;
   padding: 1%;
-  border: 2px solid #74AFAD;
   border-radius: 10px;
   overflow: hidden;
+}
+
+.word_card_correct_answer {
+  border: 2px solid #75AF73;
+}
+
+.word_card_wrong_answer {
+  border: 2px solid #AF7375;
+}
+
+.word_card_no_answer {
+	border: 2px solid #74AFAD;
 }
 
 .letter {
@@ -129,7 +141,7 @@ img, iframe, video, object {
   padding-top: 2%;
 }
 
-.right_answer {
+.correct_answer {
 	background-color: #75AF73;
 }
 
