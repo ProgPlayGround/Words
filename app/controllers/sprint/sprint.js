@@ -3,9 +3,14 @@
 angular.module('words').controller('SprintCtrl', ['$scope', 'wordsLoaderService',
 function($scope, wordsLoader) {
   $scope.data = wordsLoader.getWords();
-  var answer = [];
-  for(var i = 0; i < $scope.data.translation.ua[0]; ++i) {
-    answer[i] = {char: ''};
+  $scope.answer = initializeAnswer();
+
+  function initializeAnswer() {
+    var answer = [];
+    var answerLength = $scope.data.translation.ua[0].length;
+    for(var i = 0; i < answerLength; ++i) {
+      answer[i] = {char: ''};
+    }
+    return answer;
   }
-  $scope.answer=answer;
 }]);
