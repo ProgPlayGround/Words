@@ -22,6 +22,7 @@ angular.module('words')
             if(index - 1 >= 0) {
               $scope.elements[index].blur();
               $scope.elements[index - 1].focus();
+              $scope.elements[index - 1].select();
             }
           }
         }

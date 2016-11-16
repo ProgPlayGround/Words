@@ -12,7 +12,7 @@ angular.module('words')
           },
           link: function(scope, element, attrs, focusCtrl) {
             focusCtrl.register(element[0]);
-            scope.$watch("model", function (value) {
+            scope.$watch('model', function (value) {
               if(value !== undefined) {
                 if(value == '') {
                   element.removeClass('wrong_answer');
@@ -27,6 +27,25 @@ angular.module('words')
                     element.addClass('wrong_answer');
                   }
                   focusCtrl.next(scope.index);
+                }
+              }
+            });
+
+            element.bind('keypress', function(event) {
+              if (scope.model == String.fromCharCode(event.keyCode)){
+                event.preventDefault();
+                focusCtrl.next(scope.index);
+              }
+            });
+
+            element.bind('keydown', function(event) {
+              if(!scope.model) {
+                switch(event.keyCode) {
+                   case 8:
+                   case 46:
+                     event.preventDefault();
+                     focusCtrl.previous(scope.index);
+                   break;
                 }
               }
             });
