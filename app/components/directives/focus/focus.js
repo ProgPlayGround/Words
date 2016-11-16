@@ -12,8 +12,7 @@ angular.module('words')
           }
 
           this.next = function(index) {
-            if(index + 1 < $scope.elements.length) {
-              console.log($scope.elements[0]);
+            if(index + 1 < $scope.elements.length) {              
               $scope.elements[index].blur();
               $scope.elements[index + 1].focus();
             }

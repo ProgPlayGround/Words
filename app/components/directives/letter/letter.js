@@ -8,7 +8,8 @@ angular.module('words')
           scope: {
             char: '=',
             index: '=',
-            model: '=ngModel'
+            model: '=ngModel',
+            onModelChange: '&onModelChange'
           },
           link: function(scope, element, attrs, focusCtrl) {
             focusCtrl.register(element[0]);
@@ -27,6 +28,7 @@ angular.module('words')
                     element.addClass('wrong_answer');
                   }
                   focusCtrl.next(scope.index);
+                  scope.onModelChange();
                 }
               }
             });
