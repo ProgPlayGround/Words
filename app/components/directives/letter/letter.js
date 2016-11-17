@@ -3,7 +3,7 @@
 angular.module('words')
       .directive('letter', function() {
         return {
-          require:'^focus',
+          require:['^focus', 'ngModel'],
           restrict: 'A',
           scope: {
             char: '=',
@@ -11,7 +11,8 @@ angular.module('words')
             model: '=ngModel',
             onModelChange: '&onModelChange'
           },
-          link: function(scope, element, attrs, focusCtrl) {
+          link: function(scope, element, attrs, controllers) {
+            var focusCtrl = controllers[0];
             focusCtrl.register(element[0]);
               scope.$watch('model', function (value) {
               if(value !== undefined) {
