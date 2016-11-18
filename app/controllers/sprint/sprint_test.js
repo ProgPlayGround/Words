@@ -1,6 +1,7 @@
 'use strict';
 
 describe('Sprint controller', function() {
+  var scope, wordsLoader, sprintCtrl;
 
   beforeEach(function() {
     module('words');
@@ -18,17 +19,19 @@ describe('Sprint controller', function() {
     }]);
   });
 
-  it('get words from loader service', inject(['$controller', '$rootScope', 'mockWordsLoader',
-  function($controller, $rootScope, mockWordsLoader) {
-    var mockScope = $rootScope.$new();
-    var sprintCtrl = $controller('SprintCtrl', {
-      '$scope': mockScope,
-      'wordsLoaderService': mockWordsLoader
+  beforeEach(inject(['$rootScope', '$controller', 'mockWordsLoader',
+  function($rootScope, $controller, mockWordsLoader) {
+    scope = $rootScope.$new();
+    wordsLoader = mockWordsLoader;
+    sprintCtrl = $controller('SprintCtrl', {
+      '$scope': scope,
+      'wordsLoaderService': wordsLoader
     });
+  }]));
 
-    expect(sprintCtrl).toBeDefined();
-    expect(mockWordsLoader.getWords).toHaveBeenCalled();
-    expect(mockScope.data).toEqual({
+  it('get words from loader service', function() {
+    expect(wordsLoader.getWords).toHaveBeenCalled();
+    expect(scope.data).toEqual({
       'word': 'car',
       'category': 'common',
       'translation': {
@@ -36,19 +39,38 @@ describe('Sprint controller', function() {
         'ru': ['автомобиль']
       }
     });
-  }]));
+  });
 
-  it('should create anwer array', inject(['$controller', '$rootScope', 'mockWordsLoader',
-  function($controller, $rootScope, mockWordsLoader) {
-    var mockScope = $rootScope.$new();
-    var sprintCtrl = $controller('SprintCtrl', {
-      '$scope': mockScope,
-      'wordsLoaderService': mockWordsLoader
-    });
+  it('create answer array', function() {
+    expect(scope.data.translation.ua).toBeDefined();
+    expect(scope.answer).toBeDefined();
+    expect(scope.answer.length).toEqual(scope.data.translation.ua[0].length);
+  });
 
-    expect(sprintCtrl).toBeDefined();
-    expect(mockScope.data.translation.ua).toBeDefined();
-    expect(mockScope.answer).toBeDefined();
-    expect(mockScope.answer.length).toEqual(mockScope.data.translation.ua[0].length);
-  }]));
+  it('checkAnswer change answerState to NA if answer is not full', function() {
+    scope.checkAnswer();
+    expect(scope.answerState).toEqual('NA');
+  });
+
+  it('checkAnswer change answerState to INCORRECT if answer is full, but not correct', function() {
+    var position = 0;
+
+    for(var elem of scope.data.translation.ua[0]) {
+      scope.answer[position++] = {char: 'a'};
+    }
+
+    scope.checkAnswer();
+    expect(scope.answerState).toEqual('INCORRECT');
+  });
+
+  it('checkAnswer change answerState to CORRECT if answer is full and correct', function() {
+    var position = 0;
+
+    for(var elem of scope.data.translation.ua[0]) {
+      scope.answer[position++] = {char: elem};
+    }
+
+    scope.checkAnswer();
+    expect(scope.answerState).toEqual('CORRECT');
+  });
 });
