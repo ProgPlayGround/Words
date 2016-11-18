@@ -14,9 +14,9 @@ angular.module('words')
           link: function(scope, element, attrs, controllers) {
             var focusCtrl = controllers[0];
             focusCtrl.register(element[0]);
-              scope.$watch('model', function (value) {
+            scope.$watch('model', function (value) {
               if(value !== undefined) {
-                if(value == '') {
+                if(value.length === 0) {
                   element.removeClass('wrong_answer');
                   element.removeClass('correct_answer');
                   focusCtrl.previous(scope.index);
@@ -42,6 +42,10 @@ angular.module('words')
             });
 
             element.bind('keydown', function(event) {
+              if(event.keyCode == 32 || event.keyCode == 37 || event.keyCode == 39) {
+                event.preventDefault();
+              }
+
               if(!scope.model) {
                 switch(event.keyCode) {
                    case 8:

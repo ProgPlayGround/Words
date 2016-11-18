@@ -45,11 +45,14 @@ describe('focus directive', function() {
     expect(secondElement[0].focus).toHaveBeenCalled();
   });
 
-  it('next do nothing for last watching element', function() {
+  it('next select content for last watching element', function() {
     var firstElement = angular.element('<div></div>');
     var secondElement = angular.element('<div></div>');
 
+    secondElement[0].select = function() {};
+
     spyOn(firstElement[0], 'blur');
+    spyOn(secondElement[0], 'select');
     spyOn(secondElement[0], 'focus');
 
     controller.register(firstElement[0]);
@@ -57,6 +60,7 @@ describe('focus directive', function() {
     controller.next(1);
 
     expect(firstElement[0].blur).toHaveBeenCalledTimes(0);
+    expect(secondElement[0].select).toHaveBeenCalled();
     expect(secondElement[0].focus).toHaveBeenCalledTimes(0);
   });
 
@@ -93,7 +97,7 @@ describe('focus directive', function() {
 
     controller.register(firstElement[0]);
     controller.register(secondElement[0]);
-    controller.next(1);
+    controller.previous(0);
 
     expect(firstElement[0].blur).toHaveBeenCalledTimes(0);
     expect(firstElement[0].select).toHaveBeenCalledTimes(0);
