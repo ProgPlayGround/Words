@@ -42,7 +42,7 @@ angular.module('words')
             });
 
             element.bind('keydown', function(event) {
-              if(event.keyCode == 32 || event.keyCode == 37 || event.keyCode == 39) {
+              if(event.keyCode == 32) {
                 event.preventDefault();
               }
 

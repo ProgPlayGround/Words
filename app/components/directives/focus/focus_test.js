@@ -59,9 +59,9 @@ describe('focus directive', function() {
     controller.register(secondElement[0]);
     controller.next(1);
 
-    expect(firstElement[0].blur).toHaveBeenCalledTimes(0);
+    expect(firstElement[0].blur).not.toHaveBeenCalled();
     expect(secondElement[0].select).toHaveBeenCalled();
-    expect(secondElement[0].focus).toHaveBeenCalledTimes(0);
+    expect(secondElement[0].focus).not.toHaveBeenCalled();
   });
 
   it('previous blur current element, focus and select next', inject(function($rootScope, $compile) {
@@ -99,9 +99,9 @@ describe('focus directive', function() {
     controller.register(secondElement[0]);
     controller.previous(0);
 
-    expect(firstElement[0].blur).toHaveBeenCalledTimes(0);
-    expect(firstElement[0].select).toHaveBeenCalledTimes(0);
-    expect(secondElement[0].focus).toHaveBeenCalledTimes(0);
+    expect(firstElement[0].blur).not.toHaveBeenCalled();
+    expect(firstElement[0].select).not.toHaveBeenCalled();
+    expect(secondElement[0].focus).not.toHaveBeenCalled();
   });
 
 });
