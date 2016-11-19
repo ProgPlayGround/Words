@@ -3,7 +3,7 @@
   <hr>
   <focus>
   <input class='letter input_letter' maxlength='1' ng-model="answer[$index].char"
-    ng-repeat="char in data.translation.ua[0] track by $index" letter char="char" index="$index" on-model-change="checkAnswer()"></input>
+    ng-repeat="char in data.translation.ua[0] track by $index" letter char="{{char}}" index="$index" on-model-change="checkAnswer()"></input>
   </focus>
 </div>
 <div class="buttons">

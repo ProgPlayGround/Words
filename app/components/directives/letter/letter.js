@@ -6,7 +6,7 @@ angular.module('words')
           require:['^focus', 'ngModel'],
           restrict: 'A',
           scope: {
-            char: '=',
+            char: '@',
             index: '=',
             model: '=ngModel',
             onModelChange: '&onModelChange'
