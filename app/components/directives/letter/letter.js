@@ -7,13 +7,13 @@ angular.module('words')
           restrict: 'A',
           scope: {
             char: '@',
-            index: '=',
             model: '=ngModel',
             onModelChange: '&onModelChange'
           },
           link: function(scope, element, attrs, controllers) {
             var focusCtrl = controllers[0];
             focusCtrl.register(element[0]);
+            scope.index = parseInt(attrs.index);
             scope.$watch('model', function (value) {
               if(value !== undefined) {
                 if(value.length === 0) {
