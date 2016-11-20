@@ -102,6 +102,7 @@ img, iframe, video, object {
   text-align: center;
   width: 5%;
   background-color: #ECECEA;
+	outline: none;
 }
 
 .letter:focus,
@@ -124,7 +125,7 @@ img, iframe, video, object {
 }
 
 .button.solution:hover {
-	background-color: #66CDAA;
+	background-color: #75AF73;
 	color: #fff;
 	transform: scale(1.1,1.1);
 }
