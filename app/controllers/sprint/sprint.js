@@ -12,17 +12,23 @@ function($scope, wordsLoader) {
   }
 
   $scope.checkAnswer = function() {
+    var error = 0;
+    var empty = 0;
     for(var i = 0; i < $scope.answer.length; ++i) {
       if(!$scope.answer[i].char) {
-        $scope.answerState = 'NA';
-        return;
-      }
-      if($scope.answer[i].char != translation.charAt(i)) {
-        $scope.answerState = 'INCORRECT';
-        return;
+        ++empty;
+      } else if($scope.answer[i].char != translation.charAt(i)) {
+        ++error;
       }
     }
-    $scope.answerState = 'CORRECT';
+    
+    if(error != 0) {
+      $scope.answerState = 'INCORRECT';
+    } else if (empty != 0) {
+      $scope.answerState = 'NA';
+    } else {
+      $scope.answerState = 'CORRECT';
+    }
   };
 
   function initializeAnswer() {
