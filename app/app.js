@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('words', ['ngRoute'])
+angular.module('words', ['ngRoute', 'ngAnimate'])
     .config(['$locationProvider', '$routeProvider',
     function($locationProvider, $routeProvider) {
 

@@ -68,7 +68,6 @@ img, iframe, video, object {
 .word_card {
   text-align: center;
   margin: auto;
-  margin-top: 15%;
   width: 50%;
   padding: 1%;
   border-radius: 10px;
@@ -112,34 +111,36 @@ img, iframe, video, object {
 	color: #fff;
 }
 
+.buttons {
+  text-align:center;
+  margin:auto;
+  padding-top: 0.5%;
+}
+
 .button {
   padding: 1%;
+	margin-right: 0.5%;
 	border: 2px solid #74AFAD;
   border-radius: 5px;
-  text-decoration: none;
 	color: #333;
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
 	font-weight: bold;
-	transition: .25s all linear;
+	display: inline-block;
+	cursor: pointer;
+	transition: all .25s ease-in-out;
 }
 
 .button.solution:hover {
 	background-color: #75AF73;
 	color: #fff;
-	transform: scale(1.1,1.1);
+	transform: scale(1.1);
 }
 
 .button.next:hover {
 	background-color: #558C89;
 	color: #fff;
-	transform: scale(1.1,1.1);
-}
-
-.buttons {
-  text-align:center;
-  margin:auto;
-  padding-top: 2%;
+	transform: scale(1.1);
 }
 
 .correct_answer {
@@ -148,6 +149,25 @@ img, iframe, video, object {
 
 .wrong_answer {
 	background-color: #AF7375;
+}
+
+.question_card {
+	margin-top: 15%;
+	transition: all 2s ease-in-out;
+}
+
+.correct_answer_solution {
+	pointer-events: none;
+	opacity: 0.4;
+}
+
+.correct_answer_next {
+	transform: scale(1.1);
+	box-shadow: 0 0 25px #75AF73;
+}
+
+.button.next.correct_answer_next:hover {
+	background-color: #75AF73;
 }
 
 /*#558C89

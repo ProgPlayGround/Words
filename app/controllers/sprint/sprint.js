@@ -7,6 +7,10 @@ function($scope, wordsLoader) {
   $scope.answer = initializeAnswer();
   $scope.answerState = 'NA';
 
+  $scope.isCorrect = function() {
+    return $scope.answerState=='CORRECT';
+  }
+
   $scope.checkAnswer = function() {
     for(var i = 0; i < $scope.answer.length; ++i) {
       if(!$scope.answer[i].char) {

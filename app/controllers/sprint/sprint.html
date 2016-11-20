@@ -1,12 +1,14 @@
-<div class="word_card" apply-answer ng-model="answerState">
-  <span class="letter" ng-repeat="char in data.word track by $index">{{char}}</span>
-  <hr>
-  <focus>
-  <input class='letter input_letter' maxlength='1' ng-model="answer[$index].char"
-    ng-repeat="char in data.translation.ua[0] track by $index" letter char="{{char}}" index="{{$index}}" on-model-change="checkAnswer()"></input>
-  </focus>
-</div>
-<div class="buttons">
-  <a href="#" class="button solution">Solution</a>
-  <a href="#" class="button next">Next</a>
+<div class="question_card">
+  <div apply-answer ng-model="answerState" class="word_card">
+    <span class="letter" ng-repeat="char in data.word track by $index">{{char}}</span>
+    <hr>
+    <focus>
+    <input class='letter input_letter' maxlength='1' ng-model="answer[$index].char"
+      ng-repeat="char in data.translation.ua[0] track by $index" letter char="{{char}}" index="{{$index}}" on-model-change="checkAnswer()"></input>
+    </focus>
+  </div>
+  <div class="buttons">
+    <div class="button solution" ng-class="{'correct_answer_solution':isCorrect()}">Solution</div>
+    <div class="button next"  ng-class="{'correct_answer_next':isCorrect()}" ng-click="goToNextQuestion()">Next</div>
+  </div>
 </div>
