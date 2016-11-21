@@ -19,7 +19,7 @@ angular.module('words')
                 if(value.length === 0) {
                   element.removeClass('wrong_answer');
                   element.removeClass('correct_answer');
-                  focusCtrl.previous(scope.index);
+                  focusCtrl.previous(scope.index, true);
                 } else {
                   if(scope.char == value) {
                     element.removeClass('wrong_answer');
@@ -51,7 +51,7 @@ angular.module('words')
                    case 8:
                    case 46:
                      event.preventDefault();
-                     focusCtrl.previous(scope.index);
+                     focusCtrl.previous(scope.index, false);
                    break;
                 }
               }
