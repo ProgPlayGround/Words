@@ -14,12 +14,13 @@ angular.module('words')
             var focusCtrl = controllers[0];
             focusCtrl.register(element[0]);
             scope.index = parseInt(attrs.index);
+            scope.element = element;
             scope.$watch('model', function (value) {
               if(value !== undefined) {
                 if(value.length === 0) {
                   element.removeClass('wrong_answer');
                   element.removeClass('correct_answer');
-                  focusCtrl.previous(scope.index, true);
+                  focusCtrl.previous(scope.index);
                 } else {
                   if(scope.char == value) {
                     element.removeClass('wrong_answer');
@@ -42,6 +43,7 @@ angular.module('words')
             });
 
             element.bind('keydown', function(event) {
+              // scope.element[0].setSelectionRange(1,1);
               if(event.keyCode == 32) {
                 event.preventDefault();
               }
@@ -51,11 +53,16 @@ angular.module('words')
                    case 8:
                    case 46:
                      event.preventDefault();
-                     focusCtrl.previous(scope.index, false);
+                     focusCtrl.previous(scope.index);
                    break;
                 }
               }
             });
+
+            // element.bind('mouseup', function() {
+            //   console.log('mouseup');
+            //   scope.element[0].select();
+            // });
           }
         };
       });

@@ -13,7 +13,7 @@ angular.module('words')
           }
 
           this.next = function(index) {
-            if(index + 1 < $scope.elements.length) {
+            if(index >= 0 && index + 1 < $scope.elements.length) {
               $scope.elements[index].blur();
               $scope.elements[index + 1].focus();
             } else {
@@ -21,9 +21,8 @@ angular.module('words')
             }
           }
 
-          this.previous = function(index, changed) {
-            if(index > 0 && index < $scope.elements.length - 1 ||
-               (index == $scope.elements.length - 1 && !changed)) {
+          this.previous = function(index) {
+            if(index > 0 && index < $scope.elements.length) {
               $scope.elements[index].blur();
               $scope.elements[index - 1].focus();
               $scope.elements[index - 1].select();
