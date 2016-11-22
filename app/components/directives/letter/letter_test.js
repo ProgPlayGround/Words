@@ -130,4 +130,19 @@ describe('letter directive', function() {
     expect(event.preventDefault).toHaveBeenCalled();
     expect(focusCtrl.previous).toHaveBeenCalled();
   });
+
+  it('ignore cursor changing events', function() {
+    var preventCodes = [32, 37, 38, 39, 40];
+    for(var keyCode of preventCodes) {
+      var event = document.createEvent('events');
+      event.initEvent('keydown', true, false);
+      event.keyCode = keyCode;
+      spyOn(event, 'preventDefault');
+
+      directive.triggerHandler(event);
+
+      expect(event.preventDefault).toHaveBeenCalled();
+      expect(focusCtrl.previous).not.toHaveBeenCalled();
+    }
+  });
 });

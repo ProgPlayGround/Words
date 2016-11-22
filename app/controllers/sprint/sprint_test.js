@@ -47,7 +47,7 @@ describe('Sprint controller', function() {
     expect(scope.answer.length).toEqual(scope.data.translation.ua[0].length);
   });
 
-  it('checkAnswer change answerState to NA if answer is not full', function() {
+  it('checkAnswer change answerState to NA if answer is empty', function() {
     scope.checkAnswer();
     expect(scope.answerState).toEqual('NA');
   });
@@ -72,5 +72,28 @@ describe('Sprint controller', function() {
 
     scope.checkAnswer();
     expect(scope.answerState).toEqual('CORRECT');
+  });
+
+  it('checkAnswer change answerState to NA if answer is partly correctly filled', function() {
+    var position = 0;
+
+    for(var elem of scope.data.translation.ua[0]) {
+      scope.answer[position++];
+    }
+
+    scope.answer[1] = {char: scope.data.translation.ua[0][1]}
+
+    scope.checkAnswer();
+    expect(scope.answerState).toEqual('NA');
+  });
+
+  it('isCorrect is true if answer state is CORRECT', function() {
+    scope.answerState = 'CORRECT';
+    expect(scope.isCorrect()).toBeTruthy();
+  });
+
+  it('isCorrect is true if answer state is not CORRECT', function() {
+    scope.answerState = 'NA';
+    expect(scope.isCorrect()).toBeFalsy();
   });
 });
