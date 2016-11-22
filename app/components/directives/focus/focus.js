@@ -8,7 +8,6 @@ angular.module('words')
           $scope.elements = [];
 
           this.register = function(element) {
-
             $scope.elements.push(element);
           }
 
@@ -16,6 +15,7 @@ angular.module('words')
             if(index >= 0 && index + 1 < $scope.elements.length) {
               $scope.elements[index].blur();
               $scope.elements[index + 1].focus();
+              $scope.elements[index + 1].select();
             } else {
               $scope.elements[index].select();
             }

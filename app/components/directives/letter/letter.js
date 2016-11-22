@@ -13,8 +13,16 @@ angular.module('words')
           link: function(scope, element, attrs, controllers) {
             var focusCtrl = controllers[0];
             focusCtrl.register(element[0]);
+
             scope.index = parseInt(attrs.index);
-            scope.element = element;
+            scope.preventCodes = {
+              '32': true,
+              '37': true,
+              '38': true,
+              '39': true,
+              '40': true
+            };
+
             scope.$watch('model', function (value) {
               if(value !== undefined) {
                 if(value.length === 0) {
@@ -43,8 +51,7 @@ angular.module('words')
             });
 
             element.bind('keydown', function(event) {
-              // scope.element[0].setSelectionRange(1,1);
-              if(event.keyCode == 32) {
+              if(scope.preventCodes[event.keyCode]) {
                 event.preventDefault();
               }
 
@@ -59,10 +66,10 @@ angular.module('words')
               }
             });
 
-            // element.bind('mouseup', function() {
-            //   console.log('mouseup');
-            //   scope.element[0].select();
-            // });
+            element.bind('mousedown', function(event) {
+              element[0].select();
+              event.preventDefault();
+            });
           }
         };
       });
