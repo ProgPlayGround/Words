@@ -53,16 +53,22 @@ angular.module('words')
             element.bind('keydown', function(event) {
               if(scope.preventCodes[event.keyCode]) {
                 event.preventDefault();
-              } else {
-                if(!scope.model) {
-                  switch(event.keyCode) {
-                     case 8:
-                     case 46:
-                       event.preventDefault();
-                       focusCtrl.previous(scope.index);
-                     break;
+              }
+
+              switch(event.keyCode) {
+                 case 8:
+                 case 46:
+                  if(!scope.model) {
+                    event.preventDefault();
+                    focusCtrl.previous(scope.index);
                   }
-                }
+                 break;
+                 case 37:
+                  focusCtrl.previous(scope.index);
+                 break;
+                 case 39:
+                  focusCtrl.next(scope.index);
+                 break;
               }
             });
 

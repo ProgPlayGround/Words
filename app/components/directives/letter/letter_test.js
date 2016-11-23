@@ -132,7 +132,7 @@ describe('letter directive', function() {
   });
 
   it('ignore cursor changing events', function() {
-    var preventCodes = [32, 37, 38, 39, 40];
+    var preventCodes = [32, 38, 40];
     for(var keyCode of preventCodes) {
       var event = document.createEvent('events');
       event.initEvent('keydown', true, false);
@@ -142,7 +142,34 @@ describe('letter directive', function() {
       directive.triggerHandler(event);
 
       expect(event.preventDefault).toHaveBeenCalled();
+      expect(focusCtrl.next).not.toHaveBeenCalled();
       expect(focusCtrl.previous).not.toHaveBeenCalled();
     }
+  });
+
+  it('call previous on left key click', function() {
+    var event = document.createEvent('events');
+    event.initEvent('keydown', true, false);
+    event.keyCode = 37;
+    spyOn(event, 'preventDefault');
+
+    directive.triggerHandler(event);
+
+    expect(event.preventDefault).toHaveBeenCalled();
+    expect(focusCtrl.next).not.toHaveBeenCalled();
+    expect(focusCtrl.previous).toHaveBeenCalled();
+  });
+
+  it('call next on right key click', function() {
+    var event = document.createEvent('events');
+    event.initEvent('keydown', true, false);
+    event.keyCode = 39;
+    spyOn(event, 'preventDefault');
+
+    directive.triggerHandler(event);
+
+    expect(event.preventDefault).toHaveBeenCalled();
+    expect(focusCtrl.next).toHaveBeenCalled();
+    expect(focusCtrl.previous).not.toHaveBeenCalled();
   });
 });
