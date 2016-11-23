@@ -67,7 +67,6 @@ describe('letter directive', function() {
   it('call next on keypress when model has not change', function() {
     scope.model = 'a';
     scope.$digest();
-
     var event = document.createEvent('events');
     event.initEvent('keypress', true, false);
     event.keyCode = 97;

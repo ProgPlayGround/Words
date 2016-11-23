@@ -8,7 +8,7 @@ angular.module('words')
           scope: {
             model:'=ngModel'
           },
-          link: function(scope, element, attrs) {
+          link: function(scope, element) {
             scope.$watch('model', function (value) {
               if(value == 'NA') {
                 element.removeClass('word_card_wrong_answer');

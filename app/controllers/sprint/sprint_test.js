@@ -1,20 +1,22 @@
 'use strict';
 
 describe('Sprint controller', function() {
-  var scope, wordsLoader, sprintCtrl;
+  var scope, wordsLoader;
 
   beforeEach(function() {
     module('words');
     module(['$provide', function($provide) {
-        $provide.service('mockWordsLoader', function() {
-        this.getWords = jasmine.createSpy('getWords').and.returnValue({
-          'word': 'car',
-          'category': 'common',
-          'translation': {
-            'ua': ['автомобіль'],
-            'ru': ['автомобиль']
-          }
-        });
+        $provide.factory('mockWordsLoader', function() {
+          return {
+            getWords: jasmine.createSpy('getWords').and.returnValue({
+              'word': 'car',
+              'category': 'common',
+              'translation': {
+                'ua': ['автомобіль'],
+                'ru': ['автомобиль']
+                }
+          })
+        };
       });
     }]);
   });
@@ -23,7 +25,7 @@ describe('Sprint controller', function() {
   function($rootScope, $controller, mockWordsLoader) {
     scope = $rootScope.$new();
     wordsLoader = mockWordsLoader;
-    sprintCtrl = $controller('SprintCtrl', {
+    $controller('SprintCtrl', {
       '$scope': scope,
       'wordsLoaderService': wordsLoader
     });
@@ -53,10 +55,9 @@ describe('Sprint controller', function() {
   });
 
   it('checkAnswer change answerState to INCORRECT if answer is full, but not correct', function() {
-    var position = 0;
 
-    for(var elem of scope.data.translation.ua[0]) {
-      scope.answer[position++] = {char: 'a'};
+    for(var i = 0; i < scope.data.translation.ua[0].length; ++i) {
+      scope.answer[i] = {char: 'a'};
     }
 
     scope.checkAnswer();
@@ -75,10 +76,9 @@ describe('Sprint controller', function() {
   });
 
   it('checkAnswer change answerState to NA if answer is partly correctly filled', function() {
-    var position = 0;
 
-    for(var elem of scope.data.translation.ua[0]) {
-      scope.answer[position++];
+    for(var i = 0; i < scope.data.translation.ua[0].length; ++i) {
+      scope.answer[i];
     }
 
     scope.answer[1] = {char: scope.data.translation.ua[0][1]}

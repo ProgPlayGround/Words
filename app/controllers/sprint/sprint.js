@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('words').controller('SprintCtrl', ['$scope', 'wordsLoaderService',
-function($scope, wordsLoader) {
-  $scope.data = wordsLoader.getWords();
+function($scope, wordsLoaderService) {
+  $scope.data = wordsLoaderService.getWords();
   var translation = $scope.data.translation.ua[0];
   $scope.answer = initializeAnswer();
   $scope.answerState = 'NA';
@@ -21,7 +21,7 @@ function($scope, wordsLoader) {
         ++error;
       }
     }
-    
+
     if(error != 0) {
       $scope.answerState = 'INCORRECT';
     } else if (empty != 0) {

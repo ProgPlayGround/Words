@@ -24,7 +24,7 @@ angular.module('words')
             };
 
             scope.$watch('model', function (value) {
-              if(value !== undefined) {
+              if(angular.isDefined(value)) {
                 if(value.length === 0) {
                   element.removeClass('wrong_answer');
                   element.removeClass('correct_answer');

@@ -92,7 +92,7 @@ describe('focus directive', function() {
     expect(secondElement[0].focus).not.toHaveBeenCalled();
   });
 
-  it('previous blur current element, focus and select next', inject(function($rootScope, $compile) {
+  it('previous blur current element, focus and select next', inject(['$rootScope', '$compile', function($rootScope, $compile) {
     var firstElement = angular.element('<div>a</div>');
     var secondElement = angular.element('<div>a</div>');
     $compile(firstElement)($rootScope);
@@ -111,7 +111,7 @@ describe('focus directive', function() {
     expect(secondElement[0].blur).toHaveBeenCalled();
     expect(firstElement[0].focus).toHaveBeenCalled();
     expect(firstElement[0].select).toHaveBeenCalled();
-  }));
+  }]));
 
   it('previous do not process first element', function() {
     var firstElement = angular.element('<div></div>');
