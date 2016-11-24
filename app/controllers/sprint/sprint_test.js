@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Sprint controller', function() {
-  var scope, wordsLoader;
+  var scope, wordsLoader, sprintCtrl;
 
   beforeEach(function() {
     module('words');
@@ -25,7 +25,7 @@ describe('Sprint controller', function() {
   function($rootScope, $controller, mockWordsLoader) {
     scope = $rootScope.$new();
     wordsLoader = mockWordsLoader;
-    $controller('SprintCtrl', {
+    sprintCtrl = $controller('SprintCtrl', {
       '$scope': scope,
       'wordsLoaderService': wordsLoader
     });
@@ -33,7 +33,7 @@ describe('Sprint controller', function() {
 
   it('get words from loader service', function() {
     expect(wordsLoader.getWords).toHaveBeenCalled();
-    expect(scope.data).toEqual({
+    expect(sprintCtrl.data).toEqual({
       'word': 'car',
       'category': 'common',
       'translation': {
@@ -44,56 +44,56 @@ describe('Sprint controller', function() {
   });
 
   it('create answer array', function() {
-    expect(scope.data.translation.ua).toBeDefined();
-    expect(scope.answer).toBeDefined();
-    expect(scope.answer.length).toEqual(scope.data.translation.ua[0].length);
+    expect(sprintCtrl.data.translation.ua).toBeDefined();
+    expect(sprintCtrl.answer).toBeDefined();
+    expect(sprintCtrl.answer.length).toEqual(sprintCtrl.data.translation.ua[0].length);
   });
 
   it('checkAnswer change answerState to NA if answer is empty', function() {
-    scope.checkAnswer();
-    expect(scope.answerState).toEqual('NA');
+    sprintCtrl.checkAnswer();
+    expect(sprintCtrl.answerState).toEqual('NA');
   });
 
   it('checkAnswer change answerState to INCORRECT if answer is full, but not correct', function() {
 
-    for(var i = 0; i < scope.data.translation.ua[0].length; ++i) {
-      scope.answer[i] = {char: 'a'};
+    for(var i = 0; i < sprintCtrl.data.translation.ua[0].length; ++i) {
+      sprintCtrl.answer[i] = {char: 'a'};
     }
 
-    scope.checkAnswer();
-    expect(scope.answerState).toEqual('INCORRECT');
+    sprintCtrl.checkAnswer();
+    expect(sprintCtrl.answerState).toEqual('INCORRECT');
   });
 
   it('checkAnswer change answerState to CORRECT if answer is full and correct', function() {
     var position = 0;
 
-    for(var elem of scope.data.translation.ua[0]) {
-      scope.answer[position++] = {char: elem};
+    for(var elem of sprintCtrl.data.translation.ua[0]) {
+      sprintCtrl.answer[position++] = {char: elem};
     }
 
-    scope.checkAnswer();
-    expect(scope.answerState).toEqual('CORRECT');
+    sprintCtrl.checkAnswer();
+    expect(sprintCtrl.answerState).toEqual('CORRECT');
   });
 
   it('checkAnswer change answerState to NA if answer is partly correctly filled', function() {
 
-    for(var i = 0; i < scope.data.translation.ua[0].length; ++i) {
-      scope.answer[i];
+    for(var i = 0; i < sprintCtrl.data.translation.ua[0].length; ++i) {
+      sprintCtrl.answer[i];
     }
 
-    scope.answer[1] = {char: scope.data.translation.ua[0][1]}
+    sprintCtrl.answer[1] = {char: sprintCtrl.data.translation.ua[0][1]}
 
-    scope.checkAnswer();
-    expect(scope.answerState).toEqual('NA');
+    sprintCtrl.checkAnswer();
+    expect(sprintCtrl.answerState).toEqual('NA');
   });
 
   it('isCorrect is true if answer state is CORRECT', function() {
-    scope.answerState = 'CORRECT';
-    expect(scope.isCorrect()).toBeTruthy();
+    sprintCtrl.answerState = 'CORRECT';
+    expect(sprintCtrl.isCorrect()).toBeTruthy();
   });
 
   it('isCorrect is true if answer state is not CORRECT', function() {
-    scope.answerState = 'NA';
-    expect(scope.isCorrect()).toBeFalsy();
+    sprintCtrl.answerState = 'NA';
+    expect(sprintCtrl.isCorrect()).toBeFalsy();
   });
 });

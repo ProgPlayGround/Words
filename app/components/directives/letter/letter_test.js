@@ -67,11 +67,10 @@ describe('letter directive', function() {
   it('call next on keypress when model has not change', function() {
     scope.model = 'a';
     scope.$digest();
-    var event = document.createEvent('events');
-    event.initEvent('keypress', true, false);
-    event.keyCode = 97;
 
-    spyOn(event, 'preventDefault');
+    var event = jasmine.createSpyObj('keypressEvent', ['preventDefault']);
+    event.type = 'keypress';
+    event.keyCode = 97;
 
     directive.triggerHandler(event);
 
@@ -83,11 +82,9 @@ describe('letter directive', function() {
     scope.model = 'a';
     scope.$digest();
 
-    var event = document.createEvent('events');
-    event.initEvent('keypress', true, false);
+    var event = jasmine.createSpyObj('keypressEvent', ['preventDefault']);
+    event.type = 'keypress';
     event.keyCode = 98;
-
-    spyOn(event, 'preventDefault');
 
     directive.triggerHandler(event);
 
@@ -96,10 +93,9 @@ describe('letter directive', function() {
   });
 
   it('prevent space keyCode', function() {
-    var event = document.createEvent('events');
-    event.initEvent('keydown', true, false);
+    var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
+    event.type = 'keydown';
     event.keyCode = 32;
-    spyOn(event, 'preventDefault');
 
     directive.triggerHandler(event);
 
@@ -107,10 +103,9 @@ describe('letter directive', function() {
   });
 
   it('call previous on backspace', function() {
-    var event = document.createEvent('events');
-    event.initEvent('keydown', true, false);
+    var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
+    event.type = 'keydown';
     event.keyCode = 8;
-    spyOn(event, 'preventDefault');
 
     directive.triggerHandler(event);
 
@@ -119,10 +114,9 @@ describe('letter directive', function() {
   });
 
   it('call previous on delete', function() {
-    var event = document.createEvent('events');
-    event.initEvent('keydown', true, false);
+    var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
+    event.type = 'keydown';
     event.keyCode = 46;
-    spyOn(event, 'preventDefault');
 
     directive.triggerHandler(event);
 
@@ -133,10 +127,9 @@ describe('letter directive', function() {
   it('ignore cursor changing events', function() {
     var preventCodes = [32, 38, 40];
     for(var keyCode of preventCodes) {
-      var event = document.createEvent('events');
-      event.initEvent('keydown', true, false);
+      var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
+      event.type = 'keydown';
       event.keyCode = keyCode;
-      spyOn(event, 'preventDefault');
 
       directive.triggerHandler(event);
 
@@ -147,10 +140,9 @@ describe('letter directive', function() {
   });
 
   it('call previous on left key click', function() {
-    var event = document.createEvent('events');
-    event.initEvent('keydown', true, false);
+    var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
+    event.type = 'keydown';
     event.keyCode = 37;
-    spyOn(event, 'preventDefault');
 
     directive.triggerHandler(event);
 
@@ -160,10 +152,9 @@ describe('letter directive', function() {
   });
 
   it('call next on right key click', function() {
-    var event = document.createEvent('events');
-    event.initEvent('keydown', true, false);
+    var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
+    event.type = 'keydown';
     event.keyCode = 39;
-    spyOn(event, 'preventDefault');
 
     directive.triggerHandler(event);
 

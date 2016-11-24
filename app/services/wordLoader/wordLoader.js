@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('words').service('wordsLoaderService', [function() {
+angular.module('words').factory('wordLoader', function() {
   return {
     getWords: function() {
       return {
@@ -13,4 +13,4 @@ angular.module('words').service('wordsLoaderService', [function() {
       };
     }
   };
-}]);
+});

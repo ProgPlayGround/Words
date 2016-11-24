@@ -1,33 +1,34 @@
 'use strict';
 
-angular.module('words').controller('SprintCtrl', ['$scope', 'wordsLoaderService',
-function($scope, wordsLoaderService) {
-  $scope.data = wordsLoaderService.getWords();
-  var translation = $scope.data.translation.ua[0];
-  $scope.answer = initializeAnswer();
-  $scope.answerState = 'NA';
+angular.module('words').controller('SprintCtrl', ['$scope', 'wordLoader',
+function($scope, wordLoader) {
+  var vm = this;
+  vm.data = wordLoader.getWords();
+  var translation = vm.data.translation.ua[0];
+  vm.answer = initializeAnswer();
+  vm.answerState = 'NA';
 
-  $scope.isCorrect = function() {
-    return $scope.answerState=='CORRECT';
+  vm.isCorrect = function() {
+    return vm.answerState=='CORRECT';
   }
 
-  $scope.checkAnswer = function() {
+  vm.checkAnswer = function() {
     var error = 0;
     var empty = 0;
-    for(var i = 0; i < $scope.answer.length; ++i) {
-      if(!$scope.answer[i].char) {
+    for(var i = 0; i < vm.answer.length; ++i) {
+      if(!vm.answer[i].char) {
         ++empty;
-      } else if($scope.answer[i].char != translation.charAt(i)) {
+      } else if(vm.answer[i].char != translation.charAt(i)) {
         ++error;
       }
     }
 
     if(error != 0) {
-      $scope.answerState = 'INCORRECT';
+      vm.answerState = 'INCORRECT';
     } else if (empty != 0) {
-      $scope.answerState = 'NA';
+      vm.answerState = 'NA';
     } else {
-      $scope.answerState = 'CORRECT';
+      vm.answerState = 'CORRECT';
     }
   };
 
