@@ -1,10 +1,10 @@
 <div class="question_card">
   <div apply-answer ng-model="spt.answerState" class="word_card">
     <span class="letter" ng-repeat="char in spt.data.word track by $index">{{char}}</span>
-    <hr>
+    <hr/>
     <focus>
-    <input class='letter input_letter' maxlength='1' ng-model="spt.answer[$index].char"
-      ng-repeat="char in spt.data.translation.ua[0] track by $index" letter char="{{char}}" index="{{$index}}" on-model-change="spt.checkAnswer()"></input>
+    <input class="letter input_letter" maxlength="1" ng-model="spt.answer[$index].char"
+      ng-repeat="char in spt.data.translation.ua[0] track by $index" letter char="{{char}}" index="{{$index}}" on-model-change="spt.checkAnswer()"/>
     </focus>
   </div>
   <div class="buttons">
