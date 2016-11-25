@@ -1,43 +1,36 @@
 'use strict';
 
-angular.module('words').controller('SprintCtrl', ['$scope', 'wordLoader',
-function($scope, wordLoader) {
+angular.module('words').controller('SprintCtrl', ['wordLoader',
+function(wordLoader) {
   var vm = this;
   vm.data = wordLoader.getWords();
   var translation = vm.data.translation.ua[0];
-  vm.answer = initializeAnswer();
+  vm.answer = _.times(translation.length, function() {
+    return {};
+  });
   vm.answerState = 'NA';
 
   vm.isCorrect = function() {
-    return vm.answerState=='CORRECT';
+    return vm.answerState == 'CORRECT';
   }
 
   vm.checkAnswer = function() {
-    var error = 0;
-    var empty = 0;
-    for(var i = 0; i < vm.answer.length; ++i) {
-      if(!vm.answer[i].char) {
-        ++empty;
-      } else if(vm.answer[i].char != translation.charAt(i)) {
-        ++error;
+    var answers = _.countBy(vm.answer, function(data, index) {
+      if(!data.char) {
+        return 'empty';
+      } else if(data.char != translation.charAt(index)) {
+        return 'error';
+      } else {
+        return 'right';
       }
-    }
+    });
 
-    if(error != 0) {
+    if(answers.error) {
       vm.answerState = 'INCORRECT';
-    } else if (empty != 0) {
+    } else if (answers.empty) {
       vm.answerState = 'NA';
     } else {
       vm.answerState = 'CORRECT';
     }
   };
-
-  function initializeAnswer() {
-    var answer = [];
-    var answerLength = translation.length;
-    for(var i = 0; i < answerLength; ++i) {
-      answer[i] = {};
-    }
-    return answer;
-  }
 }]);
