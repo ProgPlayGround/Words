@@ -107,9 +107,9 @@ img, iframe, video, object {
   outline: none;
 }
 
-.letter:focus,
-.letter:hover,
-.letter:active {
+.input_letter:focus,
+.input_letter:hover,
+.input_letter:active {
   background-color: #558c89;
   color: #fff;
 }
