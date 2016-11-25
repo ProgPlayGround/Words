@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Sprint controller', function() {
-  var scope, wordsLoader, sprintCtrl;
+  var wordsLoader, sprintCtrl;
 
   beforeEach(function() {
     module('words');
@@ -21,13 +21,11 @@ describe('Sprint controller', function() {
     }]);
   });
 
-  beforeEach(inject(['$rootScope', '$controller', 'mockWordsLoader',
-  function($rootScope, $controller, mockWordsLoader) {
-    scope = $rootScope.$new();
+  beforeEach(inject(['$controller', 'mockWordsLoader',
+  function($controller, mockWordsLoader) {
     wordsLoader = mockWordsLoader;
     sprintCtrl = $controller('SprintCtrl', {
-      '$scope': scope,
-      'wordsLoaderService': wordsLoader
+      'wordLoader': wordsLoader
     });
   }]));
 
