@@ -36,10 +36,12 @@ function(wordManager) {
   };
 
   function initWord() {
-    vm.data = wordManager.getWords(vm.index);
-    vm.answerState = 'NA';
-    vm.answer = _.times(vm.data.translation.ua[0].length, function() {
-      return {};
-    });
+    if(wordManager.hasNext(vm.index)) {
+      vm.data = wordManager.getWords(vm.index);
+      vm.answerState = 'NA';
+      vm.answer = _.times(vm.data.translation.ua[0].length, function() {
+        return {};
+      });
+    }
   }
 }]);

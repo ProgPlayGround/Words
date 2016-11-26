@@ -31,6 +31,9 @@ angular.module('words').factory('wordManager', function() {
   return {
     getWords: function(index) {
       return data[index];
-      }
+    },
+    hasNext: function(index) {
+      return index < data.length;
+    }
   };
 });
