@@ -40,6 +40,9 @@ angular.module('words')
                   focusCtrl.next(scope.index);
                 }
                 scope.onModelChange();
+              } else {
+                element.removeClass('wrong_answer');
+                element.removeClass('correct_answer');
               }
             });
 

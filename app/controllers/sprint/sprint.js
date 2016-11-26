@@ -3,12 +3,8 @@
 angular.module('words').controller('SprintCtrl', ['wordLoader',
 function(wordLoader) {
   var vm = this;
-  vm.data = wordLoader.getWords();
-  var translation = vm.data.translation.ua[0];
-  vm.answer = _.times(translation.length, function() {
-    return {};
-  });
-  vm.answerState = 'NA';
+  vm.index = 0;
+  initWord();
 
   vm.isCorrect = function() {
     return vm.answerState == 'CORRECT';
@@ -18,7 +14,7 @@ function(wordLoader) {
     var answers = _.countBy(vm.answer, function(data, index) {
       if(!data.char) {
         return 'empty';
-      } else if(data.char != translation.charAt(index)) {
+      } else if(data.char != vm.data.translation.ua[0].charAt(index)) {
         return 'error';
       } else {
         return 'right';
@@ -33,4 +29,17 @@ function(wordLoader) {
       vm.answerState = 'CORRECT';
     }
   };
+
+  vm.nextQuestion = function() {
+    vm.index += 1;
+    initWord();
+  };
+
+  function initWord() {
+    vm.data = wordLoader.getWords(vm.index);
+    vm.answerState = 'NA';
+    vm.answer = _.times(vm.data.translation.ua[0].length, function() {
+      return {};
+    });
+  }
 }]);
