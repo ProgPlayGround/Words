@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('words').factory('wordLoader', function() {
+angular.module('words').factory('wordManager', function() {
   var data = [
     {
       'word': 'car',

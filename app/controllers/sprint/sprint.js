@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('words').controller('SprintCtrl', ['wordLoader',
-function(wordLoader) {
+angular.module('words').controller('SprintCtrl', ['wordManager',
+function(wordManager) {
   var vm = this;
   vm.index = 0;
   initWord();
@@ -36,7 +36,7 @@ function(wordLoader) {
   };
 
   function initWord() {
-    vm.data = wordLoader.getWords(vm.index);
+    vm.data = wordManager.getWords(vm.index);
     vm.answerState = 'NA';
     vm.answer = _.times(vm.data.translation.ua[0].length, function() {
       return {};

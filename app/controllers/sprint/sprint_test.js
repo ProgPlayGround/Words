@@ -25,7 +25,7 @@ describe('Sprint controller', function() {
   function($controller, mockWordsLoader) {
     wordsLoader = mockWordsLoader;
     sprintCtrl = $controller('SprintCtrl', {
-      'wordLoader': wordsLoader
+      'wordManager': wordsLoader
     });
   }]));
 
