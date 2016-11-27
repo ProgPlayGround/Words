@@ -32,7 +32,7 @@ angular.module('words').factory('wordManager', function() {
     getWords: function(index) {
       return data[index];
     },
-    hasNext: function(index) {
+    has: function(index) {
       return index < data.length;
     }
   };
