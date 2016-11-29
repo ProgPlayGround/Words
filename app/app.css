@@ -1,29 +1,179 @@
-/* app css stylesheet */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small,
+strike, strong, sub, sup, tt, var, b, u, i,
+center, dl, dt, dd, ol, ul, li, fieldset, form,
+label, legend, table, caption, tbody, tfoot, thead,
+tr, th, td, article, aside, canvas, details, figcaption,
+figure, footer, header, hgroup, menu, nav, section,
+summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
 
-.menu {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
   list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
 }
 
-.menu::before {
-  content: '[';
+blockquote, q {
+  quotes: none;
 }
 
-.menu::after {
-  content: ']';
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+  content: none;
 }
 
-.menu > li {
-  display: inline;
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none;
 }
 
-.menu > li:hover {
-  color: blue;
+del {
+  text-decoration: line-through;
 }
 
-.menu > li + li::before {
-  content: '|';
-  padding-right: 0.3em;
+a {
+  text-decoration: none;
 }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img, iframe, video, object {
+  max-width: 100%;
+}
+
+/* app css stylesheet */
+.background {
+  background-color: #ececea;
+}
+
+.word_card {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  padding: 1%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.word_card_correct_answer {
+  border: 2px solid #75af73;
+}
+
+.word_card_wrong_answer {
+  border: 2px solid #af7375;
+}
+
+.word_card_no_answer {
+  border: 2px solid #74afad;
+}
+
+.letter {
+  display: inline-block;
+  padding: 1%;
+  margin-right: 0.5%;
+  border: 1px solid #74afad;
+  border-radius: 5px;
+  font-size: 2em;
+  min-width: 4%;
+  cursor: pointer;
+}
+
+.input_letter {
+  text-align: center;
+  width: 5%;
+  background-color: #ececea;
+  outline: none;
+}
+
+.input_letter:focus,
+.input_letter:hover,
+.input_letter:active {
+  background-color: #558c89;
+  color: #fff;
+}
+
+.buttons {
+  text-align: center;
+  margin: auto;
+  padding-top: 0.5%;
+}
+
+.button {
+  padding: 1%;
+  margin-right: 0.5%;
+  border: 2px solid #74afad;
+  border-radius: 5px;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.button.solution:hover {
+  background-color: #75af73;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.button.next:hover {
+  background-color: #558c89;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.correct_answer {
+  background-color: #75af73;
+}
+
+.wrong_answer {
+  background-color: #af7375;
+}
+
+.question_card {
+  margin-top: 15%;
+  transition: all 2s ease-in-out;
+}
+
+.correct_answer_solution {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.correct_answer_next {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #75af73;
+}
+
+.button.next.correct_answer_next:hover {
+  background-color: #75af73;
+}
+
+/* #558c89
+#74afad
+#D9853B
+#ececea */

@@ -1,12 +1,18 @@
 'use strict';
 
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+angular.module('words', ['ngRoute', 'ngAnimate'])
+    .config(['$locationProvider', '$routeProvider',
+    function($locationProvider, $routeProvider) {
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
+        $locationProvider.hashPrefix('!');
+
+        $routeProvider.when('/sprint', {
+          templateUrl: 'controllers/sprint/sprint.html',
+          controller: 'SprintCtrl',
+          controllerAs: 'spt'
+        });
+
+        $routeProvider.otherwise({
+          redirectTo: '/sprint'
+        });
 }]);
