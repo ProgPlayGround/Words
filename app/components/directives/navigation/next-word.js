@@ -5,16 +5,16 @@ angular.module('words')
     return {
       restrict: 'A',
       scope: {
-        model: '=nextWordNav',
+        index: '=nextWordNav',
         callback: '&navCallback'
       },
       link: function(scope, element, attrs) {
-        scope.$watch('model', function(value) {
+        scope.$watch('index', function(value) {
           if(value != 0) {
-            $animate.addClass(element, 'rollOut').then(function() {
+            $animate.addClass(element, 'rollOut', function() {
               scope.callback();
               $animate.removeClass(element, 'rollOut');
-              $animate.addClass(element, 'rollIn').then(function() {
+              $animate.addClass(element, 'rollIn', function() {
                 $animate.removeClass(element, 'rollIn');
               });
             });
