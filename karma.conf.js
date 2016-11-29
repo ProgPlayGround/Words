@@ -6,9 +6,9 @@ module.exports = function(config) {
 
     files: [
       'bower_components/angular/angular.js',
+      'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/underscore/underscore-min.js',
       'app.js',
       'components/**/*.js',
@@ -21,10 +21,10 @@ module.exports = function(config) {
 
     frameworks: ['jasmine'],
 
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     plugins: [
-      'karma-chrome-launcher',
+      'karma-phantomjs-launcher',
       'karma-jasmine',
       'karma-junit-reporter'
     ],

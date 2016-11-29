@@ -1,36 +1,39 @@
 'use strict';
 
 describe('Sprint controller', function() {
-  var wordsLoader, sprintCtrl;
+  var wordManager, sprintCtrl;
 
   beforeEach(function() {
     module('words');
     module(['$provide', function($provide) {
-        $provide.factory('mockWordsLoader', function() {
+        $provide.factory('mockWordManager', function() {
           return {
-            getWords: jasmine.createSpy('getWords').and.returnValue({
+            getWord: jasmine.createSpy('getWord').and.returnValue({
               'word': 'car',
               'category': 'common',
               'translation': {
                 'ua': ['автомобіль'],
                 'ru': ['автомобиль']
                 }
-          })
+              }),
+            has: jasmine.createSpy('has').and.callFake(function(index) {
+              return index < 2;
+            })
         };
       });
     }]);
   });
 
-  beforeEach(inject(['$controller', 'mockWordsLoader',
-  function($controller, mockWordsLoader) {
-    wordsLoader = mockWordsLoader;
+  beforeEach(inject(['$controller', 'mockWordManager',
+  function($controller, mockWordManager) {
+    wordManager = mockWordManager;
     sprintCtrl = $controller('SprintCtrl', {
-      'wordManager': wordsLoader
+      'wordManager': wordManager
     });
   }]));
 
   it('get words from loader service', function() {
-    expect(wordsLoader.getWords).toHaveBeenCalled();
+    expect(wordManager.getWord).toHaveBeenCalled();
     expect(sprintCtrl.data).toEqual({
       'word': 'car',
       'category': 'common',
@@ -65,9 +68,9 @@ describe('Sprint controller', function() {
   it('checkAnswer change answerState to CORRECT if answer is full and correct', function() {
     var position = 0;
 
-    for(var elem of sprintCtrl.data.translation.ua[0]) {
+    _.forEach(sprintCtrl.data.translation.ua[0], function(elem) {
       sprintCtrl.answer[position++] = {char: elem};
-    }
+    });
 
     sprintCtrl.checkAnswer();
     expect(sprintCtrl.answerState).toEqual('CORRECT');
@@ -93,5 +96,19 @@ describe('Sprint controller', function() {
   it('isCorrect is true if answer state is not CORRECT', function() {
     sprintCtrl.answerState = 'NA';
     expect(sprintCtrl.isCorrect()).toBeFalsy();
+  });
+
+  it('nextWord increment word index', function() {
+    expect(sprintCtrl.index).toBe(0);
+    sprintCtrl.nextWord();
+    expect(wordManager.has).toHaveBeenCalled();
+    expect(sprintCtrl.index).toBe(1);
+  });
+
+  it('nextWord dont increment index for last word', function() {
+    sprintCtrl.index = 1;
+    sprintCtrl.nextWord();
+    expect(wordManager.has).toHaveBeenCalled();
+    expect(sprintCtrl.index).toBe(1);
   });
 });

@@ -156,7 +156,7 @@ img, iframe, video, object {
 
 .question_card {
   margin-top: 15%;
-  animation-duration: 0.75s;
+  animation-duration: 0.3s;
 }
 
 .correct_answer_solution {

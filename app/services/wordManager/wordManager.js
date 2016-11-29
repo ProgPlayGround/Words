@@ -29,11 +29,11 @@ angular.module('words').factory('wordManager', function() {
   ];
 
   return {
-    getWords: function(index) {
+    getWord: function(index) {
       return data[index];
     },
     has: function(index) {
-      return index < data.length;
+      return angular.isDefined(data[index]);
     }
   };
 });

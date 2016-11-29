@@ -3,16 +3,18 @@
 angular.module('words').controller('SprintCtrl', ['wordManager',
 function(wordManager) {
   var vm = this;
+  vm.index = 0;
+  init();
 
-  vm.loadWord = function() {
-    if(wordManager.has(vm.index)) {
-      vm.data = wordManager.getWords(vm.index);
-      vm.answerState = 'NA';
-      vm.answer = _.times(vm.data.translation.ua[0].length, function() {
-        return {};
-      });
-    }
+  function init() {
+    vm.data = wordManager.getWord(vm.index);
+    vm.answerState = 'NA';
+    vm.answer = _.times(vm.data.translation.ua[0].length, function() {
+      return {};
+    });
   };
+
+  vm.loadWord = init;
 
   vm.isCorrect = function() {
     return vm.answerState == 'CORRECT';
@@ -38,11 +40,9 @@ function(wordManager) {
     }
   };
 
-  vm.nextQuestion = function() {
-    vm.index += 1;
-    // vm.loadWord();
+  vm.nextWord = function() {
+    if(wordManager.has(vm.index + 1)) {
+      vm.index += 1;
+    }
   };
-
-  vm.index = 0;
-  vm.loadWord();
 }]);
