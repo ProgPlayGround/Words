@@ -40,6 +40,12 @@ function(wordManager) {
     }
   };
 
+  vm.applyAnswer = function() {
+    _.each(vm.answer, function(element, index) {
+      element.char = vm.data.translation.ua[0][index];
+    });
+  };
+
   vm.nextWord = function() {
     if(wordManager.has(vm.index + 1)) {
       vm.index += 1;
