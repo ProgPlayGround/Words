@@ -13,7 +13,7 @@ describe('apply-answer directive', function() {
   beforeEach(inject(['$rootScope', '$compile', function($rootScope, $compile){
     element = angular.element('<div apply-answer ng-model="model"></div>');
     scope = $rootScope.$new();
-    var directive = $compile(element)(scope);
+    $compile(element)(scope);
   }]));
 
   it('applies "no_answer" class for "NA" model', function() {

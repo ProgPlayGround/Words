@@ -1,8 +1,6 @@
 'use strict';
 
 describe('word manager service', function() {
-  var wordManager;
-
   beforeEach(module('words'));
 
   it('get word has specific format', inject(['wordManager', function(wordManager) {

@@ -8,7 +8,7 @@ angular.module('words')
         index: '=nextWordNav',
         callback: '&navCallback'
       },
-      link: function(scope, element, attrs) {
+      link: function(scope, element) {
         scope.$watch('index', function(value) {
           if(value != 0) {
             $animate.addClass(element, 'rollOut').then(function() {

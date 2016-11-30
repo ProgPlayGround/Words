@@ -12,7 +12,7 @@ function(wordManager) {
     vm.answer = _.times(vm.data.translation.ua[0].length, function() {
       return {};
     });
-  };
+  }
 
   vm.loadWord = init;
 
