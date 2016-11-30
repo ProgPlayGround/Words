@@ -156,7 +156,7 @@ img, iframe, video, object {
 
 .question_card {
   margin-top: 15%;
-  transition: all 2s ease-in-out;
+  animation-duration: 0.3s;
 }
 
 .correct_answer_solution {
@@ -172,8 +172,3 @@ img, iframe, video, object {
 .button.next.correct_answer_next:hover {
   background-color: #75af73;
 }
-
-/* #558c89
-#74afad
-#D9853B
-#ececea */

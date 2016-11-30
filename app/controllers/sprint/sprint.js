@@ -1,36 +1,48 @@
 'use strict';
 
-angular.module('words').controller('SprintCtrl', ['wordLoader',
-function(wordLoader) {
+angular.module('words').controller('SprintCtrl', ['wordManager',
+function(wordManager) {
   var vm = this;
-  vm.data = wordLoader.getWords();
-  var translation = vm.data.translation.ua[0];
-  vm.answer = _.times(translation.length, function() {
-    return {};
-  });
-  vm.answerState = 'NA';
+  vm.index = 0;
+  init();
+
+  function init() {
+    vm.data = wordManager.getWord(vm.index);
+    vm.answerState = 'NA';
+    vm.answer = _.times(vm.data.translation.ua[0].length, function() {
+      return {};
+    });
+  }
+
+  vm.loadWord = init;
 
   vm.isCorrect = function() {
     return vm.answerState == 'CORRECT';
   }
 
   vm.checkAnswer = function() {
-    var answers = _.countBy(vm.answer, function(data, index) {
+    var letters = _.countBy(vm.answer, function(data, index) {
       if(!data.char) {
         return 'empty';
-      } else if(data.char != translation.charAt(index)) {
+      } else if(data.char != vm.data.translation.ua[0].charAt(index)) {
         return 'error';
       } else {
         return 'right';
       }
     });
 
-    if(answers.error) {
+    if(letters.error) {
       vm.answerState = 'INCORRECT';
-    } else if (answers.empty) {
+    } else if (letters.empty) {
       vm.answerState = 'NA';
     } else {
       vm.answerState = 'CORRECT';
+    }
+  };
+
+  vm.nextWord = function() {
+    if(wordManager.has(vm.index + 1)) {
+      vm.index += 1;
     }
   };
 }]);

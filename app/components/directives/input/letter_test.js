@@ -126,7 +126,7 @@ describe('letter directive', function() {
 
   it('ignore cursor changing events', function() {
     var preventCodes = [32, 38, 40];
-    for(var keyCode of preventCodes) {
+    _.forEach(preventCodes, function(keyCode) {
       var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
       event.type = 'keydown';
       event.keyCode = keyCode;
@@ -136,7 +136,7 @@ describe('letter directive', function() {
       expect(event.preventDefault).toHaveBeenCalled();
       expect(focusCtrl.next).not.toHaveBeenCalled();
       expect(focusCtrl.previous).not.toHaveBeenCalled();
-    }
+    });
   });
 
   it('call previous on left key click', function() {

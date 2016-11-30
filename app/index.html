@@ -6,21 +6,23 @@
   <title>Words</title>
   <meta name="description" content="Language learning application"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
   <link rel="stylesheet" href="app.css"/>
 </head>
 <body class="background">
 
-  <div ng-view></div>
+  <div ui-view></div>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="bower_components/underscore/underscore-min.js"></script>
   <script src="app.js"></script>
-  <script src="services/wordLoader/wordLoader.js"></script>
+  <script src="services/wordManager/wordManager.js"></script>
   <script src="controllers/sprint/sprint.js"></script>
-  <script src="components/directives/letter/letter.js"></script>
-  <script src="components/directives/focus/focus.js"></script>
+  <script src="components/directives/input/letter.js"></script>
+  <script src="components/directives/input/focus.js"></script>
   <script src="components/directives/apply-answer/apply-answer.js"></script>
+  <script src="components/directives/navigation/next-word.js"></script>
 </body>
 </html>
