@@ -11,10 +11,10 @@ angular.module('words')
       link: function(scope, element, attrs) {
         scope.$watch('index', function(value) {
           if(value != 0) {
-            $animate.addClass(element, 'rollOut', function() {
+            $animate.addClass(element, 'rollOut').then(function() {
               scope.callback();
               $animate.removeClass(element, 'rollOut');
-              $animate.addClass(element, 'rollIn', function() {
+              $animate.addClass(element, 'rollIn').then(function() {
                 $animate.removeClass(element, 'rollIn');
               });
             });

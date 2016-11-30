@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('words')
-      .directive('applyAnswer', function() {
+      .directive('applyAnswer', function($http) {
         return {
           require: 'ngModel',
           restrict: 'A',
