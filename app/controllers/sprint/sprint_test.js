@@ -56,7 +56,6 @@ describe('Sprint controller', function() {
   });
 
   it('checkAnswer change answerState to INCORRECT if answer is full, but not correct', function() {
-
     for(var i = 0; i < sprintCtrl.data.translation.ua[0].length; ++i) {
       sprintCtrl.answer[i] = {char: 'a'};
     }
@@ -77,7 +76,6 @@ describe('Sprint controller', function() {
   });
 
   it('checkAnswer change answerState to NA if answer is partly correctly filled', function() {
-
     for(var i = 0; i < sprintCtrl.data.translation.ua[0].length; ++i) {
       sprintCtrl.answer[i];
     }

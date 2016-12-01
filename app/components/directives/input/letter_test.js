@@ -1,24 +1,21 @@
 'use strict';
 
 describe('letter directive', function() {
-  var scope, element, directive, focusCtrl;
+  var scope, event, element, directive, focusCtrl;
 
   beforeEach(module('words', {focus:{}}));
 
   beforeEach(inject(['$rootScope', '$compile', function($rootScope, $compile){
     scope = $rootScope.$new();
     element = angular.element('<div letter ng-model="model" char="" on-model-change=""></div>');
-    focusCtrl = {
-      register: function() {},
-      previous: function() {},
-      next: function() {}
-    }
+    focusCtrl = jasmine.createSpyObj('$focusController', ['register', 'previous', 'next']);
     element.data('$focusController', focusCtrl);
-    spyOn(focusCtrl, 'register');
-    spyOn(focusCtrl, 'next');
-    spyOn(focusCtrl, 'previous');
+
     directive = $compile(element)(scope);
     spyOn(element.isolateScope(), 'onModelChange');
+
+    event = jasmine.createSpyObj('keypressEvent', ['preventDefault']);
+
     scope.$digest();
   }]));
 
@@ -35,6 +32,7 @@ describe('letter directive', function() {
   it('call previous and remove answer classes for empty model', function() {
     scope.model = '';
     scope.$digest();
+
     expect(focusCtrl.next).not.toHaveBeenCalled();
     expect(focusCtrl.previous).toHaveBeenCalledTimes(1);
     expect(element.hasClass('wrong_answer')).toBeFalsy();
@@ -46,6 +44,7 @@ describe('letter directive', function() {
     scope.model = 'a';
     element.isolateScope().char = 'a';
     scope.$digest();
+
     expect(focusCtrl.next).toHaveBeenCalledTimes(1);
     expect(focusCtrl.previous).not.toHaveBeenCalled();
     expect(element.hasClass('wrong_answer')).toBeFalsy();
@@ -57,6 +56,7 @@ describe('letter directive', function() {
     scope.model = 'a';
     element.isolateScope().char = 'b';
     scope.$digest();
+
     expect(focusCtrl.next).toHaveBeenCalledTimes(1);
     expect(focusCtrl.previous).not.toHaveBeenCalled();
     expect(element.hasClass('wrong_answer')).toBeTruthy();
@@ -82,7 +82,6 @@ describe('letter directive', function() {
     scope.model = 'a';
     scope.$digest();
 
-    var event = jasmine.createSpyObj('keypressEvent', ['preventDefault']);
     event.type = 'keypress';
     event.keyCode = 98;
 
@@ -93,7 +92,6 @@ describe('letter directive', function() {
   });
 
   it('prevent space keyCode', function() {
-    var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
     event.type = 'keydown';
     event.keyCode = 32;
 
@@ -103,7 +101,6 @@ describe('letter directive', function() {
   });
 
   it('call previous on backspace', function() {
-    var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
     event.type = 'keydown';
     event.keyCode = 8;
 
@@ -114,7 +111,6 @@ describe('letter directive', function() {
   });
 
   it('call previous on delete', function() {
-    var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
     event.type = 'keydown';
     event.keyCode = 46;
 
@@ -127,7 +123,6 @@ describe('letter directive', function() {
   it('ignore cursor changing events', function() {
     var preventCodes = [32, 38, 40];
     _.forEach(preventCodes, function(keyCode) {
-      var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
       event.type = 'keydown';
       event.keyCode = keyCode;
 
@@ -140,7 +135,6 @@ describe('letter directive', function() {
   });
 
   it('call previous on left key click', function() {
-    var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
     event.type = 'keydown';
     event.keyCode = 37;
 
@@ -152,7 +146,6 @@ describe('letter directive', function() {
   });
 
   it('call next on right key click', function() {
-    var event = jasmine.createSpyObj('keydownEvent', ['preventDefault']);
     event.type = 'keydown';
     event.keyCode = 39;
 
