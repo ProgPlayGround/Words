@@ -64,6 +64,12 @@ img, iframe, video, object {
 }
 
 /* app css stylesheet */
+
+.sprint_line_divider {
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+
 .background {
   background-color: #ececea;
 }
@@ -88,15 +94,9 @@ img, iframe, video, object {
   border-color: #74afad;
 }
 
-hr {
-  margin-top: 3%;
-  margin-bottom: 2%;
-}
-
 .letter, .input_letter {
   display: inline-block;
   padding: 1%;
-  margin-right: 1%;
   margin-top: 1%;
   border: 1px solid #74afad;
   border-radius: 5px;
@@ -104,7 +104,12 @@ hr {
   min-width: 6%;
 }
 
+.letter:not(:first-child), .input_letter:not(:first-child) {
+  margin-left: 1%;
+}
+
 .input_letter {
+  margin-bottom: 1%;
   text-align: center;
   width: 5%;
   background-color: #ececea;
@@ -162,8 +167,11 @@ hr {
   background-color: #af7375;
 }
 
-.row.question_card {
+.container.sprint {
   margin-top: 15%;
+}
+
+.row.question_card {
   animation-duration: 0.8s;
 }
 
@@ -180,4 +188,12 @@ hr {
 .btn.next.correct_answer_next {
   background-color: #75af73;
   color: #fff;
+}
+
+.description {
+  position: absolute;
+  top: 4%;
+  right: 5px;
+  color: #558c89;
+  cursor: pointer;
 }

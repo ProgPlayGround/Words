@@ -3,10 +3,9 @@
 angular.module('words')
       .directive('applyAnswer', function() {
         return {
-          require: 'ngModel',
           restrict: 'A',
           scope: {
-            model:'=ngModel'
+            model:'=applyAnswer'
           },
           link: function(scope, element) {
             scope.$watch('model', function (value) {

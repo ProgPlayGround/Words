@@ -1,10 +1,11 @@
-<div class="container">
+<div class="container sprint">
   <div class="row question_card animated" next-word-nav="spt.index" nav-callback="spt.loadWord()">
-    <div apply-answer ng-model="spt.answerState" class="col-sm-offset-2 col-sm-8 word_card">
+    <div apply-answer="spt.answerState" class="col-sm-offset-2 col-sm-8 word_card">
       <div class="center">
         <span class="letter" ng-repeat="char in spt.data.word track by $index">{{char}}</span>
+        <span class="glyphicon glyphicon-info-sign description" aria-hidden="true"></span>
       </div>
-      <hr apply-answer ng-model="spt.answerState"/>
+      <hr class="sprint_line_divider" apply-answer="spt.answerState"/>
       <div class="center">
         <focus>
           <input class="input_letter" maxlength="1" ng-model="spt.answer[$index].char"

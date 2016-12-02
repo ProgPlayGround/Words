@@ -3,7 +3,7 @@
 angular.module('words')
       .directive('letter', function() {
         return {
-          require:['^focus', 'ngModel'],
+          require:['^focus','ngModel'],
           restrict: 'A',
           scope: {
             char: '@',

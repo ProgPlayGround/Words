@@ -11,7 +11,7 @@ describe('apply-answer directive', function() {
   });
 
   beforeEach(inject(['$rootScope', '$compile', function($rootScope, $compile){
-    element = angular.element('<div apply-answer ng-model="model"></div>');
+    element = angular.element('<div apply-answer="model"></div>');
     scope = $rootScope.$new();
     $compile(element)(scope);
   }]));
