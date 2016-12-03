@@ -66,8 +66,9 @@ img, iframe, video, object {
 /* app css stylesheet */
 
 .sprint_line_divider {
-  margin-top: 3%;
+  margin-top: 2%;
   margin-bottom: 2%;
+  border-color: #74afad;
 }
 
 .background {
@@ -135,6 +136,7 @@ img, iframe, video, object {
 
 .next, .solution {
   margin-right: 2%;
+  padding: 3%;
   border: 2px solid #74afad;
   border-radius: 7px;
   color: #333;
@@ -190,10 +192,20 @@ img, iframe, video, object {
   color: #fff;
 }
 
-.description {
+.sprint_switch_btn {
   position: absolute;
   top: 4%;
   right: 5px;
   color: #558c89;
   cursor: pointer;
+  /*visibility: hidden;*/
+}
+
+.visible {
+  visibility: visible;
+}
+
+.sprint_description_text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
 }
