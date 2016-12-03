@@ -12,7 +12,6 @@ function(wordManager) {
     vm.answer = _.times(vm.data.translation.ua[0].length, function() {
       return {};
     });
-    vm.showDescription = false;
   }
 
   vm.onWordLoad = init;
@@ -51,10 +50,5 @@ function(wordManager) {
     if(wordManager.has(vm.index + 1)) {
       vm.index += 1;
     }
-  };
-
-  vm.switchDescriptionView = function() {
-    vm.showDescription = !vm.showDescription;
-    console.log('desc: ' + vm.showDescription);
   };
 }]);
