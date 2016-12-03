@@ -81,6 +81,7 @@ img, iframe, video, object {
   overflow: hidden;
   border-width: 2px;
   border-style: solid;
+  border-color: #74afad;
 }
 
 .word_card_correct_answer {
@@ -198,11 +199,6 @@ img, iframe, video, object {
   right: 5px;
   color: #558c89;
   cursor: pointer;
-  /*visibility: hidden;*/
-}
-
-.visible {
-  visibility: visible;
 }
 
 .sprint_description_text {

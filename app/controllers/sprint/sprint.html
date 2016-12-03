@@ -1,11 +1,3 @@
 <div class="container sprint">
-  <div class="row question_card animated" next-word-nav="spt.index" nav-callback="spt.onWordLoad()">
-    <div apply-answer="spt.answerState" class="col-sm-offset-2 col-sm-8 word_card">
-      <div ui-view></div>
-    </div>
-  </div>
-  <div class="col-sm-offset-4 col-sm-4 buttons">
-    <div type="button" class="btn solution" ng-class="{'correct_answer_solution':spt.isCorrect()}" ng-click="spt.applyAnswer()">Solution</div>
-    <div type="button" class="btn next"  ng-class="{'correct_answer_next':spt.isCorrect()}" ng-click="spt.nextWord()">Next</div>
-  </div>
+  <div ui-view><div>
 <div>
