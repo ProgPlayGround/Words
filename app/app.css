@@ -65,17 +65,21 @@ img, iframe, video, object {
 
 /* app css stylesheet */
 
-.sprint_line_divider {
-  margin-top: 2%;
-  margin-bottom: 2%;
-  border-color: #74afad;
-}
-
 .background {
   background-color: #ececea;
 }
 
-.word_card {
+.divider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-color: #74afad;
+}
+
+.question_container {
+  margin-top: 15%;
+}
+
+.word {
   padding: 1%;
   border-radius: 20px;
   overflow: hidden;
@@ -84,15 +88,15 @@ img, iframe, video, object {
   border-color: #74afad;
 }
 
-.word_card_correct_answer {
+.word_correct_answer {
   border-color: #75af73;
 }
 
-.word_card_wrong_answer {
+.word_wrong_answer {
   border-color: #af7375;
 }
 
-.word_card_no_answer {
+.word_no_answer {
   border-color: #74afad;
 }
 
@@ -100,6 +104,7 @@ img, iframe, video, object {
   display: inline-block;
   padding: 1%;
   margin-top: 1%;
+  margin-bottom: 1%;
   border: 1px solid #74afad;
   border-radius: 5px;
   font-size: 2em;
@@ -111,7 +116,6 @@ img, iframe, video, object {
 }
 
 .input_letter {
-  margin-bottom: 1%;
   text-align: center;
   width: 5%;
   background-color: #ececea;
@@ -130,12 +134,12 @@ img, iframe, video, object {
   text-align: center;
 }
 
-.buttons {
+.button_block {
   text-align: center;
   padding-top: 1%;
 }
 
-.next, .solution {
+.btn_next, .btn_solution {
   margin-right: 2%;
   padding: 3%;
   border: 2px solid #74afad;
@@ -150,58 +154,54 @@ img, iframe, video, object {
   transition: all 0.25s ease-in-out;
 }
 
-.btn.solution:hover {
+.btn_solution:hover {
   background-color: #75af73;
   color: #fff;
   transform: scale(1.1);
 }
 
-.btn.next:hover {
+.btn_next:hover {
   background-color: #558c89;
   color: #fff;
   transform: scale(1.1);
 }
 
-.correct_answer {
+.letter_correct_answer {
   background-color: #75af73;
 }
 
-.wrong_answer {
+.letter_wrong_answer {
   background-color: #af7375;
 }
 
-.container.sprint {
-  margin-top: 15%;
+.row.animation_duration {
+  animation-duration: 0.7s;
 }
 
-.row.question_card {
-  animation-duration: 0.8s;
-}
-
-.correct_answer_solution {
+.btn_disable {
   pointer-events: none;
   opacity: 0.4;
 }
 
-.correct_answer_next {
+.btn_highlight {
   transform: scale(1.1);
   box-shadow: 0 0 25px #75af73;
 }
 
-.btn.next.correct_answer_next {
+.btn_next.btn_highlight {
   background-color: #75af73;
   color: #fff;
 }
 
-.sprint_switch_btn {
+.btn_word_switch_state {
   position: absolute;
-  top: 4%;
+  top: 5px;
   right: 5px;
   color: #558c89;
   cursor: pointer;
 }
 
-.sprint_description_text {
+.description_text {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
 }

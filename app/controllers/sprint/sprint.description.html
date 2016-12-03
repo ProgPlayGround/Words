@@ -1,15 +1,15 @@
-<div class="row question_card">
-  <div class="col-sm-offset-2 col-sm-8 word_card">
+<div class="row">
+  <div class="word col-sm-offset-2 col-sm-8">
     <div class="center">
       <span class="letter" ng-repeat="char in spt.data.word track by $index">{{char}}</span>
-      <a class="sprint_switch_btn" ui-sref="sprint.quest"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+      <a class="btn_word_switch_state" ui-sref="sprint.quest"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
     </div>
-    <hr class="sprint_line_divider"/>
-    <div class="center sprint_description_text" ng-repeat="definition in spt.data.definition">
+    <hr class="divider"/>
+    <div class="center description_text" ng-repeat="definition in spt.data.definition">
       {{$index + 1}}. {{definition}}
     </div>
-    <hr class="sprint_line_divider"/>
-    <div class="center sprint_description_text" ng-repeat="sentence in spt.data.inSentence">
+    <hr class="divider"/>
+    <div class="center description_text" ng-repeat="sentence in spt.data.inSentence">
       {{$index + 1}}. {{sentence}}
     </div>
   </div>
