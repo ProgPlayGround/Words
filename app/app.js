@@ -3,19 +3,19 @@
 angular.module('words', ['ui.router', 'ngAnimate'])
     .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-        $stateProvider.state('sprint', {
+        $stateProvider.state('quiz', {
           abstract: true,
-          url: '/sprint',
-          templateUrl: 'controllers/sprint/sprint.html',
-          controller: 'SprintCtrl',
-          controllerAs: 'spt'
-        }).state('sprint.quest', {
+          url: '/quiz',
+          templateUrl: 'controllers/word-quiz/word-quiz.html',
+          controller: 'WordQuizCtrl',
+          controllerAs: 'quiz'
+        }).state('quiz.question', {
           url: '/quest',
-          templateUrl: 'controllers/sprint/sprint.quest.html'
-        }).state('sprint.description', {
+          templateUrl: 'controllers/word-quiz/word-quiz.question.html'
+        }).state('quiz.description', {
           url: '/description',
-          templateUrl: 'controllers/sprint/sprint.description.html'
+          templateUrl: 'controllers/word-quiz/word-quiz.description.html'
         });
 
-        $urlRouterProvider.otherwise('/sprint/quest');
+        $urlRouterProvider.otherwise('/quiz/quest');
 }]);

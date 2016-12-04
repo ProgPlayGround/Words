@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('words').controller('SprintCtrl', ['wordManager',
+angular.module('words').controller('WordQuizCtrl', ['wordManager',
 function(wordManager) {
   var vm = this;
   vm.index = 0;
