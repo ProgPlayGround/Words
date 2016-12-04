@@ -111,4 +111,10 @@ describe('Sprint controller', function() {
     expect(wordManager.has).toHaveBeenCalled();
     expect(sprintCtrl.index).toBe(1);
   });
+
+  it('applyAnswer set correct translation for the word', function() {
+    sprintCtrl.applyAnswer();
+    sprintCtrl.checkAnswer();
+    expect(sprintCtrl.isCorrect()).toBe(true);
+  });
 });
