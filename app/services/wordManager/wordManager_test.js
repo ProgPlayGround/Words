@@ -1,20 +1,33 @@
 'use strict';
 
 describe('word manager service', function() {
-  var wordManagerService;
+  var wordManagerService, wordLoaderService;
 
-  beforeEach(module('words'));
+  beforeEach(function() {
+    module('words');
+    module(['$provide', function($provide) {
+      $provide.value('wordLoader', {
+        load: jasmine.createSpy('load').and.returnValue([{
+              'word': 'mock',
+              'category': 'mock',
+              'definition': ['mock'],
+              'inSentence': ['mock'],
+              'translation': {
+                'ua': ['mock'],
+                'ru': ['mock']
+              }
+            }])
+      });
+    }])
+  });
 
-  beforeEach(inject(['wordManager', function(wordManager) {
+  beforeEach(inject(['wordManager', 'wordLoader', function(wordManager, wordLoader) {
     wordManagerService = wordManager;
+    wordLoaderService = wordLoader;
   }]));
 
-  it('get word has specific format', function() {
-    var index = 0;
-    expect(wordManagerService.getWord).toBeDefined();
-    expect(wordManagerService.getWord(index).word).toBeDefined();
-    expect(wordManagerService.getWord(index).category).toBeDefined();
-    expect(wordManagerService.getWord(index).translation).toBeDefined();
+  it('load words on init', function() {
+    expect(wordLoaderService.load).toHaveBeenCalled();
   });
 
   it('has item when index is less then data size', function() {

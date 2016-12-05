@@ -1,5 +1,5 @@
 <div class="row animation_duration animated" next-word-nav="quiz.index" nav-callback="quiz.onWordLoad()">
-  <div class="word col-sm-offset-2 col-sm-8" apply-answer="quiz.answerState" >
+  <div class="word col-sm-offset-2 col-sm-8" apply-answer="quiz.answerState">
     <div class="center">
       <span class="letter" ng-repeat="char in quiz.data.word track by $index">{{char}}</span>
       <a class="btn_word_switch_state" ui-sref="quiz.description"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
