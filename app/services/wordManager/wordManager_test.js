@@ -1,22 +1,35 @@
 'use strict';
 
 describe('word manager service', function() {
-  var wordManagerService, wordLoaderService;
+  var wordManagerService, wordLoaderService, words;
 
   beforeEach(function() {
     module('words');
     module(['$provide', function($provide) {
+      words = [
+          {
+            'word': 'mock1',
+            'category': 'mock1',
+            'definition': ['mock1'],
+            'inSentence': ['mock1'],
+            'translation': {
+              'ua': ['mock1'],
+              'ru': ['mock1']
+            }
+          },
+          {
+            'word': 'mock2',
+            'category': 'mock2',
+            'definition': ['mock2'],
+            'inSentence': ['mock2'],
+            'translation': {
+              'ua': ['mock2'],
+              'ru': ['mock2']
+            }
+          }
+        ];
       $provide.value('wordLoader', {
-        load: jasmine.createSpy('load').and.returnValue([{
-              'word': 'mock',
-              'category': 'mock',
-              'definition': ['mock'],
-              'inSentence': ['mock'],
-              'translation': {
-                'ua': ['mock'],
-                'ru': ['mock']
-              }
-            }])
+        load: jasmine.createSpy('load').and.returnValue(words)
       });
     }])
   });
@@ -30,15 +43,22 @@ describe('word manager service', function() {
     expect(wordLoaderService.load).toHaveBeenCalled();
   });
 
-  it('has item when index is less then data size', function() {
-    var index = 0;
-    expect(wordManagerService.has).toBeDefined();
-    expect(wordManagerService.has(index)).toBeTruthy();
+  it('get word return first word from dictionary', function() {
+    expect(wordManagerService.getWord()).toEqual(words[0]);
   });
 
-  it('dont has item when index is out of bounce', function() {
-    expect(wordManagerService.has).toBeDefined();
-    expect(wordManagerService.has(-1)).toBeFalsy();
-    expect(wordManagerService.has(11)).toBeFalsy();
+  it('has next word, when it is present in dictionary', function() {
+    expect(wordManagerService.hasNext()).toBeTruthy();
+  });
+
+  it('next word remove processed one from dictionary', function() {
+    expect(words.length).toBe(2);
+    wordManagerService.nextWord();
+    expect(words.length).toBe(1);
+  });
+
+  it('doesn\'t have next word, when it is absent', function() {
+    wordManagerService.nextWord()
+    expect(wordManagerService.hasNext()).toBeFalsy();
   });
 });

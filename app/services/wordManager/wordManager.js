@@ -1,13 +1,16 @@
 'use strict';
 
 angular.module('words').factory('wordManager', ['wordLoader', function(wordLoader) {
-  var data = wordLoader.load();
+  var words = wordLoader.load();
   return {
-    getWord: function(index) {
-      return data[index];
+    getWord: function() {
+      return words[0];
     },
-    has: function(index) {
-      return angular.isDefined(data[index]);
+    nextWord: function() {
+      words.shift();
+    },
+    hasNext: function() {
+      return angular.isDefined(words[1]);
     }
   };
 }]);

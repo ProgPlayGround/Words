@@ -1,20 +1,20 @@
 'use strict';
 
-angular.module('words').controller('WordQuizCtrl', ['wordManager',
-function(wordManager) {
+angular.module('words').controller('WordQuizCtrl', ['wordManager', 'scoreManager',
+function(wordManager, scoreManager) {
   var vm = this;
-  vm.index = 0;
   init();
 
   function init() {
-    vm.data = wordManager.getWord(vm.index);
+    vm.data = wordManager.getWord();
+    vm.nav = false;
     vm.answerState = 'NA';
     vm.answer = _.times(vm.data.translation.ua[0].length, function() {
       return {};
     });
   }
 
-  vm.onWordLoad = init;
+  vm.loadQuestion = init;
 
   vm.isCorrect = function() {
     return vm.answerState == 'CORRECT';
@@ -44,11 +44,24 @@ function(wordManager) {
     _.each(vm.answer, function(element, index) {
       element.char = vm.data.translation.ua[0][index];
     });
+    scoreManager.useSolution();
   };
 
-  vm.nextWord = function() {
-    if(wordManager.has(vm.index + 1)) {
-      vm.index += 1;
+  vm.startNavigation = function() {
+    scoreManager.onAnswer(vm.answerState);
+    if(wordManager.hasNext()) {
+      vm.nav = true;
+      wordManager.nextWord(vm.data.word);
+    } else {
+      //end quiz logic
     }
+  };
+
+  vm.hint = function() {
+    scoreManager.useHint();
+  };
+
+  vm.score = function() {
+    return scoreManager.get();
   };
 }]);
