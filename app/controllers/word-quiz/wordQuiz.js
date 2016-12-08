@@ -52,7 +52,7 @@ function(wordManager, scoreManager) {
     if(wordManager.hasNext()) {
       vm.nav = true;
       wordManager.nextWord(vm.data.word);
-    } else {
+    } else {      
       //end quiz logic
     }
   };
