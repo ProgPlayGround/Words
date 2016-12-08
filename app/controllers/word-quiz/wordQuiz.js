@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('words').controller('SprintCtrl', ['wordManager',
+angular.module('words').controller('WordQuizCtrl', ['wordManager',
 function(wordManager) {
   var vm = this;
   vm.index = 0;
@@ -14,7 +14,7 @@ function(wordManager) {
     });
   }
 
-  vm.loadWord = init;
+  vm.onWordLoad = init;
 
   vm.isCorrect = function() {
     return vm.answerState == 'CORRECT';

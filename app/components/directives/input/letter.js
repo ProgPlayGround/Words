@@ -3,7 +3,7 @@
 angular.module('words')
       .directive('letter', function() {
         return {
-          require:['^focus', 'ngModel'],
+          require:['^focus','ngModel'],
           restrict: 'A',
           scope: {
             char: '@',
@@ -26,23 +26,23 @@ angular.module('words')
             scope.$watch('model', function (value) {
               if(angular.isDefined(value)) {
                 if(value.length === 0) {
-                  element.removeClass('wrong_answer');
-                  element.removeClass('correct_answer');
+                  element.removeClass('letter_wrong_answer');
+                  element.removeClass('letter_correct_answer');
                   focusCtrl.previous(scope.index);
                 } else {
                   if(scope.char == value) {
-                    element.removeClass('wrong_answer');
-                    element.addClass('correct_answer');
+                    element.removeClass('letter_wrong_answer');
+                    element.addClass('letter_correct_answer');
                   } else {
-                    element.removeClass('correct_answer');
-                    element.addClass('wrong_answer');
+                    element.removeClass('letter_correct_answer');
+                    element.addClass('letter_wrong_answer');
                   }
                   focusCtrl.next(scope.index);
                 }
                 scope.onModelChange();
               } else {
-                element.removeClass('wrong_answer');
-                element.removeClass('correct_answer');
+                element.removeClass('letter_wrong_answer');
+                element.removeClass('letter_correct_answer');
               }
             });
 

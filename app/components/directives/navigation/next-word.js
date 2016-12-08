@@ -9,8 +9,8 @@ angular.module('words')
         callback: '&navCallback'
       },
       link: function(scope, element) {
-        scope.$watch('index', function(value) {
-          if(value != 0) {
+        scope.$watch('index', function(newValue, oldValue) {
+          if(newValue != 0 && newValue != oldValue) {
             $animate.addClass(element, 'rollOut').then(function() {
               scope.callback();
               $animate.removeClass(element, 'rollOut');
