@@ -96,19 +96,19 @@ img, iframe, video, object {
 }
 
 .quiz_modal .score_text {
-  color: #AF8F73;
+  color: #af8f73;
 }
 
 .quiz_modal .score_icon {
   font-size: 1.5em;
-  color: #AF8F73;
+  color: #af8f73;
 }
 
 .modal {
   text-align: center;
 }
 
-.modal:before {
+.modal::before {
   content: '';
   display: inline-block;
   height: 100%;
@@ -140,7 +140,7 @@ img, iframe, video, object {
 }
 
 .score_icon {
-  vertical-align:middle;
+  vertical-align: middle;
   font-size: 2em;
 }
 

@@ -3,7 +3,6 @@
 angular.module('words').controller('WordQuizCtrl', ['wordManager', 'scoreManager', '$uibModal',
 function(wordManager, scoreManager, $uibModal) {
   var vm = this;
-  vm.finishQuiz = false;
   init();
 
   function init() {
@@ -54,18 +53,23 @@ function(wordManager, scoreManager, $uibModal) {
       vm.nav = true;
       wordManager.nextWord(vm.data.word);
     } else {
-      vm.finishQuiz = true;
-      $uibModal.open({
-        templateUrl: 'controllers/word-quiz/finishModal.html',
-        size: 'md',
-        controller: function(scoreManager) {
-          this.score = scoreManager.get();
-        },
-        controllerAs: 'mc',
-        windowClass: 'quiz_modal_window'
-      });
+      finishQuiz();
     }
   };
+
+  function finishQuiz() {
+    $uibModal.open({
+      templateUrl: 'controllers/word-quiz/finishModal.html',
+      backdrop: 'static',
+      size: 'md',
+      controller: function(scoreManager) {
+        var vm = this;
+        vm.score = scoreManager.get();
+      },
+      controllerAs: 'mc',
+      windowClass: 'quiz_modal_window'
+    });
+  }
 
   vm.hint = function() {
     scoreManager.useHint();
