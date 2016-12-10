@@ -14,6 +14,6 @@
   </div>
 </div>
 <div class="button_block col-sm-offset-4 col-sm-4">
-  <div type="button" class="btn btn_solution" ng-class="{'btn_disable':quiz.isCorrect()}" ng-click="quiz.applyAnswer()">Solution</div>
-  <div type="button" class="btn btn_next"  ng-class="{'btn_disable':!quiz.isCorrect(), 'btn_highlight':quiz.isCorrect()}" ng-click="quiz.startNavigation()">Submit</div>
+  <div type="button" class="btn btn_solution" ng-class="{'disable':quiz.isCorrect()}" ng-click="quiz.applyAnswer()">Solution</div>
+  <div type="button" class="btn btn_next"  ng-class="{'disable':!quiz.isCorrect(), 'btn_highlight':quiz.isCorrect()}" ng-click="quiz.startNavigation()">Submit</div>
 </div>
