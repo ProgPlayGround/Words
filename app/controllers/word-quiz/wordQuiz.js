@@ -58,13 +58,16 @@ function(wordManager, scoreManager, $uibModal) {
   };
 
   function finishQuiz() {
-    $uibModal.open({
+    var modal = $uibModal.open({
       templateUrl: 'controllers/word-quiz/finishModal.html',
       backdrop: 'static',
       size: 'md',
       controller: function(scoreManager) {
         var vm = this;
         vm.score = scoreManager.get();
+        vm.close = function() {
+          modal.close();
+        }
       },
       controllerAs: 'mc',
       windowClass: 'quiz_modal_window'
