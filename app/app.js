@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('words', ['ui.router', 'ngAnimate'])
+angular.module('words', ['ui.router', 'ui.bootstrap', 'ngAnimate'])
     .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
         $stateProvider.state('quiz', {

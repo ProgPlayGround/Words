@@ -79,6 +79,58 @@ img, iframe, video, object {
   margin-top: 15%;
 }
 
+.congradulation_bkg {
+  background-color: #ececea;
+}
+
+.quiz_modal {
+  padding: 2%;
+  font-family: Arial, Helvetica, serif;
+  font-size: 2em;
+  text-align: center;
+  font-style: italic;
+}
+
+.quiz_modal .divider {
+  border-color: #909292;
+}
+
+.quiz_modal .score_text {
+  color: #af8f73;
+}
+
+.quiz_modal .score_icon {
+  font-size: 1.5em;
+  color: #af8f73;
+}
+
+.modal {
+  text-align: center;
+}
+
+.modal::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.modal-content {
+  border-radius: 25px;
+  border-width: 2px;
+  border-color: #74afad;
+}
+
+.score_icon_margin {
+  margin-left: 3px;
+}
+
 .score_container {
   margin-top: 0.5%;
   color: #74afad;
@@ -88,7 +140,7 @@ img, iframe, video, object {
 }
 
 .score_icon {
-  vertical-align:middle;
+  vertical-align: middle;
   font-size: 2em;
 }
 
@@ -157,6 +209,19 @@ img, iframe, video, object {
   padding-top: 1%;
 }
 
+.btn_ok {
+  border: 2px solid #74afad;
+  color: #333;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-weight: bold;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn_ok:hover {
+  transform: scale(1.1);
+}
+
 .btn_next, .btn_solution {
   margin-right: 2%;
   padding: 3%;
@@ -196,7 +261,7 @@ img, iframe, video, object {
   animation-duration: 0.7s;
 }
 
-.btn_disable {
+.disable {
   pointer-events: none;
   opacity: 0.4;
 }

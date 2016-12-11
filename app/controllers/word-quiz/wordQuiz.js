@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('words').controller('WordQuizCtrl', ['wordManager', 'scoreManager',
-function(wordManager, scoreManager) {
+angular.module('words').controller('WordQuizCtrl', ['wordManager', 'scoreManager', '$uibModal',
+function(wordManager, scoreManager, $uibModal) {
   var vm = this;
   init();
 
@@ -52,10 +52,24 @@ function(wordManager, scoreManager) {
     if(wordManager.hasNext()) {
       vm.nav = true;
       wordManager.nextWord(vm.data.word);
-    } else {      
-      //end quiz logic
+    } else {
+      finishQuiz();
     }
   };
+
+  function finishQuiz() {
+    $uibModal.open({
+      templateUrl: 'controllers/word-quiz/finishModal.html',
+      backdrop: 'static',
+      size: 'md',
+      controller: function(scoreManager) {
+        var vm = this;
+        vm.score = scoreManager.get();
+      },
+      controllerAs: 'mc',
+      windowClass: 'quiz_modal_window'
+    });
+  }
 
   vm.hint = function() {
     scoreManager.useHint();
@@ -63,5 +77,9 @@ function(wordManager, scoreManager) {
 
   vm.score = function() {
     return scoreManager.get();
+  };
+
+  vm.isFinished = function() {
+    return vm.finishQuiz;
   };
 }]);
