@@ -79,6 +79,24 @@ img, iframe, video, object {
   margin-top: 15%;
 }
 
+.score_container {
+  margin-top: 0.5%;
+  color: #74afad;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.score_icon {
+  vertical-align:middle;
+  font-size: 2em;
+}
+
+.score_text {
+  vertical-align: bottom;
+  font-size: 1.5em;
+}
+
 .word {
   padding: 1%;
   border-radius: 20px;

@@ -10,7 +10,7 @@ angular.module('words')
       },
       link: function(scope, element) {
         scope.$watch('index', function(newValue, oldValue) {
-          if(newValue != 0 && newValue != oldValue) {
+          if(newValue && newValue != oldValue) {
             $animate.addClass(element, 'rollOut').then(function() {
               scope.callback();
               $animate.removeClass(element, 'rollOut');

@@ -1,3 +1,7 @@
-<div class="container question_container">
-  <div ui-view></div>
+<div class="container">
+  <div class="score_container vertical_align col-sm-12">
+    <span class="score_text">{{quiz.score()}}</span>
+    <span class="score_icon glyphicon glyphicon-star"></span>
+  </div>
+  <div class="question_container" ui-view></div>
 </div>

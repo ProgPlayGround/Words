@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Word quiz controller', function() {
-  var wordManager, wordQuizCtrl;
+  var wordManager, scoreManager, wordQuizCtrl;
 
   beforeEach(function() {
     module('words');
@@ -16,19 +16,28 @@ describe('Word quiz controller', function() {
                 'ru': ['автомобиль']
                 }
               }),
-            has: jasmine.createSpy('has').and.callFake(function(index) {
-              return index < 2;
-            })
+            nextWord: jasmine.createSpy('nextWord').and.callThrough(),
+            hasNext: jasmine.createSpy('hasNext').and.returnValues(true, false)
+        };
+      });
+      $provide.factory('mockScoreManager', function() {
+        return {
+          get: jasmine.createSpy('get').and.returnValue(10),
+          onAnswer: jasmine.createSpy('onAnswer').and.callThrough(),
+          useSolution: jasmine.createSpy('useSolution').and.callThrough(),
+          useHint: jasmine.createSpy('useHint').and.callThrough()
         };
       });
     }]);
   });
 
-  beforeEach(inject(['$controller', 'mockWordManager',
-  function($controller, mockWordManager) {
+  beforeEach(inject(['$controller', 'mockWordManager', 'mockScoreManager',
+  function($controller, mockWordManager, mockScoreManager) {
     wordManager = mockWordManager;
+    scoreManager = mockScoreManager;
     wordQuizCtrl = $controller('WordQuizCtrl', {
-      'wordManager': wordManager
+      'wordManager': wordManager,
+      'scoreManager': scoreManager
     });
   }]));
 
@@ -44,9 +53,24 @@ describe('Word quiz controller', function() {
     });
   });
 
-  it('create answer array', function() {
-    expect(wordQuizCtrl.data.translation.ua).toBeDefined();
-    expect(wordQuizCtrl.answer).toBeDefined();
+  it('load question on init', function() {
+    expect(wordManager.getWord).toHaveBeenCalled();
+    expect(wordQuizCtrl.nav).toBeFalsy();
+    expect(wordQuizCtrl.answerState).toEqual('NA');
+    _.each(wordQuizCtrl.answer, function(data) {
+      expect(data).toEqual({});
+    });
+    expect(wordQuizCtrl.answer.length).toEqual(wordQuizCtrl.data.translation.ua[0].length);
+  });
+
+  it('loadQuestion retrives new word and reset to initial state', function() {
+    wordQuizCtrl.loadQuestion();
+    expect(wordManager.getWord).toHaveBeenCalled();
+    expect(wordQuizCtrl.nav).toBeFalsy();
+    expect(wordQuizCtrl.answerState).toEqual('NA');
+    _.each(wordQuizCtrl.answer, function(data) {
+      expect(data).toEqual({});
+    });
     expect(wordQuizCtrl.answer.length).toEqual(wordQuizCtrl.data.translation.ua[0].length);
   });
 
@@ -96,23 +120,38 @@ describe('Word quiz controller', function() {
     expect(wordQuizCtrl.isCorrect()).toBeFalsy();
   });
 
-  it('nextWord increment word index', function() {
-    expect(wordQuizCtrl.index).toBe(0);
-    wordQuizCtrl.nextWord();
-    expect(wordManager.has).toHaveBeenCalled();
-    expect(wordQuizCtrl.index).toBe(1);
+  it('startNavigation move to next word in a dictionary', function() {
+    wordQuizCtrl.startNavigation();
+    expect(scoreManager.onAnswer).toHaveBeenCalled();
+    expect(wordManager.hasNext).toHaveBeenCalled();
+    expect(wordQuizCtrl.nav).toBeTruthy();
+    expect(wordManager.nextWord).toHaveBeenCalled();
   });
 
-  it('nextWord dont increment index for last word', function() {
-    wordQuizCtrl.index = 1;
-    wordQuizCtrl.nextWord();
-    expect(wordManager.has).toHaveBeenCalled();
-    expect(wordQuizCtrl.index).toBe(1);
+  it('startNavigation do nothing for last word', function() {
+    wordQuizCtrl.startNavigation();
+    wordQuizCtrl.loadQuestion();
+    wordQuizCtrl.startNavigation();
+    expect(scoreManager.onAnswer).toHaveBeenCalledTimes(2);
+    expect(wordManager.hasNext).toHaveBeenCalledTimes(2);
+    expect(wordQuizCtrl.nav).toBeFalsy();
+    expect(wordManager.nextWord).toHaveBeenCalledTimes(1);
   });
 
   it('applyAnswer set correct translation for the word', function() {
     wordQuizCtrl.applyAnswer();
     wordQuizCtrl.checkAnswer();
     expect(wordQuizCtrl.isCorrect()).toBe(true);
+    expect(scoreManager.useSolution).toHaveBeenCalled();
+  });
+
+  it('hint call through to score manager', function() {
+    wordQuizCtrl.hint();
+    expect(scoreManager.useHint).toHaveBeenCalled();
+  });
+
+  it('score call through to score manager', function() {
+    wordQuizCtrl.score();
+    expect(scoreManager.get).toHaveBeenCalled();
   });
 });
