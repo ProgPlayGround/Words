@@ -1,5 +1,5 @@
 'use strict';
 
-angular.module('words').controller('MainController', function() {
+angular.module('words').controller('MainCtrl', function() {
 
 });
