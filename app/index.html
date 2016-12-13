@@ -11,6 +11,19 @@
   <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
 </head>
 <body class="background">
+  <nav class="navbar navbar-custom">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-left btn_brand" ui-sref="main">
+          <img alt="Q" src="images/quiz-logo.png"/>
+        </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">User</a></li>
+        <li class="navbar_logout"><a ui-sref="main">Logout</a></li>
+     </ul>
+    </div>
+  </nav>
 
   <div ui-view></div>
 
@@ -25,6 +38,7 @@
   <script src="services/wordManager/scoreManager.js"></script>
   <script src="services/wordManager/wordLoader.js"></script>
   <script src="controllers/word-quiz/wordQuiz.js"></script>
+  <script src="controllers/main/main.js"></script>
   <script src="components/directives/input/letter.js"></script>
   <script src="components/directives/input/focus.js"></script>
   <script src="components/directives/apply-answer/apply-answer.js"></script>
