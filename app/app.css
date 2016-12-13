@@ -284,6 +284,16 @@ img, iframe, video, object {
   cursor: pointer;
 }
 
+.btn_brand {
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.btn_logout {
+  width: 32px;
+  height: 32px;
+}
+
 .description_text {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
@@ -291,4 +301,21 @@ img, iframe, video, object {
 
 .main_layout {
   background-color: #5ad1bc;
+}
+
+.navbar-custom {
+  background-color: #A2C9C8;
+}
+
+.nav.navbar-nav.navbar-right li a {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+.nav.navbar-nav.navbar-right li a:hover,
+.nav.navbar-nav.navbar-right li a:focus,
+.nav.navbar-nav.navbar-right li a:active {
+  color: #000;
+  background-color: #8EBEBC;
 }
