@@ -50,7 +50,7 @@ del {
   text-decoration: line-through;
 }
 
-a {
+a, a:hover, a:active, a:focus {
   text-decoration: none;
 }
 
@@ -320,14 +320,14 @@ img, iframe, video, object {
   background-color: #8EBEBC;
 }
 
-.quiz_game_container {
+.main_game_container {
   height: 250px;
   line-height: 250px;
   padding: 1%;
   margin-bottom: 2%;
 }
 
-.inner_quiz_game_container {
+.main_inner_game_container {
   height: inherit;
   border: 1px solid black;
   background-color: #F4F2F2;
@@ -340,6 +340,6 @@ img, iframe, video, object {
   transition: all 0.25s ease-in-out;
 }
 
-.inner_quiz_game_container:hover {
+.main_inner_game_container:hover {
   transform: scale(1.01);
 }

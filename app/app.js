@@ -9,9 +9,7 @@ angular.module('words', ['ui.router', 'ui.bootstrap', 'ngAnimate'])
         templateUrl: 'controllers/main/main.html',
         controller: 'MainCtrl',
         controllerAs: 'mc'
-      });
-
-      $stateProvider.state('quiz', {
+      }).state('quiz', {
         abstract: true,
         url: '/quiz',
         templateUrl: 'controllers/word-quiz/word-quiz.html',
@@ -25,5 +23,5 @@ angular.module('words', ['ui.router', 'ui.bootstrap', 'ngAnimate'])
         templateUrl: 'controllers/word-quiz/word-quiz.description.html'
       });
 
-      $urlRouterProvider.otherwise('/quiz/quest');
+      $urlRouterProvider.otherwise('/main');
 }]);
