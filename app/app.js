@@ -7,7 +7,7 @@ angular.module('words', ['ui.router', 'ui.bootstrap', 'ngAnimate'])
       $stateProvider.state('main', {
         url: '/main',
         templateUrl: 'controllers/main/main.html',
-        controller: 'MainController',
+        controller: 'MainCtrl',
         controllerAs: 'mc'
       });
 
