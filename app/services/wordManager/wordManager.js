@@ -1,20 +1,14 @@
 'use strict';
 
-angular.module('words').factory('wordManager', ['$q', 'wordLoader', function($q, wordLoader) {
+angular.module('words').factory('wordManager', ['wordLoader', function(wordLoader) {
   var words;
-  var loadPromise = $q.defer();
-  wordLoader.load().then(function(data) {
-    words = data;
-    loadPromise.resolve(words[0]);
-  });
-
   return {
+    init: function(callback) {
+      words = wordLoader.query();
+      words.$promise.then(callback);
+    },
     getWord: function() {
-      if(words) {
-        loadPromise = $q.defer()
-        loadPromise.resolve(words[0]);
-      }
-      return loadPromise.promise;
+      return words[0];
     },
     nextWord: function() {
       words.shift();

@@ -3,21 +3,19 @@
 angular.module('words').controller('WordQuizCtrl', ['wordManager', 'scoreManager', '$uibModal',
 function(wordManager, scoreManager, $uibModal) {
   var vm = this;
-  init();
+  wordManager.init(onLoad);
 
-  function init() {
-    wordManager.getWord().then(function(word) {
-      vm.data = word;
-      vm.answer = _.times(vm.data.translation.ua[0].length, function() {
-        return {};
-      });
-
+  function onLoad() {
+    vm.data = wordManager.getWord();
+    vm.answer = _.times(vm.data.translation.ua[0].length, function() {
+      return {};
     });
+
     vm.nav = false;
     vm.answerState = 'NA';
   }
 
-  vm.loadQuestion = init;
+  vm.loadQuestion = onLoad;
 
   vm.isCorrect = function() {
     return vm.answerState == 'CORRECT';
