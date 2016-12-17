@@ -6,12 +6,15 @@ function(wordManager, scoreManager, $uibModal) {
   init();
 
   function init() {
-    vm.data = wordManager.getWord();
+    wordManager.getWord().then(function(word) {
+      vm.data = word;
+      vm.answer = _.times(vm.data.translation.ua[0].length, function() {
+        return {};
+      });
+
+    });
     vm.nav = false;
     vm.answerState = 'NA';
-    vm.answer = _.times(vm.data.translation.ua[0].length, function() {
-      return {};
-    });
   }
 
   vm.loadQuestion = init;
