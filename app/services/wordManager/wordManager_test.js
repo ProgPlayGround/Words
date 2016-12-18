@@ -3,44 +3,48 @@
 describe('word manager service', function() {
   var wordManagerService, wordLoaderService, words;
 
-  beforeEach(function() {
-    module('words');
-    module(['$provide', function($provide) {
-      words = [
-          {
-            'word': 'mock1',
-            'category': 'mock1',
-            'definition': ['mock1'],
-            'inSentence': ['mock1'],
-            'translation': {
-              'ua': ['mock1'],
-              'ru': ['mock1']
-            }
-          },
-          {
-            'word': 'mock2',
-            'category': 'mock2',
-            'definition': ['mock2'],
-            'inSentence': ['mock2'],
-            'translation': {
-              'ua': ['mock2'],
-              'ru': ['mock2']
-            }
+  beforeEach(module('words'));
+
+  beforeEach(module(['$provide', function($provide) {
+    words = [
+        {
+          'word': 'mock1',
+          'category': 'mock1',
+          'definition': ['mock1'],
+          'inSentence': ['mock1'],
+          'translation': {
+            'ua': ['mock1'],
+            'ru': ['mock1']
           }
-        ];
-      $provide.value('wordLoader', {
-        load: jasmine.createSpy('load').and.returnValue(words)
+        },
+        {
+          'word': 'mock2',
+          'category': 'mock2',
+          'definition': ['mock2'],
+          'inSentence': ['mock2'],
+          'translation': {
+            'ua': ['mock2'],
+            'ru': ['mock2']
+          }
+        }
+      ];
+      Object.defineProperty(words, '$promise', {
+        'value': {'then': jasmine.createSpy('then').and.callThrough()}
       });
-    }])
-  });
+
+      $provide.value('wordLoader', {
+        'allWords': jasmine.createSpy('allWords').and.returnValue(words)
+      });
+  }]));
 
   beforeEach(inject(['wordManager', 'wordLoader', function(wordManager, wordLoader) {
     wordManagerService = wordManager;
     wordLoaderService = wordLoader;
+    wordManagerService.init();
   }]));
 
-  it('load words on init', function() {
-    expect(wordLoaderService.load).toHaveBeenCalled();
+  it('init load words from word loader service', function() {
+    expect(wordLoaderService.allWords).toHaveBeenCalled();
   });
 
   it('get word return first word from dictionary', function() {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('words', ['ui.router', 'ui.bootstrap', 'ngAnimate'])
+angular.module('words', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngAnimate'])
     .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 

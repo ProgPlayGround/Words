@@ -3,18 +3,33 @@
 describe('word loader service', function() {
   var wordLoaderService;
 
-  beforeEach(module('words'));
+  beforeEach(function() {
+    module('words');
+    module(['$provide', function($provide) {
+      $provide.value('$resource', function(){
+        return {
+          query: jasmine.createSpy('query').and.returnValues([{
+            word: 'firstMock'
+          }, {
+            word: 'secondMock'
+          }])
+        };
+      });
+    }]);
+  });
 
   beforeEach(inject(['wordLoader', function(wordLoader) {
     wordLoaderService = wordLoader;
   }]));
 
-  it('load return data in specific format', function() {
-    var index = 0;
-    expect(wordLoaderService.load()[index].word).toBeDefined();
-    expect(wordLoaderService.load()[index].category).toBeDefined();
-    expect(wordLoaderService.load()[index].definition).toBeDefined();
-    expect(wordLoaderService.load()[index].inSentence).toBeDefined();
-    expect(wordLoaderService.load()[index].translation).toBeDefined();
+  it('has methods to query dictionary', function() {
+    expect(wordLoaderService.allWords).toBeDefined();
+  });
+
+  it('allWords retrieve data from dictionary resource', function() {
+    expect(wordLoaderService.allWords()).toEqual([
+      { word: 'firstMock' },
+      { word: 'secondMock' }
+    ]);
   });
 });

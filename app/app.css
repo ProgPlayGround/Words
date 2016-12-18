@@ -304,7 +304,7 @@ img, iframe, video, object {
 }
 
 .navbar-custom {
-  background-color: #A2C9C8;
+  background-color: #a2c9c8;
 }
 
 .nav.navbar-nav.navbar-right li a {
@@ -317,7 +317,7 @@ img, iframe, video, object {
 .nav.navbar-nav.navbar-right li a:focus,
 .nav.navbar-nav.navbar-right li a:active {
   color: #000;
-  background-color: #8EBEBC;
+  background-color: #8ebebc;
 }
 
 .main_game_container {
@@ -330,7 +330,7 @@ img, iframe, video, object {
 .main_inner_game_container {
   height: inherit;
   border: 1px solid black;
-  background-color: #F4F2F2;
+  background-color: #f4f2f2;
   text-align: center;
   vertical-align: middle;
   box-shadow: 0 0 5px black;
