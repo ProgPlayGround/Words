@@ -1,7 +1,7 @@
 'use strict';
 
 describe('word manager service', function() {
-  var wordManagerService, wordLoaderService, words, callback;
+  var wordManagerService, wordLoaderService, words;
 
   beforeEach(module('words'));
 
