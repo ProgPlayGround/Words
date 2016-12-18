@@ -82,8 +82,4 @@ function(wordManager, scoreManager, $uibModal) {
   vm.score = function() {
     return scoreManager.get();
   };
-
-  vm.isFinished = function() {
-    return vm.finishQuiz;
-  };
 }]);

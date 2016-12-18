@@ -1,13 +1,16 @@
 'use strict';
 
 describe('Word quiz controller', function() {
-  var wordManager, scoreManager, wordQuizCtrl;
+  var wordManagerService, scoreManagerService, wordQuizCtrl, uibModal;
 
   beforeEach(function() {
     module('words');
     module(['$provide', function($provide) {
-        $provide.factory('mockWordManager', function() {
+        $provide.factory('wordManager', function() {
           return {
+            init: jasmine.createSpy('init').and.callFake(function(onSuccess) {
+              onSuccess();
+            }),
             getWord: jasmine.createSpy('getWord').and.returnValue({
               'word': 'car',
               'category': 'common',
@@ -20,7 +23,7 @@ describe('Word quiz controller', function() {
             hasNext: jasmine.createSpy('hasNext').and.returnValues(true, false)
         };
       });
-      $provide.factory('mockScoreManager', function() {
+      $provide.factory('scoreManager', function() {
         return {
           get: jasmine.createSpy('get').and.returnValue(10),
           onAnswer: jasmine.createSpy('onAnswer').and.callThrough(),
@@ -31,30 +34,23 @@ describe('Word quiz controller', function() {
     }]);
   });
 
-  beforeEach(inject(['$controller', 'mockWordManager', 'mockScoreManager',
-  function($controller, mockWordManager, mockScoreManager) {
-    wordManager = mockWordManager;
-    scoreManager = mockScoreManager;
+  beforeEach(inject(['$controller', 'wordManager', 'scoreManager', '$uibModal',
+  function($controller, wordManager, scoreManager, $uibModal) {
+    wordManagerService = wordManager;
+    scoreManagerService = scoreManager;
     wordQuizCtrl = $controller('WordQuizCtrl', {
       'wordManager': wordManager,
       'scoreManager': scoreManager
     });
+    uibModal = $uibModal;
   }]));
 
-  it('get words from loader service', function() {
-    expect(wordManager.getWord).toHaveBeenCalled();
-    expect(wordQuizCtrl.data).toEqual({
-      'word': 'car',
-      'category': 'common',
-      'translation': {
-        'ua': ['автомобіль'],
-        'ru': ['автомобиль']
-      }
-    });
+  it('initialize word manager service', function() {
+    expect(wordManagerService.init).toHaveBeenCalled();
   });
 
   it('load question on init', function() {
-    expect(wordManager.getWord).toHaveBeenCalled();
+    expect(wordManagerService.getWord).toHaveBeenCalled();
     expect(wordQuizCtrl.nav).toBeFalsy();
     expect(wordQuizCtrl.answerState).toEqual('NA');
     _.each(wordQuizCtrl.answer, function(data) {
@@ -65,7 +61,7 @@ describe('Word quiz controller', function() {
 
   it('loadQuestion retrives new word and reset to initial state', function() {
     wordQuizCtrl.loadQuestion();
-    expect(wordManager.getWord).toHaveBeenCalled();
+    expect(wordManagerService.getWord).toHaveBeenCalled();
     expect(wordQuizCtrl.nav).toBeFalsy();
     expect(wordQuizCtrl.answerState).toEqual('NA');
     _.each(wordQuizCtrl.answer, function(data) {
@@ -122,36 +118,39 @@ describe('Word quiz controller', function() {
 
   it('startNavigation move to next word in a dictionary', function() {
     wordQuizCtrl.startNavigation();
-    expect(scoreManager.onAnswer).toHaveBeenCalled();
-    expect(wordManager.hasNext).toHaveBeenCalled();
+    expect(scoreManagerService.onAnswer).toHaveBeenCalled();
+    expect(wordManagerService.hasNext).toHaveBeenCalled();
     expect(wordQuizCtrl.nav).toBeTruthy();
-    expect(wordManager.nextWord).toHaveBeenCalled();
+    expect(wordManagerService.nextWord).toHaveBeenCalled();
   });
 
-  it('startNavigation do nothing for last word', function() {
+  it('startNavigation show score for last word', function() {
+    spyOn(uibModal, 'open');
+
     wordQuizCtrl.startNavigation();
     wordQuizCtrl.loadQuestion();
     wordQuizCtrl.startNavigation();
-    expect(scoreManager.onAnswer).toHaveBeenCalledTimes(2);
-    expect(wordManager.hasNext).toHaveBeenCalledTimes(2);
+    expect(scoreManagerService.onAnswer).toHaveBeenCalledTimes(2);
+    expect(wordManagerService.hasNext).toHaveBeenCalledTimes(2);
     expect(wordQuizCtrl.nav).toBeFalsy();
-    expect(wordManager.nextWord).toHaveBeenCalledTimes(1);
+    expect(wordManagerService.nextWord).toHaveBeenCalledTimes(1);
+    expect(uibModal.open).toHaveBeenCalled();
   });
 
   it('applyAnswer set correct translation for the word', function() {
     wordQuizCtrl.applyAnswer();
     wordQuizCtrl.checkAnswer();
     expect(wordQuizCtrl.isCorrect()).toBe(true);
-    expect(scoreManager.useSolution).toHaveBeenCalled();
+    expect(scoreManagerService.useSolution).toHaveBeenCalled();
   });
 
   it('hint call through to score manager', function() {
     wordQuizCtrl.hint();
-    expect(scoreManager.useHint).toHaveBeenCalled();
+    expect(scoreManagerService.useHint).toHaveBeenCalled();
   });
 
   it('score call through to score manager', function() {
     wordQuizCtrl.score();
-    expect(scoreManager.get).toHaveBeenCalled();
+    expect(scoreManagerService.get).toHaveBeenCalled();
   });
 });

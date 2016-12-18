@@ -3,9 +3,9 @@
 angular.module('words').factory('wordManager', ['wordLoader', function(wordLoader) {
   var words;
   return {
-    init: function(callback) {
-      words = wordLoader.query();
-      words.$promise.then(callback);
+    init: function(onSuccess, onReject) {
+      words = wordLoader.allWords();
+      words.$promise.then(onSuccess, onReject);
     },
     getWord: function() {
       return words[0];
