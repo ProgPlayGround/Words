@@ -3,6 +3,7 @@
 angular.module('words').controller('WordQuizCtrl', ['wordManager', 'scoreManager', '$uibModal',
 function(wordManager, scoreManager, $uibModal) {
   var vm = this;
+  vm.loading = true;
   wordManager.init(onLoad);
 
   function onLoad() {
@@ -10,9 +11,9 @@ function(wordManager, scoreManager, $uibModal) {
     vm.answer = _.times(vm.data.translation.ua[0].length, function() {
       return {};
     });
-
     vm.nav = false;
     vm.answerState = 'NA';
+    vm.loading = false;
   }
 
   vm.loadQuestion = onLoad;

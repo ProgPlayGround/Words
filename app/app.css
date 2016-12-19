@@ -344,3 +344,12 @@ img, iframe, video, object {
 .main_inner_game_container:hover {
   transform: scale(1.01);
 }
+
+.loading {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
