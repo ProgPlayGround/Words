@@ -83,4 +83,6 @@ function(wordManager, scoreManager, $uibModal) {
   vm.score = function() {
     return scoreManager.get();
   };
+
+  vm.loadingText = 'Loading...';
 }]);
