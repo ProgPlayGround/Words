@@ -27,7 +27,6 @@ angular.module('words')
         }
       },
       link: function(scope) {
-
         if(scope.animation == undefined) {
           scope.animation = $interval(function() {
             scope.animate();
@@ -35,7 +34,7 @@ angular.module('words')
         }
 
         scope.$watch('model', function(value) {
-          if(value == false && scope.animation) {
+          if(value === false && scope.animation) {
             $interval.cancel(scope.animation);
             scope.animation = undefined;
           }

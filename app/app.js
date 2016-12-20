@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('words', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngAnimate'])
-    .config(['$stateProvider', '$urlRouterProvider',
-    function($stateProvider, $urlRouterProvider) {
-
+    .config(['$stateProvider', '$urlRouterProvider', '$qProvider',
+    function($stateProvider, $urlRouterProvider, $qProvider) {
+      $qProvider.errorOnUnhandledRejections(false);
       $stateProvider.state('main', {
         url: '/main',
         templateUrl: 'controllers/main/main.html',

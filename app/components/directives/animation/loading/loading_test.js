@@ -26,4 +26,34 @@ describe('loading dirrective', function() {
     controller.register(firstElement);
     expect(scope.elements.length).toEqual(1);
   });
+
+  it('trigger animation in 500 millis interval', function() {
+    spyOn(scope, 'animate');
+    expect(scope.animate).not.toHaveBeenCalled();
+    interval.flush(500);
+    expect(scope.animate).toHaveBeenCalledTimes(1);
+  });
+
+  it('animation add swing class to element', function() {
+    controller.register(firstElement);
+    expect(firstElement.hasClass('swing')).toBeFalsy();
+    interval.flush(500);
+    expect(firstElement.hasClass('swing')).toBeTruthy();
+  });
+
+  it('animation removes swing class from all elements after full cicle', function() {
+    controller.register(firstElement);
+    interval.flush(500);
+    expect(firstElement.hasClass('swing')).toBeTruthy();
+    interval.flush(500);
+    expect(firstElement.hasClass('swing')).toBeFalsy();
+  });
+
+  it('cancel animation on model set to false', function() {
+    interval.flush(500);
+    expect(scope.animation).toBeDefined();
+    scope.model = false;
+    scope.$digest();
+    expect(scope.animation).not.toBeDefined();
+  });
 });
