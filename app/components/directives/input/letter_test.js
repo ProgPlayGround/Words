@@ -3,7 +3,7 @@
 describe('letter directive', function() {
   var scope, event, element, directive, focusCtrl;
 
-  beforeEach(module('words', {focus:{}}));
+  beforeEach(module('words'));
 
   beforeEach(inject(['$rootScope', '$compile', function($rootScope, $compile){
     scope = $rootScope.$new();

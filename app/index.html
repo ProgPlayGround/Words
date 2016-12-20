@@ -11,20 +11,7 @@
   <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
 </head>
 <body class="background">
-  <nav class="navbar navbar-custom">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-left btn_brand" ui-sref="main">
-          <img alt="Q" src="images/quiz-logo.png"/>
-        </a>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="main">User</a></li>
-        <li class="navbar_logout"><a ui-sref="main">Logout</a></li>
-     </ul>
-    </div>
-  </nav>
-
+  <div ng-include src="'navbar.html'"></div>
   <div ui-view></div>
 
   <script src="bower_components/angular/angular.js"></script>
@@ -44,5 +31,7 @@
   <script src="components/directives/input/focus.js"></script>
   <script src="components/directives/apply-answer/apply-answer.js"></script>
   <script src="components/directives/navigation/next-word.js"></script>
+  <script src="components/directives/animation/loading/item.js"></script>
+  <script src="components/directives/animation/loading/loading.js"></script>
 </body>
 </html>

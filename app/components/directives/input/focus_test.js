@@ -35,10 +35,7 @@ describe('focus directive', function() {
   });
 
   it('allows registration of elements to watch', function() {
-    expect(controller.register).toBeDefined();
-
-    var element = angular.element('<div></div>');
-    controller.register(element);
+    controller.register(firstElement);
     expect(scope.elements.length).toEqual(1);
   });
 

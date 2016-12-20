@@ -57,6 +57,7 @@ describe('Word quiz controller', function() {
       expect(data).toEqual({});
     });
     expect(wordQuizCtrl.answer.length).toEqual(wordQuizCtrl.data.translation.ua[0].length);
+    expect(wordQuizCtrl.loading).toBeFalsy();
   });
 
   it('loadQuestion retrives new word and reset to initial state', function() {
