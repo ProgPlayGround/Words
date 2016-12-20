@@ -1,7 +1,7 @@
 'use strict';
 
 describe('loading dirrective', function() {
-  var scope, controller, firstElement, secondElement, interval;
+  var scope, controller, firstElement, interval;
 
   beforeEach(module('words'));
 
@@ -13,7 +13,6 @@ describe('loading dirrective', function() {
     scope = directive.isolateScope();
 
     firstElement = angular.element('<div></div>');
-    secondElement = angular.element('<div></div>');
     interval = $interval;
   }]));
 

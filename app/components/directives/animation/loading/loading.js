@@ -27,7 +27,7 @@ angular.module('words')
         }
       },
       link: function(scope) {
-        if(scope.animation == undefined) {
+        if(angular.isUndefined(scope.animation)) {
           scope.animation = $interval(function() {
             scope.animate();
           }, 500);
