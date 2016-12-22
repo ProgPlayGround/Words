@@ -1,35 +1,23 @@
 'use strict';
 
 describe('word loader service', function() {
-  var wordLoaderService;
+  var wordLoaderService, httpBackend;
 
-  beforeEach(function() {
-    module('words');
-    module(['$provide', function($provide) {
-      $provide.value('$resource', function(){
-        return {
-          query: jasmine.createSpy('query').and.returnValues([{
-            word: 'firstMock'
-          }, {
-            word: 'secondMock'
-          }])
-        };
-      });
-    }]);
-  });
+  beforeEach(module('words'));
 
-  beforeEach(inject(['wordLoader', function(wordLoader) {
+  beforeEach(inject(['wordLoader', '$httpBackend', function(wordLoader, $httpBackend) {
     wordLoaderService = wordLoader;
+    httpBackend = $httpBackend;
+    httpBackend.verifyNoOutstandingExpectation();
+    httpBackend.verifyNoOutstandingRequest();
   }]));
 
-  it('has methods to query dictionary', function() {
-    expect(wordLoaderService.allWords).toBeDefined();
-  });
-
   it('allWords retrieve data from dictionary resource', function() {
-    expect(wordLoaderService.allWords()).toEqual([
-      { word: 'firstMock' },
-      { word: 'secondMock' }
-    ]);
+    httpBackend.expectGET('http://localhost:3000/dictionary')
+    .respond(200, [{word: 'firstMock'}, {word: 'secondMock'}]);
+
+    wordLoaderService.allWords();
+
+    expect(httpBackend.flush).not.toThrow();
   });
 });

@@ -5,7 +5,7 @@ angular.module('words').factory('wordManager', ['wordLoader', function(wordLoade
   return {
     init: function(onSuccess, onReject) {
       words = wordLoader.allWords();
-      words.$promise.then(onSuccess, onReject);
+      words.$promise.then(onSuccess, onReject);    
     },
     getWord: function() {
       return words[0];
