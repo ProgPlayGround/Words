@@ -3,9 +3,11 @@
 angular.module('words').controller('WordQuizCtrl', ['wordManager', 'scoreManager', '$uibModal',
 function(wordManager, scoreManager, $uibModal) {
   var vm = this;
+  vm.loadingText = 'Loading...';
   vm.loading = true;
   wordManager.init(onLoad);
 
+//
   function onLoad() {
     vm.data = wordManager.getWord();
     vm.answer = _.times(vm.data.translation.ua[0].length, function() {
@@ -17,11 +19,11 @@ function(wordManager, scoreManager, $uibModal) {
   }
 
   vm.loadQuestion = onLoad;
-
+//
   vm.isCorrect = function() {
     return vm.answerState == 'CORRECT';
   }
-
+//
   vm.checkAnswer = function() {
     var letters = _.countBy(vm.answer, function(data, index) {
       if(!data.char) {
@@ -41,14 +43,14 @@ function(wordManager, scoreManager, $uibModal) {
       vm.answerState = 'CORRECT';
     }
   };
-
+//
   vm.applyAnswer = function() {
     _.each(vm.answer, function(element, index) {
       element.char = vm.data.translation.ua[0][index];
     });
     scoreManager.useSolution();
   };
-
+//
   vm.startNavigation = function() {
     scoreManager.onAnswer(vm.answerState);
     if(wordManager.hasNext()) {
@@ -61,7 +63,7 @@ function(wordManager, scoreManager, $uibModal) {
 
   function finishQuiz() {
     var modal = $uibModal.open({
-      templateUrl: 'controllers/word-quiz/finishModal.html',
+      templateUrl: 'quiz/finishModal.html',
       backdrop: 'static',
       size: 'md',
       controller: function(scoreManager) {
@@ -84,5 +86,4 @@ function(wordManager, scoreManager, $uibModal) {
     return scoreManager.get();
   };
 
-  vm.loadingText = 'Loading...';
 }]);

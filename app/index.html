@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
 </head>
 <body class="background">
-  <div ng-include src="'navbar.html'"></div>
+  <div ng-include src="'common/navbar.html'"></div>
   <div ui-view></div>
 
   <script src="bower_components/angular/angular.js"></script>
@@ -22,16 +22,16 @@
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <script src="bower_components/underscore/underscore-min.js"></script>
   <script src="app.js"></script>
-  <script src="services/wordManager/wordManager.js"></script>
-  <script src="services/wordManager/scoreManager.js"></script>
-  <script src="services/wordManager/wordLoader.js"></script>
-  <script src="controllers/word-quiz/wordQuiz.js"></script>
-  <script src="controllers/main/main.js"></script>
-  <script src="components/directives/input/letter.js"></script>
-  <script src="components/directives/input/focus.js"></script>
-  <script src="components/directives/apply-answer/apply-answer.js"></script>
-  <script src="components/directives/navigation/next-word.js"></script>
-  <script src="components/directives/animation/loading/item.js"></script>
-  <script src="components/directives/animation/loading/loading.js"></script>
+  <script src="common/wordManager.js"></script>
+  <script src="common/scoreManager.js"></script>
+  <script src="common/wordLoader.js"></script>
+  <script src="common/next-word.js"></script>
+  <script src="common/item.js"></script>
+  <script src="common/loading.js"></script>
+  <script src="common/letter.js"></script>
+  <script src="common/focus.js"></script>
+  <script src="main/main.js"></script>
+  <script src="quiz/wordQuiz.js"></script>
+  <script src="quiz/apply-answer.js"></script>
 </body>
 </html>
