@@ -1,7 +1,6 @@
-'use strict';
-
-angular.module('words')
-  .directive('item', function() {
+(function(module) {
+  'use strict';
+  module.directive('item', function() {
     return {
       require: '^loading',
       restrict: 'A',
@@ -10,3 +9,4 @@ angular.module('words')
       }
     }
   });
+})(angular.module('words'));

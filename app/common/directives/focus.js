@@ -1,7 +1,6 @@
-'use strict';
-
-angular.module('words')
-    .directive('focus', function() {
+(function(module) {
+  'use strict';
+  module.directive('focus', function() {
       return {
         restrict: 'E',
         controller: function($scope) {
@@ -31,3 +30,4 @@ angular.module('words')
         }
       };
     });
+  })(angular.module('words'));

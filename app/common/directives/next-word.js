@@ -1,7 +1,6 @@
-'use strict';
-
-angular.module('words')
-  .directive('nextWordNav', ['$animate', function($animate) {
+(function(module){
+  'use strict';
+  module.directive('nextWordNav', ['$animate', function($animate) {
     return {
       restrict: 'A',
       scope: {
@@ -23,3 +22,4 @@ angular.module('words')
       }
     };
   }]);
+})(angular.module('words'));
