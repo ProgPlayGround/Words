@@ -1,11 +1,10 @@
 (function(module) {
 'use strict';
-module.directive('loading', ['$animate', '$interval', function($animate, $interval) {
+module.directive('loading', ['$animate', '$interval', 'requestCounter',
+ function($animate, $interval, requestCounter) {
   return {
     restrict: 'E',
-    scope: {
-      model:'='
-    },
+    scope: {},
     controller: function($scope) {
       $scope.elements = [];
       var index = 0;
@@ -25,17 +24,22 @@ module.directive('loading', ['$animate', '$interval', function($animate, $interv
         }
       }
     },
-    link: function(scope) {
+    link: function(scope, element) {
       if(angular.isUndefined(scope.animation)) {
         scope.animation = $interval(function() {
           scope.animate();
         }, 500);
       }
 
-      scope.$watch('model', function(value) {
-        if(value === false && scope.animation) {
-          $interval.cancel(scope.animation);
-          scope.animation = undefined;
+      scope.$watch(requestCounter.requestCount, function(newValue) {
+        if(newValue === 0 ) {
+          if(scope.animation) {
+            $interval.cancel(scope.animation);
+            scope.animation = undefined;
+          }
+          $animate.addClass(element, 'fadeOut animated');
+        } else if(element.hasClass('fadeOut')) {
+          $animate.removeClass(element, 'fadeOut animated');
         }
       });
     }

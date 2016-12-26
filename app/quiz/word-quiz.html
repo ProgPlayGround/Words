@@ -1,8 +1,8 @@
 <div class="container">
   <div class="score_container col-sm-12">
-    <div class="col-sm-4" ng-class="{'fadeOut animated':!quiz.loading}">
+    <div class="col-sm-4">
       <div class="center">
-        <loading model="quiz.loading">
+        <loading>
           <span item class="letter animated" ng-repeat="char in quiz.loadingText track by $index">{{char}}</span>
         </loading>
       </div>
@@ -10,5 +10,5 @@
     <span class="score_text">{{quiz.score()}}</span>
     <span class="score_icon glyphicon glyphicon-star"></span>
   </div>
-  <div class="question_container" ng-if="!quiz.loading" ui-view></div>
+  <div class="question_container" ng-if="quiz.isLoaded()" ui-view></div>
 </div>

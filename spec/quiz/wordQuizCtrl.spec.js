@@ -1,28 +1,21 @@
 'use strict';
 
 describe('Word quiz controller', function() {
-  var wordManagerService, scoreManagerService, wordQuizCtrl, uibModal;
+  var quizManagerService, quizModalManagerService, scoreManagerService, wordQuizCtrl;
 
   beforeEach(function() {
     module('words');
     module(['$provide', function($provide) {
-        $provide.factory('wordManager', function() {
-          return {
-            init: jasmine.createSpy('init').and.callFake(function(onSuccess) {
-              onSuccess();
-            }),
-            getWord: jasmine.createSpy('getWord').and.returnValue({
-              'word': 'car',
-              'category': 'common',
-              'translation': {
-                'ua': ['автомобіль'],
-                'ru': ['автомобиль']
-                }
-              }),
-            nextWord: jasmine.createSpy('nextWord').and.callThrough(),
-            hasNext: jasmine.createSpy('hasNext').and.returnValues(true, false)
-        };
+      var quizManager = jasmine.createSpyObj('quizManger',
+      ['next', 'onLoad', 'applyAnswer', 'isCorrect', 'checkAnswer',
+      'word', 'isLoaded', 'translation', 'definition', 'inSentence', 'answer']);
+      quizManager.init = jasmine.createSpy('init').and.callFake(function(callback) {
+        callback();
       });
+      quizManager.state = jasmine.createSpy('state').and.returnValues('NA');
+
+      $provide.value('quizManager', quizManager);
+
       $provide.factory('scoreManager', function() {
         return {
           get: jasmine.createSpy('get').and.returnValue(10),
@@ -34,114 +27,55 @@ describe('Word quiz controller', function() {
     }]);
   });
 
-  beforeEach(inject(['$controller', 'wordManager', 'scoreManager', '$uibModal',
-  function($controller, wordManager, scoreManager, $uibModal) {
-    wordManagerService = wordManager;
-    scoreManagerService = scoreManager;
+  beforeEach(inject(['$controller', 'quizManager', 'scoreManager', 'quizModalManager',
+  function($controller, quizManager, scoreManager, quizModalManager) {
     wordQuizCtrl = $controller('WordQuizCtrl', {
-      'wordManager': wordManager,
-      'scoreManager': scoreManager
+      'quizManager': quizManager,
+      'scoreManager': scoreManager,
+      'quizModalManager': quizModalManager
     });
-    uibModal = $uibModal;
+    quizManagerService = quizManager;
+    scoreManagerService = scoreManager;
+    quizModalManagerService = quizModalManager;
   }]));
 
-  it('initialize word manager service', function() {
-    expect(wordManagerService.init).toHaveBeenCalled();
+  it('load question on init', function() {
+    expect(quizManagerService.init).toHaveBeenCalled();
+    expect(wordQuizCtrl.nav).toBeFalsy();
   });
 
-  it('load question on init', function() {
-    expect(wordManagerService.getWord).toHaveBeenCalled();
-    expect(wordQuizCtrl.nav).toBeFalsy();
-    expect(wordQuizCtrl.answerState).toEqual('NA');
-    _.each(wordQuizCtrl.answer, function(data) {
-      expect(data).toEqual({});
-    });
-    expect(wordQuizCtrl.answer.length).toEqual(wordQuizCtrl.data.translation.ua[0].length);
-    expect(wordQuizCtrl.loading).toBeFalsy();
+  it('loading text is set', function() {
+    expect(wordQuizCtrl.loadingText).toBeDefined();
   });
 
   it('loadQuestion retrives new word and reset to initial state', function() {
     wordQuizCtrl.loadQuestion();
-    expect(wordManagerService.getWord).toHaveBeenCalled();
+    expect(quizManagerService.onLoad).toHaveBeenCalled();
     expect(wordQuizCtrl.nav).toBeFalsy();
-    expect(wordQuizCtrl.answerState).toEqual('NA');
-    _.each(wordQuizCtrl.answer, function(data) {
-      expect(data).toEqual({});
-    });
-    expect(wordQuizCtrl.answer.length).toEqual(wordQuizCtrl.data.translation.ua[0].length);
   });
 
-  it('checkAnswer change answerState to NA if answer is empty', function() {
-    wordQuizCtrl.checkAnswer();
-    expect(wordQuizCtrl.answerState).toEqual('NA');
-  });
-
-  it('checkAnswer change answerState to INCORRECT if answer is full, but not correct', function() {
-    for(var i = 0; i < wordQuizCtrl.data.translation.ua[0].length; ++i) {
-      wordQuizCtrl.answer[i] = {char: 'a'};
-    }
-
-    wordQuizCtrl.checkAnswer();
-    expect(wordQuizCtrl.answerState).toEqual('INCORRECT');
-  });
-
-  it('checkAnswer change answerState to CORRECT if answer is full and correct', function() {
-    var position = 0;
-
-    _.forEach(wordQuizCtrl.data.translation.ua[0], function(elem) {
-      wordQuizCtrl.answer[position++] = {char: elem};
-    });
-
-    wordQuizCtrl.checkAnswer();
-    expect(wordQuizCtrl.answerState).toEqual('CORRECT');
-  });
-
-  it('checkAnswer change answerState to NA if answer is partly correctly filled', function() {
-    for(var i = 0; i < wordQuizCtrl.data.translation.ua[0].length; ++i) {
-      wordQuizCtrl.answer[i];
-    }
-
-    wordQuizCtrl.answer[1] = {char: wordQuizCtrl.data.translation.ua[0][1]}
-
-    wordQuizCtrl.checkAnswer();
-    expect(wordQuizCtrl.answerState).toEqual('NA');
-  });
-
-  it('isCorrect is true if answer state is CORRECT', function() {
-    wordQuizCtrl.answerState = 'CORRECT';
-    expect(wordQuizCtrl.isCorrect()).toBeTruthy();
-  });
-
-  it('isCorrect is true if answer state is not CORRECT', function() {
-    wordQuizCtrl.answerState = 'NA';
-    expect(wordQuizCtrl.isCorrect()).toBeFalsy();
-  });
-
-  it('startNavigation move to next word in a dictionary', function() {
-    wordQuizCtrl.startNavigation();
-    expect(scoreManagerService.onAnswer).toHaveBeenCalled();
-    expect(wordManagerService.hasNext).toHaveBeenCalled();
+  it('onNavigation move to next word in a dictionary', function() {
+    quizManagerService.next = jasmine.createSpy('next').and.returnValue(true);
+    wordQuizCtrl.onNavigation();
+    expect(quizManagerService.state).toHaveBeenCalled();
+    expect(scoreManagerService.onAnswer).toHaveBeenCalledWith('NA');
+    expect(quizManagerService.next).toHaveBeenCalled();
     expect(wordQuizCtrl.nav).toBeTruthy();
-    expect(wordManagerService.nextWord).toHaveBeenCalled();
   });
 
-  it('startNavigation show score for last word', function() {
-    spyOn(uibModal, 'open');
-
-    wordQuizCtrl.startNavigation();
-    wordQuizCtrl.loadQuestion();
-    wordQuizCtrl.startNavigation();
-    expect(scoreManagerService.onAnswer).toHaveBeenCalledTimes(2);
-    expect(wordManagerService.hasNext).toHaveBeenCalledTimes(2);
+  it('onNavigation show score for last word', function() {
+    quizManagerService.next = jasmine.createSpy('next').and.returnValue(false);
+    spyOn(quizModalManagerService, 'finishModal');
+    wordQuizCtrl.onNavigation();
+    expect(scoreManagerService.onAnswer).toHaveBeenCalledWith('NA');
+    expect(quizManagerService.next).toHaveBeenCalled();
     expect(wordQuizCtrl.nav).toBeFalsy();
-    expect(wordManagerService.nextWord).toHaveBeenCalledTimes(1);
-    expect(uibModal.open).toHaveBeenCalled();
+    expect(quizModalManagerService.finishModal).toHaveBeenCalled();
   });
 
-  it('applyAnswer set correct translation for the word', function() {
+  it('applyAnswer set correct answer for the quiz', function() {
     wordQuizCtrl.applyAnswer();
-    wordQuizCtrl.checkAnswer();
-    expect(wordQuizCtrl.isCorrect()).toBe(true);
+    expect(quizManagerService.applyAnswer).toHaveBeenCalled();
     expect(scoreManagerService.useSolution).toHaveBeenCalled();
   });
 
@@ -153,5 +87,50 @@ describe('Word quiz controller', function() {
   it('score call through to score manager', function() {
     wordQuizCtrl.score();
     expect(scoreManagerService.get).toHaveBeenCalled();
+  });
+
+  it('isCorrect call through to quiz manager', function() {
+    wordQuizCtrl.isCorrect();
+    expect(quizManagerService.isCorrect).toHaveBeenCalled();
+  });
+
+  it('checkAnswer call through to quiz manager', function() {
+    wordQuizCtrl.checkAnswer();
+    expect(quizManagerService.checkAnswer).toHaveBeenCalled();
+  });
+
+  it('isLoaded call through to quiz manager', function() {
+    wordQuizCtrl.isLoaded();
+    expect(quizManagerService.isLoaded).toHaveBeenCalled();
+  });
+
+  it('state call through to quiz manager', function() {
+    wordQuizCtrl.answerState();
+    expect(quizManagerService.state).toHaveBeenCalled();
+  });
+
+  it('word call through to quiz manager', function() {
+    wordQuizCtrl.word();
+    expect(quizManagerService.word).toHaveBeenCalled();
+  });
+
+  it('translation call through to quiz manager', function() {
+    wordQuizCtrl.translation();
+    expect(quizManagerService.translation).toHaveBeenCalled();
+  });
+
+  it('answer call through to quiz manager', function() {
+    wordQuizCtrl.answer();
+    expect(quizManagerService.answer).toHaveBeenCalled();
+  });
+
+  it('definition call through to quiz manager', function() {
+    wordQuizCtrl.definition();
+    expect(quizManagerService.definition).toHaveBeenCalled();
+  });
+
+  it('inSentence call through to quiz manager', function() {
+    wordQuizCtrl.inSentence();
+    expect(quizManagerService.inSentence).toHaveBeenCalled();
   });
 });
