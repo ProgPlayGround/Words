@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-  module.controller('QuizFinishModalCtrl', [
+  angular.module('words').controller('QuizFinishModalCtrl', [
     '$state', '$uibModalInstance', 'scoreManager', 'nextState',
     function($state, $uibModalInstance, scoreManager, nextState) {
       var vm = this;
@@ -10,4 +10,4 @@
         $uibModalInstance.close();
       }
     }]);
-})(angular.module('words'));
+})();

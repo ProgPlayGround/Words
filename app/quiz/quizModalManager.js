@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-  module.factory('quizModalManager', ['$uibModal', function($uibModal) {
+  angular.module('words').factory('quizModalManager', ['$uibModal', function($uibModal) {
     return {
       finishModal: function(nextState) {
         $uibModal.open({
@@ -19,4 +19,4 @@
       }
     }
   }]);
-})(angular.module('words'));
+})();

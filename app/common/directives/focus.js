@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-  module.directive('focus', function() {
+  angular.module('words').directive('focus', function() {
       return {
         restrict: 'E',
         controller: function($scope) {
@@ -30,4 +30,4 @@
         }
       };
     });
-  })(angular.module('words'));
+  })();

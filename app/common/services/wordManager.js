@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-  module.factory('wordManager', ['wordLoader', function(wordLoader) {
+  angular.module('words').factory('wordManager', ['wordLoader', function(wordLoader) {
     var words;
     return {
       init: function(onSuccess, onReject) {
@@ -18,4 +18,4 @@
       }
     };
   }]);
-})(angular.module('words'));
+})();

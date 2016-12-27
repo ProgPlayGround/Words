@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-  module.config(['$stateProvider', '$urlRouterProvider', '$qProvider',
+  angular.module('words', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngAnimate']).config(['$stateProvider', '$urlRouterProvider', '$qProvider',
   function($stateProvider, $urlRouterProvider, $qProvider) {
     $qProvider.errorOnUnhandledRejections(false);
     $stateProvider.state('main', {
@@ -24,4 +24,4 @@
 
     $urlRouterProvider.otherwise('/main');
   }]);
-})(angular.module('words', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngAnimate']));
+})();

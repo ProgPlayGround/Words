@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
 'use strict';
-module.directive('loading', ['$animate', '$interval', 'requestCounter',
+angular.module('words').directive('loading', ['$animate', '$interval', 'requestCounter',
  function($animate, $interval, requestCounter) {
   return {
     restrict: 'E',
@@ -45,4 +45,4 @@ module.directive('loading', ['$animate', '$interval', 'requestCounter',
     }
     };
   }]);
-})(angular.module('words'));
+})();

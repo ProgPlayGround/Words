@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-  module.directive('item', function() {
+  angular.module('words').directive('item', function() {
     return {
       require: '^loading',
       restrict: 'A',
@@ -9,4 +9,4 @@
       }
     }
   });
-})(angular.module('words'));
+})();

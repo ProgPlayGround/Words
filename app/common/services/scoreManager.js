@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-  module.factory('scoreManager', function() {
+  angular.module('words').factory('scoreManager', function() {
     var score = 0;
     var points = 50;
     return {
@@ -21,4 +21,4 @@
       }
     };
   });
-})(angular.module('words'));
+})();

@@ -1,6 +1,6 @@
-(function(module){
+(function(){
   'use strict';
-  module.directive('nextWordNav', ['$animate', function($animate) {
+  angular.module('words').directive('nextWordNav', ['$animate', function($animate) {
     return {
       restrict: 'A',
       scope: {
@@ -22,4 +22,4 @@
       }
     };
   }]);
-})(angular.module('words'));
+})();

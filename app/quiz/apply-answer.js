@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-  module.directive('applyAnswer', function() {
+  angular.module('words').directive('applyAnswer', function() {
     return {
       restrict: 'A',
       scope: {
@@ -25,4 +25,4 @@
       }
     }
   });
-})(angular.module('words'));
+})();

@@ -1,6 +1,6 @@
-(function(module){
+(function(){
   'use strict';
-  module.directive('letter', function() {
+  angular.module('words').directive('letter', function() {
     return {
       require:['^focus','ngModel'],
       restrict: 'A',
@@ -81,4 +81,4 @@
       }
     };
   });
-})(angular.module('words'));
+})();

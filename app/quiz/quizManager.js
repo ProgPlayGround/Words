@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-  module.factory('quizManager', ['wordManager', function(wordManager) {
+  angular.module('words').factory('quizManager', ['wordManager', function(wordManager) {
     var quiz, answer, answerState;
 
     var factory = {
@@ -76,4 +76,4 @@
 
     return factory;
   }]);
-})(angular.module('words'));
+})();

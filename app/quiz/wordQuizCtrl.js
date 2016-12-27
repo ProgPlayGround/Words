@@ -1,6 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-  module.controller('WordQuizCtrl', ['quizManager', 'quizModalManager', 'scoreManager',
+  angular.module('words').controller('WordQuizCtrl', ['quizManager', 'quizModalManager', 'scoreManager',
   function(quizManager, quizModalManager, scoreManager) {
     var vm = this;
     vm.loadingText = 'Loading...';
@@ -42,4 +42,4 @@
     }
   }]);
 
-})(angular.module('words'));
+})();

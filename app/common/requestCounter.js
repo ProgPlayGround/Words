@@ -1,7 +1,6 @@
-(function(module) {
+(function() {
   'use strict';
-
-  module.factory('requestCounter', ['$q', function($q) {
+  angular.module('words').factory('requestCounter', ['$q', function($q) {
     var requests = 0;
     return {
       request: function(config) {
@@ -26,7 +25,7 @@
     };
   }]);
 
-  module.config(['$httpProvider', function($httpProvider) {
+  angular.module('words').config(['$httpProvider', function($httpProvider) {
     $httpProvider.interceptors.push('requestCounter');
   }]);
-})(angular.module('words'));
+})();
