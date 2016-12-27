@@ -2,7 +2,7 @@
 module.exports = function(config) {
   config.set({
 
-    basePath: './app',
+    basePath: '.',
 
     files: [
       'bower_components/angular/angular.js',
@@ -13,11 +13,11 @@ module.exports = function(config) {
       'bower_components/angular-bootstrap/ui-bootstrap.min.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'bower_components/underscore/underscore-min.js',
-      'app.js',
-      'components/**/*.js',
-      'services/**/*.js',
-      'view*/**/*.js',
-      'controllers/**/*.js'
+      'spec/**/*.spec.js',
+      'app/app.js',
+      'app/common/**/*.js',
+      'app/main/**/*.js',
+      'app/quiz/**/*.js'
     ],
 
     autoWatch: true,
