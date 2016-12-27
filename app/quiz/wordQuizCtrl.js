@@ -3,7 +3,6 @@
   module.controller('WordQuizCtrl', ['quizManager', 'quizModalManager', 'scoreManager',
   function(quizManager, quizModalManager, scoreManager) {
     var vm = this;
-    //
     vm.loadingText = 'Loading...';
     quizManager.init(afterLoad);
 
@@ -22,7 +21,7 @@
       if(quizManager.next()) {
         vm.nav = true;
       } else {
-        quizModalManager.finishModal(scoreManager.get(), 'main');
+        quizModalManager.finishModal('main');
       }
     };
 

@@ -9,7 +9,7 @@
         return $q.when(config);
       },
       requestError: function(error) {
-        reuqests -= 1;
+        requests -= 1;
         return $q.reject(error);
       },
       response: function(response) {

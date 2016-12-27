@@ -8,8 +8,6 @@ describe('word loader service', function() {
   beforeEach(inject(['wordLoader', '$httpBackend', function(wordLoader, $httpBackend) {
     wordLoaderService = wordLoader;
     httpBackend = $httpBackend;
-    httpBackend.verifyNoOutstandingExpectation();
-    httpBackend.verifyNoOutstandingRequest();
   }]));
 
   it('allWords retrieve data from dictionary resource', function() {
@@ -19,5 +17,7 @@ describe('word loader service', function() {
     wordLoaderService.allWords();
 
     expect(httpBackend.flush).not.toThrow();
+    httpBackend.verifyNoOutstandingExpectation();
+    httpBackend.verifyNoOutstandingRequest();
   });
 });

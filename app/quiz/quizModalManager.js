@@ -1,21 +1,19 @@
 (function(module) {
   'use strict';
-  module.factory('quizModalManager', ['$state', '$uibModal', function($state, $uibModal) {
+  module.factory('quizModalManager', ['$uibModal', function($uibModal) {
     return {
-      finishModal: function(score, nextState) {
-        var modal = $uibModal.open({
+      finishModal: function(nextState) {
+        $uibModal.open({
           templateUrl: 'quiz/finishModal.html',
           backdrop: 'static',
           size: 'md',
-          controller: function() {
-            var vm = this;
-            vm.score = score;
-            vm.close = function() {
-              $state.go(nextState);
-              modal.close();
+          controller: 'QuizFinishModalCtrl',
+          controllerAs: 'mc',
+          resolve: {
+            nextState: function() {
+              return nextState;
             }
           },
-          controllerAs: 'mc',
           windowClass: 'quiz_modal_window'
         });
       }
