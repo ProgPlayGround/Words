@@ -344,3 +344,19 @@ img, iframe, video, object {
 .main_inner_game_container:hover {
   transform: scale(1.01);
 }
+
+.profile_container {
+  background-color: blue;
+  height: 80vh;
+}
+
+.nav-tabs>li>a {
+  border: 0;
+  border-radius: 0;
+  margin-right: 0;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}

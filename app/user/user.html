@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2 no-padding">
+        <ul class="nav nav-tabs nav-stacked">
+            <li ng-class="{'active': upc.isActive('profile')}">
+                <a class="btn-lg" ng-click="upc.select('profile')"
+                ui-sref="user.profile">Profile</a>
+            </li>
+            <li ng-class="{'active': upc.isActive('dictionary')}">
+                <a class="btn-lg" ng-click="upc.select('dictionary')" ui-sref="user.profile">Dictionary</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-10 no-padding">
+        <div class="profile_container" ui-view></div>
+    </div>
+  </div>
+</div>

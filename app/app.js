@@ -8,6 +8,15 @@
       templateUrl: 'main/main.html',
       controller: 'MainCtrl',
       controllerAs: 'mc'
+    }).state('user', {
+      abstract:true,
+      url: '/user',
+      templateUrl: 'user/user.html',
+      controller: 'UserProfileCtrl',
+      controllerAs: 'upc'
+    }).state('user.profile', {
+      url: '/profile',
+      templateUrl: 'user/profile.html'
     }).state('quiz', {
       abstract: true,
       url: '/quiz',
