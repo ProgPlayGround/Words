@@ -1,18 +1,26 @@
-<div class="container">
+<div class="user_container">
   <div class="row">
-    <div class="col-sm-2 no-padding">
-        <ul class="nav nav-tabs nav-stacked">
-            <li ng-class="{'active': upc.isActive('profile')}">
-                <a class="btn-lg" ng-click="upc.select('profile')"
-                ui-sref="user.profile">Profile</a>
-            </li>
-            <li ng-class="{'active': upc.isActive('dictionary')}">
-                <a class="btn-lg" ng-click="upc.select('dictionary')" ui-sref="user.profile">Dictionary</a>
-            </li>
-        </ul>
-    </div>
+      <ul class="tabs nav nav-tabs nav-stacked">
+          <li ng-class="{'active': user.isActive('profile')}">
+              <a class="tab_img" ng-click="user.select('profile')"
+              ui-sref="user.profile">
+                <figure>
+                  <img class="tab_img" src="images/profile.png"/>
+                  <figcaption>My profile</figcaption>
+                </figure>
+              </a>
+          </li>
+          <li ng-class="{'active': user.isActive('dictionary')}">
+              <a ng-click="user.select('dictionary')" ui-sref="user.profile">
+                <figure>
+                  <img class="tab_img" src="images/dictionary.png"/>
+                  <figcaption>Dictionary</figcaption>
+                </figure>
+              </a>
+          </li>
+      </ul>
     <div class="col-sm-10 no-padding">
-        <div class="profile_container" ui-view></div>
+        <div class="user_data_container" ui-view></div>
     </div>
   </div>
 </div>

@@ -7,13 +7,13 @@
       url: '/main',
       templateUrl: 'main/main.html',
       controller: 'MainCtrl',
-      controllerAs: 'mc'
+      controllerAs: 'main'
     }).state('user', {
       abstract:true,
       url: '/user',
       templateUrl: 'user/user.html',
       controller: 'UserProfileCtrl',
-      controllerAs: 'upc'
+      controllerAs: 'user'
     }).state('user.profile', {
       url: '/profile',
       templateUrl: 'user/profile.html'
