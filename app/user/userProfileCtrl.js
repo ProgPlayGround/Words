@@ -1,5 +1,5 @@
 (function(){
-  angular.module('words').controller('UserProfileCtrl', ['ProfileManager', function(profileManager) {
+  angular.module('words').controller('UserProfileCtrl', ['profileManager', function(profileManager) {
     var vm = this;
     vm.selected = 'profile';
 
