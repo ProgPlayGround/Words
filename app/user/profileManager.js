@@ -3,7 +3,7 @@
     var profile = $resource('http://localhost:3000/profile');
 
     return {
-      profile: function(id) {
+      profile: function() {
         return profile.get();
       }
     }

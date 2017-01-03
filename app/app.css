@@ -364,16 +364,15 @@ img, iframe, video, object {
   border-bottom: 0;
 }
 
-.nav-tabs>li>a {
-  border: 0;
+.nav-tabs > li > a {
   border-radius: 0;
   margin-right: 0;
   border: 0;
 }
 
-.nav-tabs>li.active>a,
-.nav-tabs>li.active>a:focus,
-.nav-tabs>li.active>a:hover {
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
   border: 0;
 }
 
@@ -383,12 +382,12 @@ img, iframe, video, object {
 }
 
 .tabs {
-  float:left;
+  float: left;
 }
 
 .tab_img {
-  display:block;
-  margin:auto;
+  display: block;
+  margin: auto;
 }
 
 .avatar {

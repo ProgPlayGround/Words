@@ -1,5 +1,5 @@
 
-<img class="img-thumbnail avatar" ng-src={{user.profile.avatar}}/>
+<img class="img-thumbnail avatar" alt="avatar" ng-src="{{user.profile.avatar}}"/>
 <div class="center">
   <div class="profile_username">{{user.profile.info.name}}</div>
   <div class="profile_info">Age: {{user.profile.info.age}}, status: {{user.profile.rank.status}}</div>
@@ -8,7 +8,7 @@
   <div class="rank_level">{{user.profile.rank.level}}</div>
   <uib-progressbar class="rank_bar" value="user.profile.rank.progress" type="success"></uib-progressbar>
 </div>
-<img class="background_img" src="images/education.png"/>
+<img class="background_img" alt="education" src="images/education.png"/>
 <div class="center profile_activity">
     <div class="profile_activity_header">Activities</div>
     <hr class="profile_divider"/>
