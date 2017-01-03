@@ -31,7 +31,7 @@ describe('QuizFinishModalCtrl', function() {
     expect(controller.score).toBe(35);
   });
 
-  fit('close navigate to state and dismiss dialog', function() {
+  it('close navigate to state and dismiss dialog', function() {
     spyOn(state, 'go');
     controller.close();
     expect(state.go).toHaveBeenCalledWith(nextState);
