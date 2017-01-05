@@ -1,13 +1,22 @@
-<div class="col-sm-offset-3 col-sm-6">
-  <div class="center">Login form:</div>
-  <form name="loginForm" ng-submit="lgn.login(username, password)" role="form">
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" name="username" class="form-control" required></input>
-      <span class="help-block">Username is required</span>
+<div class="login_container">
+  <div class="login_form_container">
+    <div class="login_form_content">
+      <div class="col-sm-offset-3 col-sm-6">
+        <form name="loginForm" ng-submit="lgn.login(username, password)" role="form">
+          <div class="form-group">
+            <input type="text" name="username" class="form-control" ng-model="lgn.email" placeholder="Email" novalidate></input>
+            <span class="center help-block">Email is required</span>
+            <input type="password" name="password" class="form-control" ng-model="lgn.password" placeholder="Password" novalidate></input>
+            <span class="center help-block">Password is required</span>
+          </div>
+          <div class="center">
+            <input type="submit" class="btn" value="Create Account"></input>
+          </div>
+        </form>
+        <div ng-if="login.authFailed">
+          Failed
+        </div>
+      </div>
     </div>
-  </form>
-  <div ng-if="login.authFailed">
-    Failed
   </div>
 </div>

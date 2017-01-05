@@ -470,3 +470,30 @@ img, iframe, video, object {
   overflow: hidden;
   z-index: 1;
 }
+
+.login_container {
+  display: table;
+  position: absolute;
+  height: 80%;
+  width: 100%;
+}
+
+.login_form_container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.login_form_content {
+  width: 30%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2%;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.btn_registration {
+  margin-left: auto;
+  margin-right: auto;
+}

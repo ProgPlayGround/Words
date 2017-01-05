@@ -8,11 +8,11 @@
           .then(function(response) {
 
             if(response.success) {
-              userService.set(username, response.token);
+              userService.set(email, response.token);
               $http.defaults.headers.common['Authorization'] = 'Basic ' + response.token;
               $cookies.putObject('user', userService.get(), {expires: response.expires});
             }
-            
+
             callback(response);
           });
       },
