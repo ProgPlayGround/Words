@@ -1,0 +1,13 @@
+<div class="col-sm-offset-3 col-sm-6">
+  <div class="center">Login form:</div>
+  <form name="loginForm" ng-submit="lgn.login(username, password)" role="form">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" name="username" class="form-control" required></input>
+      <span class="help-block">Username is required</span>
+    </div>
+  </form>
+  <div ng-if="login.authFailed">
+    Failed
+  </div>
+</div>

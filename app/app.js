@@ -29,8 +29,13 @@
     }).state('quiz.description', {
       url: '/description',
       templateUrl: 'quiz/word-quiz.description.html'
+    }).state('login', {
+      url: '/login',
+      templateUrl: 'login/login.html',
+      controller: 'LoginCtrl',
+      controllerAs: 'lgn'
     });
 
-    $urlRouterProvider.otherwise('/main');
+    $urlRouterProvider.otherwise('/login');
   }]);
 })();
