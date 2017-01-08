@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
 </head>
 <body class="background">
-  <div ng-include src="'common/navbar.html'"></div>
+  <div ng-controller="navbarCtrl as nav" ng-include src="'navbar/navbar.html'"></div>
   <div ui-view></div>
 
   <script src="bower_components/angular/angular.js"></script>
@@ -43,5 +43,6 @@
   <script src="user/userProfileCtrl.js"></script>
   <script src="user/profileManager.js"></script>
   <script src="login/loginCtrl.js"></script>
+  <script src="navbar/navbarCtrl.js"></script>
 </body>
 </html>
