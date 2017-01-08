@@ -1,7 +1,8 @@
 (function() {
   'use strict';
-  angular.module('words', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngCookies', 'ngAnimate']).config(['$stateProvider', '$urlRouterProvider', '$qProvider',
-  function($stateProvider, $urlRouterProvider, $qProvider) {
+  angular.module('words', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngCookies', 'ngAnimate'])
+  .config(['$stateProvider', '$urlRouterProvider', '$qProvider', '$httpProvider',
+  function($stateProvider, $urlRouterProvider, $qProvider, $httpProvider) {
     $qProvider.errorOnUnhandledRejections(false);
     $stateProvider.state('main', {
       url: '/main',
@@ -37,5 +38,7 @@
     });
 
     $urlRouterProvider.otherwise('/login');
+
+    $httpProvider.interceptors.push('forbiddenInterceptor', 'requestCounter');
   }]);
 })();

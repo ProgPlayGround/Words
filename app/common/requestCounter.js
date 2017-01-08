@@ -24,8 +24,4 @@
       }
     };
   }]);
-
-  angular.module('words').config(['$httpProvider', function($httpProvider) {
-    $httpProvider.interceptors.push('requestCounter');
-  }]);
 })();
