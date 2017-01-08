@@ -4,10 +4,9 @@
   angular.module('words').factory('userService', function() {
     var user;
     return {
-      set: function(id, token) {
+      set: function(username) {
         user = {
-          'id': id,
-          'token': token
+          'username': username
         };
       },
       clear: function() {

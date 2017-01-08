@@ -1,25 +1,23 @@
 (function() {
   'use strict';
 
-  angular.module('words').factory('authService', ['$http', '$cookies', 'userService', function($http, $cookies, userService) {
+  angular.module('words').factory('authService', ['$resource', '$cookies', 'userService', function($resource, $cookies, userService) {
     return {
       login: function(username, password, callback) {
-        $http.post('https://localhost:3000/authenticate', {'username': username, 'password': password})
+        $resource('http://localhost:3000/authenticate/registration')
+        .save({'username': username, 'password': password}).$promise
           .then(function(response) {
-
             if(response.success) {
-              userService.set(email, response.token);
-              $http.defaults.headers.common['Authorization'] = 'Basic ' + response.token;
-              $cookies.putObject('user', userService.get(), {expires: response.expires});
+              userService.set(username);
+              $cookies.put('token', response.token);
             }
 
             callback(response);
           });
       },
-      clear: function() {
+      logout: function() {
         userService.clear();
-        $http.defaults.headers.common['Authorization'] = 'Basic';
-        $cookies.remove('user');
+        $cookies.remove('token');
       }
     };
   }]);
