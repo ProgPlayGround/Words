@@ -16,8 +16,25 @@
           });
       },
       logout: function() {
-        userService.clear();
-        $cookies.remove('token');
+
+        $resource('http://localhost:3000/authenticate/logout', {}, {
+          'logout': {
+            'method': 'POST',
+            'headers': {
+              'x-access-token': $cookies.get('token')
+            }
+          }
+        })
+        .logout().$promise
+          .then(function(response) {
+            console.log(response);
+            if(response.success) {
+              userService.clear();
+              $cookies.remove('token');
+            }
+
+            callback(response);
+          });
       }
     };
   }]);
