@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('LoginCtrl', ['$state', 'authService', function($state, authService) {
+  angular.module('words').controller('LoginCtrl', ['$state', 'authService',  function($state, authService) {
     var vm = this;
     vm.email = '';
     vm.password = '';
@@ -11,7 +11,7 @@
         if(response.success) {
           $state.go('main');
         } else {
-          vm.authFailed = true;
+
         }
       });
     };

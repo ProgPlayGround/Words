@@ -30,14 +30,23 @@
     }).state('quiz.description', {
       url: '/description',
       templateUrl: 'quiz/word-quiz.description.html'
-    }).state('login', {
+    }).state('auth', {
+      abstract: true,
+      url: '/auth',
+      templateUrl: 'auth/auth.html',
+    }).state('auth.login', {
       url: '/login',
-      templateUrl: 'login/login.html',
+      templateUrl: 'auth/login.html',
       controller: 'LoginCtrl',
-      controllerAs: 'lgn'
+      controllerAs: 'auth'
+    }).state('auth.registration', {
+      url: '/registration',
+      templateUrl:'auth/registration.html',
+      controller: 'RegistrationCtrl',
+      controllerAs: 'auth'
     });
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/auth/login');
 
     $httpProvider.interceptors.push('forbiddenInterceptor', 'requestCounter');
   }]);
