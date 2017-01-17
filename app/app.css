@@ -552,6 +552,25 @@ img, iframe, video, object {
   transition: all 0.25s ease-in-out;
 }
 
+.auth_tab, .auth_tab_selected {
+  padding: 0 3% 3% 3%;
+  border-radius: 0;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all 0.25s ease-in-out;
+}
+
+.auth_tab_selected {
+  border-bottom: 1px solid #74afad;
+}
+
 .btn_base:hover {
   background-color: #74afad;
 }
@@ -582,7 +601,7 @@ img, iframe, video, object {
 }
 
 .auth_margin {
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 .shadow {
@@ -608,6 +627,7 @@ img, iframe, video, object {
   font-size: 0.7em;
   font-weight: bold;
   opacity: 0.6;
-  margin-bottom: 0;
-  margin-top: 2px;
+  margin-bottom: 5px;
+  min-height: 0.8em;
+  max-height: 0.8em;
 }
