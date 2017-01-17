@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('RegistrationCtrl', ['authService', function(authService) {
+  angular.module('words').controller('RegistrationCtrl', ['$state', 'authService', function($state, authService) {
     var vm = this;
     vm.email = '';
     vm.password = '';

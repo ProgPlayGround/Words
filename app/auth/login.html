@@ -8,11 +8,12 @@
 <div class="col-sm-offset-2 col-sm-8">
   <form name="loginForm" ng-submit="auth.login()" role="form">
     <div class="form-group">
-      <input type="text" name="username" class="form-control auth_input" ng-model="auth.email" placeholder="Email" novalidate></input>
-      <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password" placeholder="Password" novalidate></input>
+      <input type="email" name="username" class="form-control auth_input" ng-model="auth.email" placeholder="Email" required></input>
+      <span class="auth_help_block help-block" ng-if="">Email is required</span>
+      <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password" placeholder="Password" required></input>
     </div>
     <div class="center">
-      <input type="submit" class="btn btn_base btn_auth_submit" value="Login"></input>
+      <button type="submit" class="btn btn_base btn_auth_submit" ng-disabled="loginForm.$invalid">Login</button>
     </div>
   </form>
 </div>

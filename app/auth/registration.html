@@ -6,13 +6,24 @@
   <hr class="divider"/>
 </div>
 <div class="col-sm-offset-2 col-sm-8">
-  <form name="loginForm" ng-submit="auth.login()" role="form">
+  <form name="registraionForm" ng-submit="auth.registration()" role="form">
     <div class="form-group">
-      <input type="text" name="username" class="form-control auth_input" ng-model="auth.email" placeholder="Email" novalidate></input>
-      <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password" placeholder="Password" novalidate></input>
+      <input type="email" name="username" class="form-control auth_input" ng-model="auth.email" placeholder="Email" required></input>
+      <div class="auth_help_block" ng-messages="registraionForm.username.$error" role="alert">
+        <div ng-message="required">The field is required</div>
+        <div ng-message="email">Your email address is invalid</div>
+      </div>
+      <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password" check-password="registraionForm.password.$error"
+       placeholder="Password" required minlength="8" maxlength="16"></input>
+      <div class="auth_help_block" ng-messages="registraionForm.password.$error" role="alert">
+        <div ng-message="required">The field is required</div>
+        <div ng-message="invalidPassword">Password should contain only ASCII characters</div>
+        <div ng-message="minlength">Password can't be less then 8 characters</div>
+        <div ng-message="maxlength">Password can't be more then 16 characters</div>
+      </div>
     </div>
     <div class="center">
-      <input type="submit" class="btn btn_base btn_auth_submit" value="Create Account"></input>
+      <button type="submit" class="btn btn_base btn_auth_submit" ng-disabled="registraionForm.$invalid">Create Account</button>
     </div>
   </form>
 </div>

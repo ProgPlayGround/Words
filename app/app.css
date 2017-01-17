@@ -552,8 +552,20 @@ img, iframe, video, object {
   transition: all 0.25s ease-in-out;
 }
 
+.btn_base:hover {
+  background-color: #74afad;
+}
+
+.btn_base.fog:hover {
+  opacity: 1;
+}
+
 .btn_auth_submit {
   background-color: #ececea;
+}
+
+.btn_auth_submit:focus {
+  outline:none !important;
 }
 
 .fog {
@@ -590,4 +602,12 @@ img, iframe, video, object {
 .btn_oauth_icon {
   float:left;
   font-size: 30px;
+}
+
+.auth_help_block {
+  font-size: 0.7em;
+  font-weight: bold;
+  opacity: 0.6;
+  margin-bottom: 0;
+  margin-top: 2px;
 }

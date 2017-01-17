@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('words', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngCookies', 'ngAnimate'])
+  angular.module('words', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngCookies', 'ngAnimate', 'ngMessages'])
   .config(['$stateProvider', '$urlRouterProvider', '$qProvider', '$httpProvider',
   function($stateProvider, $urlRouterProvider, $qProvider, $httpProvider) {
     $qProvider.errorOnUnhandledRejections(false);

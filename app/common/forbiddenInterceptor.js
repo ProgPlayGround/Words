@@ -4,7 +4,7 @@
     return {
       responseError: function(error) {
         if(error.status == 403) {
-          $injector.get('$state').go('login');
+          $injector.get('$state').go('auth.login');
         } else {
           return $q.reject(error);
         }
