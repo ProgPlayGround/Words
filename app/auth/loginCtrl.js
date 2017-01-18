@@ -5,16 +5,21 @@
     var vm = this;
     vm.email = '';
     vm.password = '';
-    vm.error = ''
+    vm.error = '';
+    
     vm.login = function() {
-      authService.login(vm.email, vm.password, function(response) {
-        if(response.success) {
-          $state.go('main');
-        } else {
-          console.log(response.message);
-          vm.error = response.message;
-        }
-      });
+      if(vm.email == '' || vm.password == '') {
+        vm.errorClick = true;
+      } else {
+        authService.login(vm.email, vm.password, function(response) {
+          if(response.success) {
+            $state.go('main');
+          } else {
+            console.log(response.message);
+            vm.error = response.message;
+          }
+        });
+      }
     };
   }]);
 })();

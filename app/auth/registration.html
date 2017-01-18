@@ -8,13 +8,13 @@
 <div class="col-sm-offset-2 col-sm-8">
   <form name="registraionForm" ng-submit="auth.registration()" role="form">
     <div class="form-group">
-      <input type="email" name="username" class="form-control auth_input" ng-model="auth.email" placeholder="Email" required></input>
+      <input type="email" name="username" class="form-control auth_input" ng-model="auth.email" required-on-condition="auth.errorClick" placeholder="Email" novalidate></input>
       <div class="auth_help_block" ng-messages="registraionForm.username.$error" role="alert">
         <div ng-message="required">The field is required</div>
         <div ng-message="email">Your email address is invalid</div>
       </div>
-      <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password" check-password="registraionForm.password.$error"
-       placeholder="Password" required minlength="8" maxlength="16"></input>
+      <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password"
+       check-password required-on-condition="auth.errorClick" placeholder="Password" minlength="8" maxlength="16" novalidate></input>
       <div class="auth_help_block" ng-messages="registraionForm.password.$error" role="alert">
         <div ng-message="required">The field is required</div>
         <div ng-message="invalidPassword">Password should contain only ASCII characters</div>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="center">
-      <button type="submit" class="btn btn_base btn_auth_submit" ng-disabled="registraionForm.$invalid">Create Account</button>
+      <button type="submit" class="btn btn_base btn_auth_submit">Create Account</button>
     </div>
   </form>
 </div>
