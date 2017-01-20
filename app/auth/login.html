@@ -8,15 +8,17 @@
 <div class="col-sm-offset-2 col-sm-8">
   <form name="loginForm" ng-submit="auth.login()" role="form">
     <div class="form-group">
-      <input type="email" name="username" class="form-control auth_input" ng-model="auth.email" required-on-condition="auth.errorClick" placeholder="Email" novalidate></input>
+      <input type="email" name="username" class="form-control auth_input" ng-model="auth.email" error-message message="auth.error.login" required-on-condition="auth.errorClick" placeholder="Email" novalidate></input>
       <div class="auth_help_block" ng-messages="loginForm.username.$error" role="alert">
         <div ng-if="auth.errorClick" ng-message="required">The field is required</div>
         <div ng-message="email">Your email address is invalid</div>
+        <div ng-message="error">{{auth.error.login}}</div>
       </div>
       <span class="auth_help_block help-block" ng-if="">Email is required</span>
-      <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password" required-on-condition="auth.errorClick" placeholder="Password" novalidate></input>
+      <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password" error-message message="auth.error.password" required-on-condition="auth.errorClick" placeholder="Password" novalidate></input>
       <div class="auth_help_block" ng-messages="loginForm.password.$error" role="alert">
         <div ng-message="required">The field is required</div>
+        <div ng-message="error">{{auth.error.password}}</div>
       </div>
     </div>
     <div class="center">

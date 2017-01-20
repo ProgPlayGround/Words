@@ -13,7 +13,7 @@
             }
 
             callback(response);
-          });
+          }).catch(callback);
       },
       registration: function(username, password, callback) {
         $resource('https://localhost:3000/authenticate/registration')
@@ -25,7 +25,7 @@
             }
 
             callback(response);
-          });
+          }).catch(callback);
       },
       logout: function() {
         userService.clear();
