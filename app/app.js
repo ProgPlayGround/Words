@@ -49,5 +49,28 @@
     $urlRouterProvider.otherwise('/auth/login');
 
     $httpProvider.interceptors.push('forbiddenInterceptor', 'requestCounter');
+  }])
+  .run(['$state', '$window', 'fbAuthService', function($state, $window, fbAuthService) {
+    $window.fbAsyncInit = function() {
+      FB.init({
+        appId: '1225456694157240',
+        status: true,
+        cookie: true,
+        xfbml: true,
+        version: 'v2.8'
+      });
+
+      fbAuthService.onLoginStateChanged(function() {
+        console.log('callback');
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
   }]);
 })();

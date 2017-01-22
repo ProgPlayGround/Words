@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('LoginCtrl', ['$state', 'authService',  function($state, authService) {
+  angular.module('words').controller('LoginCtrl', ['$state', 'authService', 'fbAuthService', function($state, authService, fbAuthService) {
     var vm = this;
     vm.email = '';
     vm.password = '';
@@ -24,6 +24,12 @@
       } else {
         vm.errorClick = true;
       }
+    };
+
+    vm.fbLogin = function() {
+      fbAuthService.login(function() {
+        $state.go('main');
+      });
     };
   }]);
 })();

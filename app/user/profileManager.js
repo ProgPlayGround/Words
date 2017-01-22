@@ -1,14 +1,12 @@
 (function() {
-  angular.module('words').factory('profileManager', ['$resource', '$cookies', function($resource, $cookies) {
+  angular.module('words').factory('profileManager', ['$resource', 'httpAuthHeaders', function($resource, httpAuthHeaders) {
 
     return {
       profile: function() {
         return $resource('https://localhost:3000/profile', {}, {
           'get': {
             'method': 'GET',
-            'headers': {
-              'authorization': 'Basic ' + $cookies.get('token')
-            }
+            'headers': httpAuthHeaders.header()
           }
         }).get();
       }

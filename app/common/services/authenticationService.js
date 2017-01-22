@@ -9,6 +9,7 @@
           .then(function(response) {
             if(response.success) {
               userService.set(username);
+              $cookies.put('auth-type', 'basic');
               $cookies.put('token', btoa(username + ':' + response.token));
             }
 
@@ -21,6 +22,7 @@
           .then(function(response) {
             if(response.success) {
               userService.set(username);
+              $cookies.put('auth-type', 'basic');
               $cookies.put('token', btoa(username + ':' + response.token));
             }
 
@@ -29,6 +31,7 @@
       },
       logout: function() {
         userService.clear();
+        $cookies.remove('auth-type');
         $cookies.remove('token');
       }
     };

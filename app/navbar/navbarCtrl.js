@@ -1,11 +1,19 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('navbarCtrl', ['authService', function(authService) {
+  angular.module('words').controller('navbarCtrl', ['$cookies', 'authService', 'fbAuthService', function($cookies, authService, fbAuthService) {
     var vm = this;
 
-    this.logout = function() {
-      authService.logout();
+    var logout = {
+      'basic': authService.logout,
+      'fb': fbAuthService.logout
+    }
+
+    vm.logout = function() {
+      var authType = $cookies.get('auth-type');
+      if(authType) {
+        logout[authType]();
+      }
     }
   }]);
 })();
