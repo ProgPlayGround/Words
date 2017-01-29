@@ -52,8 +52,11 @@
   }])
   .run(['$state', 'fbAuthService', 'vkAuthService', function($state, fbAuthService, vkAuthService) {
     fbAuthService.init(function() {
-      console.log('callback');
+      console.log('fb callback');
     });
-    vkAuthService.init();
+
+    vkAuthService.init(function() {
+      console.log('vk callback');
+    });
   }]);
 })();

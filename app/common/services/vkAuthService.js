@@ -5,6 +5,7 @@
 
     function onConnection(res, callback) {
       if(res.status == 'connected') {
+        console.log(res);
         var name = res.session.user.nickname || res.session.user.first_name + ' ' + res.session.user.last_name;
         userService.set(name);
         var token = 'expire=' + res.session.expire + 'mid=' + res.session.mid + 'secret=' + res.session.secret + 'sid=' + res.session.sid + '&' + res.session.sig;
@@ -14,16 +15,20 @@
       } else {
         console.log(res);
         userService.clear();
-        $cookies.remove('fb');
+        $cookies.remove('auth-type');
         $cookies.remove('token');
       }
     };
 
     return {
-      init: function() {
+      init: function(callback) {
         $window.vkAsyncInit = function() {
           VK.init({
             apiId: '5847225'
+          });
+
+          VK.Observer.subscribe('auth.sessionChange', function(res) {
+            onConnection(res, callback);
           });
         };
 

@@ -15,7 +15,7 @@
       } else {
         console.log(res);
         userService.clear();
-        $cookies.remove('fb');
+        $cookies.remove('auth-type');
         $cookies.remove('token');
       }
     };
@@ -52,7 +52,7 @@
       logout: function() {
         FB.logout(function(res) {
           userService.clear();
-          $cookies.remove('fb');
+          $cookies.remove('auth-type');
           $cookies.remove('token');
         });
       }
