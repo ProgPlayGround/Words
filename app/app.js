@@ -50,7 +50,7 @@
 
     $httpProvider.interceptors.push('forbiddenInterceptor', 'requestCounter');
   }])
-  .run(['$state', 'fbAuthService', 'vkAuthService', function($state, fbAuthService, vkAuthService) {
+  .run(['fbAuthService', 'vkAuthService', function(fbAuthService, vkAuthService) {
     fbAuthService.init(function() {
       console.log('fb callback');
     });

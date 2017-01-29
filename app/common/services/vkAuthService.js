@@ -24,7 +24,7 @@
       init: function(callback) {
         $window.vkAsyncInit = function() {
           VK.init({
-            apiId: '5847225'
+            apiId: '5847929'
           });
 
           VK.Observer.subscribe('auth.sessionChange', function(res) {
