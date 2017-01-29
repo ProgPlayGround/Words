@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
 </head>
 <body class="background">
+  <div id="vk_api_transport"></div>
   <div ng-controller="navbarCtrl as nav" ng-include src="'navbar/navbar.html'"></div>
   <div ui-view></div>
 
@@ -31,6 +32,7 @@
   <script src="common/services/userService.js"></script>
   <script src="common/services/authenticationService.js"></script>
   <script src="common/services/fbAuthService.js"></script>
+  <script src="common/services/vkAuthService.js"></script>
   <script src="common/forbiddenInterceptor.js"></script>
   <script src="common/requestCounter.js"></script>
   <script src="common/httpAuthHeaders.js"></script>

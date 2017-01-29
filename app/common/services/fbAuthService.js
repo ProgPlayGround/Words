@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  angular.module('words').factory('fbAuthService', ['$cookies', 'userService', function($cookies, userService) {
+  angular.module('words').factory('fbAuthService', ['$window', '$cookies', 'userService', function($window, $cookies, userService) {
+
     function onConnection(res, callback) {
-      console.log(res.status);
       if(res.status == 'connected') {
         var accessToken = res.authResponse.accessToken;
         FB.api('/me', function(res) {
@@ -13,17 +13,36 @@
           callback();
         });
       } else {
-        console.log(res.status);
+        console.log(res);
         userService.clear();
         $cookies.remove('fb');
         $cookies.remove('token');
       }
     };
+
     return {
-      onLoginStateChanged: function(callback) {
-        FB.Event.subscribe('auth.authResponseChange', function(res) {
-          onConnection(res, callback);
-        });
+      init: function(callback) {
+        $window.fbAsyncInit = function() {
+          FB.init({
+            appId: '1225456694157240',
+            status: true,
+            cookie: true,
+            xfbml: true,
+            version: 'v2.8'
+          });
+
+          FB.Event.subscribe('auth.authResponseChange', function(res) {
+            onConnection(res, callback);
+          });
+        };
+
+        (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
       },
       login: function(callback) {
         FB.login(function(res) {
