@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('words').factory('fbAuthService', ['$window', '$cookies', 'userService', function($window, $cookies, userService) {
+  angular.module('words').factory('fbAuthService', ['$window', '$cookies', 'userService', '$log', function($window, $cookies, userService, $log) {
 
     function onConnection(res, callback) {
       if(res.status == 'connected') {
@@ -13,12 +13,12 @@
           callback();
         });
       } else {
-        console.log(res);
+        $log.log(res);
         userService.clear();
         $cookies.remove('auth-type');
         $cookies.remove('token');
       }
-    };
+    }
 
     return {
       init: function(callback) {
@@ -50,7 +50,7 @@
         });
       },
       logout: function() {
-        FB.logout(function(res) {
+        FB.logout(function() {
           userService.clear();
           $cookies.remove('auth-type');
           $cookies.remove('token');

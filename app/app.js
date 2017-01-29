@@ -50,13 +50,13 @@
 
     $httpProvider.interceptors.push('forbiddenInterceptor', 'requestCounter');
   }])
-  .run(['fbAuthService', 'vkAuthService', function(fbAuthService, vkAuthService) {
+  .run(['fbAuthService', 'vkAuthService', '$log', function(fbAuthService, vkAuthService, $log) {
     fbAuthService.init(function() {
-      console.log('fb callback');
+      $log.log('fb callback');
     });
 
-    vkAuthService.init(function() {
-      console.log('vk callback');
-    });
+    // vkAuthService.init(function() {
+    //   $log.log('vk callback');
+    // });
   }]);
 })();

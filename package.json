@@ -55,7 +55,9 @@
       "exports": false,
       "element": false,
       "by": false,
-      "_": false
+      "_": false,
+      "FB": false,
+      "VK": false
     },
     "env": {
       "browser": true,

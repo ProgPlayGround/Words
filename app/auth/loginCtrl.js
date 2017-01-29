@@ -1,7 +1,8 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('LoginCtrl', ['$state', 'authService', 'fbAuthService', 'vkAuthService', function($state, authService, fbAuthService, vkAuthService) {
+  angular.module('words').controller('LoginCtrl', ['$state', 'authService', 'fbAuthService', 'vkAuthService', '$log',
+  function($state, authService, fbAuthService, vkAuthService, $log) {
     var vm = this;
     vm.email = '';
     vm.password = '';
@@ -12,7 +13,7 @@
         vm.errorClick = false;
         authService.login(vm.email, vm.password, function(response) {
 
-          console.log(response);
+          $log.log(response);
           if(response.success) {
             $state.go('main');
           } else if(response.data.errorCode == 2) {
@@ -35,6 +36,12 @@
     vm.vkLogin = function() {
       vkAuthService.login(function() {
         $state.go('main');
+      });
+    };
+
+    vm.init = function() {
+      vkAuthService.init(function() {
+        $log.log('vk callback');
       });
     };
   }]);

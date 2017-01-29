@@ -1,11 +1,11 @@
 (function() {
   'use strict';
 
-  angular.module('words').factory('vkAuthService', ['$window', '$cookies', 'userService', function($window, $cookies, userService) {
+  angular.module('words').factory('vkAuthService', ['$window', '$document', '$timeout', '$cookies', 'userService', '$log',
+  function($window, $document, $timeout, $cookies, userService, $log) {
 
     function onConnection(res, callback) {
       if(res.status == 'connected') {
-        console.log(res);
         var name = res.session.user.nickname || res.session.user.first_name + ' ' + res.session.user.last_name;
         userService.set(name);
         var token = 'expire=' + res.session.expire + 'mid=' + res.session.mid + 'secret=' + res.session.secret + 'sid=' + res.session.sid + '&' + res.session.sig;
@@ -13,32 +13,18 @@
         $cookies.put('token', token);
         callback();
       } else {
-        console.log(res);
+        $log.log(res);
         userService.clear();
         $cookies.remove('auth-type');
         $cookies.remove('token');
       }
-    };
+    }
 
     return {
       init: function(callback) {
-        $window.vkAsyncInit = function() {
-          VK.init({
-            apiId: '5847929'
-          });
-
-          VK.Observer.subscribe('auth.sessionChange', function(res) {
-            onConnection(res, callback);
-          });
-        };
-
-        setTimeout(function() {
-          var el = document.createElement("script");
-          el.type = "text/javascript";
-          el.src = "https://vk.com/js/api/openapi.js?139";
-          el.async = true;
-          document.getElementById("vk_api_transport").appendChild(el);
-        }, 0);
+        VK.Observer.subscribe('auth.sessionChange', function(res) {
+          callback(res, callback);
+        });
       },
       login: function(callback) {
         VK.Auth.login(function(res) {
@@ -46,7 +32,7 @@
         });
       },
       logout: function() {
-        VK.Auth.logout(function(res) {
+        VK.Auth.logout(function() {
           userService.clear();
           $cookies.remove('auth-type');
           $cookies.remove('token');

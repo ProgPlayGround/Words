@@ -11,9 +11,8 @@
   <link rel="stylesheet" href="app.css"/>
   <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
 </head>
-<body class="background">
-  <div id="vk_api_transport"></div>
-  <div ng-controller="navbarCtrl as nav" ng-include src="'navbar/navbar.html'"></div>
+<body class="background">  
+  <div ng-controller="NavbarCtrl as nav" ng-include src="'navbar/navbar.html'"></div>
   <div ui-view></div>
 
   <script src="bower_components/angular/angular.js"></script>
@@ -44,6 +43,7 @@
   <script src="common/directives/checkPassword.js"></script>
   <script src="common/directives/requiredOnCondition.js"></script>
   <script src="common/directives/errorMessage.js"></script>
+  <script src="common/directives/vkAuth.js"></script>
   <script src="main/mainCtrl.js"></script>
   <script src="quiz/wordQuizCtrl.js"></script>
   <script src="quiz/quizFinishModalCtrl.js"></script>

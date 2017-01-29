@@ -8,7 +8,7 @@
       link: function(scope, element, attrs, ngModel) {
         var model = $parse(attrs.message);
         var remove = false;
-        ngModel.$validators.error = function(modelValue) {
+        ngModel.$validators.error = function() {
           var hasError = model(scope);
           if(remove) {
             remove = false;
@@ -19,7 +19,7 @@
           return !hasError;
         };
 
-        scope.$watch(model, function(newValue) {
+        scope.$watch(model, function() {
           ngModel.$validate();
         });
 

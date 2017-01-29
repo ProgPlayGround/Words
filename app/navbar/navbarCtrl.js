@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('navbarCtrl', ['$cookies', 'authService', 'fbAuthService', 'vkAuthService', function($cookies, authService, fbAuthService, vkAuthService) {
+  angular.module('words').controller('NavbarCtrl', ['$cookies', 'authService', 'fbAuthService', 'vkAuthService', function($cookies, authService, fbAuthService, vkAuthService) {
     var vm = this;
 
     var logout = {
