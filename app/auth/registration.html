@@ -9,14 +9,14 @@
 <div class="col-sm-offset-2 col-sm-8">
   <form name="registrationForm" ng-submit="auth.registration()" role="form">
     <div class="form-group">
-      <input type="email" name="username" class="form-control auth_input" ng-model="auth.email" error-message message="auth.error" required-on-condition="auth.errorClick" placeholder="Email" novalidate></input>
+      <input type="email" name="username" class="form-control auth_input" ng-model="auth.email" error-message message="auth.error" required-on-condition="auth.errorClick" placeholder="Email" novalidate/>
       <div class="auth_help_block" ng-messages="registrationForm.username.$error" role="alert">
         <div ng-message="required">The field is required</div>
         <div ng-message="email">Your email address is invalid</div>
         <div ng-message="error">{{auth.error}}</div>
       </div>
       <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password"
-       check-password required-on-condition="auth.errorClick" placeholder="Password" ng-minlength="8" ng-maxlength="16" novalidate></input>
+       check-password required-on-condition="auth.errorClick" placeholder="Password" ng-minlength="8" ng-maxlength="16" novalidate/>
       <div class="auth_help_block" ng-messages="registrationForm.password.$error" role="alert">
         <div ng-message="required">The field is required</div>
         <div ng-message="invalidPassword">Password should contain only ASCII characters</div>
