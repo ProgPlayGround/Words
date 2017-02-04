@@ -1,10 +1,14 @@
 (function() {
-  angular.module('words').factory('profileManager', ['$resource', function($resource) {
-    var profile = $resource('http://localhost:3000/profile');
+  angular.module('words').factory('profileManager', ['$resource', 'httpAuthHeaders', function($resource, httpAuthHeaders) {
 
     return {
       profile: function() {
-        return profile.get();
+        return $resource('https://localhost:3000/profile', {}, {
+          'get': {
+            'method': 'GET',
+            'headers': httpAuthHeaders.header()
+          }
+        }).get();
       }
     }
   }]);

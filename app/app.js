@@ -1,7 +1,8 @@
 (function() {
   'use strict';
-  angular.module('words', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngAnimate']).config(['$stateProvider', '$urlRouterProvider', '$qProvider',
-  function($stateProvider, $urlRouterProvider, $qProvider) {
+  angular.module('words', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngCookies', 'ngAnimate', 'ngMessages'])
+  .config(['$stateProvider', '$urlRouterProvider', '$qProvider', '$httpProvider',
+  function($stateProvider, $urlRouterProvider, $qProvider, $httpProvider) {
     $qProvider.errorOnUnhandledRejections(false);
     $stateProvider.state('main', {
       url: '/main',
@@ -29,8 +30,32 @@
     }).state('quiz.description', {
       url: '/description',
       templateUrl: 'quiz/word-quiz.description.html'
+    }).state('auth', {
+      abstract: true,
+      url: '/auth',
+      templateUrl: 'auth/auth.html',
+    }).state('auth.login', {
+      url: '/login',
+      templateUrl: 'auth/login.html',
+      controller: 'LoginCtrl',
+      controllerAs: 'auth'
+    }).state('auth.registration', {
+      url: '/registration',
+      templateUrl:'auth/registration.html',
+      controller: 'RegistrationCtrl',
+      controllerAs: 'auth'
     });
 
-    $urlRouterProvider.otherwise('/main');
+    $urlRouterProvider.otherwise('/auth/login');
+
+    $httpProvider.interceptors.push('forbiddenInterceptor', 'requestCounter');
+  }])
+  .run(['fbAuthService', 'vkAuthService', '$log', function(fbAuthService, vkAuthService, $log) {
+    fbAuthService.init(function() {
+      $log.log('fb callback');
+    });
+    // vkAuthService.init(function() {
+    //   $log.log('vk callback');
+    // });
   }]);
 })();

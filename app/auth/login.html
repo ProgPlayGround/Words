@@ -1,0 +1,52 @@
+<div id="vk_api_transport" vk-auth="auth.init()"></div>
+<div class="col-sm-offset-1 col-sm-10">
+  <div class="btn auth_tab_selected col-sm-6 disable_click">Login</div>
+  <a ui-sref="auth.registration" class="btn auth_tab col-sm-6 fog">Registration</a>
+</div>
+<div class="col-sm-12">
+  <hr class="divider"/>
+</div>
+<div class="col-sm-offset-2 col-sm-8">
+  <form name="loginForm" ng-submit="auth.login()" role="form">
+    <div class="form-group">
+      <input type="email" name="username" class="form-control auth_input" ng-model="auth.email" error-message message="auth.error.login" required-on-condition="auth.errorClick" placeholder="Email" novalidate/>
+      <div class="auth_help_block" ng-messages="loginForm.username.$error" role="alert">
+        <div ng-if="auth.errorClick" ng-message="required">The field is required</div>
+        <div ng-message="email">Your email address is invalid</div>
+        <div ng-message="error">{{auth.error.login}}</div>
+      </div>
+      <span class="auth_help_block help-block" ng-if="">Email is required</span>
+      <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password" error-message message="auth.error.password" required-on-condition="auth.errorClick" placeholder="Password" novalidate/>
+      <div class="auth_help_block" ng-messages="loginForm.password.$error" role="alert">
+        <div ng-message="required">The field is required</div>
+        <div ng-message="error">{{auth.error.password}}</div>
+      </div>
+    </div>
+    <div class="center">
+      <button type="submit" class="btn btn_base btn_auth_submit" ng-disabled="loginForm.$invalid">Login</button>
+    </div>
+  </form>
+</div>
+<div class="col-sm-12 login_divider">
+  <div class="strike">
+    <span>or</span>
+  </div>
+</div>
+<div class="col-sm-offset-1 col-sm-10">
+  <div class="btn btn_base col-sm-6 btn_oauth fog" ng-click="auth.fbLogin()">
+    <i class="fa fa-facebook-official btn_oauth_icon"></i>
+    <span>Facebook</span>
+  </div>
+  <div class="btn btn_base col-sm-6 btn_oauth fog" ng-click="auth.vkLogin()">
+    <i class="fa fa-vk btn_oauth_icon"></i>
+    <span>Vkontakte</span>
+  </div>
+  <div class="btn btn_base col-sm-6 btn_oauth fog" ng-click="auth.goLogin()">
+    <i class="fa fa-odnoklassniki-square btn_oauth_icon"></i>
+    <span class="btn_oauth_text">Одноклассники</span>
+  </div>
+  <div class="btn btn_base col-sm-6 btn_oauth fog" ng-click="auth.goLogin()">
+    <i class="fa fa-google-plus-official btn_oauth_icon"></i>
+    <span>Google+</span>
+  </div>
+</div>

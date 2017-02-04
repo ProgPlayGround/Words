@@ -14,6 +14,7 @@
     "eslint-plugin-angular": "^1.4.1",
     "eslint-plugin-import": "^2.1.0",
     "eslint-plugin-jasmine": "^2.0.0",
+    "express": "^4.14.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-bower": "0.0.13",
@@ -27,7 +28,7 @@
     "gulp-sourcemaps": "^2.2.0",
     "gulp-stylelint": "^3.4.0",
     "gulp-uglify": "^2.0.0",
-    "http-server": "^0.9.0",
+    "htmlhint": "^0.9.13",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^2.0.0",
@@ -55,7 +56,9 @@
       "exports": false,
       "element": false,
       "by": false,
-      "_": false
+      "_": false,
+      "FB": false,
+      "VK": false
     },
     "env": {
       "browser": true,
@@ -112,10 +115,10 @@
   },
   "scripts": {
     "style:js": "eslint app e2e-tests",
-    "style:html": "htmlhint app",
+    "style:html": "htmlhint --config htmlhintrc app",
     "style:css": "stylelint \"app/**/*.{css,less,scss,sss}\"",
     "style": "npm run style:js && npm run style:html && npm run style:css",
-    "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "start": "node server.js",
     "watch": "npm-watch",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",

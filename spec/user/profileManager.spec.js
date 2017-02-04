@@ -11,7 +11,7 @@ describe('Profile manager service', function() {
   }]));
 
   it('profile requests http resource for user data', function() {
-    httpBackend.expectGET('http://localhost:3000/profile')
+    httpBackend.expectGET('https://localhost:3000/profile')
     .respond(200, {'profile': 'mockProfile'});
 
     profileManagerService.profile();
