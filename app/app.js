@@ -54,7 +54,6 @@
     fbAuthService.init(function() {
       $log.log('fb callback');
     });
-
     // vkAuthService.init(function() {
     //   $log.log('vk callback');
     // });
