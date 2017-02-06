@@ -3,6 +3,10 @@
 
   angular.module('words').constant('vkAppId', '5847929')
   .factory('vkAuthService', ['$window', '$cookies', '$log', 'userService','vkAppId', function($window, $cookies, $log, userService, vkAppId) {
+    
+      function buildToken(session) {
+        return 'expire=' + session.expire + 'mid=' + session.mid + 'secret=' + session.secret + 'sid=' + session.sid + '&' + session.sig;
+      }
 
     function onConnection(res, callback) {
       if(res.status == 'connected') {
@@ -18,10 +22,6 @@
         $cookies.remove('auth-type');
         $cookies.remove('token');
       }
-    }
-
-    function buildToken(session) {
-      return 'expire=' + session.expire + 'mid=' + session.mid + 'secret=' + session.secret + 'sid=' + session.sid + '&' + session.sig;
     }
 
     return {
