@@ -1,6 +1,6 @@
 'use strict';
 
-describe('score manager service', function() {
+describe('authentication service', function() {
   var authenticationService, httpBackend, cookies, userInfoService;
 
   beforeEach(module('words'));
