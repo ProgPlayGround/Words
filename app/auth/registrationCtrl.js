@@ -35,11 +35,5 @@
         $state.go('main');
       });
     };
-
-    vm.init = function() {
-      vkAuthService.init(function() {
-        $log.log('vk callback');
-      });
-    };
   }]);
 })();
