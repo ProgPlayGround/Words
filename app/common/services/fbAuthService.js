@@ -1,7 +1,8 @@
 (function() {
   'use strict';
 
-  angular.module('words').factory('fbAuthService', ['$window', '$cookies', 'userService', '$log', function($window, $cookies, userService, $log) {
+  angular.module('words').constant('fbAppId', '1225456694157240')
+  .factory('fbAuthService', ['$window', '$cookies', '$log', 'userService', 'fbAppId', function($window, $cookies, $log, userService, fbAppId) {
 
     function onConnection(res, callback) {
       if(res.status == 'connected') {
@@ -24,7 +25,7 @@
       init: function(callback) {
         $window.fbAsyncInit = function() {
           FB.init({
-            appId: '1225456694157240',
+            appId: fbAppId,
             status: true,
             cookie: true,
             xfbml: true,
@@ -35,14 +36,6 @@
             onConnection(res, callback);
           });
         };
-
-        (function(d, s, id) {
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "//connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-        } (document, 'script', 'facebook-jssdk'));
       },
       login: function(callback) {
         FB.login(function(res) {

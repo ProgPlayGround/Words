@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('RegistrationCtrl', ['$state', 'authService', 'fbAuthService', 'vkAuthService', '$log',
-   function($state, authService, fbAuthService, vkAuthService, $log) {
+  angular.module('words').controller('RegistrationCtrl', ['$state', 'authService', 'fbAuthService', 'vkAuthService',
+   function($state, authService, fbAuthService, vkAuthService) {
     var vm = this;
     vm.email = '';
     vm.password = '';
@@ -33,12 +33,6 @@
     vm.vkLogin = function() {
       vkAuthService.login(function() {
         $state.go('main');
-      });
-    };
-
-    vm.init = function() {
-      vkAuthService.init(function() {
-        $log.log('vk callback');
       });
     };
   }]);
