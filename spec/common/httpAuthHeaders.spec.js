@@ -11,7 +11,8 @@ describe('http auth headers service', function() {
   }]));
 
   it('header return empty headers when cookies is empty', function() {
-
+    cookies.remove('auth-type');
+    cookies.remove('token');
     var headers = authHeaders.header();
     expect(headers['auth-type']).not.toBeDefined();
     expect(headers['auth-token']).not.toBeDefined();

@@ -4,16 +4,17 @@
   angular.module('words').controller('NavbarCtrl', ['$cookies', 'authService', 'fbAuthService', 'vkAuthService', function($cookies, authService, fbAuthService, vkAuthService) {
     var vm = this;
 
-    var logout = {
-      'basic': authService.logout,
-      'fb': fbAuthService.logout,
-      'vk': vkAuthService.logout
-    };
-
     vm.logout = function() {
-      var authType = $cookies.get('auth-type');
-      if(authType) {
-        logout[authType]();
+      switch ($cookies.get('auth-type')) {
+        case 'basic':
+          authService.logout();
+          break;
+        case 'fb':
+          fbAuthService.logout();
+          break;
+        case 'vk':
+          vkAuthService.logout();
+          break;
       }
     };
   }]);
