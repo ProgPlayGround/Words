@@ -6,13 +6,13 @@
     var vm = this;
     vm.email = '';
     vm.password = '';
+    vm.errorClick = false;
     vm.error = {};
 
     vm.login = function() {
       if(vm.email && vm.password) {
         vm.errorClick = false;
         authService.login(vm.email, vm.password, function(response) {
-
           $log.log(response);
           if(response.success) {
             $state.go('main');
