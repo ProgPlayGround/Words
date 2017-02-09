@@ -76,7 +76,7 @@
         "/[A-Z].*Ctrl/"
       ],
       "no-unused-vars": [
-        "error",
+        2,
         {
           "vars": "all",
           "args": "after-used"
