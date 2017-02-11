@@ -33,7 +33,7 @@
     }).state('auth', {
       abstract: true,
       url: '/auth',
-      templateUrl: 'auth/auth.html',
+      templateUrl: 'auth/auth.html'
     }).state('auth.login', {
       url: '/login',
       templateUrl: 'auth/login.html',

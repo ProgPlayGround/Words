@@ -15,8 +15,6 @@
     "eslint": "^3.9.1",
     "eslint-config-angular": "^0.5.0",
     "eslint-plugin-angular": "^1.4.1",
-    "eslint-plugin-import": "^2.1.0",
-    "eslint-plugin-jasmine": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-bower": "0.0.13",
@@ -45,22 +43,23 @@
   "eslintConfig": {
     "parser": "babel-eslint",
     "plugins": [
-      "jasmine"
+      "angular"
     ],
     "extends": [
       "angular",
       "eslint:recommended"
     ],
     "globals": {
-      "module": false,
-      "inject": false,
-      "browser": false,
-      "exports": false,
-      "element": false,
-      "by": false,
-      "_": false,
-      "FB": false,
-      "VK": false
+      "module": true,
+      "inject": true,
+      "browser": true,
+      "exports": true,
+      "element": true,
+      "process": true,
+      "_": true,
+      "FB": true,
+      "VK": true,
+      "require": true
     },
     "env": {
       "browser": true,
@@ -116,7 +115,7 @@
     }
   },
   "scripts": {
-    "style:js": "eslint app e2e-tests",
+    "style:js": "eslint app",
     "style:html": "htmlhint --config htmlhintrc app",
     "style:css": "stylelint \"app/**/*.{css,less,scss,sss}\"",
     "style": "npm run style:js && npm run style:html && npm run style:css",

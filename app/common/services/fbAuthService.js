@@ -4,6 +4,12 @@
   angular.module('words').constant('fbAppId', '1225456694157240')
   .factory('fbAuthService', ['$window', '$cookies', '$log', 'userService', 'fbAppId', function($window, $cookies, $log, userService, fbAppId) {
 
+    var clearUserData = function() {
+      userService.clear();
+      $cookies.remove('auth-type');
+      $cookies.remove('token');
+    }
+
     function onConnection(res, callback) {
       if(res.status == 'connected') {
         var accessToken = res.authResponse.accessToken;
@@ -15,9 +21,7 @@
         });
       } else {
         $log.log(res);
-        userService.clear();
-        $cookies.remove('auth-type');
-        $cookies.remove('token');
+        clearUserData();
       }
     }
 
@@ -44,9 +48,7 @@
       },
       logout: function() {
         FB.logout(function() {
-          userService.clear();
-          $cookies.remove('auth-type');
-          $cookies.remove('token');
+          clearUserData();
         });
       }
     };

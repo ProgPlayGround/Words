@@ -114,7 +114,7 @@ describe('quiz manager', function() {
     expect(quizManagerService.isCorrect()).toBeTruthy();
   });
 
-  it('isCorrect is true if answer state is not CORRECT', function() {
+  it('isCorrect is false if answer state is not CORRECT', function() {
     for(var i = 0; i < quizManagerService.translation().length; ++i) {
       quizManagerService.answer()[i] = {char: 'a'};
     }

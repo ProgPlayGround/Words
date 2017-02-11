@@ -12,9 +12,7 @@
 
           this.next = function(index) {
             if(index >= 0 && index + 1 < $scope.elements.length) {
-              $scope.elements[index].blur();
-              $scope.elements[index + 1].focus();
-              $scope.elements[index + 1].select();
+              navigate(index, index + 1);
             } else if(index + 1 == $scope.elements.length) {
               $scope.elements[index].select();
             }
@@ -22,10 +20,14 @@
 
           this.previous = function(index) {
             if(index > 0 && index < $scope.elements.length) {
-              $scope.elements[index].blur();
-              $scope.elements[index - 1].focus();
-              $scope.elements[index - 1].select();
+              navigate(index, index - 1);
             }
+          }
+
+          function navigate(fromIndex, toIndex) {
+              $scope.elements[fromIndex].blur();
+              $scope.elements[toIndex].focus();
+              $scope.elements[toIndex].select();
           }
         }
       };

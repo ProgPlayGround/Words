@@ -8,12 +8,12 @@ label, legend, table, caption, tbody, tfoot, thead,
 tr, th, td, article, aside, canvas, details, figcaption,
 figure, footer, header, hgroup, menu, nav, section,
 summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
   border: 0;
-  outline: 0;
   font: inherit;
   font-size: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
   vertical-align: baseline;
 }
 
@@ -70,9 +70,9 @@ img, iframe, video, object {
 }
 
 .divider {
-  margin-top: 10px;
-  margin-bottom: 10px;
   border-color: #74afad;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .question_container {
@@ -84,11 +84,11 @@ img, iframe, video, object {
 }
 
 .quiz_modal {
-  padding: 2%;
   font-family: Arial, Helvetica, serif;
   font-size: 2em;
-  text-align: center;
   font-style: italic;
+  padding: 2%;
+  text-align: center;
 }
 
 .quiz_modal .divider {
@@ -100,8 +100,8 @@ img, iframe, video, object {
 }
 
 .quiz_modal .score_icon {
-  font-size: 1.5em;
   color: #af8f73;
+  font-size: 1.5em;
 }
 
 .modal {
@@ -122,9 +122,9 @@ img, iframe, video, object {
 }
 
 .modal-content {
+  border-color: #74afad;
   border-radius: 25px;
   border-width: 2px;
-  border-color: #74afad;
 }
 
 .score_icon_margin {
@@ -132,30 +132,30 @@ img, iframe, video, object {
 }
 
 .score_container {
-  margin-top: 0.5%;
   color: #74afad;
   font-family: Arial, Helvetica, sans-serif;
+  margin-top: 0.5%;
   text-align: right;
   white-space: nowrap;
 }
 
 .score_icon {
-  vertical-align: middle;
   font-size: 2em;
+  vertical-align: middle;
 }
 
 .score_text {
-  vertical-align: bottom;
   font-size: 1.5em;
+  vertical-align: bottom;
 }
 
 .word {
-  padding: 1%;
-  border-radius: 20px;
-  overflow: hidden;
-  border-width: 2px;
-  border-style: solid;
   border-color: #74afad;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  overflow: hidden;
+  padding: 1%;
 }
 
 .word_correct_answer {
@@ -171,14 +171,14 @@ img, iframe, video, object {
 }
 
 .letter, .input_letter {
-  display: inline-block;
-  padding: 1%;
-  margin-top: 1%;
-  margin-bottom: 1%;
   border: 1px solid #74afad;
   border-radius: 5px;
+  display: inline-block;
   font-size: 2em;
+  margin-bottom: 1%;
+  margin-top: 1%;
   min-width: 6%;
+  padding: 1%;
 }
 
 .letter:not(:first-child), .input_letter:not(:first-child) {
@@ -186,11 +186,11 @@ img, iframe, video, object {
 }
 
 .input_letter {
+  background-color: #ececea;
+  cursor: pointer;
+  outline: none;
   text-align: center;
   width: 5%;
-  background-color: #ececea;
-  outline: none;
-  cursor: pointer;
 }
 
 .input_letter:focus,
@@ -205,16 +205,16 @@ img, iframe, video, object {
 }
 
 .button_block {
-  text-align: center;
   padding-top: 1%;
+  text-align: center;
 }
 
 .btn_ok {
   border: 2px solid #74afad;
   color: #333;
+  font-weight: bold;
   padding-left: 5%;
   padding-right: 5%;
-  font-weight: bold;
   transition: all 0.25s ease-in-out;
 }
 
@@ -223,17 +223,17 @@ img, iframe, video, object {
 }
 
 .btn_base_next, .btn_solution {
-  margin-right: 2%;
-  padding: 3%;
   border: 2px solid #74afad;
   border-radius: 7px;
   color: #333;
+  cursor: pointer;
+  display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
-  text-align: center;
   font-weight: bold;
-  display: inline-block;
-  cursor: pointer;
+  margin-right: 2%;
+  padding: 3%;
+  text-align: center;
   transition: all 0.25s ease-in-out;
 }
 
@@ -262,13 +262,13 @@ img, iframe, video, object {
 }
 
 .disable {
-  pointer-events: none;
   opacity: 0.4;
+  pointer-events: none;
 }
 
 .btn_highlight {
-  transform: scale(1.1);
   box-shadow: 0 0 25px #75af73;
+  transform: scale(1.1);
 }
 
 .btn_next.btn_highlight {
@@ -277,21 +277,21 @@ img, iframe, video, object {
 }
 
 .btn_word_switch_state {
-  position: absolute;
-  top: 5px;
-  right: 5px;
   color: #558c89;
   cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 
 .btn_brand {
-  margin-top: 2px;
   cursor: pointer;
+  margin-top: 2px;
 }
 
 .btn_logout {
-  width: 32px;
   height: 32px;
+  width: 32px;
 }
 
 .description_text {
@@ -316,29 +316,29 @@ img, iframe, video, object {
 .nav.navbar-nav.navbar-right li a:hover,
 .nav.navbar-nav.navbar-right li a:focus,
 .nav.navbar-nav.navbar-right li a:active {
-  color: #000;
   background-color: #8ebebc;
+  color: #000;
 }
 
 .main_game_container {
   height: 250px;
   line-height: 250px;
   margin-bottom: 2%;
-  padding-top: 1%;
   padding-left: 2%;
+  padding-top: 1%;
 }
 
 .main_inner_game_container {
-  height: inherit;
-  border: 1px solid black;
   background-color: #f4f2f2;
-  text-align: center;
-  vertical-align: middle;
+  border: 1px solid black;
   box-shadow: 0 0 5px black;
+  cursor: pointer;
   font-family: Papyrus, fantasy;
   font-size: 3em;
-  cursor: pointer;
+  height: inherit;
+  text-align: center;
   transition: all 0.25s ease-in-out;
+  vertical-align: middle;
 }
 
 .main_inner_game_container:hover {
@@ -346,18 +346,18 @@ img, iframe, video, object {
 }
 
 .user_container {
-  margin-left: 3%;
   font-family: Papyrus, fantasy;
+  margin-left: 3%;
 }
 
 .user_data_container {
   background-color: white;
   height: 80vh;
+  overflow: hidden;
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 1%;
   position: relative;
-  overflow: hidden;
 }
 
 .nav-tabs {
@@ -365,9 +365,9 @@ img, iframe, video, object {
 }
 
 .nav-tabs > li > a {
+  border: 0;
   border-radius: 0;
   margin-right: 0;
-  border: 0;
 }
 
 .nav-tabs > li.active > a,
@@ -391,9 +391,9 @@ img, iframe, video, object {
 }
 
 .avatar {
-  width: 160px;
   float: left;
   position: relative;
+  width: 160px;
   z-index: 3;
 }
 
@@ -406,21 +406,21 @@ img, iframe, video, object {
 }
 
 .progress_container {
-  margin-top: 10px;
   margin-left: 160px;
+  margin-top: 10px;
 }
 
 .rank_level {
-  height: 48px;
-  width: 48px;
   background: url('images/level.png');
   float: left;
+  font-size: 1.1em;
+  height: 48px;
   margin-left: 8%;
   margin-right: -15px;
   margin-top: -12px;
   padding-top: 15px;
   text-align: center;
-  font-size: 1.1em;
+  width: 48px;
 }
 
 .rank_bar {
@@ -428,8 +428,8 @@ img, iframe, video, object {
 }
 
 .profile_activity {
-  margin-top: 50px;
   margin-left: 160px;
+  margin-top: 50px;
 }
 
 .profile_divider {
@@ -450,31 +450,31 @@ img, iframe, video, object {
 }
 
 .profile_activity_body_info {
+  background-color: #ececea;
+  border-radius: 3px;
   display: inline-block;
   margin-left: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #ececea;
-  border-radius: 3px;
 }
 
 .profile_activity_body_info_description {
-  padding-top: 10px;
   padding-bottom: 2px;
+  padding-top: 10px;
 }
 
 .background_img {
-  position: absolute;
   bottom: 0;
   left: 0;
   overflow: hidden;
+  position: absolute;
   z-index: 1;
 }
 
 .login_container {
   display: table;
-  position: absolute;
   height: 80%;
+  position: absolute;
   width: 100%;
 }
 
@@ -484,9 +484,9 @@ img, iframe, video, object {
 }
 
 .login_form_content {
-  width: 35%;
   margin-left: auto;
   margin-right: auto;
+  width: 35%;
 }
 
 .login_form_border {
@@ -500,35 +500,35 @@ img, iframe, video, object {
 }
 
 .login_divider {
-  margin-top: 10px;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .strike {
   display: block;
-  text-align: center;
   overflow: hidden;
+  text-align: center;
   white-space: nowrap;
 }
 
 .strike > span {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
 .strike > span::before,
 .strike > span::after {
+  background: #74afad;
   content: '';
+  height: 1px;
   position: absolute;
   top: 50%;
   width: 9999px;
-  height: 1px;
-  background: #74afad;
 }
 
 .strike > span::before {
-  right: 100%;
   margin-right: 15px;
+  right: 100%;
 }
 
 .strike > span::after {
@@ -537,34 +537,34 @@ img, iframe, video, object {
 }
 
 .btn_base {
-  padding: 3%;
   border: 1px solid #74afad;
   border-radius: 7px;
   color: #333;
+  cursor: pointer;
+  display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
-  text-align: center;
-  display: inline-block;
-  cursor: pointer;
   overflow: hidden;
-  white-space: nowrap;
+  padding: 3%;
+  text-align: center;
   text-overflow: ellipsis;
   transition: all 0.25s ease-in-out;
+  white-space: nowrap;
 }
 
 .auth_tab, .auth_tab_selected {
-  padding: 0 3% 3%;
   border-radius: 0;
   color: #333;
+  cursor: pointer;
+  display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
-  text-align: center;
-  display: inline-block;
-  cursor: pointer;
   overflow: hidden;
-  white-space: nowrap;
+  padding: 0 3% 3%;
+  text-align: center;
   text-overflow: ellipsis;
   transition: all 0.25s ease-in-out;
+  white-space: nowrap;
 }
 
 .auth_tab_selected {
@@ -626,8 +626,8 @@ img, iframe, video, object {
 .auth_help_block {
   font-size: 0.7em;
   font-weight: bold;
-  opacity: 0.6;
   margin-bottom: 5px;
-  min-height: 0.8em;
   max-height: 0.8em;
+  min-height: 0.8em;
+  opacity: 0.6;
 }

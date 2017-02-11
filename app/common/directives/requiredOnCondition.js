@@ -6,7 +6,7 @@
       require: '^ngModel',
       restrict: 'A',
       scope: {
-        condition: '=requiredOnCondition',
+        condition: '=requiredOnCondition'
       },
       link: function(scope, element, attrs, ngModel) {
         ngModel.$validators.required = function(modelValue) {

@@ -38,7 +38,7 @@ gulp.task('css', function() {
 gulp.task('css:watch', ['css'], browserSync.reload);
 
 gulp.task('html', function() {
-  return gulp.src(['app/**/*.html', ])
+  return gulp.src(['app/**/*.html'])
         .pipe(gulpif(argv.prod, htmlmin({collapseWhitespace: true})))
         .pipe(gulp.dest(destDir));
 });
