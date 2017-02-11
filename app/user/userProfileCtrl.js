@@ -4,7 +4,7 @@
     vm.selected = 'profile';
 
     vm.isActive = function(tab) {
-      return vm.selected == tab;
+      return vm.selected === tab;
     }
 
     vm.select = function(tab) {

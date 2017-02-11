@@ -8,11 +8,11 @@
       },
       link: function(scope, element) {
         scope.$watch('model', function (value) {
-          if(value == 'NA') {
+          if(value === 'NA') {
             element.removeClass('word_wrong_answer');
             element.removeClass('word_correct_answer');
             element.addClass('word_no_answer');
-          } else if(value == 'CORRECT') {
+          } else if(value === 'CORRECT') {
             element.removeClass('word_wrong_answer');
             element.removeClass('word_no_answer');
             element.addClass('word_correct_answer');

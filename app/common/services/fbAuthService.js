@@ -11,7 +11,7 @@
     }
 
     function onConnection(res, callback) {
-      if(res.status == 'connected') {
+      if(res.status === 'connected') {
         var accessToken = res.authResponse.accessToken;
         FB.api('/me', function(res) {
           userService.set(res);

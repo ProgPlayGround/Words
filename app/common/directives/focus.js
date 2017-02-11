@@ -13,7 +13,7 @@
           this.next = function(index) {
             if(index >= 0 && index + 1 < $scope.elements.length) {
               navigate(index, index + 1);
-            } else if(index + 1 == $scope.elements.length) {
+            } else if(index + 1 === $scope.elements.length) {
               $scope.elements[index].select();
             }
           }
