@@ -4,9 +4,15 @@
   angular.module('words').constant('vkAppId', '5847929')
   .factory('vkAuthService', ['$window', '$cookies', '$log', 'userService','vkAppId', function($window, $cookies, $log, userService, vkAppId) {
 
-      function buildToken(session) {
-        return 'expire=' + session.expire + 'mid=' + session.mid + 'secret=' + session.secret + 'sid=' + session.sid + '&' + session.sig;
-      }
+    function buildToken(session) {
+      return 'expire=' + session.expire + 'mid=' + session.mid + 'secret=' + session.secret + 'sid=' + session.sid + '&' + session.sig;
+    }
+
+    var clearUserData = function() {
+      userService.clear();
+      $cookies.remove('auth-type');
+      $cookies.remove('token');
+    }
 
     function onConnection(res, callback) {
       if(res.status === 'connected') {
@@ -18,9 +24,7 @@
         callback();
       } else {
         $log.log(res);
-        userService.clear();
-        $cookies.remove('auth-type');
-        $cookies.remove('token');
+        clearUserData();
       }
     }
 
@@ -44,9 +48,7 @@
       },
       logout: function() {
         VK.Auth.logout(function() {
-          userService.clear();
-          $cookies.remove('auth-type');
-          $cookies.remove('token');
+          clearUserData();
         });
       }
     };
