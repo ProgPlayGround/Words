@@ -8,7 +8,7 @@
         return score;
       },
       onAnswer: function(state) {
-        if(state == 'CORRECT') {
+        if(state === 'CORRECT') {
           score += points;
         }
         points = 50;

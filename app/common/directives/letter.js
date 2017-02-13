@@ -29,7 +29,7 @@
               element.removeClass('letter_correct_answer');
               focusCtrl.previous(scope.index);
             } else {
-              if(scope.char == value) {
+              if(scope.char === value) {
                 element.removeClass('letter_wrong_answer');
                 element.addClass('letter_correct_answer');
               } else {
@@ -46,7 +46,7 @@
         });
 
         element.bind('keypress', function(event) {
-          if (scope.model == String.fromCharCode(event.keyCode)){
+          if (scope.model === String.fromCharCode(event.keyCode)){
             event.preventDefault();
             focusCtrl.next(scope.index);
           }

@@ -30,13 +30,13 @@
         });
       },
       isCorrect: function() {
-        return answerState == 'CORRECT';
+        return answerState === 'CORRECT';
       },
       checkAnswer: function() {
         var letters = _.countBy(answer, function(letter, index) {
           if(!letter.char) {
             return 'empty';
-          } else if(letter.char != factory.translation().charAt(index)) {
+          } else if(letter.char !== factory.translation().charAt(index)) {
             return 'error';
           } else {
             return 'right';

@@ -25,6 +25,17 @@ module.exports = function(config) {
       'app/auth/**/*.js'
     ],
 
+    reporters: ['progress', 'coverage'],
+
+    preprocessors: {
+      'app/**/*.js': ['coverage']
+    },
+
+    coverageReporter: {
+      type: 'lcov',
+      dir: 'coverage/'
+    },
+
     autoWatch: true,
 
     frameworks: ['jasmine'],
@@ -34,7 +45,8 @@ module.exports = function(config) {
     plugins: [
       'karma-chrome-launcher',
       'karma-jasmine',
-      'karma-junit-reporter'
+      'karma-junit-reporter',
+      'karma-coverage'
     ],
 
     junitReporter: {
