@@ -3,4 +3,5 @@ node_modules/
 libs/
 app/libs/
 app/images/
+app/coverage/
 bin/
