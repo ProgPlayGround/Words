@@ -1,0 +1,27 @@
+.btn_base {
+  border: 1px solid $main-color;
+  border-radius: 7px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $arial;
+  font-size: 1em;
+  overflow: hidden;
+  padding: 3%;
+  text-align: center;
+  text-overflow: ellipsis;
+  transition: all 0.25s ease-in-out;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $main-color;
+  }
+}
+
+.fog {
+  opacity: 0.4;
+}
+
+.disable_click {
+  pointer-events: none;
+}
