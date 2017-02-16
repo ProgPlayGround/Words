@@ -1,14 +1,55 @@
 <div ng-include src="'navbar/navbar.html'"></div>
 <div class="main_layout">
-  <div class="col-sm-6 main_game_container">
-    <a ui-sref="quiz.question">
-      <div class="main_inner_game_container">Quiz</div>
-    </a>
+  <div class="row">
+    <div class="col-sm-4">
+      <a ui-sref="">
+        <div class="main_game_container">
+          <span>Quiz<sup>eng</sup></span>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-offset-4 col-sm-4">
+      <a ui-sref="">
+        <div class="main_game_container">
+          <span>Quiz<sup>ua</sup></span>
+        </div>
+      </a>
+    </div>
   </div>
-  <div class="col-sm-6 main_game_container">
-    <div class="main_inner_game_container">Placeholder 1</div>
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <a ui-sref="quiz.question">
+        <div class="main_game_container">
+          <span>Spelling</span>
+        </div>
+      </a>
+    </div>
   </div>
-  <div class="col-sm-6 main_game_container">
-    <div class="main_inner_game_container">Placeholder 2</div>
+  <div class="row">
+    <div class="col-sm-4">
+      <a ui-sref="">
+        <div class="main_game_container">
+          <span>Dictionary</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-offset-4 col-sm-4">
+      <a ui-sref="">
+        <div class="main_game_container">
+          <span>Sprint</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <a ui-sref="">
+        <div class="main_game_container main_rank_container">
+          Dashboard
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-5">
+    </div>
   </div>
 </div>

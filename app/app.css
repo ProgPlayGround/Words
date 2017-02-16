@@ -300,7 +300,7 @@ img, iframe, video, object {
 }
 
 .main_layout {
-  background-color: #5ad1bc;
+  padding: 0 15%;
 }
 
 .navbar-custom {
@@ -321,28 +321,26 @@ img, iframe, video, object {
 }
 
 .main_game_container {
-  height: 250px;
-  line-height: 250px;
-  margin-bottom: 2%;
-  padding-left: 2%;
-  padding-top: 1%;
-}
-
-.main_inner_game_container {
   background-color: #f4f2f2;
-  border: 1px solid black;
-  box-shadow: 0 0 5px black;
+  border: 1px solid #abcfcd;
+  border-radius: 0.5em;
+  box-shadow: 0 0 5px #74afad;
   cursor: pointer;
-  font-family: Papyrus, fantasy;
-  font-size: 3em;
-  height: inherit;
+  font-size: 1.5em;
+  line-height: 150px;
+  margin-bottom: 2%;
+  max-height: 150px;
   text-align: center;
-  transition: all 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
   vertical-align: middle;
 }
 
-.main_inner_game_container:hover {
-  transform: scale(1.01);
+.main_game_container:hover {
+  background-color: #abcfcd;
+}
+
+.main_game_container > span > sup {
+  font-size: 1rem;
 }
 
 .user_container {
