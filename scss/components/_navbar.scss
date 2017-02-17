@@ -1,5 +1,7 @@
-.navbar-custom {
-  background-color: $navbar-bg-color;
+
+.btn_brand {
+  cursor: pointer;
+  margin-top: 2px;
 }
 
 .nav {
@@ -19,4 +21,8 @@
       }
     }
   }
+}
+
+.navbar-custom {
+  background-color: $navbar-bg-color;
 }
