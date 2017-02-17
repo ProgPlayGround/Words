@@ -1,0 +1,28 @@
+.main_layout {
+  padding: 0 15%;
+}
+
+.main_game_container {
+  background-color: $main-grid-color;
+  border: 1px solid $selection-main-color;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px $main-color;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 150px;
+  margin-bottom: 2%;
+  max-height: 150px;
+  text-align: center;
+  transition: background-color 0.25s ease-in-out;
+  vertical-align: middle;
+
+  &:hover {
+    background-color: $selection-main-color;
+  }
+
+  & > span {
+    & > sup {
+      font-size: 1rem;
+    }
+  }
+}

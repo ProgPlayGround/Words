@@ -1,0 +1,51 @@
+.background {
+  background-color: $bg-color;
+}
+
+.btn_base {
+  border: 1px solid $main-color;
+  border-radius: 7px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $arial;
+  font-size: 1em;
+  overflow: hidden;
+  padding: 3%;
+  text-align: center;
+  text-overflow: ellipsis;
+  transition: all 0.25s ease-in-out;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $main-color;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.disable {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.disable_click {
+  pointer-events: none;
+}
+
+.divider {
+  border-color: $main-color;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.fog {
+  opacity: 0.4;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
