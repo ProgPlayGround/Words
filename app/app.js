@@ -21,15 +21,15 @@
     }).state('quiz', {
       abstract: true,
       url: '/quiz',
-      templateUrl: 'quiz/word-quiz.html',
+      templateUrl: 'spelling/word-quiz.html',
       controller: 'WordQuizCtrl',
       controllerAs: 'quiz'
     }).state('quiz.question', {
       url: '/quest',
-      templateUrl: 'quiz/word-quiz.question.html'
+      templateUrl: 'spelling/word-quiz.question.html'
     }).state('quiz.description', {
       url: '/description',
-      templateUrl: 'quiz/word-quiz.description.html'
+      templateUrl: 'spelling/word-quiz.description.html'
     }).state('auth', {
       abstract: true,
       url: '/auth',

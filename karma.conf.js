@@ -19,7 +19,7 @@ module.exports = function(config) {
       'app/app.js',
       'app/common/**/*.js',
       'app/main/**/*.js',
-      'app/quiz/**/*.js',
+      'app/spelling/**/*.js',
       'app/user/**/*.js',
       'app/navbar/**/*.js',
       'app/auth/**/*.js'
