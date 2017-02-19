@@ -100,7 +100,7 @@
   text-align: center;
   width: 5%;
 
-  &:focus,&:hover,&:active {
+  &:focus, &:hover, &:active {
     background-color: $letter-selection-color;
     color: $white;
   }
