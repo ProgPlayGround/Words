@@ -10,4 +10,4 @@
         $uibModalInstance.close();
       }
     }]);
-})();
+}());

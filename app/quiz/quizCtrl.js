@@ -3,6 +3,7 @@
   angular.module('words').controller('QuizCtrl', ['scoreManager', 'quizManager', 'quizModalManager', function(scoreManager, quizManager, quizModalManager) {
     var vm = this;
     vm.loadingText = 'Loading...';
+    vm.userAnswer = null;
 
     quizManager.init('en', onLoad);
 
@@ -22,11 +23,11 @@
     };
 
     vm.isAnswered = function() {
-      return vm.userAnswer != null;
+      return vm.userAnswer !== null;
     };
 
     vm.onNavigation = function() {
-      scoreManager.onAnswer(vm.userAnswer == null ? 'NA' : vm.userAnswer == vm.correctAnswer ? 'CORRECT': 'INCORRECT');
+      scoreManager.onAnswer(vm.userAnswer === null ? 'NA' : vm.userAnswer === vm.correctAnswer ? 'CORRECT': 'INCORRECT');
       if(quizManager.next()) {
         vm.nav = true;
         vm.correctAnswer = null;
@@ -40,4 +41,4 @@
       vm.nav = false;
     }
   }]);
-})();
+}());

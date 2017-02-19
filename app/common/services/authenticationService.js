@@ -14,7 +14,7 @@
         callback(response);
       }).catch(callback);
     };
-            
+
     return {
       login: function(username, password, callback) {
         request('https://localhost:3000/authenticate/login', username, password, callback);
@@ -29,4 +29,4 @@
       }
     };
   }]);
-})();
+}());

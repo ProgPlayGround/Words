@@ -20,7 +20,6 @@
         return angular.isDefined(quiz);
       },
       word: function() {
-
         return quiz.word;
       },
       options: function() {
@@ -33,4 +32,4 @@
 
     return factory;
   }]);
-})();
+}());

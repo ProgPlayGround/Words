@@ -13,4 +13,4 @@
 
     vm.profile = profileManager.profile();
   }]);
-})();
+}());
