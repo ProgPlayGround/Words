@@ -22,8 +22,8 @@ describe('quiz manager', function() {
     }]);
   });
 
-  beforeEach(inject(['quizLoadManager', 'wordManager', function(quizLoadManager, wordManager) {
-    quizManagerService = quizLoadManager;
+  beforeEach(inject(['quizManager', 'wordManager', function(quizManager, wordManager) {
+    quizManagerService = quizManager;
     wordManagerService = wordManager;
 
     callback = jasmine.createSpy('callback').and.callThrough();

@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('words').factory('quizLoadManager', ['wordManager', 'quizUrl', function(wordManager, quizUrl) {
+  angular.module('words').factory('quizManager', ['wordManager',function(wordManager) {
     var quiz;
 
     var factory = {
@@ -15,11 +15,11 @@
         return wordManager.nextWord();
       },
       onLoad: function() {
-        quiz = {
+        quiz = [{
           word: 'confirm',
           options: ['стверджувати', 'випробовувати', 'закохувати', 'спричиняти'],
           answer: 0
-        };//wordManager.getWord();
+        }];//wordManager.getWord();
       },
       isLoaded: function() {
         return angular.isDefined(quiz);
@@ -36,5 +36,5 @@
     };
 
     return factory;
-  }]).constant('quizUrl', 'https://localhost:3000/quiz');
-});
+  }]);
+})();

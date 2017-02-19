@@ -6,7 +6,7 @@
     </loading>
   </div>
 </div>
-<div class="table_container">
+<div class="table_container animation_duration animated" next-word-nav="quiz.nav" nav-callback="quiz.loadQuestion()">
   <div class="cell_container">
     <div class="table_cell_content">
       <div class="table_cell_border shadow">
@@ -18,15 +18,14 @@
             <span>Translation</span>
           </div>
         </div>
-        <div class="col-sm-12">
-          <div class="btn btn_base col-sm-6" ng-class="[{'correct_answer':quiz.correctAnswer},{'wrong_answer':quiz.wrongAnswer}]" ng-repeat="option in quiz.options() track by $index" ng-click="quiz.applyAnswer($index)">
+        <div class="col-sm-12" ng-class="{'disable':quiz.correctAnswer != null}">
+          <div class="btn btn_base col-sm-6" ng-class="[{'correct_answer':quiz.correctAnswer === $index},{'wrong_answer':quiz.userAnswer === $index && quiz.userAnswer !== quiz.correctAnswer}]" ng-repeat="option in quiz.options() track by $index" ng-click="quiz.applyAnswer($index)">
             <span>{{option}}</span>
           </div>
         </div>
         <div class="button_block col-sm-offset-2 col-sm-8">
-          <div class="btn btn_base col-sm-12" ng-click="quiz.answer(4)">
-            <span>Don't know</span>
-          </div>
+          <div type="button" class="btn btn_solution" ng-class="{'disable':quiz.isAnswered()}" ng-click="quiz.applyAnswer()">Solution</div>
+          <div type="button" class="btn btn_next"  ng-class="{'disable':!quiz.isAnswered(), 'btn_highlight':quiz.isAnswered()}" ng-click="quiz.onNavigation()">Next</div>
         </div>
     </div>
   </div>

@@ -316,10 +316,6 @@ img, iframe, video, object {
     background-color: #558c89;
     color: white; }
 
-.button_block {
-  padding-top: 1%;
-  text-align: center; }
-
 .btn_ok {
   border: 2px solid #74afad;
   color: black;
@@ -417,6 +413,10 @@ img, iframe, video, object {
       left: 100%;
       margin-left: 15px; }
 
+.button_block {
+  padding-top: 1%;
+  text-align: center; }
+
 .btn_base, .btn_solution, .btn_next {
   border: 1px solid #74afad;
   border-radius: 7px;
@@ -453,7 +453,7 @@ img, iframe, video, object {
   text-align: center; }
 
 .disable {
-  opacity: 0.4;
+  opacity: 0.5;
   pointer-events: none; }
 
 .disable_click {
