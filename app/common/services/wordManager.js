@@ -8,7 +8,6 @@
         words.$promise.then(onSuccess, onReject);
       },
       getWord: function() {
-                console.log('words:',words);
         return words[0];
       },
       nextWord: function() {

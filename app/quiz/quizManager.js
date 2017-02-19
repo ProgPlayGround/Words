@@ -5,7 +5,7 @@
 
     var factory = {
       init: function(lang, callback) {
-        wordManager.init(quizUrl + lang, function(res) {
+        wordManager.init(quizUrl + lang, function() {
           factory.onLoad();
           callback();
         });
