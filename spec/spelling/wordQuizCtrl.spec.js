@@ -1,20 +1,20 @@
 'use strict';
 
 describe('Word quiz controller', function() {
-  var quizManagerService, quizModalManagerService, scoreManagerService, wordQuizCtrl;
+  var spellingManagerService, quizModalManagerService, scoreManagerService, wordQuizCtrl;
 
   beforeEach(function() {
     module('words');
     module(['$provide', function($provide) {
-      var quizManager = jasmine.createSpyObj('quizManger',
+      var spellingManager = jasmine.createSpyObj('spellingManager',
       ['next', 'onLoad', 'applyAnswer', 'isCorrect', 'checkAnswer',
       'word', 'isLoaded', 'translation', 'definition', 'inSentence', 'answer']);
-      quizManager.init = jasmine.createSpy('init').and.callFake(function(callback) {
+      spellingManager.init = jasmine.createSpy('init').and.callFake(function(callback) {
         callback();
       });
-      quizManager.state = jasmine.createSpy('state').and.returnValues('NA');
+      spellingManager.state = jasmine.createSpy('state').and.returnValues('NA');
 
-      $provide.value('quizManager', quizManager);
+      $provide.value('spellingManager', spellingManager);
 
       $provide.factory('scoreManager', function() {
         return {
@@ -27,20 +27,20 @@ describe('Word quiz controller', function() {
     }]);
   });
 
-  beforeEach(inject(['$controller', 'quizManager', 'scoreManager', 'quizModalManager',
-  function($controller, quizManager, scoreManager, quizModalManager) {
+  beforeEach(inject(['$controller', 'spellingManager', 'scoreManager', 'quizModalManager',
+  function($controller, spellingManager, scoreManager, quizModalManager) {
     wordQuizCtrl = $controller('WordQuizCtrl', {
-      'quizManager': quizManager,
+      'spellingManager': spellingManager,
       'scoreManager': scoreManager,
       'quizModalManager': quizModalManager
     });
-    quizManagerService = quizManager;
+    spellingManagerService = spellingManager;
     scoreManagerService = scoreManager;
     quizModalManagerService = quizModalManager;
   }]));
 
   it('load question on init', function() {
-    expect(quizManagerService.init).toHaveBeenCalled();
+    expect(spellingManagerService.init).toHaveBeenCalled();
     expect(wordQuizCtrl.nav).toBeFalsy();
   });
 
@@ -50,32 +50,32 @@ describe('Word quiz controller', function() {
 
   it('loadQuestion retrives new word and reset to initial state', function() {
     wordQuizCtrl.loadQuestion();
-    expect(quizManagerService.onLoad).toHaveBeenCalled();
+    expect(spellingManagerService.onLoad).toHaveBeenCalled();
     expect(wordQuizCtrl.nav).toBeFalsy();
   });
 
   it('onNavigation move to next word in a dictionary', function() {
-    quizManagerService.next = jasmine.createSpy('next').and.returnValue(true);
+    spellingManagerService.next = jasmine.createSpy('next').and.returnValue(true);
     wordQuizCtrl.onNavigation();
-    expect(quizManagerService.state).toHaveBeenCalled();
+    expect(spellingManagerService.state).toHaveBeenCalled();
     expect(scoreManagerService.onAnswer).toHaveBeenCalledWith('NA');
-    expect(quizManagerService.next).toHaveBeenCalled();
+    expect(spellingManagerService.next).toHaveBeenCalled();
     expect(wordQuizCtrl.nav).toBeTruthy();
   });
 
   it('onNavigation show score for last word', function() {
-    quizManagerService.next = jasmine.createSpy('next').and.returnValue(false);
+    spellingManagerService.next = jasmine.createSpy('next').and.returnValue(false);
     spyOn(quizModalManagerService, 'finishModal');
     wordQuizCtrl.onNavigation();
     expect(scoreManagerService.onAnswer).toHaveBeenCalledWith('NA');
-    expect(quizManagerService.next).toHaveBeenCalled();
+    expect(spellingManagerService.next).toHaveBeenCalled();
     expect(wordQuizCtrl.nav).toBeFalsy();
     expect(quizModalManagerService.finishModal).toHaveBeenCalled();
   });
 
   it('applyAnswer set correct answer for the quiz', function() {
     wordQuizCtrl.applyAnswer();
-    expect(quizManagerService.applyAnswer).toHaveBeenCalled();
+    expect(spellingManagerService.applyAnswer).toHaveBeenCalled();
     expect(scoreManagerService.useSolution).toHaveBeenCalled();
   });
 
@@ -91,46 +91,46 @@ describe('Word quiz controller', function() {
 
   it('isCorrect call through to quiz manager', function() {
     wordQuizCtrl.isCorrect();
-    expect(quizManagerService.isCorrect).toHaveBeenCalled();
+    expect(spellingManagerService.isCorrect).toHaveBeenCalled();
   });
 
   it('checkAnswer call through to quiz manager', function() {
     wordQuizCtrl.checkAnswer();
-    expect(quizManagerService.checkAnswer).toHaveBeenCalled();
+    expect(spellingManagerService.checkAnswer).toHaveBeenCalled();
   });
 
   it('isLoaded call through to quiz manager', function() {
     wordQuizCtrl.isLoaded();
-    expect(quizManagerService.isLoaded).toHaveBeenCalled();
+    expect(spellingManagerService.isLoaded).toHaveBeenCalled();
   });
 
   it('state call through to quiz manager', function() {
     wordQuizCtrl.answerState();
-    expect(quizManagerService.state).toHaveBeenCalled();
+    expect(spellingManagerService.state).toHaveBeenCalled();
   });
 
   it('word call through to quiz manager', function() {
     wordQuizCtrl.word();
-    expect(quizManagerService.word).toHaveBeenCalled();
+    expect(spellingManagerService.word).toHaveBeenCalled();
   });
 
   it('translation call through to quiz manager', function() {
     wordQuizCtrl.translation();
-    expect(quizManagerService.translation).toHaveBeenCalled();
+    expect(spellingManagerService.translation).toHaveBeenCalled();
   });
 
   it('answer call through to quiz manager', function() {
     wordQuizCtrl.answer();
-    expect(quizManagerService.answer).toHaveBeenCalled();
+    expect(spellingManagerService.answer).toHaveBeenCalled();
   });
 
   it('definition call through to quiz manager', function() {
     wordQuizCtrl.definition();
-    expect(quizManagerService.definition).toHaveBeenCalled();
+    expect(spellingManagerService.definition).toHaveBeenCalled();
   });
 
   it('inSentence call through to quiz manager', function() {
     wordQuizCtrl.inSentence();
-    expect(quizManagerService.inSentence).toHaveBeenCalled();
+    expect(spellingManagerService.inSentence).toHaveBeenCalled();
   });
 });

@@ -2,7 +2,7 @@
   <div class="word col-sm-offset-2 col-sm-8" apply-answer="quiz.answerState()">
     <div class="center">
       <span class="letter" ng-repeat="char in quiz.word() track by $index">{{char}}</span>
-      <a class="btn_word_switch_state" ui-sref="quiz.description" ng-click="quiz.hint()"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+      <a class="btn_word_switch_state" ui-sref="spelling.description" ng-click="quiz.hint()"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
     </div>
     <hr class="divider"/>
     <div class="center">

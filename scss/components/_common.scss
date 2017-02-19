@@ -2,6 +2,66 @@
   background-color: $bg-color;
 }
 
+.table_container {
+  display: table;
+  height: 80%;
+  position: absolute;
+  width: 100%;
+}
+
+.cell_container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.table_cell_content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
+
+.table_cell_border {
+  display: inline-block;
+  padding: 20px;
+}
+
+.divider_margin {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.strike {
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+
+  & > span {
+    display: inline-block;
+    position: relative;
+
+    &::before,
+    &::after {
+      background: $main-color;
+      content: '';
+      height: 1px;
+      position: absolute;
+      top: 50%;
+      width: 9999px;
+    }
+
+    &::before {
+      margin-right: 15px;
+      right: 100%;
+    }
+
+    &::after {
+      left: 100%;
+      margin-left: 15px;
+    }
+  }
+}
+
 .btn_base {
   border: 1px solid $main-color;
   border-radius: 7px;
@@ -9,7 +69,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: $arial;
-  font-size: 1em;
+  font-size: 1vm;
   overflow: hidden;
   padding: 3%;
   text-align: center;
@@ -20,6 +80,26 @@
   &:hover {
     background-color: $main-color;
   }
+}
+
+.correct_answer {
+  background-color: $solution-color;
+}
+
+.wrong_answer {
+  background-color: $wrong-color;
+}
+
+.border_wrong_answer {
+  border-color: $wrong-color;
+}
+
+.border_correct_answer {
+  border-color: $solution-color;
+}
+
+.word_no_answer {
+  border-color: $main-color;
 }
 
 .center {

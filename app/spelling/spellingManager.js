@@ -1,21 +1,18 @@
 (function() {
   'use strict';
-  angular.module('words').factory('quizManager', ['wordManager', function(wordManager) {
+  angular.module('words').constant('dictionaryUrl', 'https://localhost:3000/dictionary')
+  .factory('spellingManager', ['wordManager', 'dictionaryUrl', function(wordManager, dictionaryUrl) {
     var quiz, answer, answerState;
 
     var factory = {
       init: function(callback) {
-        wordManager.init(function() {
+        wordManager.init(dictionaryUrl, function() {
           factory.onLoad();
           callback();
         });
       },
       next: function() {
-        var hasNext = wordManager.hasNext();
-        if(hasNext) {
-          wordManager.nextWord(quiz.word);
-        }
-        return hasNext;
+        return wordManager.nextWord();
       },
       onLoad: function() {
         quiz = wordManager.getWord();

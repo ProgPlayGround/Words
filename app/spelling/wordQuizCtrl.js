@@ -1,24 +1,24 @@
 (function() {
   'use strict';
-  angular.module('words').controller('WordQuizCtrl', ['quizManager', 'quizModalManager', 'scoreManager',
-  function(quizManager, quizModalManager, scoreManager) {
+  angular.module('words').controller('WordQuizCtrl', ['spellingManager', 'quizModalManager', 'scoreManager',
+  function(spellingManager, quizModalManager, scoreManager) {
     var vm = this;
     vm.loadingText = 'Loading...';
-    quizManager.init(afterLoad);
+    spellingManager.init(afterLoad);
 
     vm.loadQuestion = function() {
-      quizManager.onLoad();
+      spellingManager.onLoad();
       afterLoad();
     };
 
     vm.applyAnswer = function() {
-      quizManager.applyAnswer();
+      spellingManager.applyAnswer();
       scoreManager.useSolution();
     };
 
     vm.onNavigation = function() {
-      scoreManager.onAnswer(quizManager.state());
-      if(quizManager.next()) {
+      scoreManager.onAnswer(spellingManager.state());
+      if(spellingManager.next()) {
         vm.nav = true;
       } else {
         quizModalManager.finishModal('main');
@@ -27,15 +27,15 @@
 
     vm.hint = scoreManager.useHint;
     vm.score = scoreManager.get;
-    vm.isCorrect = quizManager.isCorrect;
-    vm.checkAnswer = quizManager.checkAnswer;
-    vm.isLoaded = quizManager.isLoaded;
-    vm.answerState = quizManager.state;
-    vm.word = quizManager.word;
-    vm.translation = quizManager.translation;
-    vm.answer = quizManager.answer;
-    vm.definition = quizManager.definition;
-    vm.inSentence = quizManager.inSentence;
+    vm.isCorrect = spellingManager.isCorrect;
+    vm.checkAnswer = spellingManager.checkAnswer;
+    vm.isLoaded = spellingManager.isLoaded;
+    vm.answerState = spellingManager.state;
+    vm.word = spellingManager.word;
+    vm.translation = spellingManager.translation;
+    vm.answer = spellingManager.answer;
+    vm.definition = spellingManager.definition;
+    vm.inSentence = spellingManager.inSentence;
 
     function afterLoad() {
       vm.nav = false;

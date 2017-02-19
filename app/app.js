@@ -18,16 +18,16 @@
     }).state('user.profile', {
       url: '/profile',
       templateUrl: 'user/profile.html'
-    }).state('quiz', {
+    }).state('spelling', {
       abstract: true,
-      url: '/quiz',
+      url: '/spelling',
       templateUrl: 'spelling/word-quiz.html',
       controller: 'WordQuizCtrl',
       controllerAs: 'quiz'
-    }).state('quiz.question', {
+    }).state('spelling.question', {
       url: '/quest',
       templateUrl: 'spelling/word-quiz.question.html'
-    }).state('quiz.description', {
+    }).state('spelling.description', {
       url: '/description',
       templateUrl: 'spelling/word-quiz.description.html'
     }).state('auth', {
@@ -41,9 +41,14 @@
       controllerAs: 'auth'
     }).state('auth.registration', {
       url: '/registration',
-      templateUrl:'auth/registration.html',
+      templateUrl: 'auth/registration.html',
       controller: 'RegistrationCtrl',
       controllerAs: 'auth'
+    }).state('quiz', {
+      url: '/quiz',
+      templateUrl: 'quiz/quiz.html',
+      controller: 'QuizCtrl',
+      controllerAs: 'quiz'
     });
 
     $urlRouterProvider.otherwise('/auth/login');
