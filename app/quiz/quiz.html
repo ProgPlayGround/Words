@@ -1,36 +1,35 @@
 <div ng-include src="'navbar/navbar.html'"></div>
-<div class="score_container col-sm-12">
-  <div class="col-sm-4">
-    <div class="center">
-      <loading>
-        <span item class="letter animated" ng-repeat="char in quiz.loadingText track by $index">{{char}}</span>
-      </loading>
+<div class="container">
+  <div class="score_container col-sm-12">
+    <div class="col-sm-4">
+      <div class="center">
+        <loading>
+          <span item class="letter animated" ng-repeat="char in quiz.loadingText track by $index">{{char}}</span>
+        </loading>
+      </div>
     </div>
+    <span class="score_text">{{quiz.score()}}</span>
+    <span class="score_icon glyphicon glyphicon-star"></span>
   </div>
-  <span class="score_text">{{quiz.score()}}</span>
-  <span class="score_icon glyphicon glyphicon-star"></span>
-</div>
-<div ng-if="quiz.isLoaded()" class="table_container animation_duration animated" next-word-nav="quiz.nav" nav-callback="quiz.loadQuestion()" nav-animation="fade">
-  <div class="cell_container">
-    <div class="table_cell_content">
-      <div class="table_cell_border shadow">
-        <div class="center">
-          <span class="letter" ng-repeat="char in quiz.word() track by $index">{{char}}</span>
-        </div>
-        <div class="col-sm-12 divider_margin">
-          <div class="strike">
-            <span>Translation</span>
-          </div>
-        </div>
-        <div class="col-sm-12" ng-class="{'disable':quiz.correctAnswer != null}">
-          <div class="btn btn_base col-sm-6" ng-class="[{'correct_answer':quiz.correctAnswer === $index},{'wrong_answer':quiz.userAnswer === $index && quiz.userAnswer !== quiz.correctAnswer}]" ng-repeat="option in quiz.options() track by $index" ng-click="quiz.applyAnswer($index)">
-            <span>{{option}}</span>
-          </div>
-        </div>
-        <div class="button_block col-sm-offset-2 col-sm-8">
-          <div type="button" class="btn btn_solution" ng-class="{'disable':quiz.isAnswered()}" ng-click="quiz.applyAnswer()">Solution</div>
-          <div type="button" class="btn btn_next"  ng-class="{'disable':!quiz.isAnswered(), 'btn_highlight':quiz.isAnswered()}" ng-click="quiz.onNavigation()">Next</div>
-        </div>
+
+  <div ng-if="quiz.isLoaded()" class="question_container animation_duration animated" next-word-nav="quiz.nav" nav-callback="quiz.loadQuestion()" nav-animation="fade">
+    <div class="center">
+      <span class="letter" ng-repeat="char in quiz.word() track by $index">{{char}}</span>
+    </div>
+    <div class="col-sm-12 divider_margin">
+      <div class="strike">
+        <span>Translation</span>
+      </div>
+    </div>
+    <div class="col-sm-12" ng-class="{'disable_click':quiz.correctAnswer != null}">
+      <div class="btn btn_base col-sm-6" ng-class="[{'correct_answer':quiz.correctAnswer === $index},{'wrong_answer':quiz.userAnswer === $index && quiz.userAnswer !== quiz.correctAnswer}]"
+       ng-repeat="option in quiz.options() track by $index" ng-click="quiz.applyAnswer($index)" ng-blur="quiz.isAnswered()">
+        <span>{{option}}</span>
+      </div>
+    </div>
+    <div class="button_block col-sm-offset-2 col-sm-8">
+      <div type="button" class="btn btn_solution" ng-class="{'disable':quiz.isAnswered()}" ng-click="quiz.applyAnswer()">Solution</div>
+      <div type="button" class="btn btn_next"  ng-class="{'disable':!quiz.isAnswered(), 'btn_highlight':quiz.isAnswered()}" ng-click="quiz.onNavigation()">Next</div>
     </div>
   </div>
 </div>
