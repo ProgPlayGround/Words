@@ -1,6 +1,5 @@
----
 engines:
-   scss-lint:
+  scss-lint:
     enabled: true
   duplication:
     enabled: true
@@ -24,3 +23,6 @@ exclude_paths:
 - bower_components/
 - app/bower_components/
 - bin/
+- coverage/
+- server.js
+- app/app.css

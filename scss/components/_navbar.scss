@@ -1,27 +1,23 @@
-
-.btn_brand {
+.btn-brand {
   cursor: pointer;
   margin-top: 2px;
 }
 
-.nav {
-  &.navbar-nav {
-    &.navbar-right {
-      li {
-        a {
-          color: white;
-          font-family: $arial;
-          font-style: italic;
+.navbar-right {
+  li {
+    a {
+      color: $white;
+      font-family: $arial;
+      font-style: italic;
 
-          &:hover,&:focus,&:active {
-            background-color: $main-color;
-            color: black;
-          }
-        }
+      &:hover,&:focus,&:active {
+        background-color: $main-color;
+        color: $black;
       }
     }
   }
 }
+
 
 .navbar-custom {
   background-color: $navbar-bg-color;

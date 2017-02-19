@@ -26,8 +26,8 @@ describe('letter directive', function() {
   it('don\'t call focus controller for undefined model', function() {
     expect(focusCtrl.next).not.toHaveBeenCalled();
     expect(focusCtrl.previous).not.toHaveBeenCalled();
-    expect(element.hasClass('wrong_answer')).toBeFalsy();
-    expect(element.hasClass('correct_answer')).toBeFalsy();
+    expect(element.hasClass('wrong-answer')).toBeFalsy();
+    expect(element.hasClass('correct-answer')).toBeFalsy();
     expect(element.isolateScope().onModelChange).not.toHaveBeenCalled();
   });
 
@@ -37,8 +37,8 @@ describe('letter directive', function() {
 
     expect(focusCtrl.next).not.toHaveBeenCalled();
     expect(focusCtrl.previous).toHaveBeenCalledTimes(1);
-    expect(element.hasClass('wrong_answer')).toBeFalsy();
-    expect(element.hasClass('correct_answer')).toBeFalsy();
+    expect(element.hasClass('wrong-answer')).toBeFalsy();
+    expect(element.hasClass('correct-answer')).toBeFalsy();
     expect(element.isolateScope().onModelChange).toHaveBeenCalledTimes(1);
   });
 
@@ -49,8 +49,8 @@ describe('letter directive', function() {
 
     expect(focusCtrl.next).toHaveBeenCalledTimes(1);
     expect(focusCtrl.previous).not.toHaveBeenCalled();
-    expect(element.hasClass('wrong_answer')).toBeFalsy();
-    expect(element.hasClass('correct_answer')).toBeTruthy();
+    expect(element.hasClass('wrong-answer')).toBeFalsy();
+    expect(element.hasClass('correct-answer')).toBeTruthy();
     expect(element.isolateScope().onModelChange).toHaveBeenCalledTimes(1);
   });
 
@@ -61,8 +61,8 @@ describe('letter directive', function() {
 
     expect(focusCtrl.next).toHaveBeenCalledTimes(1);
     expect(focusCtrl.previous).not.toHaveBeenCalled();
-    expect(element.hasClass('wrong_answer')).toBeTruthy();
-    expect(element.hasClass('correct_answer')).toBeFalsy();
+    expect(element.hasClass('wrong-answer')).toBeTruthy();
+    expect(element.hasClass('correct-answer')).toBeFalsy();
     expect(element.isolateScope().onModelChange).toHaveBeenCalledTimes(1);
   });
 

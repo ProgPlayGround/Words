@@ -2,30 +2,30 @@
   background-color: $bg-color;
 }
 
-.table_container {
+.table-container {
   display: table;
   height: 80%;
   position: absolute;
   width: 100%;
 }
 
-.cell_container {
+.cell-container {
   display: table-cell;
   vertical-align: middle;
 }
 
-.table_cell_content {
+.table-cell-content {
   margin-left: auto;
   margin-right: auto;
   width: 35%;
 }
 
-.table_cell_border {
+.table-cell-border {
   display: inline-block;
   padding: 20px;
 }
 
-.divider_margin {
+.divider-margin {
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -36,7 +36,7 @@
   text-align: center;
   white-space: nowrap;
 
-  & > span {
+  > span {
     display: inline-block;
     position: relative;
 
@@ -62,24 +62,24 @@
   }
 }
 
-.button_block {
+.button-block {
   padding-top: 1%;
   text-align: center;
 }
 
-.btn_base {
+.btn-base {
   border: 1px solid $main-color;
   border-radius: 7px;
-  color: black;
+  color: $black;
   cursor: pointer;
   display: inline-block;
   font-family: $arial;
-  font-size: 1vm;
+  font-size: 1em;
   overflow: hidden;
   padding: 3%;
   text-align: center;
   text-overflow: ellipsis;
-  transition: all 0.25s ease-in-out;
+  transition: all .25s ease-in-out;
   white-space: nowrap;
 
   &:hover {
@@ -87,23 +87,23 @@
   }
 }
 
-.correct_answer {
+.correct-answer {
   background-color: $solution-color;
 }
 
-.wrong_answer {
+.wrong-answer {
   background-color: $wrong-color;
 }
 
-.border_wrong_answer {
+.border-wrong-answer {
   border-color: $wrong-color;
 }
 
-.border_correct_answer {
+.border-correct-answer {
   border-color: $solution-color;
 }
 
-.word_no_answer {
+.word-no-answer {
   border-color: $main-color;
 }
 
@@ -112,11 +112,11 @@
 }
 
 .disable {
-  opacity: 0.5;
+  opacity: .5;
   pointer-events: none;
 }
 
-.disable_click {
+.disable-click {
   pointer-events: none;
 }
 
@@ -127,7 +127,7 @@
 }
 
 .fog {
-  opacity: 0.4;
+  opacity: .4;
 }
 
 .no-padding {

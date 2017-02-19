@@ -1,6 +1,6 @@
 <div class="col-sm-offset-1 col-sm-10">
-  <div class="btn auth_tab_selected col-sm-6 disable_click">Login</div>
-  <a ui-sref="auth.registration" class="btn auth_tab col-sm-6 fog">Registration</a>
+  <div class="btn auth-tab-selected col-sm-6 disable-click">Login</div>
+  <a ui-sref="auth.registration" class="btn auth-tab col-sm-6 fog">Registration</a>
 </div>
 <div class="col-sm-12">
   <hr class="divider"/>
@@ -8,44 +8,44 @@
 <div class="col-sm-offset-2 col-sm-8">
   <form name="loginForm" ng-submit="auth.login()" role="form">
     <div class="form-group">
-      <input type="email" name="username" class="form-control auth_input" ng-model="auth.email" error-message message="auth.error.login" required-on-condition="auth.errorClick" placeholder="Email" novalidate/>
-      <div class="auth_help_block" ng-messages="loginForm.username.$error" role="alert">
+      <input type="email" name="username" class="form-control auth-input" ng-model="auth.email" error-message message="auth.error.login" required-on-condition="auth.errorClick" placeholder="Email" novalidate/>
+      <div class="auth-help-block" ng-messages="loginForm.username.$error" role="alert">
         <div ng-if="auth.errorClick" ng-message="required">The field is required</div>
         <div ng-message="email">Your email address is invalid</div>
         <div ng-message="error">{{auth.error.login}}</div>
       </div>
-      <span class="auth_help_block help-block" ng-if="">Email is required</span>
-      <input type="password" name="password" class="form-control auth_input auth_margin" ng-model="auth.password" error-message message="auth.error.password" required-on-condition="auth.errorClick" placeholder="Password" novalidate/>
-      <div class="auth_help_block" ng-messages="loginForm.password.$error" role="alert">
+      <span class="auth-help-block help-block" ng-if="">Email is required</span>
+      <input type="password" name="password" class="form-control auth-input auth-margin" ng-model="auth.password" error-message message="auth.error.password" required-on-condition="auth.errorClick" placeholder="Password" novalidate/>
+      <div class="auth-help-block" ng-messages="loginForm.password.$error" role="alert">
         <div ng-message="required">The field is required</div>
         <div ng-message="error">{{auth.error.password}}</div>
       </div>
     </div>
     <div class="center">
-      <button type="submit" class="btn btn_base btn_auth_submit" ng-disabled="loginForm.$invalid">Login</button>
+      <button type="submit" class="btn btn-base btn-auth-submit" ng-disabled="loginForm.$invalid">Login</button>
     </div>
   </form>
 </div>
-<div class="col-sm-12 divider_margin">
+<div class="col-sm-12 divider-margin">
   <div class="strike">
     <span>or</span>
   </div>
 </div>
 <div class="col-sm-offset-1 col-sm-10">
-  <div class="btn btn_base col-sm-6 btn_oauth fog" ng-click="auth.fbLogin()">
-    <i class="fa fa-facebook-official btn_oauth_icon"></i>
+  <div class="btn btn-base col-sm-6 btn-oauth fog" ng-click="auth.fbLogin()">
+    <i class="fa fa-facebook-official btn-oauth-icon"></i>
     <span>Facebook</span>
   </div>
-  <div class="btn btn_base col-sm-6 btn_oauth fog" ng-click="auth.vkLogin()">
-    <i class="fa fa-vk btn_oauth_icon"></i>
+  <div class="btn btn-base col-sm-6 btn-oauth fog" ng-click="auth.vkLogin()">
+    <i class="fa fa-vk btn-oauth-icon"></i>
     <span>Vkontakte</span>
   </div>
-  <div class="btn btn_base col-sm-6 btn_oauth fog" ng-click="auth.goLogin()">
-    <i class="fa fa-odnoklassniki-square btn_oauth_icon"></i>
+  <div class="btn btn-base col-sm-6 btn-oauth fog" ng-click="auth.goLogin()">
+    <i class="fa fa-odnoklassniki-square btn-oauth-icon"></i>
     <span>Одноклассники</span>
   </div>
-  <div class="btn btn_base col-sm-6 btn_oauth fog" ng-click="auth.goLogin()">
-    <i class="fa fa-google-plus-official btn_oauth_icon"></i>
+  <div class="btn btn-base col-sm-6 btn-oauth fog" ng-click="auth.goLogin()">
+    <i class="fa fa-google-plus-official btn-oauth-icon"></i>
     <span>Google+</span>
   </div>
 </div>

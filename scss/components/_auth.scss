@@ -1,6 +1,6 @@
-.auth_tab {
+.auth-tab {
   border-radius: 0;
-  color: black;
+  color: $black;
   cursor: pointer;
   display: inline-block;
   font-family: $arial;
@@ -9,52 +9,54 @@
   padding: 0 3% 3%;
   text-align: center;
   text-overflow: ellipsis;
-  transition: all 0.25s ease-in-out;
+  transition: all .25s ease-in-out;
   white-space: nowrap;
 }
 
-.auth_tab_selected {
-  @extend .auth_tab;
+.auth-tab-selected {
+  @extend .auth-tab;
   border-bottom: 1px solid $main-color;
 }
 
-.btn_auth_submit {
+.btn-auth-submit {
   background-color: $bg-color;
+
   &:focus {
     outline: none !important;
   }
 }
 
-.auth_input {
+.auth-input {
   border: 1px solid $main-color;
   border-radius: 4px;
 }
 
-.auth_margin {
+.auth-margin {
   margin-top: 2px;
 }
 
 .shadow {
-  box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px $gray;
 }
 
-.btn_oauth {
+.btn-oauth {
   line-height: 30px;
+
   &:hover {
     opacity: 1;
   }
 }
 
-.btn_oauth_icon {
+.btn-oauth-icon {
   float: left;
   font-size: 30px;
 }
 
-.auth_help_block {
-  font-size: 0.7em;
+.auth-help-block {
+  font-size: .7em;
   font-weight: bold;
   margin-bottom: 5px;
-  max-height: 0.8em;
-  min-height: 0.8em;
-  opacity: 0.6;
+  max-height: .8em;
+  min-height: .8em;
+  opacity: .6;
 }

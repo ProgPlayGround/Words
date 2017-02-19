@@ -25,23 +25,23 @@
         scope.$watch('model', function (value) {
           if(angular.isDefined(value)) {
             if(value.length === 0) {
-              element.removeClass('wrong_answer');
-              element.removeClass('correct_answer');
+              element.removeClass('wrong-answer');
+              element.removeClass('correct-answer');
               focusCtrl.previous(scope.index);
             } else {
               if(scope.char === value) {
-                element.removeClass('wrong_answer');
-                element.addClass('correct_answer');
+                element.removeClass('wrong-answer');
+                element.addClass('correct-answer');
               } else {
-                element.removeClass('correct_answer');
-                element.addClass('wrong_answer');
+                element.removeClass('correct-answer');
+                element.addClass('wrong-answer');
               }
               focusCtrl.next(scope.index);
             }
             scope.onModelChange();
           } else {
-            element.removeClass('wrong_answer');
-            element.removeClass('correct_answer');
+            element.removeClass('wrong-answer');
+            element.removeClass('correct-answer');
           }
         });
 

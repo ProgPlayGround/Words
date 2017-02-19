@@ -19,24 +19,24 @@ describe('apply-answer directive', function() {
   it('applies "no_answer" class for "NA" model', function() {
     scope.model = 'NA';
     scope.$apply();
-    expect(element.hasClass('word_no_answer')).toBeTruthy();
-    expect(element.hasClass('border_wrong_answer')).toBeFalsy();
-    expect(element.hasClass('border_correct_answer')).toBeFalsy();
+    expect(element.hasClass('word-no-answer')).toBeTruthy();
+    expect(element.hasClass('border-wrong-answer')).toBeFalsy();
+    expect(element.hasClass('border-correct-answer')).toBeFalsy();
   });
 
-  it('applies "correct_answer" class for "CORRECT" model', function() {
+  it('applies "correct-answer" class for "CORRECT" model', function() {
     scope.model = 'CORRECT';
     scope.$apply();
-    expect(element.hasClass('border_correct_answer')).toBeTruthy();
-    expect(element.hasClass('border_wrong_answer')).toBeFalsy();
-    expect(element.hasClass('word_no_answer')).toBeFalsy();
+    expect(element.hasClass('border-correct-answer')).toBeTruthy();
+    expect(element.hasClass('border-wrong-answer')).toBeFalsy();
+    expect(element.hasClass('word-no-answer')).toBeFalsy();
   });
 
-  it('applies "wrong_answer" class for "ERROR" model', function() {
+  it('applies "wrong-answer" class for "ERROR" model', function() {
     scope.model = 'ERROR';
     scope.$apply();
-    expect(element.hasClass('border_wrong_answer')).toBeTruthy();
-    expect(element.hasClass('word_no_answer')).toBeFalsy();
-    expect(element.hasClass('border_correct_answer')).toBeFalsy();
+    expect(element.hasClass('border-wrong-answer')).toBeTruthy();
+    expect(element.hasClass('word-no-answer')).toBeFalsy();
+    expect(element.hasClass('border-correct-answer')).toBeFalsy();
   });
 });

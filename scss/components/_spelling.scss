@@ -1,8 +1,8 @@
-.question_container {
+.question-container {
   margin-top: 15%;
 }
 
-.quiz_modal {
+.quiz-modal {
   font-family: $arial-serif;
   font-size: 2em;
   font-style: italic;
@@ -10,14 +10,14 @@
   text-align: center;
 
   .divider {
-    border-color: #909292;
+    border-color: $gray;
   }
 
-  .score_text {
+  .score-text {
     color: $score-color;
   }
 
-  .score_icon {
+  .score-icon {
     color: $score-color;
     font-size: 1.5em;
   }
@@ -46,24 +46,24 @@
   border-width: 2px;
 }
 
-.score_icon_margin {
+.score-icon-margin {
   margin-left: 3px;
 }
 
-.score_container {
+.score-container {
   color: $main-color;
   font-family: $arial;
-  margin-top: 0.5%;
+  margin-top: .5%;
   text-align: right;
   white-space: nowrap;
 }
 
-.score_icon {
+.score-icon {
   font-size: 2em;
   vertical-align: middle;
 }
 
-.score_text {
+.score-text {
   font-size: 1.5em;
   vertical-align: bottom;
 }
@@ -92,7 +92,7 @@
   }
 }
 
-.input_letter {
+.input-letter {
   @extend .letter;
   background-color: $bg-color;
   cursor: pointer;
@@ -102,66 +102,66 @@
 
   &:focus,&:hover,&:active {
     background-color: $letter-selection-color;
-    color: white;
+    color: $white;
   }
 }
 
-.btn_ok {
+.btn-ok {
   border: 2px solid $main-color;
-  color: black;
+  color: $black;
   font-weight: bold;
   padding-left: 5%;
   padding-right: 5%;
-  transition: all 0.25s ease-in-out;
+  transition: all .25s ease-in-out;
 
   &:hover {
     transform: scale(1.1);
   }
 }
 
-.btn_solution {
-  @extend .btn_base;
+.btn-solution {
+  @extend .btn-base;
   border: 2px solid $main-color;
   font-weight: bold;
   margin-right: 2%;
 
   &:hover {
     background-color: $solution-color;
-    color: white;
+    color: $white;
     transform: scale(1.1);
   }
 }
 
-.btn_next {
-  @extend .btn_base;
+.btn-next {
+  @extend .btn-base;
   border: 2px solid $main-color;
   font-weight: bold;
   margin-right: 2%;
 
   &:hover {
     background-color: $letter-selection-color;
-    color: white;
+    color: $white;
     transform: scale(1.1);
   }
 
-  &.btn_highlight {
+  &.btn-highlight {
     background-color: $solution-color;
-    color: white;
+    color: $white;
   }
 }
 
 .row {
-  &.animation_duration {
-    animation-duration: 0.7s;
+  &.animation-duration {
+    animation-duration: .7s;
   }
 }
 
-.btn_highlight {
+.btn-highlight {
   box-shadow: 0 0 25px $solution-color;
   transform: scale(1.1);
 }
 
-.btn_word_switch_state {
+.btn-word-switch-state {
   color: $letter-selection-color;
   cursor: pointer;
   position: absolute;
@@ -169,7 +169,7 @@
   top: 5px;
 }
 
-.description_text {
+.description-text {
   font-family: $arial;
   font-size: 1em;
 }

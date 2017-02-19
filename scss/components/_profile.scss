@@ -1,10 +1,10 @@
-.user_container {
+.user-container {
   font-family: $papyrus;
   margin-left: 3%;
 }
 
-.user_data_container {
-  background-color: white;
+.user-data-container {
+  background-color: $white;
   height: 80vh;
   overflow: hidden;
   padding-left: 2%;
@@ -16,15 +16,15 @@
 .nav-tabs {
   border-bottom: 0;
 
-  & > li {
-    & > a {
+  > li {
+    > a {
       border: 0;
       border-radius: 0;
       margin-right: 0;
     }
 
     &.active {
-      & > a {
+      > a {
         border: 0;
 
         &:focus, &:hover {
@@ -39,7 +39,7 @@
   float: left;
 }
 
-.tab_img {
+.tab-img {
   display: block;
   margin: auto;
 }
@@ -51,20 +51,20 @@
   z-index: 3;
 }
 
-.profile_username {
+.profile-username {
   font-size: 1.6em;
 }
 
-.profile_info {
+.profile-info {
   font-size: 1em;
 }
 
-.progress_container {
+.progress-container {
   margin-left: 160px;
   margin-top: 10px;
 }
 
-.rank_level {
+.rank-level {
   background: url('images/level.png');
   float: left;
   font-size: 1.1em;
@@ -77,33 +77,33 @@
   width: 48px;
 }
 
-.rank_bar {
+.rank-bar {
   margin-right: 10%;
 }
 
-.profile_activity {
+.profile-activity {
   margin-left: 160px;
   margin-top: 50px;
 }
 
-.profile_divider {
+.profile-divider {
   margin-left: 20px;
   margin-top: 5px;
 }
 
-.profile_activity_header {
+.profile-activity-header {
   font-size: 1.5em;
 }
 
-.profile_activity_body {
+.profile-activity-body {
   margin-bottom: 10px;
 }
 
-.profile_activity_body_timeline {
+.profile-activity-body-timeline {
   font-size: 1em;
 }
 
-.profile_activity_body_info {
+.profile-activity-body-info {
   background-color: $bg-color;
   border-radius: 3px;
   display: inline-block;
@@ -112,12 +112,12 @@
   padding-right: 20px;
 }
 
-.profile_activity_body_info_description {
+.profile-activity-body-info-description {
   padding-bottom: 2px;
   padding-top: 10px;
 }
 
-.background_img {
+.background-img {
   bottom: 0;
   left: 0;
   overflow: hidden;
