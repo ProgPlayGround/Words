@@ -1,30 +1,26 @@
 (function() {
   'use strict';
-  angular.module('words').factory('quizManager', ['wordManager',function(wordManager) {
+  angular.module('words').constant('quizUrl', 'https://localhost:3000/quiz/').factory('quizManager', ['wordManager', 'quizUrl', function(wordManager, quizUrl) {
     var quiz;
 
     var factory = {
-      init: function(callback) {
-        factory.onLoad();
-        // wordManager.init(quizUrl, function() {
-        //   factory.onLoad();
-        //   callback();
-        // });
+      init: function(lang, callback) {
+        wordManager.init(quizUrl + lang, function(res) {
+          factory.onLoad();
+          callback();
+        });
       },
       next: function() {
         return wordManager.nextWord();
       },
       onLoad: function() {
-        quiz = [{
-          word: 'confirm',
-          options: ['стверджувати', 'випробовувати', 'закохувати', 'спричиняти'],
-          answer: 0
-        }];//wordManager.getWord();
+        quiz = wordManager.getWord();
       },
       isLoaded: function() {
         return angular.isDefined(quiz);
       },
       word: function() {
+
         return quiz.word;
       },
       options: function() {

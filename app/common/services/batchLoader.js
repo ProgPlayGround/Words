@@ -3,6 +3,7 @@
   angular.module('words').factory('batchLoader', ['$resource', 'httpAuthHeaders', function($resource, httpAuthHeaders) {
     return {
       load: function(url) {
+        console.log(url);
         return $resource(url, {}, {
           'query': {
             'method': 'GET',

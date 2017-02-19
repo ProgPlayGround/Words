@@ -8,11 +8,12 @@
         words.$promise.then(onSuccess, onReject);
       },
       getWord: function() {
+                console.log('words:',words);
         return words[0];
       },
       nextWord: function() {
         words.shift();
-        return words[0];
+        return angular.isDefined(words[0]);
       },
       hasNext: function() {
         return words.length > 1;
