@@ -435,9 +435,13 @@ img, iframe, video, object {
 
 .correct-answer {
   background-color: #75af73; }
+  .correct-answer:hover {
+    background-color: #75af73; }
 
 .wrong-answer {
   background-color: #af7375; }
+  .wrong-answer:hover {
+    background-color: #af7375; }
 
 .border-wrong-answer {
   border-color: #af7375; }

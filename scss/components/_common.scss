@@ -89,10 +89,16 @@
 
 .correct-answer {
   background-color: $solution-color;
+  &:hover {
+    background-color: $solution-color;
+  }
 }
 
 .wrong-answer {
   background-color: $wrong-color;
+  &:hover {
+    background-color: $wrong-color;
+  }
 }
 
 .border-wrong-answer {

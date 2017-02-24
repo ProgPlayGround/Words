@@ -23,7 +23,7 @@
     </div>
     <div class="col-sm-12" ng-class="{'disable-click':quiz.correctAnswer != null}">
       <div class="btn btn-base col-sm-6" ng-class="[{'correct-answer':quiz.correctAnswer === $index},{'wrong-answer':quiz.userAnswer === $index && quiz.userAnswer !== quiz.correctAnswer}]"
-       ng-repeat="option in quiz.options() track by $index" ng-click="quiz.applyAnswer($index)" ng-blur="quiz.isAnswered()">
+       ng-repeat="option in quiz.options() track by $index" ng-click="quiz.applyAnswer($index)">
         <span>{{option}}</span>
       </div>
     </div>
