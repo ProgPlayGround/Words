@@ -25,23 +25,23 @@
         scope.$watch('model', function (value) {
           if(angular.isDefined(value)) {
             if(value.length === 0) {
-              element.removeClass('letter_wrong_answer');
-              element.removeClass('letter_correct_answer');
+              element.removeClass('wrong-answer');
+              element.removeClass('correct-answer');
               focusCtrl.previous(scope.index);
             } else {
               if(scope.char === value) {
-                element.removeClass('letter_wrong_answer');
-                element.addClass('letter_correct_answer');
+                element.removeClass('wrong-answer');
+                element.addClass('correct-answer');
               } else {
-                element.removeClass('letter_correct_answer');
-                element.addClass('letter_wrong_answer');
+                element.removeClass('correct-answer');
+                element.addClass('wrong-answer');
               }
               focusCtrl.next(scope.index);
             }
             scope.onModelChange();
           } else {
-            element.removeClass('letter_wrong_answer');
-            element.removeClass('letter_correct_answer');
+            element.removeClass('wrong-answer');
+            element.removeClass('correct-answer');
           }
         });
 
@@ -81,4 +81,4 @@
       }
     };
   });
-})();
+}());

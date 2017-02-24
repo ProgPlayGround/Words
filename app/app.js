@@ -18,18 +18,18 @@
     }).state('user.profile', {
       url: '/profile',
       templateUrl: 'user/profile.html'
-    }).state('quiz', {
+    }).state('spelling', {
       abstract: true,
-      url: '/quiz',
-      templateUrl: 'quiz/word-quiz.html',
+      url: '/spelling',
+      templateUrl: 'spelling/word-quiz.html',
       controller: 'WordQuizCtrl',
       controllerAs: 'quiz'
-    }).state('quiz.question', {
+    }).state('spelling.question', {
       url: '/quest',
-      templateUrl: 'quiz/word-quiz.question.html'
-    }).state('quiz.description', {
+      templateUrl: 'spelling/word-quiz.question.html'
+    }).state('spelling.description', {
       url: '/description',
-      templateUrl: 'quiz/word-quiz.description.html'
+      templateUrl: 'spelling/word-quiz.description.html'
     }).state('auth', {
       abstract: true,
       url: '/auth',
@@ -41,9 +41,14 @@
       controllerAs: 'auth'
     }).state('auth.registration', {
       url: '/registration',
-      templateUrl:'auth/registration.html',
+      templateUrl: 'auth/registration.html',
       controller: 'RegistrationCtrl',
       controllerAs: 'auth'
+    }).state('quiz', {
+      url: '/quiz',
+      templateUrl: 'quiz/quiz.html',
+      controller: 'QuizCtrl',
+      controllerAs: 'quiz'
     });
 
     $urlRouterProvider.otherwise('/auth/login');
@@ -90,4 +95,4 @@
       /*eslint-enable */
     }
   }]);
-})();
+}());

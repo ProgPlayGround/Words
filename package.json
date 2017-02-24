@@ -39,8 +39,7 @@
     "nodemon": "^1.11.0",
     "npm-watch": "^0.1.6",
     "protractor": "^4.0.9",
-    "stylelint": "^7.5.0",
-    "stylelint-config-standard": "^14.0.0",
+    "sass-lint": "^1.10.2",
     "yargs": "^6.3.0"
   },
   "eslintConfig": {
@@ -86,29 +85,6 @@
       ]
     }
   },
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "rules": {
-      "string-quotes": "single",
-      "property-no-unknown": [
-        true,
-        {
-          "ignoreProperties": [
-            "composes"
-          ]
-        }
-      ],
-      "selector-list-comma-newline-after": null,
-      "selector-pseudo-class-no-unknown": [
-        true,
-        {
-          "ignorePseudoClasses": [
-            "global"
-          ]
-        }
-      ]
-    }
-  },
   "watch": {
     "start": {
       "patterns": [
@@ -120,8 +96,8 @@
   "scripts": {
     "style:js": "eslint app",
     "style:html": "htmlhint --config htmlhintrc app",
-    "style:css": "stylelint \"app/**/*.{css,less,scss,sss}\"",
-    "style": "npm run style:js && npm run style:html && npm run style:css",
+    "style:scss": "sass-lint -c .sass-lint.yml \"scss/**/*.scss\" -v -q",
+    "style": "npm run style:js && npm run style:html && npm run style:scss",
     "build-css": "node-sass --include-path scss scss/main.scss app/app.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "postinstall": "bower install && cp -r bower_components app",

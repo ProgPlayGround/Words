@@ -1,7 +1,7 @@
 'use strict';
 
 describe('word manager service', function() {
-  var wordManagerService, wordLoaderService, words;
+  var wordManagerService, batchLoaderService, words;
 
   beforeEach(module('words'));
 
@@ -32,19 +32,19 @@ describe('word manager service', function() {
         'value': {'then': jasmine.createSpy('then').and.callThrough()}
       });
 
-      $provide.value('wordLoader', {
-        'allWords': jasmine.createSpy('allWords').and.returnValue(words)
+      $provide.value('batchLoader', {
+        'load': jasmine.createSpy('load').and.returnValue(words)
       });
   }]));
 
-  beforeEach(inject(['wordManager', 'wordLoader', function(wordManager, wordLoader) {
+  beforeEach(inject(['wordManager', 'batchLoader', function(wordManager, batchLoader) {
     wordManagerService = wordManager;
-    wordLoaderService = wordLoader;
+    batchLoaderService = batchLoader;
     wordManagerService.init();
   }]));
 
-  it('init load words from word loader service', function() {
-    expect(wordLoaderService.allWords).toHaveBeenCalled();
+  it('init load words from batch loader service', function() {
+    expect(batchLoaderService.load).toHaveBeenCalled();
   });
 
   it('get word return first word from dictionary', function() {
@@ -62,7 +62,7 @@ describe('word manager service', function() {
   });
 
   it('doesn\'t have next word, when it is absent', function() {
-    wordManagerService.nextWord()
+    wordManagerService.nextWord();
     expect(wordManagerService.hasNext()).toBeFalsy();
   });
 });

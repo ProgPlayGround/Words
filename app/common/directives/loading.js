@@ -45,4 +45,4 @@ angular.module('words').directive('loading', ['$animate', '$interval', 'requestC
     }
     };
   }]);
-})();
+}());

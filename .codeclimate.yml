@@ -1,15 +1,11 @@
----
 engines:
-  csslint:
+  scss-lint:
     enabled: true
   duplication:
     enabled: true
     config:
       languages:
-      - ruby
       - javascript
-      - python
-      - php
   eslint:
     enabled: true
     channel: "eslint-2"
@@ -17,14 +13,8 @@ engines:
     enabled: true
 ratings:
   paths:
-  - "**.css"
-  - "**.inc"
+  - "**.scss"
   - "**.js"
-  - "**.jsx"
-  - "**.module"
-  - "**.php"
-  - "**.py"
-  - "**.rb"
 exclude_paths:
 - node_modules/
 - libs/
@@ -33,3 +23,6 @@ exclude_paths:
 - bower_components/
 - app/bower_components/
 - bin/
+- coverage/
+- server.js
+- app/app.css

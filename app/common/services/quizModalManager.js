@@ -4,7 +4,7 @@
     return {
       finishModal: function(nextState) {
         $uibModal.open({
-          templateUrl: 'quiz/finishModal.html',
+          templateUrl: 'spelling/finishModal.html',
           backdrop: 'static',
           size: 'md',
           controller: 'QuizFinishModalCtrl',
@@ -19,4 +19,4 @@
       }
     }
   }]);
-})();
+}());

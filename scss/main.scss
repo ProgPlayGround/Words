@@ -4,9 +4,11 @@
 @import 'base/variables';
 
 //components
+
 @import 'components/main';
 @import 'components/navbar';
 @import 'components/auth';
-@import 'components/common';
 @import 'components/profile';
 @import 'components/quiz';
+@import 'components/spelling';
+@import 'components/common';

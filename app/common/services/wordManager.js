@@ -1,10 +1,10 @@
 (function() {
   'use strict';
-  angular.module('words').factory('wordManager', ['wordLoader', function(wordLoader) {
+  angular.module('words').factory('wordManager', ['batchLoader', function(batchLoader) {
     var words;
     return {
-      init: function(onSuccess, onReject) {
-        words = wordLoader.allWords();
+      init: function(url, onSuccess, onReject) {
+        words = batchLoader.load(url);
         words.$promise.then(onSuccess, onReject);
       },
       getWord: function() {
@@ -12,10 +12,11 @@
       },
       nextWord: function() {
         words.shift();
+        return angular.isDefined(words[0]);
       },
       hasNext: function() {
-        return angular.isDefined(words[1]);
+        return words.length > 1;
       }
     };
   }]);
-})();
+}());

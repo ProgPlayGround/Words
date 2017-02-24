@@ -3,4 +3,4 @@
   angular.module('words').controller('MainCtrl', function() {
 
   });
-})();
+}());

@@ -2,10 +2,75 @@
   background-color: $bg-color;
 }
 
-.btn_base {
+.table-container {
+  display: table;
+  height: 80%;
+  position: absolute;
+  width: 100%;
+}
+
+.cell-container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.table-cell-content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
+
+.table-cell-border {
+  display: inline-block;
+  padding: 20px;
+}
+
+.divider-margin {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.strike {
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+
+  > span {
+    display: inline-block;
+    position: relative;
+
+    &::before,
+    &::after {
+      background: $main-color;
+      content: '';
+      height: 1px;
+      position: absolute;
+      top: 50%;
+      width: 9999px;
+    }
+
+    &::before {
+      margin-right: 15px;
+      right: 100%;
+    }
+
+    &::after {
+      left: 100%;
+      margin-left: 15px;
+    }
+  }
+}
+
+.button-block {
+  padding-top: 1%;
+  text-align: center;
+}
+
+.btn-base {
   border: 1px solid $main-color;
   border-radius: 7px;
-  color: black;
+  color: $black;
   cursor: pointer;
   display: inline-block;
   font-family: $arial;
@@ -14,7 +79,7 @@
   padding: 3%;
   text-align: center;
   text-overflow: ellipsis;
-  transition: all 0.25s ease-in-out;
+  transition: all .25s ease-in-out;
   white-space: nowrap;
 
   &:hover {
@@ -22,16 +87,42 @@
   }
 }
 
+.correct-answer {
+  background-color: $solution-color;
+  &:hover {
+    background-color: $solution-color;
+  }
+}
+
+.wrong-answer {
+  background-color: $wrong-color;
+  &:hover {
+    background-color: $wrong-color;
+  }
+}
+
+.border-wrong-answer {
+  border-color: $wrong-color;
+}
+
+.border-correct-answer {
+  border-color: $solution-color;
+}
+
+.word-no-answer {
+  border-color: $main-color;
+}
+
 .center {
   text-align: center;
 }
 
 .disable {
-  opacity: 0.4;
+  opacity: .5;
   pointer-events: none;
 }
 
-.disable_click {
+.disable-click {
   pointer-events: none;
 }
 
@@ -42,7 +133,7 @@
 }
 
 .fog {
-  opacity: 0.4;
+  opacity: .4;
 }
 
 .no-padding {

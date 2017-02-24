@@ -1,9 +1,9 @@
 (function() {
   'use strict';
-  angular.module('words').factory('wordLoader', ['$resource', 'httpAuthHeaders', function($resource, httpAuthHeaders) {
+  angular.module('words').factory('batchLoader', ['$resource', 'httpAuthHeaders', function($resource, httpAuthHeaders) {
     return {
-      allWords: function() {
-        return $resource('https://localhost:3000/dictionary', {}, {
+      load: function(url) {
+        return $resource(url, {}, {
           'query': {
             'method': 'GET',
             'headers': httpAuthHeaders.header(),
@@ -13,4 +13,4 @@
       }
     };
   }]);
-})();
+}());
