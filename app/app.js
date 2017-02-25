@@ -46,8 +46,17 @@
       controllerAs: 'auth'
     }).state('quiz', {
       url: '/quiz',
+      template: '<ui-view/>',
+      abstract: true
+    }).state('quiz.en', {
+      url:'/quiz/en',
+            templateUrl: 'quiz/quiz.html',
+      controller: 'EnQuizCtrl',
+      controllerAs: 'quiz'
+    }).state('quiz.ua', {
+      url:'/quiz/ua',
       templateUrl: 'quiz/quiz.html',
-      controller: 'QuizCtrl',
+      controller: 'UaQuizCtrl',
       controllerAs: 'quiz'
     });
 

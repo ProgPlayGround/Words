@@ -1,13 +1,13 @@
 'use strict';
 
 describe('QuizCtrl', function() {
-  var quizManagerService, quizModalManagerService, scoreManagerService, wordQuizCtrl;
+  var scope, quizManagerService, quizModalManagerService, scoreManagerService, wordQuizCtrl;
 
   beforeEach(function() {
     module('words');
     module(['$provide', function($provide) {
       var quizManager = jasmine.createSpyObj('quizManager',
-      ['word', 'next', 'options', 'isLoaded', 'onLoad']);
+      ['word', 'next', 'options', 'isLoaded', 'onLoad', 'clear']);
       quizManager.init = jasmine.createSpy('init').and.callFake(function(lang, callback) {
         callback();
       });
@@ -29,9 +29,11 @@ describe('QuizCtrl', function() {
     }]);
   });
 
-  beforeEach(inject(['$controller', 'quizManager', 'scoreManager', 'quizModalManager',
-  function($controller, quizManager, scoreManager, quizModalManager) {
-    wordQuizCtrl = $controller('QuizCtrl', {
+  beforeEach(inject(['$controller', '$rootScope', 'quizManager', 'scoreManager', 'quizModalManager',
+  function($controller, $rootScope, quizManager, scoreManager, quizModalManager) {
+    scope = $rootScope.$new();
+    wordQuizCtrl = $controller('UaQuizCtrl', {
+      '$scope': scope,
       'scoreManager': scoreManager,
       'quizManager': quizManager,
       'quizModalManager': quizModalManager
@@ -42,7 +44,7 @@ describe('QuizCtrl', function() {
   }]));
 
   it('load quiz on init', function() {
-    var lang = 'en';
+    var lang = 'ua';
     expect(quizManagerService.init).toHaveBeenCalledWith(lang, jasmine.any(Function));
     expect(wordQuizCtrl.nav).toBeFalsy();
   });
@@ -128,4 +130,8 @@ describe('QuizCtrl', function() {
     expect(quizManagerService.options).toHaveBeenCalled();
   });
 
+  it('clear quiz on state changed', function() {
+    scope.$emit('$stateChangeStart');
+    expect(quizManagerService.clear).toHaveBeenCalled();
+  });
 });
