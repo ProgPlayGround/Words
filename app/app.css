@@ -434,13 +434,17 @@ img, iframe, video, object {
     background-color: #74afad; }
 
 .correct-answer {
-  background-color: #75af73; }
+  background-color: #75af73;
+  color: #fff; }
   .correct-answer:hover {
+    color: #fff;
     background-color: #75af73; }
 
 .wrong-answer {
-  background-color: #af7375; }
+  background-color: #af7375;
+  color: #fff; }
   .wrong-answer:hover {
+    color: #fff;
     background-color: #af7375; }
 
 .border-wrong-answer {

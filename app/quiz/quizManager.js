@@ -27,6 +27,10 @@
       },
       answer: function() {
         return quiz.answer;
+      },
+      clear: function() {
+        wordManager.clear();
+        quiz = undefined;
       }
     };
 

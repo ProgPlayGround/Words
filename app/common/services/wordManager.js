@@ -16,6 +16,9 @@
       },
       hasNext: function() {
         return words.length > 1;
+      },
+      clear: function() {
+        words.length = 0;
       }
     };
   }]);
