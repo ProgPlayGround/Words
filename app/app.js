@@ -50,7 +50,7 @@
       abstract: true
     }).state('quiz.en', {
       url:'/quiz/en',
-            templateUrl: 'quiz/quiz.html',
+      templateUrl: 'quiz/quiz.html',
       controller: 'EnQuizCtrl',
       controllerAs: 'quiz'
     }).state('quiz.ua', {
@@ -58,6 +58,11 @@
       templateUrl: 'quiz/quiz.html',
       controller: 'UaQuizCtrl',
       controllerAs: 'quiz'
+    }).state('sprint', {
+      url:'/sprint',
+      templateUrl: 'sprint/sprint.html',
+      controller: 'SprintCtrl',
+      controllerAs: 'sprint'
     });
 
     $urlRouterProvider.otherwise('/auth/login');
