@@ -233,7 +233,7 @@ img, iframe, video, object {
   z-index: 1; }
 
 .question-container {
-  margin-top: 15%; }
+  margin-top: 10%; }
 
 .quiz-modal {
   font-family: Arial, Helvetica, serif;
@@ -363,6 +363,21 @@ img, iframe, video, object {
 .description-text {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em; }
+
+.countdown {
+  border-radius: 50%;
+  border: 2px solid #a2c9c8;
+  width: 40px;
+  height: 40px;
+  position: relative; }
+
+.count {
+  font-size: 1.5rem;
+  position: absolute;
+  color: #558c89;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 .background {
   background-color: #ececea; }
