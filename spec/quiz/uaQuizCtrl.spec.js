@@ -1,6 +1,6 @@
 'use strict';
 
-describe('QuizCtrl', function() {
+describe('UaQuizCtrl', function() {
   var scope, quizManagerService, quizModalManagerService, scoreManagerService, wordQuizCtrl;
 
   beforeEach(function() {
