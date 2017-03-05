@@ -16,6 +16,10 @@
             --scope.count;
           }
         }, 1000);
+
+        scope.$on('$destroy', function() {
+          $interval.cancel(interval);
+        });
       }
     };
   }]);
