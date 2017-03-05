@@ -11,4 +11,21 @@
     <span class="score-text">{{sprint.score()}}</span>
     <span class="score-icon glyphicon glyphicon-star"></span>
   </div>
+  <div ng-if="sprint.isLoaded()" class="question-container animation-duration animated" next-word-nav="sprint.nav" nav-callback="sprint.loadQuestion()" nav-animation="fade">
+    <countdown count='60' callback='sprint.onTimeFinished()'>
+    </countdown>
+    <div class="center">
+      <span class="letter" ng-repeat="char in sprint.word() track by $index">{{char}}</span>
+    </div>
+    <div class="col-sm-12 strike">
+        <span>Translation</span>
+    </div>
+    <div class="center">
+      <span class="letter" ng-repeat="char in sprint.answer() track by $index">{{char}}</span>
+    </div>
+    <div class="button-block col-sm-12">
+      <div type="button" class="btn-base" ng-click="sprint.onAnswer('YES')">Yes</div>
+      <div type="button" class="btn-base" ng-click="sprint.onAnswer('NO')">No</div>
+    </div>
+  </div>
 </div>
