@@ -1,5 +1,5 @@
 (function() {
-  angular.module('words').controller('SprintCtrl', ['sprintManager', 'scoreManager', 'quizModalManager', function(sprintManager, scoreManager, quizModalManager) {
+  angular.module('words').controller('SprintCtrl', ['$scope', 'sprintManager', 'scoreManager', 'quizModalManager', function($scope, sprintManager, scoreManager, quizModalManager) {
     var vm = this;
     vm.loadingText = 'Loading...';
 
@@ -8,8 +8,10 @@
     vm.score = scoreManager.get;
     vm.isLoaded = sprintManager.isLoaded;
 
+    sprintManager.init(onLoad);
+
     vm.loadQuestion = function() {
-      quizManager.load();
+      sprintManager.onLoad();
       onLoad();
     };
 
@@ -31,6 +33,10 @@
     vm.onTimeFinished = function() {
       quizModalManager.finishModal('main');
     };
+
+    $scope.$on('$stateChangeStart', function() {
+      sprintManager.clear();
+    });
 
     function onLoad() {
       vm.nav = false;

@@ -1,24 +1,38 @@
 (function() {
-  angular.module('words').factory('sprintManager', ['wordManager', function(wordManager) {
-    return {
+  angular.module('words').constant('sprintUrl', 'https://localhost:3000/sprint').factory('sprintManager', ['wordManager', 'sprintUrl', function(wordManager, sprintUrl) {
+    var current;
+
+    var factory = {
+      init: function(callback) {
+        wordManager.init(sprintUrl, function() {
+          factory.onLoad();
+          callback();
+        });
+      },
+      onLoad: function() {
+        current = wordManager.getWord();
+      },
       word: function() {
-        return 'sprint';
+        return current.word;
       },
       answer: function() {
-        return 'спринт';
+        return current.guess;
       },
       isCorrect: function(answer) {
-        return answer === 'YES';
-      },
-      load: function() {
-
+        return answer === current.answer;
       },
       next: function() {
-        return false;
+        return wordManager.nextWord();
       },
       isLoaded: function() {
-        return true;
+        return  angular.isDefined(current);
+      },
+      clear: function() {
+        wordManager.clear();
+        current = undefined;
       }
     };
+
+    return factory;
   }]);
 }());

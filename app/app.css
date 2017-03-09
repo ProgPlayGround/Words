@@ -346,8 +346,8 @@ img, iframe, video, object {
     background-color: #75af73;
     color: #fff; }
 
-.row.animation-duration {
-  animation-duration: .7s; }
+.animation-duration {
+  animation-duration: .5s; }
 
 .btn-highlight {
   box-shadow: 0 0 25px #75af73;
