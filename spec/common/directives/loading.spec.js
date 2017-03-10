@@ -28,9 +28,9 @@ describe('loading dirrective', function() {
     requestCounterService = requestCounter;
     requestCounterService.increase();
     element = angular.element('<loading></loading>');
-    var directive = $compile(element)($rootScope.$new());
+    scope = $rootScope.$new();
+    var directive = $compile(element)(scope);
     controller = directive.controller('loading');
-    scope = directive.isolateScope();
 
     firstElement = angular.element('<div></div>');
     interval = $interval;
