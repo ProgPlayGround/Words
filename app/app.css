@@ -431,7 +431,7 @@ img, iframe, video, object {
   padding-top: 1%;
   text-align: center; }
 
-.btn-base, .btn-solution, .btn-next {
+.btn-base, .btn-solution, .btn-next, .btn-sprint {
   border: 1px solid #74afad;
   border-radius: 7px;
   color: #000;
@@ -445,7 +445,7 @@ img, iframe, video, object {
   text-overflow: ellipsis;
   transition: all .25s ease-in-out;
   white-space: nowrap; }
-  .btn-base:hover, .btn-solution:hover, .btn-next:hover {
+  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-sprint:hover {
     background-color: #74afad; }
 
 .correct-answer {
@@ -492,3 +492,7 @@ img, iframe, video, object {
 .no-padding {
   padding-left: 0;
   padding-right: 0; }
+
+.btn-sprint {
+  padding: 2%;
+  margin: 0 auto; }
