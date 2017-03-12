@@ -27,21 +27,21 @@ describe('UaQuizCtrl', function() {
         return jasmine.createSpyObj('quizModalManager', ['finishModal']);
       });
     }]);
-  });
 
-  beforeEach(inject(['$controller', '$rootScope', 'quizManager', 'scoreManager', 'quizModalManager',
-  function($controller, $rootScope, quizManager, scoreManager, quizModalManager) {
-    scope = $rootScope.$new();
-    wordQuizCtrl = $controller('UaQuizCtrl', {
-      '$scope': scope,
-      'scoreManager': scoreManager,
-      'quizManager': quizManager,
-      'quizModalManager': quizModalManager
-    });
-    quizManagerService = quizManager;
-    scoreManagerService = scoreManager;
-    quizModalManagerService = quizModalManager;
-  }]));
+    inject(['$controller', '$rootScope', 'quizManager', 'scoreManager', 'quizModalManager',
+    function($controller, $rootScope, quizManager, scoreManager, quizModalManager) {
+      scope = $rootScope.$new();
+      wordQuizCtrl = $controller('UaQuizCtrl', {
+        '$scope': scope,
+        'scoreManager': scoreManager,
+        'quizManager': quizManager,
+        'quizModalManager': quizModalManager
+      });
+      quizManagerService = quizManager;
+      scoreManagerService = scoreManager;
+      quizModalManagerService = quizModalManager;
+    }]);
+  });
 
   it('load quiz on init', function() {
     var lang = 'ua';

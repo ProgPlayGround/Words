@@ -8,13 +8,12 @@ describe('apply-answer directive', function() {
     module(function ($urlRouterProvider) {
       $urlRouterProvider.deferIntercept();
     });
+    inject(['$rootScope', '$compile', function($rootScope, $compile){
+      element = angular.element('<div apply-answer="model"></div>');
+      scope = $rootScope.$new();
+      $compile(element)(scope);
+    }]);
   });
-
-  beforeEach(inject(['$rootScope', '$compile', function($rootScope, $compile){
-    element = angular.element('<div apply-answer="model"></div>');
-    scope = $rootScope.$new();
-    $compile(element)(scope);
-  }]));
 
   it('applies "no_answer" class for "NA" model', function() {
     scope.model = 'NA';

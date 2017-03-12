@@ -3,25 +3,26 @@
 describe('focus directive', function() {
   var scope, controller, firstElement, secondElement;
 
-  beforeEach(module('words'));
+  beforeEach(function() {
+    module('words');
+    inject(['$rootScope', '$compile', function($rootScope, $compile){
+      scope = $rootScope.$new();
+      var directive = $compile('<focus></focus>')(scope);
+      controller = directive.controller('focus');
 
-  beforeEach(inject(['$rootScope', '$compile', function($rootScope, $compile){
-    scope = $rootScope.$new();
-    var directive = $compile('<focus></focus>')(scope);
-    controller = directive.controller('focus');
+      firstElement = angular.element('<div></div>');
+      secondElement = angular.element('<div></div>');
 
-    firstElement = angular.element('<div></div>');
-    secondElement = angular.element('<div></div>');
+      firstElement[0].select = function() {};
+      secondElement[0].select = function() {};
 
-    firstElement[0].select = function() {};
-    secondElement[0].select = function() {};
-
-    _.forEach([firstElement, secondElement], function(elem) {
-      spyOn(elem[0], 'blur');
-      spyOn(elem[0], 'select');
-      spyOn(elem[0], 'focus');
-    });
-  }]));
+      _.forEach([firstElement, secondElement], function(elem) {
+        spyOn(elem[0], 'blur');
+        spyOn(elem[0], 'select');
+        spyOn(elem[0], 'focus');
+      });
+    }]);
+  });
 
   it('has empty elements array on creation', function() {
     expect(scope.elements).toBeDefined();

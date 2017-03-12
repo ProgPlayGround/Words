@@ -20,13 +20,12 @@ describe('sprint manager', function() {
           return wordManager;
       });
     }]);
+    inject(['sprintManager', 'wordManager', 'sprintUrl', function(sprintManager, wordManager, sprintUrl) {
+      sprintService = sprintManager;
+      wordManagerService = wordManager;
+      url = sprintUrl;
+    }]);
   });
-
-  beforeEach(inject(['sprintManager', 'wordManager', 'sprintUrl', function(sprintManager, wordManager, sprintUrl) {
-    sprintService = sprintManager;
-    wordManagerService = wordManager;
-    url = sprintUrl;
-  }]));
 
   it('is not loaded before init', function() {
     expect(sprintService.isLoaded()).toBeFalsy();

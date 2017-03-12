@@ -16,14 +16,14 @@ describe('User profile controller', function() {
         };
       });
     }]);
-  });
 
-  beforeEach(inject(['$controller', 'profileManager', function($controller, profileManager) {
-    userProfileCtrl = $controller('UserProfileCtrl', {
-      'profileManager': profileManager
-    });
-    profileManagerService = profileManager;
-  }]));
+    inject(['$controller', 'profileManager', function($controller, profileManager) {
+      userProfileCtrl = $controller('UserProfileCtrl', {
+        'profileManager': profileManager
+      });
+      profileManagerService = profileManager;
+    }]);
+  });
 
   it('profile tab is selected and active on init', function() {
     var tab = 'profile';

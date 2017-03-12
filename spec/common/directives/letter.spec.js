@@ -3,21 +3,22 @@
 describe('letter directive', function() {
   var scope, event, element, directive, focusCtrl;
 
-  beforeEach(module('words'));
+  beforeEach(function() {
+    module('words');
+    inject(['$rootScope', '$compile', function($rootScope, $compile){
+      scope = $rootScope.$new();
+      element = angular.element('<div letter ng-model="model" char="" on-model-change=""></div>');
+      focusCtrl = jasmine.createSpyObj('$focusController', ['register', 'previous', 'next']);
+      element.data('$focusController', focusCtrl);
 
-  beforeEach(inject(['$rootScope', '$compile', function($rootScope, $compile){
-    scope = $rootScope.$new();
-    element = angular.element('<div letter ng-model="model" char="" on-model-change=""></div>');
-    focusCtrl = jasmine.createSpyObj('$focusController', ['register', 'previous', 'next']);
-    element.data('$focusController', focusCtrl);
+      directive = $compile(element)(scope);
+      spyOn(element.isolateScope(), 'onModelChange');
 
-    directive = $compile(element)(scope);
-    spyOn(element.isolateScope(), 'onModelChange');
+      event = jasmine.createSpyObj('keypressEvent', ['preventDefault']);
 
-    event = jasmine.createSpyObj('keypressEvent', ['preventDefault']);
-
-    scope.$digest();
-  }]));
+      scope.$digest();
+    }]);
+  });
 
   it('register element in focus controller', function() {
     expect(focusCtrl.register).toHaveBeenCalledTimes(1);

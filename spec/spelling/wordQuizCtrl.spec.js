@@ -25,19 +25,19 @@ describe('Word quiz controller', function() {
         };
       });
     }]);
+    
+    inject(['$controller', 'spellingManager', 'scoreManager', 'quizModalManager',
+    function($controller, spellingManager, scoreManager, quizModalManager) {
+      wordQuizCtrl = $controller('WordQuizCtrl', {
+        'spellingManager': spellingManager,
+        'scoreManager': scoreManager,
+        'quizModalManager': quizModalManager
+      });
+      spellingManagerService = spellingManager;
+      scoreManagerService = scoreManager;
+      quizModalManagerService = quizModalManager;
+    }]);
   });
-
-  beforeEach(inject(['$controller', 'spellingManager', 'scoreManager', 'quizModalManager',
-  function($controller, spellingManager, scoreManager, quizModalManager) {
-    wordQuizCtrl = $controller('WordQuizCtrl', {
-      'spellingManager': spellingManager,
-      'scoreManager': scoreManager,
-      'quizModalManager': quizModalManager
-    });
-    spellingManagerService = spellingManager;
-    scoreManagerService = scoreManager;
-    quizModalManagerService = quizModalManager;
-  }]));
 
   it('load question on init', function() {
     expect(spellingManagerService.init).toHaveBeenCalled();

@@ -3,15 +3,16 @@
 describe('forbidden interceptor', function() {
   var forbiddenInterceptorService, state, q;
 
-  beforeEach(module('words'));
-
-  beforeEach(inject(['forbiddenInterceptor', '$state', '$q', function(forbiddenInterceptor, $state, $q) {
-    forbiddenInterceptorService = forbiddenInterceptor
-    state = $state;
-    q = $q;
-    spyOn(state,'go');
-    spyOn(q, 'reject');
-  }]));
+  beforeEach(function() {
+    module('words');
+    inject(['forbiddenInterceptor', '$state', '$q', function(forbiddenInterceptor, $state, $q) {
+      forbiddenInterceptorService = forbiddenInterceptor
+      state = $state;
+      q = $q;
+      spyOn(state,'go');
+      spyOn(q, 'reject');
+    }]);
+  });
 
   it('navigates to auth.login on 403 error', function() {
     forbiddenInterceptorService.responseError({status: 403});

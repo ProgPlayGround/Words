@@ -20,13 +20,13 @@ describe('quiz manager', function() {
           return wordManager;
       });
     }]);
-  });
 
-  beforeEach(inject(['quizManager', 'wordManager', 'quizUrl', function(quizManager, wordManager, quizUrl) {
-    quizManagerService = quizManager;
-    wordManagerService = wordManager;
-    url = quizUrl;
-  }]));
+    inject(['quizManager', 'wordManager', 'quizUrl', function(quizManager, wordManager, quizUrl) {
+      quizManagerService = quizManager;
+      wordManagerService = wordManager;
+      url = quizUrl;
+    }]);
+  });
 
   it('is not loaded before init', function() {
     expect(quizManagerService.isLoaded()).toBeFalsy();

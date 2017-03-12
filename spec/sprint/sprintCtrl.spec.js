@@ -28,21 +28,20 @@ describe('SprintCtrl', function(){
         return jasmine.createSpyObj('quizModalManager', ['finishModal']);
       });
     }]);
+    inject(['$controller', '$rootScope', 'sprintManager', 'scoreManager', 'quizModalManager',
+    function($controller, $rootScope, sprintManager, scoreManager, quizModalManager) {
+      scope = $rootScope.$new();
+      controller = $controller('SprintCtrl', {
+        '$scope': scope,
+        'scoreManager': scoreManager,
+        'sprintManager': sprintManager,
+        'quizModalManager': quizModalManager
+      });
+      sprintManagerService = sprintManager;
+      scoreManagerService = scoreManager;
+      quizModalManagerService = quizModalManager;
+    }]);
   });
-
-  beforeEach(inject(['$controller', '$rootScope', 'sprintManager', 'scoreManager', 'quizModalManager',
-  function($controller, $rootScope, sprintManager, scoreManager, quizModalManager) {
-    scope = $rootScope.$new();
-    controller = $controller('SprintCtrl', {
-      '$scope': scope,
-      'scoreManager': scoreManager,
-      'sprintManager': sprintManager,
-      'quizModalManager': quizModalManager
-    });
-    sprintManagerService = sprintManager;
-    scoreManagerService = scoreManager;
-    quizModalManagerService = quizModalManager;
-  }]));
 
   it('load question on init', function() {
     expect(sprintManagerService.init).toHaveBeenCalledWith(jasmine.any(Function));
