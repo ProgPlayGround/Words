@@ -3,12 +3,13 @@
 describe('Navbar controller', function() {
   var navbarCtrl, cookies;
 
-  beforeEach(module('words'));
-
-  beforeEach(inject(['$controller', '$cookies', function($controller, $cookies) {
-      navbarCtrl = $controller('NavbarCtrl');
-      cookies = $cookies;
-  }]));
+  beforeEach(function() {
+    module('words');
+    inject(['$controller', '$cookies', function($controller, $cookies) {
+        navbarCtrl = $controller('NavbarCtrl');
+        cookies = $cookies;
+    }]);
+  });
 
   it('use authService logout on basic auth type', inject(['authService', function(authService) {
     cookies.put('auth-type', 'basic');

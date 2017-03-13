@@ -34,12 +34,11 @@ describe('Login controller', function() {
         };
       });
     }]);
+    inject(['$controller', '$state', function($controller, $state, $rootScope) {
+      loginController = $controller('LoginCtrl');
+      state = $state;
+    }]);
   });
-
-  beforeEach(inject(['$controller', '$state', function($controller, $state, $rootScope) {
-    loginController = $controller('LoginCtrl');
-    state = $state;
-  }]));
 
   it('has empty email, password, errorClick', function() {
     expect(loginController.email).toBe('');

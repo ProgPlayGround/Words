@@ -12,22 +12,21 @@ describe('quiz manager', function() {
     module('words');
     module(['$provide', function($provide) {
         $provide.factory('wordManager', function() {
-          return {
-            init: jasmine.createSpy('init').and.callFake(function(url, callback) {
-              callback();
-            }),
-            getWord: jasmine.createSpy('getWord').and.returnValue(quiz),
-            nextWord: jasmine.createSpy('nextWord').and.callThrough()
-        };
+          var wordManager = jasmine.createSpyObj('wordManager', ['nextWord', 'clear']);
+          wordManager.init = jasmine.createSpy('init').and.callFake(function(url, callback) {
+            callback();
+          });
+          wordManager.getWord = jasmine.createSpy('getWord').and.returnValue(quiz);
+          return wordManager;
       });
     }]);
-  });
 
-  beforeEach(inject(['quizManager', 'wordManager', 'quizUrl', function(quizManager, wordManager, quizUrl) {
-    quizManagerService = quizManager;
-    wordManagerService = wordManager;
-    url = quizUrl;
-  }]));
+    inject(['quizManager', 'wordManager', 'quizUrl', function(quizManager, wordManager, quizUrl) {
+      quizManagerService = quizManager;
+      wordManagerService = wordManager;
+      url = quizUrl;
+    }]);
+  });
 
   it('is not loaded before init', function() {
     expect(quizManagerService.isLoaded()).toBeFalsy();
@@ -48,11 +47,16 @@ describe('quiz manager', function() {
   });
 
   it('has quiz access methods', function() {
-    var lang = 'en';
-    var callback = jasmine.createSpy('callback').and.callThrough();
-    quizManagerService.init(lang, callback);
+    quizManagerService.init('en', function(){});
     expect(quizManagerService.word()).toBe(quiz.word);
     expect(quizManagerService.options()).toEqual(quiz.options);
     expect(quizManagerService.answer()).toBe(quiz.answer);
+  });
+
+  it('clear state', function() {
+    quizManagerService.init('en', function(){});
+    expect(quizManagerService.isLoaded()).toBeTruthy();
+    quizManagerService.clear();
+    expect(quizManagerService.isLoaded()).toBeFalsy();
   });
 });

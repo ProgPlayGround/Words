@@ -90,8 +90,9 @@
 .correct-answer {
   background-color: $solution-color;
   color: $white;
+
   &:hover {
-      color: $white;
+    color: $white;
     background-color: $solution-color;
   }
 }
@@ -99,6 +100,7 @@
 .wrong-answer {
   background-color: $wrong-color;
   color: $white;
+
   &:hover {
       color: $white;
     background-color: $wrong-color;

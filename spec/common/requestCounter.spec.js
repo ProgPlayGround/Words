@@ -3,14 +3,16 @@
 describe('request counter service', function() {
   var requestCounterService, q;
 
-  beforeEach(module('words'));
+  beforeEach(function() {
+    module('words');
+    inject(['requestCounter', '$q', function(requestCounter, $q) {
+      requestCounterService = requestCounter;
+      q = $q;
+      spyOn(q,'when');
+      spyOn(q,'reject');
+    }]);
+  });
 
-  beforeEach(inject(['requestCounter', '$q', function(requestCounter, $q) {
-    requestCounterService = requestCounter;
-    q = $q;
-    spyOn(q,'when');
-    spyOn(q,'reject');
-  }]));
 
   it('request increase number of outstanding requests and wrap config', function() {
     expect(requestCounterService.requestCount()).toBe(0);

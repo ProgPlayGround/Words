@@ -23,15 +23,14 @@ describe('spelling manager', function() {
         };
       });
     }]);
+    inject(['spellingManager', 'wordManager', function(spellingManager, wordManager) {
+      spellingManagerService = spellingManager;
+      wordManagerService = wordManager;
+
+      callback = jasmine.createSpy('callback').and.callThrough();
+      spellingManagerService.init(callback);
+    }]);
   });
-
-  beforeEach(inject(['spellingManager', 'wordManager', function(spellingManager, wordManager) {
-    spellingManagerService = spellingManager;
-    wordManagerService = wordManager;
-
-    callback = jasmine.createSpy('callback').and.callThrough();
-    spellingManagerService.init(callback);
-  }]));
 
   it('init load quiz', function() {
     expect(spellingManagerService.isLoaded()).toBeTruthy();

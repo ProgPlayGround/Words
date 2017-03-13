@@ -3,14 +3,15 @@
 describe('check password directive', function() {
   var scope, element, model;
 
-  beforeEach(module('words'));
-
-  beforeEach(inject(['$rootScope', '$compile', function($rootScope, $compile){
-    scope = $rootScope.$new();
-    scope.model = '';
-    element = $compile('<input check-password ng-model="model"/>')(scope);
-    scope.$apply();
-  }]));
+  beforeEach(function() {
+    module('words');
+    inject(['$rootScope', '$compile', function($rootScope, $compile){
+      scope = $rootScope.$new();
+      scope.model = '';
+      element = $compile('<input check-password ng-model="model"/>')(scope);
+      scope.$apply();
+    }]);
+  });
 
   it('validate ASCII input', function() {
     element.val('abcdefghijklmnop').triggerHandler('input');

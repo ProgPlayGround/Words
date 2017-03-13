@@ -3,12 +3,13 @@
 describe('http auth headers service', function() {
   var authHeaders, cookies;
 
-  beforeEach(module('words'));
-
-  beforeEach(inject(['httpAuthHeaders', '$cookies', '$rootScope', function(httpAuthHeaders, $cookies) {
-    authHeaders = httpAuthHeaders;
-    cookies = $cookies;
-  }]));
+  beforeEach(function() {
+    module('words');
+    inject(['httpAuthHeaders', '$cookies', '$rootScope', function(httpAuthHeaders, $cookies) {
+      authHeaders = httpAuthHeaders;
+      cookies = $cookies;
+    }]);
+  });
 
   it('header return empty headers when cookies is empty', function() {
     cookies.remove('auth-type');

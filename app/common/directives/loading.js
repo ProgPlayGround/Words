@@ -4,14 +4,13 @@ angular.module('words').directive('loading', ['$animate', '$interval', 'requestC
  function($animate, $interval, requestCounter) {
   return {
     restrict: 'E',
-    scope: {},
     controller: function($scope) {
       $scope.elements = [];
       var index = 0;
 
       this.register = function(element) {
         $scope.elements.push(element);
-      }
+      };
 
       $scope.animate = function() {
         if(index < $scope.elements.length) {

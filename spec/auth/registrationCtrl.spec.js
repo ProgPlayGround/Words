@@ -34,12 +34,12 @@ describe('Registration controller', function() {
         };
       });
     }]);
-  });
 
-  beforeEach(inject(['$controller', '$state', function($controller, $state, $rootScope) {
-    registrationController = $controller('RegistrationCtrl');
-    state = $state;
-  }]));
+    inject(['$controller', '$state', function($controller, $state, $rootScope) {
+      registrationController = $controller('RegistrationCtrl');
+      state = $state;
+    }]);
+  });
 
   it('has empty email, password, errorClick', function() {
     expect(registrationController.email).toBe('');

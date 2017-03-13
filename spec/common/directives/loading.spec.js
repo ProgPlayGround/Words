@@ -21,20 +21,19 @@ describe('loading dirrective', function() {
         };
     });
     }]);
+    inject(['$compile', '$rootScope', '$interval', 'requestCounter',
+    function($compile, $rootScope, $interval, requestCounter) {
+      requestCounterService = requestCounter;
+      requestCounterService.increase();
+      element = angular.element('<loading></loading>');
+      scope = $rootScope.$new();
+      var directive = $compile(element)(scope);
+      controller = directive.controller('loading');
+
+      firstElement = angular.element('<div></div>');
+      interval = $interval;
+    }]);
   });
-
-  beforeEach(inject(['$compile', '$rootScope', '$interval', 'requestCounter',
-  function($compile, $rootScope, $interval, requestCounter) {
-    requestCounterService = requestCounter;
-    requestCounterService.increase();
-    element = angular.element('<loading></loading>');
-    var directive = $compile(element)($rootScope.$new());
-    controller = directive.controller('loading');
-    scope = directive.isolateScope();
-
-    firstElement = angular.element('<div></div>');
-    interval = $interval;
-  }]));
 
   it('show animation when loading in process', function() {
     expect(element.hasClass('fadeOut animated')).toBeFalsy();

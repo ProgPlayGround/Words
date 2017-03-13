@@ -3,16 +3,17 @@
 describe('required on condition directive', function() {
   var scope, element, form;
 
-  beforeEach(module('words'));
-
-  beforeEach(inject(['$rootScope', '$compile', function($rootScope, $compile) {
-    scope = $rootScope.$new();
-    scope.condition = false;
-    scope.model = '';
-    element = $compile('<form name="form"><input name="input" required-on-condition="condition" ng-model="model"/></form>')(scope);
-    form = scope.form;
-    scope.$apply();
-  }]));
+  beforeEach(function() {
+    module('words');
+    inject(['$rootScope', '$compile', function($rootScope, $compile) {
+      scope = $rootScope.$new();
+      scope.condition = false;
+      scope.model = '';
+      element = $compile('<form name="form"><input name="input" required-on-condition="condition" ng-model="model"/></form>')(scope);
+      form = scope.form;
+      scope.$apply();
+    }]);
+  });
 
   it('validate on false condition', function() {
     expect(form.input.$error).toEqual({});
