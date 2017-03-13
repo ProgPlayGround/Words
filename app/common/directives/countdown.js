@@ -2,7 +2,9 @@
   angular.module('words').directive('countdown', ['$interval', function($interval) {
     return {
       restrict: 'E',
-      templateUrl: 'common/countdown.html',
+      template: '<div class="countdown">' +
+        '<div class="count">{{count}}</div>' +
+        '</div>',
       scope: {
         callback: '&'
       },
