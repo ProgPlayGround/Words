@@ -1,7 +1,7 @@
 //jshint strict: false
 module.exports = function(config) {
   config.set({
-    
+
     basePath: '.',
 
     files: [
@@ -22,6 +22,7 @@ module.exports = function(config) {
       'app/sprint/**/*.js',
       'app/spelling/**/*.js',
       'app/quiz/**/*.js',
+      'app/dictionary/**/*.js',
       'app/user/**/*.js',
       'app/navbar/**/*.js',
       'app/auth/**/*.js'
