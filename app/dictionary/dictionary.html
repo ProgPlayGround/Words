@@ -1,16 +1,15 @@
 <div ng-include src="'navbar/navbar.html'"></div>
-<div class="container">
-  <div class="row" ng-repeat="word in dictionary.words track by $index">
-    <div class="checkbox-container">
+<div class="container dictionary-table">
+  <div class="dictionary-row" ng-repeat="word in dictionary.words track by $index">
+    <div class="checkbox-cell">
       <input class="checkbox" type="checkbox" ng-model="word.checked">
     </div>
-    <div class="btn-sound" ng-click="dictionary.sound(word.audioUrl)">
-      <i class="fa fa-volume-up"></i>
+    <div ng-click="dictionary.sound(word.audioUrl)">
+      <i class="btn-sound fa fa-volume-up"></i>
     </div>
-    <div class="col-sm-8">{{word.word}} - {{word.translation}}</div>
-    <div class="col-sm-2">
+    <div class="word-cell">{{word.word}} - {{word.translation}}</div>
+    <div class="img-cell">
       <img class="dictionary-img" src="word.imageUrl">
     </div>
-
   </div>
 </div>
