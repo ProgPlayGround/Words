@@ -4,4 +4,5 @@ libs/
 app/libs/
 app/images/
 app/coverage/
+app/app.css
 bin/
