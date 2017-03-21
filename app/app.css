@@ -379,6 +379,26 @@ img, iframe, video, object {
   left: 50%;
   transform: translate(-50%, -50%); }
 
+.btn-sound {
+  cursor: pointer; }
+  .btn-sound:hover {
+    color: #74afad; }
+
+.dictionary-img {
+  width: 24px;
+  height: 24px;
+  object-fit: fill; }
+
+.checkbox-container {
+  cursor: pointer;
+  height: 48px;
+  width: 48px;
+  border-right: 1px solid #74afad; }
+
+.checkbox {
+  top: 10px;
+  left: 25px; }
+
 .background {
   background-color: #ececea; }
 

@@ -1,0 +1,25 @@
+.btn-sound {
+  cursor: pointer;
+
+  &:hover {
+    color: $main-color;
+  }
+}
+
+.dictionary-img {
+  width: 24px;
+  height: 24px;
+  object-fit: fill;
+}
+
+.checkbox-container {
+  cursor: pointer;
+  height: 48px;
+  width: 48px;
+  border-right: 1px solid $main-color;
+}
+
+.checkbox {
+  top: 10px;
+  left: 25px;
+}
