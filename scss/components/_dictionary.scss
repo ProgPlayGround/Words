@@ -10,6 +10,20 @@
   border-bottom: 1px dashed $main-color;
 }
 
+.checkbox-cell {
+  cursor: pointer;
+  display: table-cell;
+  height: 3rem;
+  width: 3rem;
+  border-right: 1px solid $main-color;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.checkbox {
+  display: inline-block;
+}
+
 .sound-cell {
     display: table-cell;
     width: 3rem;
@@ -17,7 +31,7 @@
     vertical-align: middle;
 }
 
-.btn-sound {
+.btn-dictionary {
   cursor: pointer;
   display: inline-block;
 
@@ -35,31 +49,25 @@
 
 .img-cell {
   display: table-cell;
+  width: 2rem;
   vertical-align: middle;
+  transition: all .25s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .dictionary-img {
-  float: right;
+  cursor: pointer;
   width: 2rem;
   height: 2rem;
   object-fit: fill;
 }
 
-.checkbox-cell {
-  cursor: pointer;
+.remove-cell {
   display: table-cell;
-  height: 3rem;
   width: 3rem;
-  border-right: 1px solid $main-color;
   text-align: center;
   vertical-align: middle;
-}
-
-.checkbox {
-  display: inline-block;
-  // vertical-align: top;
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
 }

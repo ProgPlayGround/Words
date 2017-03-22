@@ -5,11 +5,14 @@
       <input class="checkbox" type="checkbox" ng-model="word.checked">
     </div>
     <div class="sound-cell" ng-click="dictionary.sound(word.audioUrl)">
-      <i class="btn-sound fa fa-volume-up"></i>
+      <i class="btn-dictionary fa fa-volume-up"></i>
     </div>
     <div class="word-cell">{{word.word}} - {{word.translation}}</div>
     <div class="img-cell">
       <img class="dictionary-img" src="word.imageUrl">
+    </div>
+    <div class="remove-cell" ng-click="dictionary.remove(word)">
+      <i class="btn-dictionary fa fa-trash"></i>
     </div>
   </div>
 </div>

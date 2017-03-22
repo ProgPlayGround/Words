@@ -10,5 +10,9 @@
       console.log(url);
     };
 
+    vm.remove = function(word) {
+      console.log(word.word);
+    };
+
   }]);
 }());

@@ -389,34 +389,6 @@ img, iframe, video, object {
   display: table-row;
   border-bottom: 1px dashed #74afad; }
 
-.sound-cell {
-  display: table-cell;
-  width: 3rem;
-  text-align: center;
-  vertical-align: middle; }
-
-.btn-sound {
-  cursor: pointer;
-  display: inline-block; }
-  .btn-sound:hover {
-    color: #74afad; }
-
-.word-cell {
-  display: table-cell;
-  text-align: left;
-  text-overflow: ellipsis;
-  vertical-align: middle; }
-
-.img-cell {
-  display: table-cell;
-  vertical-align: middle; }
-
-.dictionary-img {
-  float: right;
-  width: 2rem;
-  height: 2rem;
-  object-fit: fill; }
-
 .checkbox-cell {
   cursor: pointer;
   display: table-cell;
@@ -428,6 +400,44 @@ img, iframe, video, object {
 
 .checkbox {
   display: inline-block; }
+
+.sound-cell {
+  display: table-cell;
+  width: 3rem;
+  text-align: center;
+  vertical-align: middle; }
+
+.btn-dictionary {
+  cursor: pointer;
+  display: inline-block; }
+  .btn-dictionary:hover {
+    color: #74afad; }
+
+.word-cell {
+  display: table-cell;
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: middle; }
+
+.img-cell {
+  display: table-cell;
+  width: 2rem;
+  vertical-align: middle;
+  transition: all .25s ease-in-out; }
+  .img-cell:hover {
+    transform: scale(1.2); }
+
+.dictionary-img {
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  object-fit: fill; }
+
+.remove-cell {
+  display: table-cell;
+  width: 3rem;
+  text-align: center;
+  vertical-align: middle; }
 
 .background {
   background-color: #ececea; }
