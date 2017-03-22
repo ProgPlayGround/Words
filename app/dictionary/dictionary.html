@@ -4,7 +4,7 @@
     <div class="checkbox-cell">
       <input class="checkbox" type="checkbox" ng-model="word.checked">
     </div>
-    <div ng-click="dictionary.sound(word.audioUrl)">
+    <div class="sound-cell" ng-click="dictionary.sound(word.audioUrl)">
       <i class="btn-sound fa fa-volume-up"></i>
     </div>
     <div class="word-cell">{{word.word}} - {{word.translation}}</div>

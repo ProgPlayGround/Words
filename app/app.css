@@ -380,43 +380,54 @@ img, iframe, video, object {
   transform: translate(-50%, -50%); }
 
 .dictionary-table {
+  border-collapse: collapse;
   display: table;
-  border-collapse: collapse; }
+  margin-top: 50px; }
 
 .dictionary-row {
   width: 100%;
   display: table-row;
-  border-bottom: 1px solid #74afad; }
+  border-bottom: 1px dashed #74afad; }
+
+.sound-cell {
+  display: table-cell;
+  width: 3rem;
+  text-align: center;
+  vertical-align: middle; }
 
 .btn-sound {
   cursor: pointer;
-  display: table-cell;
-  margin-left: 2em; }
+  display: inline-block; }
   .btn-sound:hover {
     color: #74afad; }
 
 .word-cell {
-  display: table-cell; }
+  display: table-cell;
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: middle; }
 
 .img-cell {
-  display: table-cell; }
+  display: table-cell;
+  vertical-align: middle; }
 
 .dictionary-img {
   float: right;
-  width: 24px;
-  height: 24px;
+  width: 2rem;
+  height: 2rem;
   object-fit: fill; }
 
 .checkbox-cell {
   cursor: pointer;
   display: table-cell;
-  height: 48px;
-  width: 48px;
-  border-right: 1px solid #74afad; }
+  height: 3rem;
+  width: 3rem;
+  border-right: 1px solid #74afad;
+  text-align: center;
+  vertical-align: middle; }
 
 .checkbox {
-  top: 10px;
-  left: 25px; }
+  display: inline-block; }
 
 .background {
   background-color: #ececea; }

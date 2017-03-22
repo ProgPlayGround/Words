@@ -1,18 +1,25 @@
 .dictionary-table {
-  display: table;
   border-collapse: collapse;
+  display: table;
+  margin-top: 50px;
 }
 
 .dictionary-row {
   width: 100%;
   display: table-row;
-  border-bottom: 1px solid $main-color;
+  border-bottom: 1px dashed $main-color;
+}
+
+.sound-cell {
+    display: table-cell;
+    width: 3rem;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .btn-sound {
   cursor: pointer;
-  display: table-cell;
-  margin-left: 2em;
+  display: inline-block;
 
   &:hover {
     color: $main-color;
@@ -21,28 +28,38 @@
 
 .word-cell {
   display: table-cell;
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: middle;
 }
 
 .img-cell {
   display: table-cell;
+  vertical-align: middle;
 }
 
 .dictionary-img {
   float: right;
-  width: 24px;
-  height: 24px;
+  width: 2rem;
+  height: 2rem;
   object-fit: fill;
 }
 
 .checkbox-cell {
   cursor: pointer;
   display: table-cell;
-  height: 48px;
-  width: 48px;
+  height: 3rem;
+  width: 3rem;
   border-right: 1px solid $main-color;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .checkbox {
-  top: 10px;
-  left: 25px;
+  display: inline-block;
+  // vertical-align: top;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
 }
