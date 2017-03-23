@@ -10,6 +10,12 @@
   border-bottom: 1px dashed $main-color;
 }
 
+.dictionary-caption {
+  width: 100%;
+  display: table-caption;
+  border-bottom: 1px solid $main-color;
+}
+
 .checkbox-cell {
   cursor: pointer;
   display: table-cell;
@@ -22,6 +28,27 @@
 
 .checkbox {
   display: inline-block;
+}
+
+.search-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 3rem;
+}
+
+.search {
+  border: 1px solid $main-color;
+  font-size: 1.1rem;
+  font-family: $arial-serif;
+}
+
+.btn-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.7rem;
+  padding-left: 0.5rem;
 }
 
 .sound-cell {

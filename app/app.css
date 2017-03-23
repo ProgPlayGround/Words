@@ -389,6 +389,11 @@ img, iframe, video, object {
   display: table-row;
   border-bottom: 1px dashed #74afad; }
 
+.dictionary-caption {
+  width: 100%;
+  display: table-caption;
+  border-bottom: 1px solid #74afad; }
+
 .checkbox-cell {
   cursor: pointer;
   display: table-cell;
@@ -400,6 +405,24 @@ img, iframe, video, object {
 
 .checkbox {
   display: inline-block; }
+
+.search-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 3rem; }
+
+.search {
+  border: 1px solid #74afad;
+  font-size: 1.1rem;
+  font-family: Arial, Helvetica, serif; }
+
+.btn-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.7rem;
+  padding-left: 0.5rem; }
 
 .sound-cell {
   display: table-cell;

@@ -16,6 +16,10 @@
       });
     };
 
+    vm.add = function() {
+      console.log(vm.search);
+    };
+
     vm.sound = function(url) {
       console.log(url);
     };
