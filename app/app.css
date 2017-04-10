@@ -456,6 +456,15 @@ img, iframe, video, object {
   height: 2rem;
   object-fit: fill; }
 
+.empty-list-cell {
+  text-align: center;
+  padding: 0.5rem 0 0.5rem 0;
+  background-color: #e0e0dd;
+  border-radius: 0 0 5px 5px; }
+
+.dictionary-search-word {
+  color: #558c89; }
+
 .remove-cell {
   display: table-cell;
   width: 3rem;

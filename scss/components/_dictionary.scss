@@ -92,6 +92,17 @@
   object-fit: fill;
 }
 
+.empty-list-cell {
+  text-align: center;
+  padding: 0.5rem 0 0.5rem 0;
+  background-color: $bg-monochromatic;
+  border-radius: 0 0 5px 5px;
+}
+
+.dictionary-search-word {
+  color: $letter-selection-color;
+}
+
 .remove-cell {
   display: table-cell;
   width: 3rem;

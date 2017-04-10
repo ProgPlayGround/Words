@@ -11,7 +11,7 @@
       <div class="btn-dictionary" ng-click="dictionary.add()">Add</div>
     </div>
   </div>
-  <div class="dictionary-row" ng-repeat="word in dictionary.words | filter:dictionary.search track by $index">
+  <div class="dictionary-row" ng-repeat="word in filteredWords = (dictionary.words | filter:dictionary.search) track by $index">
     <div class="checkbox-cell">
       <input class="checkbox" type="checkbox" ng-model="word.checked">
     </div>
@@ -25,5 +25,11 @@
     <div class="remove-cell" ng-click="dictionary.remove(word)">
       <i class="btn-dictionary fa fa-trash"></i>
     </div>
+  </div>
+  <div class="empty-list-cell" ng-show="dictionary.search && !filteredWords.length">
+    Word <span class="dictionary-search-word">{{dictionary.search}}</span> wasn't found. Add it to dictionary.
+  </div>
+  <div class="empty-list-cell" ng-show="!dictionary.search && !filteredWords.length">
+    Dictionary is empty.
   </div>
 </div>
