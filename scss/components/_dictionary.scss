@@ -34,7 +34,7 @@
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  padding-left: 0.7rem;
+  padding-left: 0.8rem;
 }
 
 .search {
@@ -49,6 +49,13 @@
   @extend .btn-dictionary;
   font-size: 0.9rem;
   margin-left: -1.1rem;
+}
+
+.batch-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 1rem;
 }
 
 .sound-cell {

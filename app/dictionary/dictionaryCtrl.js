@@ -28,5 +28,15 @@
       console.log(word.word);
     };
 
+    vm.removeChecked = function() {
+      console.log(vm.words);
+    };
+
+    vm.checked = function() {
+      return _.some(vm.words, function(elem) {
+        return elem.checked;
+      });
+    };
+
   }]);
 }());

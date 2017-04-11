@@ -413,7 +413,7 @@ img, iframe, video, object {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  padding-left: 0.7rem; }
+  padding-left: 0.8rem; }
 
 .search {
   border: 1px solid #74afad;
@@ -425,6 +425,12 @@ img, iframe, video, object {
 .btn-add {
   font-size: 0.9rem;
   margin-left: -1.1rem; }
+
+.batch-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 1rem; }
 
 .sound-cell {
   display: table-cell;
