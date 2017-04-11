@@ -7,8 +7,8 @@
     <div class="search-cell">
       <input class="search" type="text" placeholder="Search" ng-model="dictionary.search">
     </div>
-    <div class="btn-cell">
-      <div class="btn-dictionary" ng-click="dictionary.add()">Add</div>
+    <div class="btn-add" ng-click="dictionary.add()">
+      <i class="btn-dictionary fa fa-plus-square-o"></i>
     </div>
   </div>
   <div class="dictionary-row" ng-repeat="word in filteredWords = (dictionary.words | filter:dictionary.search) track by $index">
