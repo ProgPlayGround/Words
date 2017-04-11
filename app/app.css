@@ -413,7 +413,7 @@ img, iframe, video, object {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  padding-left: 3rem; }
+  padding-left: 0.7rem; }
 
 .search {
   border: 1px solid #74afad;
@@ -423,11 +423,8 @@ img, iframe, video, object {
   border-bottom-right-radius: 8px; }
 
 .btn-add {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
   font-size: 0.9rem;
-  padding-left: 0.2rem; }
+  margin-left: -1.1rem; }
 
 .sound-cell {
   display: table-cell;
@@ -435,10 +432,10 @@ img, iframe, video, object {
   text-align: center;
   vertical-align: middle; }
 
-.btn-dictionary {
+.btn-dictionary, .btn-add {
   cursor: pointer;
   display: inline-block; }
-  .btn-dictionary:hover {
+  .btn-dictionary:hover, .btn-add:hover {
     color: #74afad; }
 
 .word-cell {

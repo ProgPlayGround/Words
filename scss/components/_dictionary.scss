@@ -34,7 +34,7 @@
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  padding-left: 3rem;
+  padding-left: 0.7rem;
 }
 
 .search {
@@ -42,16 +42,13 @@
   font-size: 1.1rem;
   font-family: $arial-serif;
   padding-right: 1rem;
-  // border-top-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
 
 .btn-add {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+  @extend .btn-dictionary;
   font-size: 0.9rem;
-  padding-left: 0.2rem;
+  margin-left: -1.1rem;
 }
 
 .sound-cell {
