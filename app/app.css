@@ -432,6 +432,22 @@ img, iframe, video, object {
   vertical-align: middle;
   padding-left: 1rem; }
 
+.batch-group {
+  border: 1px solid #74afad;
+  border-radius: 5px;
+  font-size: 0; }
+
+.batch-item {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 2rem;
+  font-size: 1rem; }
+  .batch-item > i {
+    margin-top: 0.25rem; }
+  .batch-item:not(:last-child) {
+    border-right: 1px solid #74afad; }
+
 .sound-cell {
   display: table-cell;
   width: 3rem;
