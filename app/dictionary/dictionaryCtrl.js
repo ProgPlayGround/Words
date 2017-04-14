@@ -25,11 +25,15 @@
     };
 
     vm.remove = function(word) {
-      console.log(word.word);
+      vm.words = _.reject(vm.words, function(elem) {
+        return elem.word === word.word;
+      });
     };
 
     vm.removeChecked = function() {
-      console.log(vm.words);
+      vm.words = _.reject(vm.words, function(elem) {
+        return elem.checked;
+      });
     };
 
     vm.trainChecked = function() {
