@@ -4,7 +4,7 @@
     return {
       finishModal: function(nextState) {
         $uibModal.open({
-          templateUrl: 'common/finishModal.html',
+          templateUrl: 'common/modal/finishModal.html',
           backdrop: 'static',
           size: 'md',
           controller: 'QuizFinishModalCtrl',
