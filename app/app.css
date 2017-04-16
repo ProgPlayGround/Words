@@ -426,6 +426,10 @@ img, iframe, video, object {
   font-size: 0.9rem;
   margin-left: -1.1rem; }
 
+.btn-save {
+  font-size: 0.9rem;
+  margin-left: -1.2rem; }
+
 .batch-cell {
   display: table-cell;
   text-align: center;
@@ -454,10 +458,10 @@ img, iframe, video, object {
   text-align: center;
   vertical-align: middle; }
 
-.btn-dictionary, .btn-add {
+.btn-dictionary, .btn-add, .btn-save {
   cursor: pointer;
   display: inline-block; }
-  .btn-dictionary:hover, .btn-add:hover {
+  .btn-dictionary:hover, .btn-add:hover, .btn-save:hover {
     color: #74afad; }
 
 .word-cell {

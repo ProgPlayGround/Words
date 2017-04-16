@@ -6,7 +6,10 @@
     </div>
     <div class="search-cell" ng-show="!dictionary.checked()">
       <input class="search" type="text" placeholder="Search" ng-model="dictionary.search">
-      <i class="btn-add fa fa-plus-square-o" ng-click="dictionary.add()"></i>
+      <i class="btn-add fa fa-plus-square-o" ng-hide="!dictionary.search"
+      popover-trigger="'outsideClick'" popover-is-open="dictionary.addPopover.isOpen"
+      uib-popover-template="dictionary.addPopover.templateUrl" popover-placement="bottom"
+      ng-click="dictionary.add()"></i>
     </div>
     <div class="batch-cell" ng-show="dictionary.checked()">
       <div class="batch-group">

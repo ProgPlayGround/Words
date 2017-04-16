@@ -1,11 +1,16 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('DictionaryCtrl', ['dictionaryManager', function(dictionaryManager) {
+  angular.module('words').controller('DictionaryCtrl', ['dictionaryManager', 'translationManager',
+  function(dictionaryManager, translationManager) {
     var vm = this;
 
     vm.words = dictionaryManager.getWords();
     vm.allChecked = false;
+
+    vm.addPopover = {
+      templateUrl: 'dictionary/addPopover.html'
+    };
 
     vm.checkAll = function() {
       var hasUnchecked = _.some(vm.words, function(elem) {
@@ -17,7 +22,22 @@
     };
 
     vm.add = function() {
-      console.log(vm.search);
+      translationManager.translate(vm.search).$promise.then(function(translation) {
+        vm.addPopover.translation = translation[0];
+      }, function(err) {
+        console.log(err);
+      });
+    };
+
+    vm.save = function() {
+      vm.addPopover.isOpen = false;
+      vm.words.push({
+        word: vm.search,
+        translation: vm.addPopover.translation,
+        audioUrl: '',
+        imageUrl: ''
+      });
+      vm.addPopover.translation = '';
     };
 
     vm.sound = function(url) {

@@ -51,6 +51,12 @@
   margin-left: -1.1rem;
 }
 
+.btn-save {
+  @extend .btn-dictionary;
+  font-size: 0.9rem;
+  margin-left: -1.2rem;
+}
+
 .batch-cell {
   display: table-cell;
   text-align: center;
