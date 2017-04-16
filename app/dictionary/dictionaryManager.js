@@ -8,55 +8,55 @@
         return [
           {
             word: 'word',
-            translation: 'слово',
+            translation: ['слово'],
             audioUrl: '',
             imageUrl: ''
           },
           {
             word: 'hello',
-            translation: 'привіт',
+            translation: ['привіт'],
             audioUrl: '',
             imageUrl: ''
           },
           {
             word: 'blossom',
-            translation: 'розцвітати',
+            translation: ['розцвітати'],
             audioUrl: '',
             imageUrl: ''
           },
           {
             word: 'correspond',
-            translation: 'відповитати',
+            translation: ['відповитати'],
             audioUrl: '',
             imageUrl: ''
           },
           {
             word: 'severity',
-            translation: 'труднощі',
+            translation: ['труднощі'],
             audioUrl: '',
             imageUrl: ''
           },
           {
             word: 'stage',
-            translation: 'естрада',
+            translation: ['естрада'],
             audioUrl: '',
             imageUrl: ''
           },
           {
             word: 'carry-on',
-            translation: 'ручний багаж',
+            translation: ['ручний багаж'],
             audioUrl: '',
             imageUrl: ''
           },
           {
             word: 'embassy',
-            translation: 'посольство',
+            translation: ['посольство'],
             audioUrl: '',
             imageUrl: ''
           },
           {
             word: 'haggle',
-            translation: 'торговатись',
+            translation: ['торговатись'],
             audioUrl: '',
             imageUrl: ''
           }

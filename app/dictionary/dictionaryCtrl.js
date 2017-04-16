@@ -31,20 +31,21 @@
 
     vm.save = function() {
       vm.addPopover.isOpen = false;
-      var contains = _.find(vm.words, function(word) {
+      var word = _.find(vm.words, function(word) {
         return word.word === vm.search;
       });
-      if(!contains) {
+      if(!word) {
         vm.words.unshift({
           word: vm.search,
-          translation: vm.addPopover.translation,
+          translation: [vm.addPopover.translation],
           audioUrl: '',
           imageUrl: ''
         });
       } else {
-        $log.debug('Words is already present');
+        word.translation.push(vm.addPopover.translation);
       }
       vm.addPopover.translation = '';
+      vm.search = '';
     };
 
     vm.sound = function(url) {
