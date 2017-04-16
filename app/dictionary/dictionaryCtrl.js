@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('DictionaryCtrl', ['dictionaryManager', 'translationManager',
-  function(dictionaryManager, translationManager) {
+  angular.module('words').controller('DictionaryCtrl', ['$log', 'dictionaryManager', 'translationManager',
+  function($log, dictionaryManager, translationManager) {
     var vm = this;
 
     vm.words = dictionaryManager.getWords();
@@ -25,23 +25,30 @@
       translationManager.translate(vm.search).$promise.then(function(translation) {
         vm.addPopover.translation = translation[0];
       }, function(err) {
-        console.log(err);
+        $log.error(err);
       });
     };
 
     vm.save = function() {
       vm.addPopover.isOpen = false;
-      vm.words.push({
-        word: vm.search,
-        translation: vm.addPopover.translation,
-        audioUrl: '',
-        imageUrl: ''
+      var contains = _.find(vm.words, function(word) {
+        return word.word === vm.search;
       });
+      if(!contains) {
+        vm.words.unshift({
+          word: vm.search,
+          translation: vm.addPopover.translation,
+          audioUrl: '',
+          imageUrl: ''
+        });
+      } else {
+        $log.debug('Words is already present');
+      }
       vm.addPopover.translation = '';
     };
 
     vm.sound = function(url) {
-      console.log(url);
+      $log.info(url);
     };
 
     vm.remove = function(word) {
@@ -57,7 +64,7 @@
     };
 
     vm.trainChecked = function() {
-      console.log(vm.words);
+      $log.info(vm.words);
     };
 
     vm.checked = function() {
