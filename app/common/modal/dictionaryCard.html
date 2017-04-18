@@ -1,0 +1,9 @@
+<div class="quiz-modal">
+  <img ng-src="dm.selectedWord.imageUrl"/>
+  <hr class="divider"/>
+  {{dm.selectedWord.word}}
+  <hr class="divider"/>
+  <div ng-repeat="translation in dm.selectedWord.translation track by $index">
+    {{translation}}
+  </div>
+</div>

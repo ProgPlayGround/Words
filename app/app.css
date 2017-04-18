@@ -465,6 +465,7 @@ img, iframe, video, object {
     color: #74afad; }
 
 .word-cell {
+  cursor: pointer;
   display: table-cell;
   text-align: left;
   text-overflow: ellipsis;

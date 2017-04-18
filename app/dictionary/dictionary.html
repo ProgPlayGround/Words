@@ -29,7 +29,8 @@
     <div class="sound-cell" ng-click="dictionary.sound(word.audioUrl)">
       <i class="btn-dictionary fa fa-volume-up"></i>
     </div>
-    <div class="word-cell">{{word.word}} - <span ng-repeat="translation in word.translation track by $index">{{translation}}{{$last ? '' : ', '}}<span/>
+    <div class="word-cell" ng-click="dictionary.showCard(word)">
+      {{word.word}} - <span ng-repeat="translation in word.translation track by $index">{{translation}}{{$last ? '' : ', '}}<span/>
     </div>
     <div class="img-cell">
       <img class="dictionary-img" src="word.imageUrl">

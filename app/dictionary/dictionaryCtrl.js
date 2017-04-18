@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('DictionaryCtrl', ['$log', 'dictionaryManager', 'translationManager',
-  function($log, dictionaryManager, translationManager) {
+  angular.module('words').controller('DictionaryCtrl', ['$log', 'dictionaryManager', 'translationManager', 'dictionaryModalManager',
+  function($log, dictionaryManager, translationManager, dictionaryModalManager) {
     var vm = this;
 
     vm.words = dictionaryManager.getWords();
@@ -72,6 +72,10 @@
       return _.some(vm.words, function(elem) {
         return elem.checked;
       });
+    };
+
+    vm.showCard = function(word) {
+      dictionaryModalManager.modal(word);
     };
 
   }]);
