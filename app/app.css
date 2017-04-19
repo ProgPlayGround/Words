@@ -239,7 +239,7 @@ img, iframe, video, object {
   margin-top: 15%; }
 
 .quiz-modal {
-  font-family: Arial, Helvetica, serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 2em;
   font-style: italic;
   padding: 2%;
@@ -418,7 +418,7 @@ img, iframe, video, object {
 .search {
   border: 1px solid #74afad;
   font-size: 1.1rem;
-  font-family: Arial, Helvetica, serif;
+  font-family: Arial, Helvetica, sans-serif;
   padding-right: 1rem;
   border-bottom-right-radius: 8px; }
 
@@ -458,10 +458,10 @@ img, iframe, video, object {
   text-align: center;
   vertical-align: middle; }
 
-.btn-dictionary, .btn-add, .btn-save {
+.btn-dictionary, .btn-add, .btn-save, .dictionary-modal .btn-dictionary-card {
   cursor: pointer;
   display: inline-block; }
-  .btn-dictionary:hover, .btn-add:hover, .btn-save:hover {
+  .btn-dictionary:hover, .btn-add:hover, .btn-save:hover, .dictionary-modal .btn-dictionary-card:hover {
     color: #74afad; }
 
 .word-cell {
@@ -478,6 +478,18 @@ img, iframe, video, object {
   transition: all .25s ease-in-out; }
   .img-cell:hover {
     transform: scale(1.2); }
+
+.dictionary-modal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  padding: 2%;
+  text-align: center; }
+  .dictionary-modal .divider {
+    border-color: #ccc; }
+  .dictionary-modal .btn-dictionary-card {
+    font-size: 0.5rem;
+    vertical-align: top; }
 
 .dictionary-img {
   cursor: pointer;

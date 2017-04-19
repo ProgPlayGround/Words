@@ -6,14 +6,20 @@
 
     vm.selectedWord = selectedWord;
 
-    vm.addTranslation = function(word, translation) {
-      dictionaryManager.addTranslation(word, translation);
-      word.translation.shift(translation);
+    vm.addTranslation = function(translation) {
+      dictionaryManager.addTranslation(vm.selectedWord.word, translation);
+      vm.selectedWord.translation.shift(translation);
     };
 
-    vm.updateTranslation = function(word, translationIndex, newTranslation) {
-      dictionaryManager.updateTranslation(word, word.translation[translationIndex], newTranslation);
-      word.translation[translationIndex] = newTranslation;
+    vm.updateTranslation = function(translationIndex, newTranslation) {
+      dictionaryManager.updateTranslation(vm.selectedWord.word, vm.selectedWord.translation[translationIndex], newTranslation);
+      vm.selectedWord.translation[translationIndex] = newTranslation;
     };
+
+    vm.removeTranslation = function(translationIndex) {
+      dictionaryManager.removeTranslation(vm.selectedWord.word, vm.selectedWord.translation[translationIndex]);
+      vm.selectedWord.translation.splice(translationIndex, 1);
+    };
+
   }]);
 }());

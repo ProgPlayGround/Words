@@ -6,7 +6,7 @@
         $uibModal.open({
           templateUrl: 'common/modal/dictionaryCard.html',
           animation: false,
-          size: 'md',
+          size: 'sm',
           controller: 'DictionaryModalCtrl',
           controllerAs: 'dm',
           resolve: {

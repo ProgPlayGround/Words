@@ -79,6 +79,10 @@
         if(position !== -1) {
           wordCard.translation[position] = newTranslation;
         }
+      },
+      removeTranslation: function(word, translation) {
+        var wordCard = find(word);
+        wordCard.translation = _.without(word.translation, translation);
       }
     };
   }]);
