@@ -73,16 +73,9 @@
         var wordCard = find(word);
         wordCard.translation.push(translation);
       },
-      updateTranslation: function(word, oldTranslation, newTranslation) {
-        var wordCard = find(word);
-        var position = wordCard.translation.indexOf(oldTranslation);
-        if(position !== -1) {
-          wordCard.translation[position] = newTranslation;
-        }
-      },
       removeTranslation: function(word, translation) {
         var wordCard = find(word);
-        wordCard.translation = _.without(word.translation, translation);
+        wordCard.translation = _.without(wordCard.translation, translation);
       }
     };
   }]);

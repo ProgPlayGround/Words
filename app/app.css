@@ -458,10 +458,10 @@ img, iframe, video, object {
   text-align: center;
   vertical-align: middle; }
 
-.btn-dictionary, .btn-add, .btn-save, .dictionary-modal .btn-dictionary-card {
+.btn-dictionary, .btn-add, .btn-save, .dictionary-modal .btn-dictionary-card, .dictionary-modal .btn-add-translation {
   cursor: pointer;
   display: inline-block; }
-  .btn-dictionary:hover, .btn-add:hover, .btn-save:hover, .dictionary-modal .btn-dictionary-card:hover {
+  .btn-dictionary:hover, .btn-add:hover, .btn-save:hover, .dictionary-modal .btn-dictionary-card:hover, .dictionary-modal .btn-add-translation:hover {
     color: #74afad; }
 
 .word-cell {
@@ -490,6 +490,8 @@ img, iframe, video, object {
   .dictionary-modal .btn-dictionary-card {
     font-size: 0.5rem;
     vertical-align: top; }
+  .dictionary-modal .btn-add-translation {
+    font-size: 0.5rem; }
 
 .dictionary-img {
   cursor: pointer;

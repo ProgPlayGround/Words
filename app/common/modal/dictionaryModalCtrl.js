@@ -6,19 +6,20 @@
 
     vm.selectedWord = selectedWord;
 
-    vm.addTranslation = function(translation) {
-      dictionaryManager.addTranslation(vm.selectedWord.word, translation);
-      vm.selectedWord.translation.shift(translation);
+    vm.addPopover = {
+      templateUrl: 'common/modal/addTranslationPopover.html'
     };
 
-    vm.updateTranslation = function(translationIndex, newTranslation) {
-      dictionaryManager.updateTranslation(vm.selectedWord.word, vm.selectedWord.translation[translationIndex], newTranslation);
-      vm.selectedWord.translation[translationIndex] = newTranslation;
+    vm.addTranslation = function() {
+      vm.addPopover.isOpen = false;
+      // vm.selectedWord.translation.unshift(vm.addPopover.translation);
+      dictionaryManager.addTranslation(vm.selectedWord.word, vm.addPopover.translation);
+      vm.addPopover.translation = '';
     };
 
     vm.removeTranslation = function(translationIndex) {
+      // vm.selectedWord.translation.splice(translationIndex, 1);
       dictionaryManager.removeTranslation(vm.selectedWord.word, vm.selectedWord.translation[translationIndex]);
-      vm.selectedWord.translation.splice(translationIndex, 1);
     };
 
   }]);

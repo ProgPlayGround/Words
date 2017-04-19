@@ -137,6 +137,11 @@
     font-size: 0.5rem;
     vertical-align: top;
   }
+
+  .btn-add-translation {
+    @extend .btn-dictionary;
+    font-size: 0.5rem;
+  }
 }
 
 .dictionary-img {
