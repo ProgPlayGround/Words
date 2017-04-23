@@ -31,25 +31,13 @@
 
     vm.save = function() {
       vm.addPopover.isOpen = false;
-      var word = _.find(vm.words, function(word) {
-        return word.word === vm.search;
-      });
-      if(!word) {
-        vm.words.unshift({
-          word: vm.search,
-          translation: [vm.addPopover.translation],
-          audioUrl: '',
-          imageUrl: ''
-        });
-      } else {
-        word.translation.push(vm.addPopover.translation);
-      }
+      dictionaryManager.save(vm.search, vm.addPopover.translation);
       vm.addPopover.translation = '';
       vm.search = '';
     };
 
-    vm.sound = function(url) {
-      $log.info(url);
+    vm.sound = function(word) {
+      word.play = true;
     };
 
     vm.remove = function(word) {

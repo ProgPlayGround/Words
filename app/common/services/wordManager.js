@@ -1,10 +1,10 @@
 (function() {
   'use strict';
-  angular.module('words').factory('wordManager', ['batchLoader', function(batchLoader) {
+  angular.module('words').factory('wordManager', ['wordEndpoint', function(wordEndpoint) {
     var words;
     return {
       init: function(url, onSuccess, onReject) {
-        words = batchLoader.load(url);
+        words = wordEndpoint.load(url);
         words.$promise.then(onSuccess, onReject);
       },
       getWord: function() {

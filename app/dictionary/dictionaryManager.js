@@ -1,63 +1,9 @@
-(function(){
+(function() {
   'use strict';
 
-  angular.module('words').factory('dictionaryManager', [function() {
-    var words = [
-      {
-        word: 'word',
-        translation: ['слово'],
-        audioUrl: '',
-        imageUrl: ''
-      },
-      {
-        word: 'hello',
-        translation: ['привіт'],
-        audioUrl: '',
-        imageUrl: ''
-      },
-      {
-        word: 'blossom',
-        translation: ['розцвітати'],
-        audioUrl: '',
-        imageUrl: ''
-      },
-      {
-        word: 'correspond',
-        translation: ['відповитати'],
-        audioUrl: '',
-        imageUrl: ''
-      },
-      {
-        word: 'severity',
-        translation: ['труднощі'],
-        audioUrl: '',
-        imageUrl: ''
-      },
-      {
-        word: 'stage',
-        translation: ['естрада'],
-        audioUrl: '',
-        imageUrl: ''
-      },
-      {
-        word: 'carry-on',
-        translation: ['ручний багаж'],
-        audioUrl: '',
-        imageUrl: ''
-      },
-      {
-        word: 'embassy',
-        translation: ['посольство'],
-        audioUrl: '',
-        imageUrl: ''
-      },
-      {
-        word: 'haggle',
-        translation: ['торговатись'],
-        audioUrl: '',
-        imageUrl: ''
-      }
-    ];
+  angular.module('words').constant('dictionaryUrl', 'https://localhost:3000/dictionary').factory('dictionaryManager', ['wordEndpoint', 'dictionaryUrl',
+   function(wordEndpoint, dictionaryUrl) {
+    var words = wordEndpoint.load(dictionaryUrl);
 
     function find(word) {
       return _.find(words, function(current) {
@@ -69,13 +15,37 @@
       getWords: function() {
         return words;
       },
+      save: function(word, translation) {
+        var wordCard = find(word);
+
+        if(wordCard) {
+          if(wordCard.translation.indexOf(translation) === -1) {
+            wordCard.translation.push(translation);
+            wordEndpoint.patch(dictionaryUrl, {'word': word, 'translation': translation});
+          }
+        } else {
+          wordEndpoint.post(dictionaryUrl, {
+            'word': word,
+            'translation': translation
+          }).$promise.then(function(response) {
+            words.unshift(response);
+          }).catch(function(err) {
+            console.log(err);
+          });
+        }
+      },
       addTranslation: function(word, translation) {
         var wordCard = find(word);
-        wordCard.translation.push(translation);
+        if(wordCard && wordCard.translation.indexOf(translation) === -1) {
+          wordCard.translation.push(translation);
+          wordEndpoint.patch(dictionaryUrl, {'word': word, 'translation': translation});
+        }
       },
       removeTranslation: function(word, translation) {
         var wordCard = find(word);
-        wordCard.translation = _.without(wordCard.translation, translation);
+        if(wordCard) {
+          wordCard.translation = _.without(wordCard.translation, translation);
+        }
       }
     };
   }]);

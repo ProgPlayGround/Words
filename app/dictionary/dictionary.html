@@ -26,8 +26,9 @@
     <div class="checkbox-cell">
       <input class="checkbox" type="checkbox" ng-model="word.checked">
     </div>
-    <div class="sound-cell" ng-click="dictionary.sound(word.audioUrl)">
+    <div class="sound-cell" ng-click="dictionary.sound(word)">
       <i class="btn-dictionary fa fa-volume-up"></i>
+      <voice source="word.audioUrl" play="word.play"></voice>
     </div>
     <div class="word-cell" ng-click="dictionary.showCard(word)">
       {{word.word}} - <span ng-repeat="translation in word.translation track by $index">{{translation}}{{$last ? '' : ', '}}<span/>
