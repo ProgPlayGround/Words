@@ -14,8 +14,11 @@
       },
       post: function(url, data) {
         return $resource(url, {}, {
-          'headers': httpAuthHeaders.header()
-        }).save(data);
+          'post': {
+            'method': 'POST',
+            'headers': httpAuthHeaders.header()
+          }
+        }).post(data);
       },
       patch: function(url, data) {
         return $resource(url, {}, {
