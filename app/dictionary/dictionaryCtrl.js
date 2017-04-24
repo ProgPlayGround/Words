@@ -7,6 +7,7 @@
 
     vm.words = dictionaryManager.getWords();
     vm.allChecked = false;
+    vm.audios = {};
 
     vm.addPopover = {
       templateUrl: 'dictionary/addPopover.html'
@@ -36,8 +37,11 @@
       vm.search = '';
     };
 
-    vm.sound = function(word) {
-      word.play = true;
+    vm.sound = function(wordCard) {
+      if(!vm.audios[wordCard.word]) {
+        vm.audios[wordCard.word] = new Audio(wordCard.audioUrl);
+      }
+      vm.audios[wordCard.word].play();
     };
 
     vm.remove = function(word) {
