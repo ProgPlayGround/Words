@@ -44,6 +44,10 @@
       removeTranslation: function(word, translation) {
         var wordCard = find(word);
         if(wordCard) {
+          wordEndpoint.delete(dictionaryUrl + '/' + word + '/' + translation)
+          .$promise.catch(function(err) {
+            console.log(err);
+          });
           wordCard.translation = _.without(wordCard.translation, translation);
         }
       }

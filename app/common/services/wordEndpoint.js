@@ -27,6 +27,14 @@
             'headers': httpAuthHeaders.header()
           }
         }).patch(data);
+      },
+      delete: function(url, data) {
+        return $resource(url, {}, {
+          'delete': {
+            'method': 'DELETE',
+            'headers': httpAuthHeaders.header()
+          }
+        }).delete(data);
       }
     };
   }]);
