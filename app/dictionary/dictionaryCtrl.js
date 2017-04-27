@@ -45,15 +45,14 @@
     };
 
     vm.remove = function(word) {
-      vm.words = _.reject(vm.words, function(elem) {
-        return elem.word === word.word;
-      });
+      dictionaryManager.remove([word]);
     };
 
     vm.removeChecked = function() {
-      vm.words = _.reject(vm.words, function(elem) {
-        return elem.checked;
+      var wordsToRemove = _.reject(vm.words, function(elem) {
+        return !elem.checked;
       });
+      dictionaryManager.remove(wordsToRemove);
     };
 
     vm.trainChecked = function() {

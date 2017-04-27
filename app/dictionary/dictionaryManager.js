@@ -34,6 +34,18 @@
           });
         }
       },
+      remove: function(wordsToRemove) {
+        wordsToRemove.forEach(function(elem) {
+          var index = words.indexOf(elem);
+          if(index !== -1) {
+            words.splice(index, 1);
+            wordEndpoint.delete(dictionaryUrl + '/' + elem.word)
+            .$promise.catch(function(err) {
+              console.log(err);
+            });
+          }
+        });
+      },
       addTranslation: function(word, translation) {
         var wordCard = find(word);
         if(wordCard && wordCard.translation.indexOf(translation) === -1) {
