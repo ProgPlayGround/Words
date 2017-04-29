@@ -492,6 +492,9 @@ img, iframe, video, object {
 .fog {
   opacity: .4; }
 
+.hidden {
+  display: none; }
+
 .no-padding {
   padding-left: 0;
   padding-right: 0; }
