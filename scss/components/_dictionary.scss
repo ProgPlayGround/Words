@@ -153,11 +153,21 @@
   width: 2rem;
   height: 2rem;
   object-fit: fill;
+
+  &.non-clickable {
+    cursor: auto;
+  }
 }
 
 .dictionary-add-img {
   @extend .dictionary-img;
   display: none;
+}
+
+.btn-select-img {
+  @extend .btn-base;
+  padding: 2%;
+  font-size: 0.5rem;
 }
 
 .empty-list-cell {

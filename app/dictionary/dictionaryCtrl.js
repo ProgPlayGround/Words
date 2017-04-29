@@ -65,8 +65,12 @@
       });
     };
 
+    vm.changeImg = function(word) {
+      dictionaryModalManager.addImg(word);
+    }
+
     vm.showCard = function(word) {
-      dictionaryModalManager.modal(word);
+      dictionaryModalManager.wordCard(word);
     };
 
   }]);
