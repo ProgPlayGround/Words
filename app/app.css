@@ -473,11 +473,12 @@ img, iframe, video, object {
 
 .img-cell {
   display: table-cell;
-  width: 2rem;
+  text-align: right;
+  width: 5rem;
   vertical-align: middle;
   transition: all .25s ease-in-out; }
-  .img-cell:hover {
-    transform: scale(1.2); }
+  .img-cell:hover > .dictionary-add-img {
+    display: inline-block; }
 
 .dictionary-modal {
   font-family: Arial, Helvetica, sans-serif;
@@ -493,11 +494,15 @@ img, iframe, video, object {
   .dictionary-modal .btn-add-translation {
     font-size: 0.5rem; }
 
-.dictionary-img {
+.dictionary-img, .dictionary-add-img {
+  display: inline-block;
   cursor: pointer;
   width: 2rem;
   height: 2rem;
   object-fit: fill; }
+
+.dictionary-add-img {
+  display: none; }
 
 .empty-list-cell {
   text-align: center;

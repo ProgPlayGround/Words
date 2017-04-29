@@ -112,12 +112,15 @@
 
 .img-cell {
   display: table-cell;
-  width: 2rem;
+  text-align: right;
+  width: 5rem;
   vertical-align: middle;
   transition: all .25s ease-in-out;
 
   &:hover {
-    transform: scale(1.2);
+    > .dictionary-add-img {
+      display: inline-block;
+    }
   }
 }
 
@@ -145,10 +148,16 @@
 }
 
 .dictionary-img {
+  display: inline-block;
   cursor: pointer;
   width: 2rem;
   height: 2rem;
   object-fit: fill;
+}
+
+.dictionary-add-img {
+  @extend .dictionary-img;
+  display: none;
 }
 
 .empty-list-cell {
