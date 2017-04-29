@@ -29,8 +29,6 @@
             'translation': translation
           }).$promise.then(function(response) {
             words.unshift(response);
-          }).catch(function(err) {
-            console.log(err);
           });
         }
       },
@@ -39,10 +37,7 @@
           var index = words.indexOf(elem);
           if(index !== -1) {
             words.splice(index, 1);
-            wordEndpoint.delete(dictionaryUrl + '/' + elem.word)
-            .$promise.catch(function(err) {
-              console.log(err);
-            });
+            wordEndpoint.delete(dictionaryUrl + '/' + elem.word);
           }
         });
       },
@@ -56,10 +51,7 @@
       removeTranslation: function(word, translation) {
         var wordCard = find(word);
         if(wordCard) {
-          wordEndpoint.delete(dictionaryUrl + '/' + word + '/' + translation)
-          .$promise.catch(function(err) {
-            console.log(err);
-          });
+          wordEndpoint.delete(dictionaryUrl + '/' + word + '/' + translation);
           wordCard.translation = _.without(wordCard.translation, translation);
         }
       }
