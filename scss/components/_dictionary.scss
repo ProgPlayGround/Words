@@ -149,13 +149,12 @@
 
 .dictionary-img {
   display: inline-block;
-  cursor: pointer;
   width: 2rem;
   height: 2rem;
   object-fit: fill;
 
-  &.non-clickable {
-    cursor: auto;
+  &.clickable {
+    cursor: pointer;
   }
 }
 
@@ -179,6 +178,14 @@
 
 .dictionary-search-word {
   color: $letter-selection-color;
+}
+
+.add-image-info {
+  font-size: 0.3rem;
+}
+
+.add-image-error {
+  color: $wrong-color;
 }
 
 .remove-cell {

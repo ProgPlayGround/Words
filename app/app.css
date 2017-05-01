@@ -613,12 +613,11 @@ img, iframe, video, object {
 
 .dictionary-img, .dictionary-add-img {
   display: inline-block;
-  cursor: pointer;
   width: 2rem;
   height: 2rem;
   object-fit: fill; }
-  .dictionary-img.non-clickable, .non-clickable.dictionary-add-img {
-    cursor: auto; }
+  .dictionary-img.clickable, .clickable.dictionary-add-img {
+    cursor: pointer; }
 
 .dictionary-add-img {
   display: none; }
@@ -635,6 +634,12 @@ img, iframe, video, object {
 
 .dictionary-search-word {
   color: #558c89; }
+
+.add-image-info {
+  font-size: 0.3rem; }
+
+.add-image-error {
+  color: #af7375; }
 
 .remove-cell {
   display: table-cell;

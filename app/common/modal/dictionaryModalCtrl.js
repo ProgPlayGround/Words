@@ -1,10 +1,12 @@
 (function() {
   'use strict';
-  angular.module('words').controller('DictionaryModalCtrl', ['dictionaryManager', 'selectedWord',
-  function(dictionaryManager, selectedWord) {
+  angular.module('words').controller('DictionaryModalCtrl', ['dictionaryManager', 'selectedWord', '$uibModalInstance',
+  function(dictionaryManager, selectedWord, $uibModalInstance) {
     var vm = this;
 
     vm.selectedWord = selectedWord;
+    vm.selectionError = false;
+    vm.selectedImg = null;
 
     vm.addPopover = {
       templateUrl: 'common/modal/addTranslationPopover.html'
@@ -18,6 +20,12 @@
 
     vm.removeTranslation = function(translationIndex) {
       dictionaryManager.removeTranslation(vm.selectedWord.word, vm.selectedWord.translation[translationIndex]);
+    };
+
+    vm.uploadImg = function() {
+      dictionaryManager.uploadImg(vm.selectedWord.word, vm.selectedImg).then(function() {
+        $uibModalInstance.close();
+      });
     };
 
   }]);

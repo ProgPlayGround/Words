@@ -20,6 +20,22 @@
           }
         }).post(data);
       },
+      uploadImg: function(url, data) {
+        return $resource(url, {}, {
+          'post': {
+            method: 'POST',
+            transformRequest: function(data) {
+              if(data === undefined) {
+                return data;
+              }
+              var fd = new FormData();
+              fd.append('file', data);
+              return fd;
+            },
+            headers: _.extend(httpAuthHeaders.header(), {'Content-Type': undefined})
+          }
+        }).post(data);
+      },
       patch: function(url, data) {
         return $resource(url, {}, {
           'patch': {

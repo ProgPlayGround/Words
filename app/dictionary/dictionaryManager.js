@@ -1,8 +1,9 @@
 (function() {
   'use strict';
 
-  angular.module('words').constant('dictionaryUrl', 'https://localhost:3000/dictionary').factory('dictionaryManager', ['wordEndpoint', 'dictionaryUrl',
-   function(wordEndpoint, dictionaryUrl) {
+  angular.module('words').constant('dictionaryUrl', 'https://localhost:3000/dictionary').constant('imageUrl', 'https://localhost:3000/image')
+  .factory('dictionaryManager', ['wordEndpoint', 'dictionaryUrl', 'imageUrl',
+   function(wordEndpoint, dictionaryUrl, imageUrl) {
     var words = wordEndpoint.load(dictionaryUrl);
 
     function find(word) {
@@ -17,7 +18,6 @@
       },
       save: function(word, translation) {
         var wordCard = find(word);
-
         if(wordCard) {
           if(wordCard.translation.indexOf(translation) === -1) {
             wordCard.translation.push(translation);
@@ -53,6 +53,14 @@
         if(wordCard) {
           wordEndpoint.delete(dictionaryUrl + '/' + word + '/' + translation);
           wordCard.translation = _.without(wordCard.translation, translation);
+        }
+      },
+      uploadImg: function(word, img) {
+        var wordCard = find(word);
+        if(wordCard) {
+          return wordEndpoint.uploadImg(imageUrl + '/' + wordCard.word, img).$promise.then(function(response) {
+            wordCard.imageUrl = response.url;
+          });
         }
       }
     };

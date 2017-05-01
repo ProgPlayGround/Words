@@ -1,8 +1,11 @@
 <div class="dictionary-modal">
-  <img class="dictionary-img" ng-class="{'non-clickable': !dm.selectedImg}" ng-src="{{dm.selectedImg}}" ng-click="dm.load()">
+  <img class="dictionary-img" ng-class="{'clickable': dm.selectedImg}" image-preview="dm.selectedImg" ng-click="dm.uploadImg()">
   <hr class="divider"/>
   <label for="selectImg" class="btn-select-img" ng-click="dm.selectImg()">
     Select Image
   </label>
-  <input id="selectImg" class="hidden" type="file"/>
+  <input id="selectImg" class="hidden" type="file" file-selector="dm.selectedImg" selection-error="dm.selectionError"/>
+  <div class="add-image-info" ng-class="{'add-image-error': dm.selectionError}">
+    Size should be less then 100kb
+  </div>
 </div>
