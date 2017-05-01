@@ -59,7 +59,7 @@
         var wordCard = find(word);
         if(wordCard) {
           return wordEndpoint.uploadImg(imageUrl + '/' + wordCard.word, img).$promise.then(function(response) {
-            wordCard.imageUrl = response.url;
+            wordCard.imageUrl = response.url + '?' + Date.now();
           });
         }
       }
