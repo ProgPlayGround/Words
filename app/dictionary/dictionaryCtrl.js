@@ -14,11 +14,8 @@
     };
 
     vm.checkAll = function() {
-      var hasUnchecked = _.some(vm.words, function(elem) {
-        return !elem.checked;
-      });
       _.each(vm.words, function(elem) {
-        elem.checked = hasUnchecked ? true : vm.allChecked;
+        elem.checked = vm.allChecked;
       });
     };
 
