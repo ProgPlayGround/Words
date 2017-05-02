@@ -1,7 +1,7 @@
 'use strict';
 
 describe('word manager service', function() {
-  var wordManagerService, batchLoaderService, words;
+  var wordManagerService, wordEndpointService, words;
 
   beforeEach(module('words'));
 
@@ -32,19 +32,19 @@ describe('word manager service', function() {
         'value': {'then': jasmine.createSpy('then').and.callThrough()}
       });
 
-      $provide.value('batchLoader', {
+      $provide.value('wordEndpoint', {
         'load': jasmine.createSpy('load').and.returnValue(words)
       });
   }]));
 
-  beforeEach(inject(['wordManager', 'batchLoader', function(wordManager, batchLoader) {
+  beforeEach(inject(['wordManager', 'wordEndpoint', function(wordManager, wordEndpoint) {
     wordManagerService = wordManager;
-    batchLoaderService = batchLoader;
+    wordEndpointService = wordEndpoint;
     wordManagerService.init();
   }]));
 
   it('init load words from batch loader service', function() {
-    expect(batchLoaderService.load).toHaveBeenCalled();
+    expect(wordEndpointService.load).toHaveBeenCalled();
   });
 
   it('get word return first word from dictionary', function() {

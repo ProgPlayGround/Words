@@ -1,0 +1,206 @@
+.dictionary-table {
+  border-collapse: collapse;
+  display: table;
+  margin-top: 50px;
+}
+
+.dictionary-row {
+  width: 100%;
+  display: table-row;
+  border-bottom: 1px dashed $main-color;
+}
+
+.dictionary-caption {
+  width: 100%;
+  display: table-caption;
+  border-bottom: 1px solid $main-color;
+}
+
+.checkbox-cell {
+  cursor: pointer;
+  display: table-cell;
+  height: 3rem;
+  width: 3rem;
+  border-right: 1px solid $main-color;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.checkbox {
+  display: inline-block;
+}
+
+.search-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 0.8rem;
+}
+
+.search {
+  border: 1px solid $main-color;
+  font-size: 1.1rem;
+  font-family: $arial;
+  padding-right: 1rem;
+  border-bottom-right-radius: 8px;
+}
+
+.btn-add {
+  @extend .btn-dictionary;
+  font-size: 0.9rem;
+  margin-left: -1.1rem;
+}
+
+.btn-save {
+  @extend .btn-dictionary;
+  font-size: 0.9rem;
+  margin-left: -1.2rem;
+}
+
+.batch-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 1rem;
+}
+
+.batch-group {
+  border: 1px solid $main-color;
+  border-radius: 5px;
+  font-size: 0;
+}
+
+.batch-item {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 2rem;
+  font-size: 1rem;
+
+  > i {
+    margin-top: 0.25rem;
+  }
+
+  &:not(:last-child) {
+    border-right: 1px solid $main-color;
+  }
+}
+
+.sound-cell {
+  display: table-cell;
+  width: 3rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.btn-dictionary {
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover {
+    color: $main-color;
+  }
+}
+
+.word-cell {
+  cursor: pointer;
+  display: table-cell;
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.img-cell {
+  display: table-cell;
+  text-align: right;
+  width: 5rem;
+  vertical-align: middle;
+  transition: all .25s ease-in-out;
+
+  &:hover {
+    > .dictionary-add-img {
+      display: inline-block;
+    }
+  }
+}
+
+.dictionary-modal {
+  font-family: $arial;
+  font-size: 1rem;
+  font-style: italic;
+  padding: 2%;
+  text-align: center;
+
+  .divider {
+    border-color: $gray;
+  }
+
+  .btn-dictionary-cross {
+    @extend .btn-dictionary;
+    font-size: 0.5rem;
+    vertical-align: top;
+
+    &.btn-close {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+    }
+  }
+
+  .btn-add-translation {
+    @extend .btn-dictionary;
+    font-size: 0.5rem;
+  }
+}
+
+.dictionary-img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  object-fit: fill;
+
+  &.selectable {
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid $main-color;
+    }
+  }
+}
+
+.dictionary-add-img {
+  @extend .dictionary-img;
+  display: none;
+}
+
+.btn-select-img {
+  @extend .btn-base;
+  padding: 2%;
+  font-size: 0.5rem;
+}
+
+.empty-list-cell {
+  text-align: center;
+  padding: 0.5rem 0 0.5rem 0;
+  background-color: $bg-monochromatic;
+  border-radius: 0 0 5px 5px;
+}
+
+.dictionary-search-word {
+  color: $letter-selection-color;
+}
+
+.add-image-info {
+  font-size: 0.3rem;
+}
+
+.add-image-error {
+  color: $wrong-color;
+}
+
+.remove-cell {
+  display: table-cell;
+  width: 3rem;
+  text-align: center;
+  vertical-align: middle;
+}

@@ -74,7 +74,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: $arial;
-  font-size: 1em;
+  font-size: 1rem;
   overflow: hidden;
   padding: 3%;
   text-align: center;
@@ -140,6 +140,10 @@
 
 .fog {
   opacity: .4;
+}
+
+.hidden {
+  display: none;
 }
 
 .no-padding {

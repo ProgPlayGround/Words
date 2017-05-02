@@ -17,6 +17,8 @@ summary, time, mark, audio, video {
   vertical-align: baseline;
 }
 
+textarea, input, button { outline: none; }
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;

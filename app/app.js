@@ -63,6 +63,11 @@
       templateUrl: 'sprint/sprint.html',
       controller: 'SprintCtrl',
       controllerAs: 'sprint'
+    }).state('dictionary', {
+      url: '/dictionary',
+      templateUrl: 'dictionary/dictionary.html',
+      controller: 'DictionaryCtrl',
+      controllerAs: 'dictionary'
     });
 
     $urlRouterProvider.otherwise('/auth/login');

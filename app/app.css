@@ -16,6 +16,9 @@ summary, time, mark, audio, video {
   padding: 0;
   vertical-align: baseline; }
 
+textarea, input, button {
+  outline: none; }
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
@@ -236,7 +239,7 @@ img, iframe, video, object {
   margin-top: 15%; }
 
 .quiz-modal {
-  font-family: Arial, Helvetica, serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 2em;
   font-style: italic;
   padding: 2%;
@@ -431,21 +434,21 @@ img, iframe, video, object {
   padding-top: 1%;
   text-align: center; }
 
-.btn-base, .btn-solution, .btn-next, .btn-sprint {
+.btn-base, .btn-solution, .btn-next, .btn-select-img, .btn-sprint {
   border: 1px solid #74afad;
   border-radius: 7px;
   color: #000;
   cursor: pointer;
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
+  font-size: 1rem;
   overflow: hidden;
   padding: 3%;
   text-align: center;
   text-overflow: ellipsis;
   transition: all .25s ease-in-out;
   white-space: nowrap; }
-  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-sprint:hover {
+  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover {
     background-color: #74afad; }
 
 .correct-answer {
@@ -489,9 +492,166 @@ img, iframe, video, object {
 .fog {
   opacity: .4; }
 
+.hidden {
+  display: none; }
+
 .no-padding {
   padding-left: 0;
   padding-right: 0; }
+
+.dictionary-table {
+  border-collapse: collapse;
+  display: table;
+  margin-top: 50px; }
+
+.dictionary-row {
+  width: 100%;
+  display: table-row;
+  border-bottom: 1px dashed #74afad; }
+
+.dictionary-caption {
+  width: 100%;
+  display: table-caption;
+  border-bottom: 1px solid #74afad; }
+
+.checkbox-cell {
+  cursor: pointer;
+  display: table-cell;
+  height: 3rem;
+  width: 3rem;
+  border-right: 1px solid #74afad;
+  text-align: center;
+  vertical-align: middle; }
+
+.checkbox {
+  display: inline-block; }
+
+.search-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 0.8rem; }
+
+.search {
+  border: 1px solid #74afad;
+  font-size: 1.1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-right: 1rem;
+  border-bottom-right-radius: 8px; }
+
+.btn-add {
+  font-size: 0.9rem;
+  margin-left: -1.1rem; }
+
+.btn-save {
+  font-size: 0.9rem;
+  margin-left: -1.2rem; }
+
+.batch-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 1rem; }
+
+.batch-group {
+  border: 1px solid #74afad;
+  border-radius: 5px;
+  font-size: 0; }
+
+.batch-item {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 2rem;
+  font-size: 1rem; }
+  .batch-item > i {
+    margin-top: 0.25rem; }
+  .batch-item:not(:last-child) {
+    border-right: 1px solid #74afad; }
+
+.sound-cell {
+  display: table-cell;
+  width: 3rem;
+  text-align: center;
+  vertical-align: middle; }
+
+.btn-dictionary, .btn-add, .btn-save, .dictionary-modal .btn-dictionary-cross, .dictionary-modal .btn-add-translation {
+  cursor: pointer;
+  display: inline-block; }
+  .btn-dictionary:hover, .btn-add:hover, .btn-save:hover, .dictionary-modal .btn-dictionary-cross:hover, .dictionary-modal .btn-add-translation:hover {
+    color: #74afad; }
+
+.word-cell {
+  cursor: pointer;
+  display: table-cell;
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: middle; }
+
+.img-cell {
+  display: table-cell;
+  text-align: right;
+  width: 5rem;
+  vertical-align: middle;
+  transition: all .25s ease-in-out; }
+  .img-cell:hover > .dictionary-add-img {
+    display: inline-block; }
+
+.dictionary-modal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  padding: 2%;
+  text-align: center; }
+  .dictionary-modal .divider {
+    border-color: #ccc; }
+  .dictionary-modal .btn-dictionary-cross {
+    font-size: 0.5rem;
+    vertical-align: top; }
+    .dictionary-modal .btn-dictionary-cross.btn-close {
+      position: absolute;
+      right: 10px;
+      top: 8px; }
+  .dictionary-modal .btn-add-translation {
+    font-size: 0.5rem; }
+
+.dictionary-img, .dictionary-add-img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  object-fit: fill; }
+  .dictionary-img.selectable, .selectable.dictionary-add-img {
+    cursor: pointer; }
+    .dictionary-img.selectable:hover, .selectable.dictionary-add-img:hover {
+      border: 1px solid #74afad; }
+
+.dictionary-add-img {
+  display: none; }
+
+.btn-select-img {
+  padding: 2%;
+  font-size: 0.5rem; }
+
+.empty-list-cell {
+  text-align: center;
+  padding: 0.5rem 0 0.5rem 0;
+  background-color: #e0e0dd;
+  border-radius: 0 0 5px 5px; }
+
+.dictionary-search-word {
+  color: #558c89; }
+
+.add-image-info {
+  font-size: 0.3rem; }
+
+.add-image-error {
+  color: #af7375; }
+
+.remove-cell {
+  display: table-cell;
+  width: 3rem;
+  text-align: center;
+  vertical-align: middle; }
 
 .btn-sprint {
   padding: 2%;

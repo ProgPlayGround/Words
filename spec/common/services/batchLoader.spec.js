@@ -1,12 +1,12 @@
 'use strict';
 
 describe('batch loader service', function() {
-  var batchLoaderService, httpBackend;
+  var wordEndpointService, httpBackend;
 
   beforeEach(module('words'));
 
-  beforeEach(inject(['batchLoader', '$httpBackend', function(batchLoader, $httpBackend) {
-    batchLoaderService = batchLoader;
+  beforeEach(inject(['wordEndpoint', '$httpBackend', function(wordEndpoint, $httpBackend) {
+    wordEndpointService = wordEndpoint;
     httpBackend = $httpBackend;
   }]));
 
@@ -14,7 +14,7 @@ describe('batch loader service', function() {
     httpBackend.expectGET('https://localhost:3000/dictionary')
     .respond(200, [{word: 'firstMock'}, {word: 'secondMock'}]);
 
-    batchLoaderService.load('https://localhost:3000/dictionary');
+    wordEndpointService.load('https://localhost:3000/dictionary');
 
     expect(httpBackend.flush).not.toThrow();
     httpBackend.verifyNoOutstandingExpectation();

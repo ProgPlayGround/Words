@@ -8,6 +8,6 @@
       vm.close = function() {
         $state.go(nextState);
         $uibModalInstance.close();
-      }
+      };
     }]);
 }());
