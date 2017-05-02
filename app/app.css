@@ -608,9 +608,10 @@ img, iframe, video, object {
   .dictionary-modal .btn-dictionary-cross {
     font-size: 0.5rem;
     vertical-align: top; }
-    .dictionary-modal .btn-dictionary-cross.right {
-      float: right;
-      margin-right: 5px; }
+    .dictionary-modal .btn-dictionary-cross.btn-close {
+      position: absolute;
+      right: 10px;
+      top: 8px; }
   .dictionary-modal .btn-add-translation {
     font-size: 0.5rem; }
 
