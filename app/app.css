@@ -620,8 +620,10 @@ img, iframe, video, object {
   width: 2rem;
   height: 2rem;
   object-fit: fill; }
-  .dictionary-img.clickable, .clickable.dictionary-add-img {
+  .dictionary-img.selectable, .selectable.dictionary-add-img {
     cursor: pointer; }
+    .dictionary-img.selectable:hover, .selectable.dictionary-add-img:hover {
+      border: 1px solid #74afad; }
 
 .dictionary-add-img {
   display: none; }

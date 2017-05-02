@@ -159,8 +159,12 @@
   height: 2rem;
   object-fit: fill;
 
-  &.clickable {
+  &.selectable {
     cursor: pointer;
+
+    &:hover {
+      border: 1px solid $main-color;
+    }
   }
 }
 

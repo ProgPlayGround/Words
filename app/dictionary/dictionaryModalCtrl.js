@@ -9,7 +9,7 @@
     vm.selectedImg = null;
 
     vm.addPopover = {
-      templateUrl: 'common/modal/addTranslationPopover.html'
+      templateUrl: 'dictionary/addTranslationPopover.html'
     };
 
     vm.addTranslation = function() {

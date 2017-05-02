@@ -4,7 +4,7 @@
     return {
       wordCard: function(word) {
         $uibModal.open({
-          templateUrl: 'common/modal/dictionaryCard.html',
+          templateUrl: 'dictionary/dictionaryCard.html',
           animation: false,
           size: 'sm',
           controller: 'DictionaryModalCtrl',
@@ -19,7 +19,7 @@
       },
       addImg: function(word) {
         $uibModal.open({
-          templateUrl: 'common/modal/addImg.html',
+          templateUrl: 'dictionary/addImg.html',
           animation: false,
           size: 'sm',
           controller: 'DictionaryModalCtrl',
