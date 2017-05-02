@@ -1,11 +1,12 @@
 <div class="dictionary-modal">
   <img class="dictionary-img" ng-src="{{dm.selectedWord.imageUrl}}"/>
+  <i class="btn-dictionary-cross right fa fa-times" ng-click="dm.close()"></i>
   <hr class="divider"/>
   {{dm.selectedWord.word}}
   <hr class="divider"/>
   <div ng-repeat="translation in dm.selectedWord.translation track by $index">
     {{translation}}
-    <i class="btn-dictionary-card fa fa-times" ng-click="dm.removeTranslation($index)" ng-show="dm.selectedWord.translation.length > 1"></i>
+    <i class="btn-dictionary-cross fa fa-times" ng-click="dm.removeTranslation($index)" ng-show="dm.selectedWord.translation.length > 1"></i>
   </div>
   <div class="btn-add-translation" uib-popover-template="dm.addPopover.templateUrl" popover-placement="bottom"
   popover-trigger="'outsideClick'" popover-is-open="dm.addPopover.isOpen">

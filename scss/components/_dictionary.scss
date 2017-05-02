@@ -135,10 +135,15 @@
     border-color: $gray;
   }
 
-  .btn-dictionary-card {
+  .btn-dictionary-cross {
     @extend .btn-dictionary;
     font-size: 0.5rem;
     vertical-align: top;
+
+    &.right {
+      float: right;
+      margin-right: 5px;
+    }
   }
 
   .btn-add-translation {

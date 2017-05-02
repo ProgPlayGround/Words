@@ -575,10 +575,10 @@ img, iframe, video, object {
   text-align: center;
   vertical-align: middle; }
 
-.btn-dictionary, .btn-add, .btn-save, .dictionary-modal .btn-dictionary-card, .dictionary-modal .btn-add-translation {
+.btn-dictionary, .btn-add, .btn-save, .dictionary-modal .btn-dictionary-cross, .dictionary-modal .btn-add-translation {
   cursor: pointer;
   display: inline-block; }
-  .btn-dictionary:hover, .btn-add:hover, .btn-save:hover, .dictionary-modal .btn-dictionary-card:hover, .dictionary-modal .btn-add-translation:hover {
+  .btn-dictionary:hover, .btn-add:hover, .btn-save:hover, .dictionary-modal .btn-dictionary-cross:hover, .dictionary-modal .btn-add-translation:hover {
     color: #74afad; }
 
 .word-cell {
@@ -605,9 +605,12 @@ img, iframe, video, object {
   text-align: center; }
   .dictionary-modal .divider {
     border-color: #ccc; }
-  .dictionary-modal .btn-dictionary-card {
+  .dictionary-modal .btn-dictionary-cross {
     font-size: 0.5rem;
     vertical-align: top; }
+    .dictionary-modal .btn-dictionary-cross.right {
+      float: right;
+      margin-right: 5px; }
   .dictionary-modal .btn-add-translation {
     font-size: 0.5rem; }
 

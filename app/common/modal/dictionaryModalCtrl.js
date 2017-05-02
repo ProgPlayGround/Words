@@ -28,5 +28,9 @@
       });
     };
 
+    vm.close = function() {
+      $uibModalInstance.close();
+    };
+
   }]);
 }());
