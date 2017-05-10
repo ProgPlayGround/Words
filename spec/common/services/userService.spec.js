@@ -9,13 +9,13 @@ describe('user service', function() {
     user = userService;
   }]));
 
-  fit('set username for current user', function() {
+  it('set username for current user', function() {
     var username = 'username';
     user.set(username);
     expect(user.get().username).toBe(username);
   });
 
-  fit('clear removes current user', function() {
+  it('clear removes current user', function() {
     var username = 'username';
     user.set(username);
     user.clear();

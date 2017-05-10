@@ -49,7 +49,10 @@
       var wordsToRemove = _.reject(vm.words, function(elem) {
         return !elem.checked;
       });
-      dictionaryManager.remove(wordsToRemove);
+
+      if(wordsToRemove.length > 0) {
+        dictionaryManager.remove(wordsToRemove);
+      }
     };
 
     vm.trainChecked = function() {
