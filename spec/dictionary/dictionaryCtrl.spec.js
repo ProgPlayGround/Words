@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Dictionary controller', function() {
-  var scope, words, dictionaryCtrl, dictionaryManager, translationManager, dictionaryModalManager;
+  var words, dictionaryCtrl, dictionaryManager, translationManager, dictionaryModalManager;
 
   beforeEach(function() {
     module('words');
@@ -42,12 +42,10 @@ describe('Dictionary controller', function() {
       $provide.value('dictionaryModalManager', dictionaryModalManager);
     }]);
 
-    inject(['$controller', '$rootScope', '$log', 'dictionaryManager', 'translationManager', 'dictionaryModalManager',
-    function($controller, $rootScope, $log, dictionaryManager, translationManager, dictionaryModalManager) {
-      scope = $rootScope.$new();
+    inject(['$controller', '$rootScope', 'dictionaryManager', 'translationManager', 'dictionaryModalManager',
+    function($controller, $rootScope, dictionaryManager, translationManager, dictionaryModalManager) {
       dictionaryCtrl = $controller('DictionaryCtrl', {
-        '$scope': scope,
-        '$log': $log,
+        '$scope': $rootScope.$new(),
         'dictionaryManager': dictionaryManager,
         'translationManager': translationManager,
         'dictionaryModalManager': dictionaryModalManager

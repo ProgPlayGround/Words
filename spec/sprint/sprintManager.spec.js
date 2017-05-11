@@ -1,6 +1,6 @@
 'use strict';
 
-describe('sprint manager', function() {
+describe('Sprint manager', function() {
   var sprintService, wordManagerService, url,
   question = {
     word: 'confirm',
