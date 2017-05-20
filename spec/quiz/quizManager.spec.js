@@ -21,10 +21,10 @@ describe('quiz manager', function() {
       });
     }]);
 
-    inject(['quizManager', 'wordManager', 'quizUrl', function(quizManager, wordManager, quizUrl) {
+    inject(['quizManager', 'wordManager', 'config', function(quizManager, wordManager, config) {
       quizManagerService = quizManager;
       wordManagerService = wordManager;
-      url = quizUrl;
+      url = config.apiUrl + '/quiz/';
     }]);
   });
 

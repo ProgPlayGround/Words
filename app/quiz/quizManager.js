@@ -1,7 +1,8 @@
 (function() {
   'use strict';
-  angular.module('words').constant('quizUrl', 'https://localhost:3000/quiz/').factory('quizManager', ['wordManager', 'quizUrl', function(wordManager, quizUrl) {
+  angular.module('words').factory('quizManager', ['wordManager', 'config', function(wordManager, config) {
     var quiz;
+    var quizUrl = config.apiUrl + '/quiz/'
 
     var factory = {
       init: function(lang, callback) {

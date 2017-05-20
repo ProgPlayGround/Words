@@ -1,7 +1,8 @@
 (function() {
-  angular.module('words').constant('sprintUrl', 'https://localhost:3000/sprint').factory('sprintManager', ['wordManager', 'sprintUrl', function(wordManager, sprintUrl) {
+  angular.module('words').factory('sprintManager', ['wordManager', 'config', function(wordManager, config) {
     var current;
-
+    var sprintUrl = config.apiUrl + '/sprint';
+    
     var factory = {
       init: function(callback) {
         wordManager.init(sprintUrl, function() {

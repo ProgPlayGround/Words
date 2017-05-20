@@ -113,5 +113,8 @@
       } (document, 'script', 'facebook-jssdk'));
       /*eslint-enable */
     }
-  }]);
+  }])
+  .constant('config', {
+    'apiUrl': 'https://192.168.99.101:49160'
+  });
 }());

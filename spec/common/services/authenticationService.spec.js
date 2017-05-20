@@ -1,19 +1,20 @@
 'use strict';
 
 describe('authentication service', function() {
-  var authenticationService, httpBackend, cookies, userInfoService;
+  var authenticationService, httpBackend, cookies, userInfoService, url;
 
   beforeEach(module('words'));
 
-  beforeEach(inject(['authService', '$httpBackend', '$cookies', 'userService', function(authService, $httpBackend, $cookies, userService) {
+  beforeEach(inject(['authService', '$httpBackend', '$cookies', 'userService', 'config', function(authService, $httpBackend, $cookies, userService, config) {
     authenticationService = authService;
     httpBackend = $httpBackend;
     cookies = $cookies;
     userInfoService = userService;
+    url = config.apiUrl;
   }]));
 
   it('login on success populates cookies and user info', function() {
-    httpBackend.expectPOST('https://localhost:3000/authenticate/login')
+    httpBackend.expectPOST(url + '/authenticate/login')
     .respond(200, {success: 'true', token: '1'});
 
     authenticationService.login('username', 'password', function(response) {
@@ -28,7 +29,7 @@ describe('authentication service', function() {
   });
 
   it('registration on success populates cookies and user info', function() {
-    httpBackend.expectPOST('https://localhost:3000/authenticate/registration')
+    httpBackend.expectPOST(url + '/authenticate/registration')
     .respond(200, {success: 'true', token: '1'});
 
     authenticationService.registration('username', 'password', function(response) {
@@ -51,7 +52,7 @@ describe('authentication service', function() {
   });
 
  it('registration on failure doesn\'t populate cookies and user info', function() {
-    httpBackend.expectPOST('https://localhost:3000/authenticate/registration')
+    httpBackend.expectPOST(url + '/authenticate/registration')
     .respond(200, {token: '1'});
 
     authenticationService.registration('username', 'password', function(response) {
@@ -66,7 +67,7 @@ describe('authentication service', function() {
   });
 
   it('logout on failure doesn\'t populate cookies and user info', function() {
-     httpBackend.expectPOST('https://localhost:3000/authenticate/login')
+     httpBackend.expectPOST(url + '/authenticate/login')
      .respond(200, {token: '1'});
 
      authenticationService.login('username', 'password', function(response) {

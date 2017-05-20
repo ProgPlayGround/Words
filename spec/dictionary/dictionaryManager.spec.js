@@ -40,15 +40,11 @@ describe('Dictionary manager', function() {
         };
 
         $provide.value('wordEndpoint', wordEndpoint);
-
-        dictionaryUrl = 'dictionaryUrl';
-        $provide.constant('dictionaryUrl', dictionaryUrl);
-
-        imageUrl = 'imageUrl';
-        $provide.constant('imageUrl', imageUrl);
       }]);
-      inject(['dictionaryManager', function(dictionaryManager) {
+      inject(['dictionaryManager', 'config', function(dictionaryManager, config) {
         dictionaryManagerService = dictionaryManager;
+        imageUrl = config.apiUrl + '/image';
+        dictionaryUrl = config.apiUrl + '/dictionary';
       }]);
     });
 

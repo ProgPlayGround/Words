@@ -1,8 +1,8 @@
 (function() {
   'use strict';
-  angular.module('words').constant('dictionaryUrl', 'https://localhost:3000/dictionary')
-  .factory('spellingManager', ['wordManager', 'dictionaryUrl', function(wordManager, dictionaryUrl) {
+  angular.module('words').factory('spellingManager', ['wordManager', 'config', function(wordManager, config) {
     var quiz, answer, answerState;
+    var dictionaryUrl = config.apiUrl + '/dictionary';
 
     var factory = {
       init: function(callback) {

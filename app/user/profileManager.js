@@ -1,9 +1,9 @@
 (function() {
-  angular.module('words').factory('profileManager', ['$resource', 'httpAuthHeaders', function($resource, httpAuthHeaders) {
-
+  angular.module('words').factory('profileManager', ['$resource', 'config', 'httpAuthHeaders', function($resource, config, httpAuthHeaders) {
+    var profileUrl = config.apiUrl + '/profile'
     return {
       profile: function() {
-        return $resource('https://localhost:3000/profile', {}, {
+        return $resource(profileUrl, {}, {
           'get': {
             'method': 'GET',
             'headers': httpAuthHeaders.header()

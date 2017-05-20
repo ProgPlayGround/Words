@@ -20,10 +20,10 @@ describe('Sprint manager', function() {
           return wordManager;
       });
     }]);
-    inject(['sprintManager', 'wordManager', 'sprintUrl', function(sprintManager, wordManager, sprintUrl) {
+    inject(['sprintManager', 'wordManager', 'config', function(sprintManager, wordManager, config) {
       sprintService = sprintManager;
       wordManagerService = wordManager;
-      url = sprintUrl;
+      url = config.apiUrl + '/sprint';
     }]);
   });
 

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('words').factory('authService', ['$resource', '$cookies', 'userService', function($resource, $cookies, userService) {
+  angular.module('words').factory('authService', ['$resource', '$cookies', 'config', 'userService', function($resource, $cookies, config, userService) {
 
     var request = function(url, username, password, callback) {
       $resource(url).save({'username': username, 'password': password})
@@ -17,10 +17,10 @@
 
     return {
       login: function(username, password, callback) {
-        request('https://localhost:3000/authenticate/login', username, password, callback);
+        request(config.apiUrl + '/authenticate/login', username, password, callback);
       },
       registration: function(username, password, callback) {
-        request('https://localhost:3000/authenticate/registration', username, password, callback);
+        request(config.apiUrl + '/authenticate/registration', username, password, callback);
       },
       logout: function() {
         userService.clear();
