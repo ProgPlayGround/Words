@@ -595,7 +595,8 @@ img, iframe, video, object {
   vertical-align: middle;
   transition: all .25s ease-in-out; }
   .img-cell:hover > .dictionary-add-img {
-    display: inline-block; }
+    display: inline-block;
+    cursor: pointer; }
 
 .dictionary-modal {
   font-family: Arial, Helvetica, sans-serif;
