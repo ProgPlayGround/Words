@@ -6,7 +6,7 @@
     var translationUrl = config.apiUrl + '/translation/';
     return {
       translate: function(word) {
-        return wordEndpoint.load(url + word);
+        return wordEndpoint.load(translationUrl + word);
       }
     };
   }]);
