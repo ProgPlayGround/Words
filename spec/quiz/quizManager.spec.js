@@ -5,7 +5,7 @@ describe('quiz manager', function() {
   quiz = {
     word: 'confirm',
     options: ['випробовувати', 'стверджувати', 'закохувати', 'спричиняти'],
-    answer: 1
+    answer: 'стверджувати'
   };
 
   beforeEach(function() {
@@ -50,7 +50,7 @@ describe('quiz manager', function() {
     quizManagerService.init('en', function(){});
     expect(quizManagerService.word()).toBe(quiz.word);
     expect(quizManagerService.options()).toEqual(quiz.options);
-    expect(quizManagerService.answer()).toBe(quiz.answer);
+    expect(quizManagerService.answer()).toBe(1);
   });
 
   it('clear state', function() {
