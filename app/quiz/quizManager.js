@@ -27,7 +27,7 @@
         return quiz.options;
       },
       answer: function() {
-        return quiz.answer;
+        return quiz.options.indexOf(quiz.answer);
       },
       clear: function() {
         wordManager.clear();
