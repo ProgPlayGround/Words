@@ -34,8 +34,7 @@
     vm.word = spellingManager.word;
     vm.translation = spellingManager.translation;
     vm.answer = spellingManager.answer;
-    vm.definition = spellingManager.definition;
-    vm.inSentence = spellingManager.inSentence;
+    vm.definitions = spellingManager.definitions;
 
     function afterLoad() {
       vm.nav = false;

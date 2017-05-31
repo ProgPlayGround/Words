@@ -366,6 +366,10 @@ img, iframe, video, object {
 .description-text {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em; }
+  .description-text.bold {
+    font-weight: bold; }
+  .description-text.sentence {
+    font-style: italic; }
 
 .countdown {
   border-radius: 50%;

@@ -58,13 +58,10 @@
         return quiz.word;
       },
       translation: function() {
-        return quiz.translation.ua[0];
+        return quiz.translation[0];
       },
-      definition: function() {
-        return quiz.definition;
-      },
-      inSentence: function() {
-        return quiz.inSentence;
+      definitions: function() {
+        return quiz.samples;
       },
       answer: function() {
         return answer;
