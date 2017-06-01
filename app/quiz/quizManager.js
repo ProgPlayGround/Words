@@ -26,7 +26,10 @@
       options: function() {
         return quiz.options;
       },
-      answer: function() {
+      answer: function(index) {
+        if(index !== -1 && quiz.options[index] === quiz.answer) {
+          return index;
+        }
         return quiz.options.indexOf(quiz.answer);
       },
       clear: function() {

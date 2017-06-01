@@ -20,8 +20,8 @@
       };
 
       vm.applyAnswer = function(answer) {
-        vm.correctAnswer = quizManager.answer();
         vm.userAnswer = angular.isDefined(answer) ? answer : -1;
+        vm.correctAnswer = quizManager.answer(answer);
       };
 
       vm.isAnswered = function() {
