@@ -68,6 +68,11 @@
       templateUrl: 'dictionary/dictionary.html',
       controller: 'DictionaryCtrl',
       controllerAs: 'dictionary'
+    }).state('category', {
+      url: '/category',
+      templateUrl: 'category/category.html',
+      controller: 'CategoryCtrl',
+      controllerAs: 'category'
     });
 
     $urlRouterProvider.otherwise('/auth/login');
