@@ -8,7 +8,7 @@ describe('Word quiz controller', function() {
     module(['$provide', function($provide) {
       var spellingManager = jasmine.createSpyObj('spellingManager',
       ['next', 'onLoad', 'applyAnswer', 'isCorrect', 'checkAnswer',
-      'word', 'isLoaded', 'translation', 'definition', 'inSentence', 'answer']);
+      'word', 'isLoaded', 'translation', 'definitions', 'answer']);
       spellingManager.init = jasmine.createSpy('init').and.callFake(function(callback) {
         callback();
       });
@@ -25,7 +25,7 @@ describe('Word quiz controller', function() {
         };
       });
     }]);
-    
+
     inject(['$controller', 'spellingManager', 'scoreManager', 'quizModalManager',
     function($controller, spellingManager, scoreManager, quizModalManager) {
       wordQuizCtrl = $controller('WordQuizCtrl', {
@@ -125,12 +125,7 @@ describe('Word quiz controller', function() {
   });
 
   it('definition call through to quiz manager', function() {
-    wordQuizCtrl.definition();
-    expect(spellingManagerService.definition).toHaveBeenCalled();
-  });
-
-  it('inSentence call through to quiz manager', function() {
-    wordQuizCtrl.inSentence();
-    expect(spellingManagerService.inSentence).toHaveBeenCalled();
+    wordQuizCtrl.definitions();
+    expect(spellingManagerService.definitions).toHaveBeenCalled();
   });
 });

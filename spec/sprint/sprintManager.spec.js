@@ -4,8 +4,8 @@ describe('Sprint manager', function() {
   var sprintService, wordManagerService, url,
   question = {
     word: 'confirm',
-    guess: 'підтверджувати',
-    answer: true
+    translation: ['підтверджувати'],
+    guess: 'підтверджувати'
   };
 
   beforeEach(function() {
