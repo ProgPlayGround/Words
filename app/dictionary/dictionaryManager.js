@@ -59,8 +59,8 @@
       uploadImg: function(word, img) {
         var wordCard = find(word);
         if(wordCard) {
-          return wordEndpoint.uploadImg(imageUrl + '/' + wordCard.word, img).$promise.then(function(response) {
-            wordCard.imageUrl = response.url + '?' + Date.now();
+          return wordEndpoint.uploadImg(imageUrl + '/' + wordCard.word, img).$promise.then(function(res) {
+            wordCard.imageUrl = res.url + '?' + Date.now();
           });
         }
       }

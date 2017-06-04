@@ -1,0 +1,7 @@
+<div>
+  <div ng-repeat="data in vm.categories">
+    <a ui-sref="dictionary({category: data.name})">
+      <span>{{data.name}}</span>
+    </a>
+  </div>
+</div>

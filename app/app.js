@@ -64,7 +64,7 @@
       controller: 'SprintCtrl',
       controllerAs: 'sprint'
     }).state('dictionary', {
-      url: '/dictionary',
+      url: '/dictionary/:category',
       templateUrl: 'dictionary/dictionary.html',
       controller: 'DictionaryCtrl',
       controllerAs: 'dictionary'
@@ -72,7 +72,7 @@
       url: '/category',
       templateUrl: 'category/category.html',
       controller: 'CategoryCtrl',
-      controllerAs: 'category'
+      controllerAs: 'vm'
     });
 
     $urlRouterProvider.otherwise('/auth/login');
