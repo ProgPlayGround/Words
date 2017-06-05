@@ -3,7 +3,7 @@
   angular.module('words').factory('categoryManager', ['wordEndpoint', 'config', function(wordEndpoint, config) {
     var categoryUrl = config.apiUrl + '/category';
 
-    var categories = wordEndpoint.load(categoryUrl);
+    var categories = [{'name': 'first', 'img': 'images\\add.png'}, {'name': 'secondasdddddddddddddddddddddddddddddddddddddddd', 'img': 'images\\add.png'}];// wordEndpoint.load(categoryUrl);
 
     return {
       get: function() {

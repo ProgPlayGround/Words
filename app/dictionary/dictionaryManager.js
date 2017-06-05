@@ -5,15 +5,19 @@
     var dictionaryUrl = config.apiUrl + '/dictionary';
     var imageUrl = config.apiUrl + '/image';
 
-    var words = wordEndpoint.load(dictionaryUrl);
+    var words;
 
     function find(word) {
       return _.find(words, function(current) {
         return current.word === word;
       });
-    }
+    };
 
     return {
+      load: function(category) {
+        words = wordEndpoint.load(dictionaryUrl + '/' + category);
+        return words;
+      },
       getWords: function() {
         return words;
       },

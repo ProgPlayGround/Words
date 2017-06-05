@@ -1,11 +1,11 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('DictionaryCtrl', ['$log', 'dictionaryManager', 'translationManager', 'dictionaryModalManager',
-  function($log, dictionaryManager, translationManager, dictionaryModalManager) {
+  angular.module('words').controller('DictionaryCtrl', ['$stateParams', '$log', 'dictionaryManager', 'translationManager', 'dictionaryModalManager',
+  function($stateParams, $log, dictionaryManager, translationManager, dictionaryModalManager) {
     var vm = this;
-
-    vm.words = dictionaryManager.getWords();
+    
+    vm.words = dictionaryManager.load($stateParams.category);
     vm.allChecked = false;
     vm.audios = {};
 

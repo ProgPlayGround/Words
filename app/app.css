@@ -661,3 +661,33 @@ img, iframe, video, object {
 .btn-sprint {
   padding: 2%;
   margin: 0 auto; }
+
+.category-layout {
+  padding: 5% 15%; }
+
+.category-container {
+  background-color: #f4f2f2;
+  border: 1px solid #abcfcd;
+  border-radius: .5rem;
+  box-shadow: 0 0 5px #74afad;
+  cursor: pointer;
+  margin-bottom: 2%;
+  text-align: center;
+  transition: background-color .25s ease-in-out;
+  vertical-align: top;
+  margin: 0 5px;
+  padding: 0 5px; }
+  .category-container .text {
+    font-size: 0.8rem;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  .category-container:hover {
+    background-color: #abcfcd; }
+
+.category-img {
+  height: 64px;
+  width: 64px; }
+
+.category-tooltip {
+  font-size: 0.7rem;
+  word-wrap: break-word; }

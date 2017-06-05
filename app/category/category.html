@@ -1,7 +1,11 @@
-<div>
-  <div ng-repeat="data in vm.categories">
+<div ng-include src="'navbar/navbar.html'"></div>
+<div class="category-layout">
+  <div class="category-container col-sm-2" ng-repeat="data in vm.categories" uib-tooltip-template="'category/category-tooltip.html'">
     <a ui-sref="dictionary({category: data.name})">
-      <span>{{data.name}}</span>
+      <figure>
+        <img class="category-img" ng-src="{{data.img}}">
+        <figcaption class="text">{{data.name}}</figcaption>
+      </figure>
     </a>
   </div>
 </div>
