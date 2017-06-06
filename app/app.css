@@ -671,11 +671,10 @@ img, iframe, video, object {
   border-radius: .5rem;
   box-shadow: 0 0 5px #74afad;
   cursor: pointer;
-  margin-bottom: 2%;
   text-align: center;
   transition: background-color .25s ease-in-out;
   vertical-align: top;
-  margin: 0 5px;
+  margin: 1%;
   padding: 0 5px; }
   .category-container .text {
     font-size: 0.8rem;
