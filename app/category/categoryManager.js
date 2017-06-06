@@ -4,7 +4,7 @@
     var categoryUrl = config.apiUrl + '/category';
 
     var categories = [{'name': 'first', 'img': 'images\\add.png'},
-    {'name': 'second', 'img': 'images\\add.png'}];// wordEndpoint.load(categoryUrl);
+    {'name': 'secosecondsecondsecondsecondsecondsecondnd', 'img': 'images\\add.png'}];// wordEndpoint.load(categoryUrl);
 
     return {
       get: function() {
@@ -14,18 +14,6 @@
         wordEndpoint.post(categoryUrl, name)
         .then(function(res) {
           categories.push(name);
-        });
-      },
-      rename: function(category, name) {
-        wordEndpoint.patch(categoryUrl + '/' + category.name, name)
-        .then(function(res) {
-          categories.push(name);
-        });
-      },
-      image: function(category, img) {
-        wordEndpoint.uploadImg(categoryUrl + '/' + category.name, img)
-        .then(function(res) {
-          category.image = res.url + '?' + Date.now();
         });
       },
       delete: function(category) {

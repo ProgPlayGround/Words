@@ -1,5 +1,13 @@
 <div ng-include src="'navbar/navbar.html'"></div>
 <div class="category-layout">
+  <div class="category-header">
+    <div class="btn-add-category" ng-click="vm.addCategory()">
+      Add Category
+    </div>
+    <div class="col-sm-12">
+      <hr class="category-header-divider"/>
+    </div>
+  </div>
   <div class="category-container col-sm-2" ng-repeat="data in vm.categories" uib-tooltip-template="'category/category-tooltip.html'">
     <a ui-sref="dictionary({category: data.name})">
       <figure>
@@ -7,5 +15,8 @@
         <figcaption class="text">{{data.name}}</figcaption>
       </figure>
     </a>
+    <div class="btn-remove-category">
+      <i class="fa fa-times" ng-click="vm.removeCategory(data)"></i>
+    </div>
   </div>
 </div>

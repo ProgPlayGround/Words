@@ -663,7 +663,7 @@ img, iframe, video, object {
   margin: 0 auto; }
 
 .category-layout {
-  padding: 5% 15%; }
+  padding: 2% 10%; }
 
 .category-container {
   background-color: #f4f2f2;
@@ -675,7 +675,8 @@ img, iframe, video, object {
   transition: background-color .25s ease-in-out;
   vertical-align: top;
   margin: 1%;
-  padding: 0 5px; }
+  padding: 0 5px;
+  position: relative; }
   .category-container .text {
     font-size: 0.8rem;
     text-overflow: ellipsis;
@@ -690,3 +691,40 @@ img, iframe, video, object {
 .category-tooltip {
   font-size: 0.7rem;
   word-wrap: break-word; }
+
+.category-header-divider {
+  border-color: #74afad;
+  margin-bottom: 3px;
+  margin-top: 3px; }
+
+.category-header {
+  padding-bottom: 5%; }
+
+.btn-add-category {
+  border: 1px solid #74afad;
+  border-radius: 7px;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.6rem;
+  overflow: hidden;
+  padding: 1%;
+  margin: 1%;
+  text-align: center;
+  text-overflow: ellipsis;
+  transition: all .25s ease-in-out;
+  white-space: nowrap; }
+  .btn-add-category:hover {
+    background-color: #abcfcd; }
+
+.btn-remove-category {
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  font-size: 0.8rem;
+  opacity: 0.5; }
+  .btn-remove-category:hover {
+    opacity: 1; }

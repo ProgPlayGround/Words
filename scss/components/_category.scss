@@ -1,5 +1,5 @@
 .category-layout {
-  padding: 5% 15%;
+  padding: 2% 10%;
 }
 
 .category-container {
@@ -13,6 +13,7 @@
   vertical-align: top;
   margin: 1%;
   padding: 0 5px;
+  position: relative;
 
   .text {
     font-size: 0.8rem;
@@ -33,4 +34,49 @@
 .category-tooltip {
   font-size: 0.7rem;
   word-wrap: break-word;
+}
+
+.category-header-divider {
+  border-color: $main-color;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+.category-header {
+  padding-bottom: 5%;
+}
+
+.btn-add-category {
+  border: 1px solid $main-color;
+  border-radius: 7px;
+  color: $black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $arial;
+  font-size: 0.6rem;
+  overflow: hidden;
+  padding: 1%;
+  margin: 1%;
+  text-align: center;
+  text-overflow: ellipsis;
+  transition: all .25s ease-in-out;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $selection-main-color;
+  }
+}
+
+.btn-remove-category {
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  font-size: 0.8rem;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
 }
