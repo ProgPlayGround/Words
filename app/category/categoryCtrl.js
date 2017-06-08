@@ -5,12 +5,12 @@
     var vm = this;
     vm.categories = categoryManager.get();
 
-    vm.removeCategory = function(category) {
-      console.log(category);
+    vm.addCategory = function() {
+      categoryManager.add(category);
     };
 
-    vm.addCategory = function() {
-      console.log("Add caregory");
-    }
+    vm.removeCategory = function(category) {
+      categoryManager.delete(category);
+    };
   }]);
 }());
