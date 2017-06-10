@@ -8,19 +8,18 @@
       userService.clear();
       $cookies.remove('auth-type');
       $cookies.remove('token');
-    }
+    };
 
     function onConnection(res, callback) {
       if(res.status === 'connected') {
         var accessToken = res.authResponse.accessToken;
         FB.api('/me', function(res) {
-          userService.set(res);
+          userService.set(res.id);
           $cookies.put('auth-type', 'fb');
           $cookies.put('token', accessToken);
           callback();
         });
       } else {
-        $log.log(res);
         clearUserData();
       }
     }

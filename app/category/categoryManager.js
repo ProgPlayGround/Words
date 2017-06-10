@@ -1,23 +1,23 @@
 (function() {
   'use strict';
-  angular.module('words').factory('categoryManager', ['wordEndpoint', 'config', function(wordEndpoint, config) {
+  angular.module('words').factory('categoryManager', ['wordEndpoint', 'userService', 'config', function(wordEndpoint, userService, config) {
     var categoryUrl = config.apiUrl + '/category';
 
-    var categories = [{'name': 'first', 'img': 'images\\add.png'},
-    {'name': 'secosecondsecondsecondsecondsecondsecondnd', 'img': 'images\\add.png'}];// wordEndpoint.load(categoryUrl);
+    var userId = userService.get();
+    var categories = wordEndpoint.load(categoryUrl + '/' + userId);
 
     return {
       get: function() {
         return categories;
       },
-      add: function(name) {
-        wordEndpoint.post(categoryUrl, name)
+      add: function(category) {
+        wordEndpoint.post(categoryUrl + '/' + user.id, category)
         .then(function(res) {
           categories.push(name);
         });
       },
       delete: function(category) {
-        wordEndpoint.delete(categoryUrl + '/' + category.name)
+        wordEndpoint.delete(categoryUrl + '/' + user.id + '/' + category.name)
         .then(function(res) {
           categories = categories.filter(function(elem) {
             return elem !== category.name;

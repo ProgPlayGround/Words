@@ -79,10 +79,10 @@
 
     $httpProvider.interceptors.push('forbiddenInterceptor', 'requestCounter');
   }])
-  .run(['fbAuthService', 'vkAuthService', '$timeout', '$log', function(fbAuthService, vkAuthService, $timeout, $log) {
+  .run(['$window', '$rootScope', 'fbAuthService', 'vkAuthService', '$timeout', '$log',
+    function($window, $rootScope, fbAuthService, vkAuthService, $timeout, $log) {
 
-    vkAuthInit();
-
+    // vkAuthInit();
     fbAuthInit();
 
     function vkAuthInit() {

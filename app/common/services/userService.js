@@ -1,20 +1,18 @@
 (function() {
   'use strict';
 
-  angular.module('words').factory('userService', function() {
-    var user;
+  angular.module('words').factory('userService', ['$rootScope', function($rootScope) {
+
     return {
-      set: function(username) {
-        user = {
-          'username': username
-        };
+      set: function(id) {
+        sessionStorage.userId = id;
       },
       clear: function() {
-        user = {};
+        sessionStorage.userId = null;
       },
       get: function() {
-        return user;
+        return sessionStorage.userId;
       }
-    }
-  });
+    };
+  }]);
 }());
