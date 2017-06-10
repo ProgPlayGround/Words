@@ -694,7 +694,7 @@ img, iframe, video, object {
 
 .category-header-divider {
   border-color: #74afad;
-  margin-bottom: 3px;
+  margin-bottom: 0px;
   margin-top: 3px; }
 
 .category-header {

@@ -6,7 +6,11 @@
     </div>
     <div class="col-sm-12">
       <hr class="category-header-divider"/>
+      <div class="empty-list-cell" ng-show="!vm.categories.length">
+        No categories.
+      </div>
     </div>
+
   </div>
   <div class="category-container col-sm-2" ng-repeat="data in vm.categories" uib-tooltip-template="'category/category-tooltip.html'">
     <a ui-sref="dictionary({category: data.name})">
