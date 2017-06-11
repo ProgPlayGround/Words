@@ -1,5 +1,6 @@
 (function() {
   'use strict';
+  
   angular.module('words').controller('DictionaryModalCtrl', ['dictionaryManager', 'selectedWord', '$uibModalInstance',
   function(dictionaryManager, selectedWord, $uibModalInstance) {
     var vm = this;

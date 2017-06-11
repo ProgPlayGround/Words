@@ -87,6 +87,11 @@
   }
 }
 
+.input-base {
+  border: 1px solid $main-color;
+  border-radius: 4px;
+}
+
 .correct-answer {
   background-color: $solution-color;
   color: $white;

@@ -1,13 +1,16 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('CategoryCtrl', ['categoryManager', function(categoryManager) {
+  angular.module('words').controller('CategoryCtrl', ['categoryManager', 'categoryModalManager', function(categoryManager, categoryModalManager) {
     var vm = this;
 
-    vm.categories = categoryManager.get();    
+    categoryManager.init(function(categories) {
+      console.log(categories);
+      vm.categories = categories;
+    });
 
     vm.addCategory = function() {
-      categoryManager.add(category);
+      categoryModalManager.addCategory();
     };
 
     vm.removeCategory = function(category) {

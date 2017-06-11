@@ -4,12 +4,12 @@
   angular.module('words').factory('authService', ['$resource', '$cookies', 'config', 'userService', function($resource, $cookies, config, userService) {
 
     var request = function(url, username, password, callback) {
-      $resource(url).save({'username': username, 'password': password})
+      $resource(url).save({'email': username, 'password': password})
       .$promise.then(function(response) {
         if(response.success) {
-          userService.set(username);
+          userService.set(response.userId);
           $cookies.put('auth-type', 'basic');
-          $cookies.put('token', btoa(username + ':' + response.token));
+          $cookies.put('token', btoa(response.userId + ':' + response.token));
         }
         callback(response);
       }).catch(callback);

@@ -16,6 +16,9 @@ summary, time, mark, audio, video {
   padding: 0;
   vertical-align: baseline; }
 
+button {
+  background-color: white; }
+
 textarea, input, button {
   outline: none; }
 
@@ -109,10 +112,6 @@ img, iframe, video, object {
   background-color: #ececea; }
   .btn-auth-submit:focus {
     outline: none !important; }
-
-.auth-input {
-  border: 1px solid #74afad;
-  border-radius: 4px; }
 
 .auth-margin {
   margin-top: 2px; }
@@ -455,6 +454,10 @@ img, iframe, video, object {
   .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover {
     background-color: #74afad; }
 
+.input-base, .input-category {
+  border: 1px solid #74afad;
+  border-radius: 4px; }
+
 .correct-answer {
   background-color: #75af73;
   color: #fff; }
@@ -647,7 +650,7 @@ img, iframe, video, object {
   color: #558c89; }
 
 .add-image-info {
-  font-size: 0.3rem; }
+  font-size: 0.4rem; }
 
 .add-image-error {
   color: #af7375; }
@@ -700,7 +703,7 @@ img, iframe, video, object {
 .category-header {
   padding-bottom: 2%; }
 
-.btn-add-category {
+.btn-category, .btn-modal-add-category {
   border: 1px solid #74afad;
   border-radius: 7px;
   color: #000;
@@ -715,8 +718,15 @@ img, iframe, video, object {
   text-overflow: ellipsis;
   transition: all .25s ease-in-out;
   white-space: nowrap; }
-  .btn-add-category:hover {
+  .btn-category:hover, .btn-modal-add-category:hover {
     background-color: #abcfcd; }
+
+.btn-modal-add-category {
+  margin-top: 5%;
+  padding: 3%; }
+
+.input-category {
+  font-style: normal; }
 
 .btn-remove-category {
   cursor: pointer;
