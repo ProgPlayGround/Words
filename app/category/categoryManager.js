@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('words').factory('categoryManager', ['wordEndpoint', 'userService', 'config', function(wordEndpoint, userService, config) {
+  angular.module('words').factory('categoryManager', ['$log', 'wordEndpoint', 'userService', 'config', function($log, wordEndpoint, userService, config) {
     var categoryUrl = config.apiUrl + '/category';
 
     var userId, categories;
@@ -29,12 +29,18 @@
         });
       },
       delete: function(category) {
-        wordEndpoint.delete(categoryUrl + '/' + userId + '/' + category.name)
-        .then(function(res) {
-          categories = categories.filter(function(elem) {
-            return elem !== category.name;
+        var index = categories.indexOf(category);
+        if(index !== -1) {
+
+          wordEndpoint.delete(categoryUrl + '/' + userId + '/' + category.name)
+          .$promise.then(function(res) {
+            if(res.success) {
+              categories.splice(index, 1);
+            } else {
+              $log.error('Error on server side %s', res.err);
+            }
           });
-        });
+        }
       }
     };
   }]);

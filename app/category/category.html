@@ -4,23 +4,24 @@
     <div class="btn-category" ng-click="vm.addCategory()">
       Add Category
     </div>
-    <div class="col-sm-12">
-      <hr class="category-header-divider"/>
-      <div class="empty-list-cell" ng-show="!vm.categories.length">
-        No categories.
-      </div>
-    </div>
-
   </div>
-  <div class="category-container col-sm-2" ng-repeat="data in vm.categories" uib-tooltip-template="'category/category-tooltip.html'">
-    <a ui-sref="dictionary({category: data.name})">
-      <figure>
-        <img class="category-img" ng-src="{{data.imageUrl}}">
-        <figcaption class="text">{{data.name}}</figcaption>
-      </figure>
-    </a>
-    <div class="btn-remove-category">
-      <i class="fa fa-times" ng-click="vm.removeCategory(data)"></i>
+  <div class="col-sm-12">
+    <hr class="category-header-divider"/>
+    <div class="empty-list-cell" ng-show="!vm.categories.length">
+      No categories.
+    </div>
+    <div ng-show="vm.categories.length">
+      <div class="category-container col-sm-2" ng-repeat="data in vm.categories" uib-tooltip-template="'category/category-tooltip.html'">
+        <a ui-sref="dictionary({category: data.name})">
+          <figure>
+            <img class="category-img" ng-src="{{data.imageUrl}}">
+            <figcaption class="text">{{data.name}}</figcaption>
+          </figure>
+        </a>
+        <div class="btn-remove-category">
+          <i class="fa fa-times" ng-click="vm.removeCategory(data)"></i>
+        </div>
+      </div>
     </div>
   </div>
 </div>

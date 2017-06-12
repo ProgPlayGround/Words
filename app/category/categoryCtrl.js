@@ -5,7 +5,6 @@
     var vm = this;
 
     categoryManager.init(function(categories) {
-      console.log(categories);
       vm.categories = categories;
     });
 

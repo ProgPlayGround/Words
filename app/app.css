@@ -701,7 +701,7 @@ img, iframe, video, object {
   margin-top: 3px; }
 
 .category-header {
-  padding-bottom: 2%; }
+  padding-bottom: 5px; }
 
 .btn-category, .btn-modal-add-category {
   border: 1px solid #74afad;
