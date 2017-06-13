@@ -3,14 +3,17 @@
   <form name="addCategoryForm" ng-submit="cm.addCategory()" role="form">
     <div>
       <input id="categoryName" type="text" class="input-category" maxlength="30" ng-model="cm.category" required/>
+      <div class="add-image-error" ng-messages="cm.error">
+        <div ng-message="duplicate">Category name should be unique</div>
+      </div>
       <hr class="divider"/>
     </div>
     <label for="selectImg" class="btn-select-img" ng-click="cm.selectImg()">
         <img class="dictionary-img" image-preview="cm.selectedImg">
     </label>
-    <input id="selectImg" class="hidden" type="file" file-selector="cm.selectedImg" selection-error="cm.selectionError"/>
-    <div class="add-image-info" ng-class="{'add-image-error': cm.selectionError}">
-      Size should be less then 100kb
+    <input id="selectImg" class="hidden" type="file" file-selector="cm.selectedImg" selection-error="cm.error"/>
+    <div class="add-image-error" ng-messages="cm.error">
+      <div ng-message="maxSize">Size should be less then 100kb</div>
     </div>
     <button type="submit" class="btn btn-modal-add-category" ng-disabled="addCategoryForm.$invalid">Add Category</button>
   </form>

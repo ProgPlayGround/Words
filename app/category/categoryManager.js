@@ -21,11 +21,19 @@
       get: function() {
         return categories;
       },
-      add: function(category, img) {
+      add: function(category, img, callback) {
         wordEndpoint.post(categoryUrl + '/' + userId, {
           'category': category
         }).$promise.then(function(res) {
-          categories.push({'name': category, 'imageUrl': 'images/add.png'});
+          if(res.success) {
+            categories.push({'name': category, 'imageUrl': 'images/add.png'});
+          } else {
+            $log.error('Error occured %s', res.err);
+          }
+          callback(res);
+        }).catch(function(res) {
+          $log.error('Error occured %s', res.data.err);
+          callback(res);
         });
       },
       delete: function(category) {

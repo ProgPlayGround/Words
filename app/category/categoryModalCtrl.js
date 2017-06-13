@@ -8,9 +8,18 @@
     vm.selectedImg = null;
     vm.selectionError = false;
 
+    vm.error = {};
+
     vm.addCategory = function() {
-      categoryManager.add(vm.category, vm.selectedImg);
-      $uibModalInstance.close();
+      categoryManager.add(vm.category, vm.selectedImg, function(res) {
+        if(res.success) {
+          vm.close();
+        } else {
+          if(res.status === 409) {
+            vm.error.duplicate = true;
+          }
+        }
+      });
     };
 
     vm.close = function() {
