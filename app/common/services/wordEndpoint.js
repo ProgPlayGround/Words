@@ -25,7 +25,7 @@
           'post': {
             method: 'POST',
             transformRequest: function(data) {
-              if(data === undefined) {
+              if(data == undefined) {
                 return data;
               }
               var fd = new FormData();

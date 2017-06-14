@@ -11,7 +11,7 @@
       No categories.
     </div>
     <div ng-show="vm.categories.length">
-      <div class="category-container col-sm-2" ng-repeat="data in vm.categories" uib-tooltip-template="'category/category-tooltip.html'">
+      <div class="category-container col-sm-1" ng-repeat="data in vm.categories" uib-tooltip-template="'category/category-tooltip.html'">
         <a ui-sref="dictionary({category: data.name})">
           <figure>
             <img class="category-img" ng-src="{{data.imageUrl}}">

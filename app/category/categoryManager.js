@@ -22,11 +22,10 @@
         return categories;
       },
       add: function(category, img, callback) {
-        wordEndpoint.post(categoryUrl + '/' + userId, {
-          'category': category
-        }).$promise.then(function(res) {
+        wordEndpoint.uploadImg(categoryUrl + '/' + userId + '/' + category, img)
+        .$promise.then(function(res) {
           if(res.success) {
-            categories.push({'name': category, 'imageUrl': 'images/add.png'});
+            categories.push(res.category);
           } else {
             $log.error('Error occured %s', res.err);
           }
