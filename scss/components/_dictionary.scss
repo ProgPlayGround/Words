@@ -18,12 +18,16 @@
 
 .dictionary-category-caption {
   font: $arial;
-  color: #467A78;
+  color: $category-caption;
   font-size: 2rem;
   font-style: italic;
   font-weight: bold;
   cursor: default;
   text-align: center;
+
+  > span {
+    padding: 0 5%;
+  }
 }
 
 .checkbox-cell {
@@ -67,6 +71,18 @@
   margin-left: -1.2rem;
 }
 
+.batch-base {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 2rem;
+  font-size: 1rem;
+
+  > i {
+    margin-top: 0.25rem;
+  }
+}
+
 .batch-cell {
   display: table-cell;
   text-align: center;
@@ -81,15 +97,7 @@
 }
 
 .batch-item {
-  display: inline-block;
-  vertical-align: middle;
-  height: 1.5rem;
-  width: 2rem;
-  font-size: 1rem;
-
-  > i {
-    margin-top: 0.25rem;
-  }
+  @extend .batch-base;
 
   &:not(:last-child) {
     border-right: 1px solid $main-color;

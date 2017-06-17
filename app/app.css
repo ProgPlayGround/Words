@@ -530,6 +530,8 @@ img, iframe, video, object {
   font-weight: bold;
   cursor: default;
   text-align: center; }
+  .dictionary-category-caption > span {
+    padding: 0 5%; }
 
 .checkbox-cell {
   cursor: pointer;
@@ -564,6 +566,15 @@ img, iframe, video, object {
   font-size: 0.9rem;
   margin-left: -1.2rem; }
 
+.batch-base, .batch-item {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 2rem;
+  font-size: 1rem; }
+  .batch-base > i, .batch-item > i {
+    margin-top: 0.25rem; }
+
 .batch-cell {
   display: table-cell;
   text-align: center;
@@ -575,16 +586,8 @@ img, iframe, video, object {
   border-radius: 5px;
   font-size: 0; }
 
-.batch-item {
-  display: inline-block;
-  vertical-align: middle;
-  height: 1.5rem;
-  width: 2rem;
-  font-size: 1rem; }
-  .batch-item > i {
-    margin-top: 0.25rem; }
-  .batch-item:not(:last-child) {
-    border-right: 1px solid #74afad; }
+.batch-item:not(:last-child) {
+  border-right: 1px solid #74afad; }
 
 .sound-cell {
   display: table-cell;

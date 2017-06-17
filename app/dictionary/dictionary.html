@@ -1,5 +1,13 @@
 <div ng-include src="'navbar/navbar.html'"></div>
-<div class="dictionary-category-caption">{{dictionary.category}}</div>
+<div class="dictionary-category-caption">
+  <div class="btn-dictionary batch-base">
+    <i class="fa fa-arrow-left" ng-click="dictionary.removeChecked()"></i>
+  </div>
+  <span>{{dictionary.category}}</span>
+  <div class="btn-dictionary batch-base">
+    <i class="fa fa-pencil" ng-click="dictionary.removeChecked()"></i>
+  </div>
+</div>
 <div class="container dictionary-table">
   <div class="dictionary-caption">
     <div class="checkbox-cell">
