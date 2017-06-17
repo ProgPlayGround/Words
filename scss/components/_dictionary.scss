@@ -1,7 +1,7 @@
 .dictionary-table {
   border-collapse: collapse;
   display: table;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .dictionary-row {
@@ -14,6 +14,16 @@
   width: 100%;
   display: table-caption;
   border-bottom: 1px solid $main-color;
+}
+
+.dictionary-category-caption {
+  font: $arial;
+  color: #467A78;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: bold;
+  cursor: default;
+  text-align: center;
 }
 
 .checkbox-cell {

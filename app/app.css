@@ -89,6 +89,7 @@ img, iframe, video, object {
     color: #000; }
 
 .navbar-custom {
+  vertical-align: middle;
   background-color: #a2c9c8; }
 
 .auth-tab, .auth-tab-selected {
@@ -509,7 +510,7 @@ img, iframe, video, object {
 .dictionary-table {
   border-collapse: collapse;
   display: table;
-  margin-top: 50px; }
+  margin-top: 10px; }
 
 .dictionary-row {
   width: 100%;
@@ -520,6 +521,15 @@ img, iframe, video, object {
   width: 100%;
   display: table-caption;
   border-bottom: 1px solid #74afad; }
+
+.dictionary-category-caption {
+  font: Arial, Helvetica, sans-serif;
+  color: #467A78;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: bold;
+  cursor: default;
+  text-align: center; }
 
 .checkbox-cell {
   cursor: pointer;
