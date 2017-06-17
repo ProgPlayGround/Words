@@ -1,11 +1,10 @@
 (function() {
   'use strict';
 
-  angular.module('words').factory('dictionaryManager', ['wordEndpoint', 'config', function(wordEndpoint, config) {
-    var dictionaryUrl = config.apiUrl + '/dictionary';
+  angular.module('words').factory('dictionaryManager', ['wordEndpoint', 'config', 'userService', function(wordEndpoint, config, userService) {
     var imageUrl = config.apiUrl + '/image';
 
-    var words;
+    var dictionaryUrl, words;
 
     function find(word) {
       return _.find(words, function(current) {
@@ -15,7 +14,8 @@
 
     return {
       load: function(category) {
-        words = wordEndpoint.load(dictionaryUrl + '/' + category);
+        dictionaryUrl = config.apiUrl + '/dictionary' + '/' + userService.get() + '/' + category;
+        words = wordEndpoint.load(dictionaryUrl);
         return words;
       },
       getWords: function() {
