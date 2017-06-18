@@ -9,7 +9,7 @@
     });
 
     vm.addCategory = function() {
-      categoryModalManager.addCategory();
+      categoryModalManager.add();
     };
 
     vm.removeCategory = function(category) {

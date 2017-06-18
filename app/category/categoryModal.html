@@ -1,6 +1,6 @@
 <div class="dictionary-modal">
   <i class="btn-dictionary-cross btn-close fa fa-times" ng-click="cm.close()"></i>
-  <form name="addCategoryForm" ng-submit="cm.addCategory()" role="form">
+  <form name="addCategoryForm" ng-submit="cm.submit()" role="form">
     <div>
       <input id="categoryName" type="text" class="input-category" maxlength="30" ng-model="cm.category" required/>
       <div class="add-image-error" ng-messages="cm.error">
@@ -15,6 +15,6 @@
     <div class="add-image-error" ng-messages="cm.error">
       <div ng-message="maxSize">Size should be less then 100kb</div>
     </div>
-    <button type="submit" class="btn btn-modal-add-category" ng-disabled="addCategoryForm.$invalid">Add Category</button>
+    <button type="submit" class="btn btn-modal-add-category" ng-disabled="addCategoryForm.$invalid">{{cm.mode === 'add' ? 'Add' : 'Edit'}} Category</button>
   </form>
 </div>
