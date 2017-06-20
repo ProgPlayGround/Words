@@ -15,5 +15,9 @@
     vm.removeCategory = function(category) {
       categoryManager.delete(category);
     };
+
+    vm.editCategory = function(category) {
+      categoryModalManager.edit(category);
+    }
   }]);
 }());

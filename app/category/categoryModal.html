@@ -9,7 +9,7 @@
       <hr class="divider"/>
     </div>
     <label for="selectImg" class="btn-select-img" ng-click="cm.selectImg()">
-        <img class="dictionary-img" image-preview="cm.selectedImg">
+        <img class="dictionary-img" image-preview="cm.selectedImg" initial-image-url="cm.initialImgUrl">
     </label>
     <input id="selectImg" class="hidden" type="file" file-selector="cm.selectedImg" selection-error="cm.error"/>
     <div class="add-image-error" ng-messages="cm.error">

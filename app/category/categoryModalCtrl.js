@@ -9,7 +9,8 @@
     vm.selectionError = false;
 
     vm.mode = categoryMode;
-    vm.category = categoryMode === 'edit' ? selectedCategory : '';
+    vm.category = categoryMode === 'edit' ? selectedCategory.name : '';
+    vm.initialImgUrl = categoryMode === 'edit' ? selectedCategory.imageUrl : '';
     vm.error = {};
 
     function addCategory() {
@@ -23,7 +24,7 @@
     }
 
     function editCategory() {
-      categoryManager.edit(selectedCategory, vm.category, vm.selectedImg, function(res) {
+      categoryManager.edit(selectedCategory.name, vm.category, vm.selectedImg, function(res) {
         if(res.success) {
           vm.close();
         } else {

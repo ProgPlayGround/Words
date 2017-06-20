@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('DictionaryCtrl', ['$stateParams', '$window', '$log', 'dictionaryManager', 'translationManager', 'dictionaryModalManager', 'categoryModalManager',
-  function($stateParams, $window, $log, dictionaryManager, translationManager, dictionaryModalManager, categoryModalManager) {
+  angular.module('words').controller('DictionaryCtrl', ['$stateParams', '$window', '$log', 'dictionaryManager', 'translationManager', 'dictionaryModalManager',
+  function($stateParams, $window, $log, dictionaryManager, translationManager, dictionaryModalManager) {
     var vm = this;
 
     vm.category = $stateParams.category;
@@ -59,10 +59,6 @@
     vm.back = function() {
       $window.history.back()
     };
-
-    vm.editCategory = function() {
-      categoryModalManager.edit(vm.category);
-    }
 
     vm.trainChecked = function() {
       $log.info(vm.words);

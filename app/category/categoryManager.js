@@ -35,19 +35,24 @@
         });
       },
       edit: function(prevCategory, category, img, callback) {
-        wordEndpoint.replaceImg(categoryUrl + '/' + prevCategory + '/' + category, img)
-        .$promise.then(function(res) {
-          if(res.success) {
-            $log.info(res.category);
-          } else {
-            $log.error('Error occured %s', res.err);
-          }
-          callback(res);
-        }).catch(function(res) {
-          $log.error('Error occured %s', res.data.err);
-          callback(res);
+        var index = categories.findIndex(function(elem) {
+          return elem.name === prevCategory;
         });
-
+        if(index !== -1) {
+          wordEndpoint.replaceImg(categoryUrl + '/' + prevCategory + '/' + category, img)
+          .$promise.then(function(res) {
+            if(res.success) {
+              categories[index].name = res.category.name;
+              categories[index].imageUrl = res.category.imageUrl + '?' + Date.now();
+            } else {
+              $log.error('Error occured %s', res.err);
+            }
+            callback(res);
+          }).catch(function(res) {
+            $log.error('Error occured %s', res.data.err);
+            callback(res);
+          });
+        }
       },
       delete: function(category) {
         var index = categories.indexOf(category);

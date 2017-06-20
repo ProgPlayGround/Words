@@ -4,9 +4,14 @@
     return {
       restrict: 'A',
       scope: {
+        initialImageUrl: '=',
         imagePreview: '='
       },
-      link: function(scope, element) {
+      link: function(scope, element, attrs) {
+        if(scope.initialImageUrl) {
+          element[0].src = scope.initialImageUrl;
+        }
+
         scope.$watch('imagePreview', function(newValue, oldValue) {
           if(angular.isDefined(newValue) && newValue !== oldValue) {
             if(newValue === null) {
