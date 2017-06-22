@@ -530,8 +530,6 @@ img, iframe, video, object {
   font-weight: bold;
   cursor: default;
   text-align: center; }
-  .dictionary-category-caption > span {
-    padding: 0 5%; }
 
 .checkbox-cell {
   cursor: pointer;
@@ -751,6 +749,10 @@ img, iframe, video, object {
   opacity: .8;
   padding: 1% 10%;
   margin-right: 1%; }
+
+.text-input-category {
+  font-size: .6rem;
+  margin: 1px; }
 
 .input-category {
   font-style: normal; }
