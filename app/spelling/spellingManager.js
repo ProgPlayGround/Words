@@ -1,8 +1,8 @@
 (function() {
   'use strict';
-  angular.module('words').constant('dictionaryUrl', 'https://localhost:3000/dictionary')
-  .factory('spellingManager', ['wordManager', 'dictionaryUrl', function(wordManager, dictionaryUrl) {
+  angular.module('words').factory('spellingManager', ['wordManager', 'config', function(wordManager, config) {
     var quiz, answer, answerState;
+    var dictionaryUrl = config.apiUrl + '/dictionary';
 
     var factory = {
       init: function(callback) {
@@ -58,13 +58,10 @@
         return quiz.word;
       },
       translation: function() {
-        return quiz.translation.ua[0];
+        return quiz.translation[0];
       },
-      definition: function() {
-        return quiz.definition;
-      },
-      inSentence: function() {
-        return quiz.inSentence;
+      definitions: function() {
+        return quiz.samples;
       },
       answer: function() {
         return answer;

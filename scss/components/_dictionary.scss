@@ -1,7 +1,7 @@
 .dictionary-table {
   border-collapse: collapse;
   display: table;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .dictionary-row {
@@ -14,6 +14,16 @@
   width: 100%;
   display: table-caption;
   border-bottom: 1px solid $main-color;
+}
+
+.dictionary-category-caption {
+  font: $arial;
+  color: $category-caption;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: bold;
+  cursor: default;
+  text-align: center;
 }
 
 .checkbox-cell {
@@ -57,6 +67,18 @@
   margin-left: -1.2rem;
 }
 
+.batch-base {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 2rem;
+  font-size: 1rem;
+
+  > i {
+    margin-top: 0.25rem;
+  }
+}
+
 .batch-cell {
   display: table-cell;
   text-align: center;
@@ -71,15 +93,7 @@
 }
 
 .batch-item {
-  display: inline-block;
-  vertical-align: middle;
-  height: 1.5rem;
-  width: 2rem;
-  font-size: 1rem;
-
-  > i {
-    margin-top: 0.25rem;
-  }
+  @extend .batch-base;
 
   &:not(:last-child) {
     border-right: 1px solid $main-color;
@@ -120,6 +134,7 @@
   &:hover {
     > .dictionary-add-img {
       display: inline-block;
+      cursor: pointer;
     }
   }
 }
@@ -191,10 +206,11 @@
 }
 
 .add-image-info {
-  font-size: 0.3rem;
+  font-size: 0.4rem;
 }
 
 .add-image-error {
+  font-size: 0.4rem;
   color: $wrong-color;
 }
 

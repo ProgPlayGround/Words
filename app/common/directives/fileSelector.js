@@ -13,10 +13,11 @@
             var file = element[0].files[0];
             if(file !== undefined) {
               if(file.size < maxFileSize) {
-                scope.selectionError = false;
+                scope.selectionError.maxSize = false;
                 scope.fileSelector = file;
               } else {
-                scope.selectionError = true;
+                scope.fileSelector = null;
+                scope.selectionError.maxSize = true;
               }
             }
           });

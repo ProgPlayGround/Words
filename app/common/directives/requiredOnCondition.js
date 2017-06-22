@@ -13,7 +13,7 @@
           if(!scope.condition) {
             return true;
           } else {
-            return modelValue != '';
+            return modelValue !== '';
           }
         };
 

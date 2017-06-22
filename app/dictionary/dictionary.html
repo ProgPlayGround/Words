@@ -1,4 +1,10 @@
 <div ng-include src="'navbar/navbar.html'"></div>
+<div class="dictionary-category-caption">
+  <div class="btn-dictionary batch-base">
+    <i class="fa fa-arrow-left" ng-click="dictionary.back()"></i>
+  </div>
+  <span>{{dictionary.category}}</span>
+</div>
 <div class="container dictionary-table">
   <div class="dictionary-caption">
     <div class="checkbox-cell">

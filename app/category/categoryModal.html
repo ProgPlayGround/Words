@@ -1,0 +1,22 @@
+<div class="dictionary-modal">
+  <i class="btn-dictionary-cross btn-close fa fa-times" ng-click="cm.close()"></i>
+  <form name="addCategoryForm" ng-submit="cm.submit()" role="form">
+    <div>
+      <div class="text-input-category">Name</div>
+      <input id="categoryName" type="text" class="input-category" maxlength="30" ng-model="cm.category" required/>
+      <div class="add-image-error" ng-messages="cm.error">
+        <div ng-message="duplicate">Category name should be unique</div>
+      </div>
+      <hr class="divider"/>
+    </div>
+    <div class="text-input-category">Image</div>
+    <label for="selectImg" class="btn-select-img" ng-click="cm.selectImg()">
+        <img class="dictionary-img" image-preview="cm.selectedImg" initial-image-url="cm.initialImgUrl">
+    </label>
+    <input id="selectImg" class="hidden" type="file" file-selector="cm.selectedImg" selection-error="cm.error"/>
+    <div class="add-image-error" ng-messages="cm.error">
+      <div ng-message="maxSize">Size should be less then 100kb</div>
+    </div>
+    <button type="submit" class="btn btn-modal-add-category" ng-disabled="addCategoryForm.$invalid">{{cm.mode === 'add' ? 'Add' : 'Edit'}} Category</button>
+  </form>
+</div>

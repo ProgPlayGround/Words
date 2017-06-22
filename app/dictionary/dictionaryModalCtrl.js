@@ -1,11 +1,12 @@
 (function() {
   'use strict';
+
   angular.module('words').controller('DictionaryModalCtrl', ['dictionaryManager', 'selectedWord', '$uibModalInstance',
   function(dictionaryManager, selectedWord, $uibModalInstance) {
     var vm = this;
 
     vm.selectedWord = selectedWord;
-    vm.selectionError = false;
+    vm.selectionError = {};
     vm.selectedImg = null;
 
     vm.addPopover = {
@@ -24,7 +25,7 @@
 
     vm.uploadImg = function() {
       dictionaryManager.uploadImg(vm.selectedWord.word, vm.selectedImg).then(function() {
-        $uibModalInstance.close();
+        vm.close();
       });
     };
 

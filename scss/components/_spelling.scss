@@ -170,4 +170,12 @@
 .description-text {
   font-family: $arial;
   font-size: 1em;
+
+  &.bold {
+    font-weight: bold;
+  }
+
+  &.sentence {
+    font-style: italic;
+  }
 }

@@ -1,6 +1,16 @@
 (function() {
   'use strict';
   angular.module('words').factory('wordEndpoint', ['$resource', 'httpAuthHeaders', function($resource, httpAuthHeaders) {
+
+    function transformFormRequest(data) {
+      if(data == undefined) {
+        return data;
+      }
+      var fd = new FormData();
+      fd.append('file', data);
+      return fd;
+    }
+
     return {
       load: function(url, isArray) {
         var requiredArray = isArray !== false;
@@ -24,17 +34,19 @@
         return $resource(url, {}, {
           'post': {
             method: 'POST',
-            transformRequest: function(data) {
-              if(data === undefined) {
-                return data;
-              }
-              var fd = new FormData();
-              fd.append('file', data);
-              return fd;
-            },
+            transformRequest: transformFormRequest,
             headers: _.extend(httpAuthHeaders.header(), {'Content-Type': undefined})
           }
         }).post(data);
+      },
+      replaceImg: function(url, data) {
+        return $resource(url, {}, {
+          'put': {
+            method: 'PUT',
+            transformRequest: transformFormRequest,
+            headers: _.extend(httpAuthHeaders.header(), {'Content-Type': undefined})
+          }
+        }).put(data);
       },
       patch: function(url, data) {
         return $resource(url, {}, {

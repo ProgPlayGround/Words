@@ -14,10 +14,7 @@ describe('spelling manager', function() {
             getWord: jasmine.createSpy('getWord').and.returnValue({
               'word': 'car',
               'category': 'common',
-              'translation': {
-                'ua': ['автомобіль'],
-                'ru': ['автомобиль']
-                }
+              'translation': ['автомобіль']
               }),
             nextWord: jasmine.createSpy('nextWord').and.callThrough()
         };
@@ -102,7 +99,7 @@ describe('spelling manager', function() {
     expect(spellingManagerService.isCorrect()).toBeTruthy();
   });
 
-  it('isCorrect is false if answer state is not CORRECT', function() {
+  it('isCorrect is false if answer state is INCORRECT', function() {
     for(var i = 0; i < spellingManagerService.translation().length; ++i) {
       spellingManagerService.answer()[i] = {char: 'a'};
     }

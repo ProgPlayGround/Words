@@ -1,0 +1,126 @@
+.category-layout {
+  padding: 2% 10%;
+}
+
+.category-container {
+  background-color: $main-grid-color;
+  border: 1px solid $selection-main-color;
+  border-radius: .5rem;
+  box-shadow: 0 0 5px $main-color;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color .25s ease-in-out;
+  vertical-align: top;
+  margin: 1%;
+  padding: 0 5px;
+  position: relative;
+
+  .text {
+    font-size: .8rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &:hover {
+    background-color: $selection-main-color;
+  }
+}
+
+.category-img {
+  height: 64px;
+  width: 64px;
+}
+
+.category-tooltip {
+  font-size: .7rem;
+  word-wrap: break-word;
+}
+
+.category-header-divider {
+  border-color: $main-color;
+  margin-bottom: 0;
+  margin-top: 3px;
+}
+
+.category-header {
+  margin-bottom: 5px;
+  padding: 1%;
+}
+
+.btn-category {
+  border: 1px solid $main-color;
+  border-radius: 7px;
+  color: $black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $arial;
+  font-size: .6rem;
+  overflow: hidden;
+  padding: 1%;
+  margin-left: 1%;
+  text-align: center;
+  text-overflow: ellipsis;
+  transition: all .25s ease-in-out;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $selection-main-color;
+  }
+}
+
+.btn-modal-add-category {
+  @extend .btn-category;
+  padding: 3%;
+  margin-top: 3%;
+}
+
+.category-help-block {
+  float: right;
+  border: 1px solid $wrong-color;
+  border-radius: 7px;
+  color: $wrong-color;
+  display: table-cell;
+  font-size: .6rem;
+  font-family: $arial;
+  opacity: .8;
+  padding: 1% 10%;
+  margin-right: 1%;
+}
+
+.text-input-category {
+  font-size: .6rem;
+  margin: 1px;
+}
+
+.input-category {
+  @extend .input-base;
+  font-style: normal;
+}
+
+.btn-remove-category {
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  font-size: .8rem;
+  opacity: .3;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.btn-edit-category {
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  font-size: .9rem;
+  opacity: .3;
+
+  &:hover {
+    opacity: 1;
+  }
+}

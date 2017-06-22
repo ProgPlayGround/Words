@@ -25,7 +25,8 @@ module.exports = function(config) {
       'app/dictionary/**/*.js',
       'app/user/**/*.js',
       'app/navbar/**/*.js',
-      'app/auth/**/*.js'
+      'app/auth/**/*.js',
+      'app/category/**/*.js'
     ],
 
     reporters: ['progress', 'coverage'],

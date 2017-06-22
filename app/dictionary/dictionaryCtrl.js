@@ -1,11 +1,12 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('DictionaryCtrl', ['$log', 'dictionaryManager', 'translationManager', 'dictionaryModalManager',
-  function($log, dictionaryManager, translationManager, dictionaryModalManager) {
+  angular.module('words').controller('DictionaryCtrl', ['$stateParams', '$window', '$log', 'dictionaryManager', 'translationManager', 'dictionaryModalManager',
+  function($stateParams, $window, $log, dictionaryManager, translationManager, dictionaryModalManager) {
     var vm = this;
 
-    vm.words = dictionaryManager.getWords();
+    vm.category = $stateParams.category;
+    vm.words = dictionaryManager.load(vm.category);
     vm.allChecked = false;
     vm.audios = {};
 
@@ -49,7 +50,14 @@
       var wordsToRemove = _.reject(vm.words, function(elem) {
         return !elem.checked;
       });
-      dictionaryManager.remove(wordsToRemove);
+
+      if(wordsToRemove.length > 0) {
+        dictionaryManager.remove(wordsToRemove);
+      }
+    };
+
+    vm.back = function() {
+      $window.history.back()
     };
 
     vm.trainChecked = function() {

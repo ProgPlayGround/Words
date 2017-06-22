@@ -1,18 +1,23 @@
 (function() {
   'use strict';
 
-  angular.module('words').constant('dictionaryUrl', 'https://localhost:3000/dictionary').constant('imageUrl', 'https://localhost:3000/image')
-  .factory('dictionaryManager', ['wordEndpoint', 'dictionaryUrl', 'imageUrl',
-   function(wordEndpoint, dictionaryUrl, imageUrl) {
-    var words = wordEndpoint.load(dictionaryUrl);
+  angular.module('words').factory('dictionaryManager', ['wordEndpoint', 'config', 'userService', function(wordEndpoint, config, userService) {
+    var imageUrl = config.apiUrl + '/image';
+
+    var dictionaryUrl, words;
 
     function find(word) {
       return _.find(words, function(current) {
         return current.word === word;
       });
-    }
+    };
 
     return {
+      load: function(category) {
+        dictionaryUrl = config.apiUrl + '/dictionary' + '/' + userService.get() + '/' + category;
+        words = wordEndpoint.load(dictionaryUrl);
+        return words;
+      },
       getWords: function() {
         return words;
       },
@@ -58,8 +63,8 @@
       uploadImg: function(word, img) {
         var wordCard = find(word);
         if(wordCard) {
-          return wordEndpoint.uploadImg(imageUrl + '/' + wordCard.word, img).$promise.then(function(response) {
-            wordCard.imageUrl = response.url + '?' + Date.now();
+          return wordEndpoint.uploadImg(imageUrl + '/' + wordCard.word, img).$promise.then(function(res) {
+            wordCard.imageUrl = res.url + '?' + Date.now();
           });
         }
       }

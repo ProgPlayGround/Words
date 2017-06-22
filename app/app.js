@@ -64,20 +64,25 @@
       controller: 'SprintCtrl',
       controllerAs: 'sprint'
     }).state('dictionary', {
-      url: '/dictionary',
+      url: '/dictionary/:category',
       templateUrl: 'dictionary/dictionary.html',
       controller: 'DictionaryCtrl',
       controllerAs: 'dictionary'
+    }).state('category', {
+      url: '/category',
+      templateUrl: 'category/category.html',
+      controller: 'CategoryCtrl',
+      controllerAs: 'vm'
     });
 
     $urlRouterProvider.otherwise('/auth/login');
 
     $httpProvider.interceptors.push('forbiddenInterceptor', 'requestCounter');
   }])
-  .run(['fbAuthService', 'vkAuthService', '$timeout', '$log', function(fbAuthService, vkAuthService, $timeout, $log) {
+  .run(['$window', '$rootScope', 'fbAuthService', 'vkAuthService', '$timeout', '$log',
+    function($window, $rootScope, fbAuthService, vkAuthService, $timeout, $log) {
 
-    vkAuthInit();
-
+    // vkAuthInit();
     fbAuthInit();
 
     function vkAuthInit() {
@@ -113,5 +118,8 @@
       } (document, 'script', 'facebook-jssdk'));
       /*eslint-enable */
     }
-  }]);
+  }])
+  .constant('config', {
+    'apiUrl': 'https://192.168.99.101:49160'
+  });
 }());

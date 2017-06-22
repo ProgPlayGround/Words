@@ -1,6 +1,7 @@
 (function() {
-  angular.module('words').constant('sprintUrl', 'https://localhost:3000/sprint').factory('sprintManager', ['wordManager', 'sprintUrl', function(wordManager, sprintUrl) {
+  angular.module('words').factory('sprintManager', ['wordManager', 'config', function(wordManager, config) {
     var current;
+    var sprintUrl = config.apiUrl + '/sprint';
 
     var factory = {
       init: function(callback) {
@@ -19,7 +20,8 @@
         return current.guess;
       },
       isCorrect: function(answer) {
-        return answer === current.answer;
+        var isCorrect = current.translation.indexOf(current.guess) !== -1;
+        return answer === isCorrect;
       },
       next: function() {
         return wordManager.nextWord();

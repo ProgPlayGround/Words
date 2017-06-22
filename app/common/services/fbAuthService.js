@@ -2,25 +2,24 @@
   'use strict';
 
   angular.module('words').constant('fbAppId', '1225456694157240')
-  .factory('fbAuthService', ['$window', '$cookies', '$log', 'userService', 'fbAppId', function($window, $cookies, $log, userService, fbAppId) {
+  .factory('fbAuthService', ['$window', '$cookies', '$log', 'config', 'userService', 'fbAppId', function($window, $cookies, $log, config, userService, fbAppId) {
 
     var clearUserData = function() {
       userService.clear();
       $cookies.remove('auth-type');
       $cookies.remove('token');
-    }
+    };
 
     function onConnection(res, callback) {
       if(res.status === 'connected') {
         var accessToken = res.authResponse.accessToken;
         FB.api('/me', function(res) {
-          userService.set(res);
+          userService.set(res.id);
           $cookies.put('auth-type', 'fb');
           $cookies.put('token', accessToken);
           callback();
         });
       } else {
-        $log.log(res);
         clearUserData();
       }
     }
