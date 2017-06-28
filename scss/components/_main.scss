@@ -1,3 +1,8 @@
+.main-header {
+  position: relative;
+  text-align: center;
+}
+
 .main-layout {
   padding: 0 15%;
 }
@@ -27,6 +32,44 @@
   }
 }
 
-.btn-main {
-  
+.btn-main-categories {
+  @extend .btn-base;
+  @extend .vertical-center;
+  font-size: .8rem;
+  padding: 1%;
+  right: 0%;
+
+  &:hover {
+    background-color: $selection-main-color;
+  }
+}
+
+.btn-main-select-category {
+  @extend .btn-base;
+  @extend .vertical-center;
+  font-size: .8rem;
+  padding: 1%;
+  position: absolute;
+  left: 0%;
+
+  &:hover {
+    background-color: $selection-main-color;
+  }
+}
+
+.main-selected-category {
+  font-size: 1.1rem;
+  display: inline-block;
+  overflow: hidden;
+  padding: 1%;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.main-selected-category-header {
+  font-size: .8rem;
+  font-style: italic;
+  font-weight: bold;
 }

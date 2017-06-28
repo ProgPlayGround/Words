@@ -107,7 +107,7 @@
 }
 
 .btn-edit-category {
-  @extend .btn-thumbnail;
+  @extend .btn-category-thumbnail;
   bottom: -4px;
   right: -4px;
   font-size: .9rem;

@@ -55,27 +55,6 @@ table {
 img, iframe, video, object {
   max-width: 100%; }
 
-.main-layout {
-  padding: 0 15%; }
-
-.main-game-container {
-  background-color: #f4f2f2;
-  border: 1px solid #abcfcd;
-  border-radius: .5rem;
-  box-shadow: 0 0 5px #74afad;
-  cursor: pointer;
-  font-size: 1.5rem;
-  line-height: 150px;
-  margin-bottom: 2%;
-  max-height: 150px;
-  text-align: center;
-  transition: background-color .25s ease-in-out;
-  vertical-align: middle; }
-  .main-game-container:hover {
-    background-color: #abcfcd; }
-  .main-game-container > span > sup {
-    font-size: 1rem; }
-
 .btn-brand {
   cursor: pointer;
   margin-top: 2px; }
@@ -438,7 +417,7 @@ img, iframe, video, object {
   padding-top: 1%;
   text-align: center; }
 
-.btn-base, .btn-solution, .btn-next, .btn-select-img, .btn-sprint {
+.btn-base, .btn-solution, .btn-next, .btn-select-img, .btn-sprint, .btn-category, .btn-modal-add-category, .btn-main-categories, .btn-main-select-category {
   border: 1px solid #74afad;
   border-radius: 7px;
   color: #000;
@@ -452,7 +431,7 @@ img, iframe, video, object {
   text-overflow: ellipsis;
   transition: all .25s ease-in-out;
   white-space: nowrap; }
-  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover {
+  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover, .btn-category:hover, .btn-modal-add-category:hover, .btn-main-categories:hover, .btn-main-select-category:hover {
     background-color: #74afad; }
 
 .input-base, .input-category {
@@ -484,6 +463,11 @@ img, iframe, video, object {
 
 .center {
   text-align: center; }
+
+.vertical-center, .btn-main-categories, .btn-main-select-category {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); }
 
 .disable {
   opacity: .5;
@@ -717,20 +701,9 @@ img, iframe, video, object {
   padding: 1%; }
 
 .btn-category, .btn-modal-add-category {
-  border: 1px solid #74afad;
-  border-radius: 7px;
-  color: #000;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: .6rem;
-  overflow: hidden;
   padding: 1%;
-  margin-left: 1%;
-  text-align: center;
-  text-overflow: ellipsis;
-  transition: all .25s ease-in-out;
-  white-space: nowrap; }
+  margin-left: 1%; }
   .btn-category:hover, .btn-modal-add-category:hover {
     background-color: #abcfcd; }
 
@@ -757,24 +730,76 @@ img, iframe, video, object {
 .input-category {
   font-style: normal; }
 
-.btn-remove-category {
+.btn-category-thumbnail, .btn-remove-category, .btn-edit-category {
   cursor: pointer;
   display: inline-block;
   position: absolute;
-  top: -4px;
-  right: -4px;
-  font-size: .8rem;
+  font-size: 1rem;
   opacity: .3; }
-  .btn-remove-category:hover {
+  .btn-category-thumbnail:hover, .btn-remove-category:hover, .btn-edit-category:hover {
     opacity: 1; }
 
+.btn-remove-category {
+  top: -4px;
+  right: -4px;
+  font-size: .8rem; }
+
 .btn-edit-category {
-  cursor: pointer;
-  display: inline-block;
-  position: absolute;
   bottom: -4px;
   right: -4px;
-  font-size: .9rem;
-  opacity: .3; }
-  .btn-edit-category:hover {
-    opacity: 1; }
+  font-size: .9rem; }
+
+.main-header {
+  position: relative;
+  text-align: center; }
+
+.main-layout {
+  padding: 0 15%; }
+
+.main-game-container {
+  background-color: #f4f2f2;
+  border: 1px solid #abcfcd;
+  border-radius: .5rem;
+  box-shadow: 0 0 5px #74afad;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 150px;
+  margin-bottom: 2%;
+  max-height: 150px;
+  text-align: center;
+  transition: background-color .25s ease-in-out;
+  vertical-align: middle; }
+  .main-game-container:hover {
+    background-color: #abcfcd; }
+  .main-game-container > span > sup {
+    font-size: 1rem; }
+
+.btn-main-categories {
+  font-size: .8rem;
+  padding: 1%;
+  right: 0%; }
+  .btn-main-categories:hover {
+    background-color: #abcfcd; }
+
+.btn-main-select-category {
+  font-size: .8rem;
+  padding: 1%;
+  position: absolute;
+  left: 0%; }
+  .btn-main-select-category:hover {
+    background-color: #abcfcd; }
+
+.main-selected-category {
+  font-size: 1.1rem;
+  display: inline-block;
+  overflow: hidden;
+  padding: 1%;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: default; }
+
+.main-selected-category-header {
+  font-size: .8rem;
+  font-style: italic;
+  font-weight: bold; }

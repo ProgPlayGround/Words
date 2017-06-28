@@ -1,5 +1,23 @@
 <div ng-include src="'navbar/navbar.html'"></div>
 <div class="main-layout">
+  <div class="main-header">
+    <a ui-sref="category">
+      <div class="btn-main-categories">
+        Manage categories
+      </div>
+    </a>
+
+    <div class="main-selected-category">
+      <div class="main-selected-category-header">Category:</div>
+      <span>hey</span>
+    </div>
+
+    <div class="btn-main-select-category">
+      Select category
+    </div>
+
+    <hr class="category-header-divider"/>
+  </div>
   <div class="row">
     <div class="col-sm-4">
       <a ui-sref="quiz.en">
@@ -26,30 +44,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4">
-      <a ui-sref="category">
-        <div class="main-game-container">
-          <span>Dictionary</span>
-        </div>
-      </a>
-    </div>
     <div class="col-sm-offset-4 col-sm-4">
       <a ui-sref="sprint">
         <div class="main-game-container">
           <span>Sprint</span>
         </div>
       </a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="">
-        <div class="main-game-container main_rank_container">
-          Dashboard
-        </div>
-      </a>
-    </div>
-    <div class="col-sm-5">
     </div>
   </div>
 </div>
