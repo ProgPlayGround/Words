@@ -57,6 +57,12 @@
   }
 }
 
+.btn-main-modal-select {
+  @extend .btn-base;
+  font-size: .8rem;
+  margin-top: 2%;
+}
+
 .main-selected-category {
   font-size: 1.1rem;
   display: inline-block;

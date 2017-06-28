@@ -9,10 +9,11 @@
 
     <div class="main-selected-category">
       <div class="main-selected-category-header">Category:</div>
-      <span>hey</span>
+      <hr class="category-header-divider"/>
+      <span>{{main.currentCategory()}}</span>
     </div>
 
-    <div class="btn-main-select-category">
+    <div class="btn-main-select-category" ng-click="main.selectCategory()">
       Select category
     </div>
 

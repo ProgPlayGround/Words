@@ -417,7 +417,7 @@ img, iframe, video, object {
   padding-top: 1%;
   text-align: center; }
 
-.btn-base, .btn-solution, .btn-next, .btn-select-img, .btn-sprint, .btn-category, .btn-modal-add-category, .btn-main-categories, .btn-main-select-category {
+.btn-base, .btn-solution, .btn-next, .btn-select-img, .btn-sprint, .btn-category, .btn-modal-add-category, .btn-main-categories, .btn-main-select-category, .btn-main-modal-select {
   border: 1px solid #74afad;
   border-radius: 7px;
   color: #000;
@@ -431,7 +431,7 @@ img, iframe, video, object {
   text-overflow: ellipsis;
   transition: all .25s ease-in-out;
   white-space: nowrap; }
-  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover, .btn-category:hover, .btn-modal-add-category:hover, .btn-main-categories:hover, .btn-main-select-category:hover {
+  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover, .btn-category:hover, .btn-modal-add-category:hover, .btn-main-categories:hover, .btn-main-select-category:hover, .btn-main-modal-select:hover {
     background-color: #74afad; }
 
 .input-base, .input-category {
@@ -788,6 +788,10 @@ img, iframe, video, object {
   left: 0%; }
   .btn-main-select-category:hover {
     background-color: #abcfcd; }
+
+.btn-main-modal-select {
+  font-size: .8rem;
+  margin-top: 2%; }
 
 .main-selected-category {
   font-size: 1.1rem;

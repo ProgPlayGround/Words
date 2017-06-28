@@ -36,6 +36,9 @@
             }
           });
           $uibModal.open(updateMetadata);
+        },
+        choose: function() {
+          $uibModal.open(categoryMetadata);
         }
       };
     }]);
