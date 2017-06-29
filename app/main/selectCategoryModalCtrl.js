@@ -6,9 +6,9 @@
     var vm = this;
 
     vm.categories = [];
-    vm.categories.unshift({'name': 'All'}, {'name': 'Other'});
+    vm.categories.unshift({'name': 'All'}, {'name': 'OtherOtherOtherOther'});
 
-    vm.selectCategory = vm.categories[0];
+    vm.selectedCategory = vm.categories[0];
     // categoryManager.init(function(categories) {
     //   vm.categories = [categories];
     //   vm.categories.unshift({'name': 'All'});

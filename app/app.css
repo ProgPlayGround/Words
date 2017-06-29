@@ -803,6 +803,19 @@ img, iframe, video, object {
   white-space: nowrap;
   cursor: default; }
 
+.main-modal-select-layout {
+  text-align: center;
+  clear: both;
+  display: inline;
+  overflow: hidden;
+  white-space: nowrap; }
+
+.main-modal-text {
+  width: 30%; }
+
+.main-modal-select {
+  width: 65%; }
+
 .main-selected-category-header {
   font-size: .8rem;
   font-style: italic;
