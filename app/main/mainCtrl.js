@@ -3,10 +3,10 @@
   angular.module('words').controller('MainCtrl', ['mainService', 'selectCategoryModalManager', function(mainService, selectCategoryModalManager) {
     var vm = this;
 
-    vm.currentCategory = mainService.selectCategory;
+    vm.currentCategory = mainService.selectedCategory;
 
     vm.selectCategory = function() {
-      selectCategoryModalManager.open();
+      selectCategoryModalManager.open(vm.currentCategory());
     };
 
   }]);

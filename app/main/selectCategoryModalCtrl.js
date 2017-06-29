@@ -1,18 +1,27 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('SelectCategoryModalCtrl', ['mainService', 'categoryManager', '$uibModalInstance',
-  function(mainService, categoryManager, $uibModalInstance) {
+  angular.module('words').controller('SelectCategoryModalCtrl', ['mainService', 'categoryManager', '$uibModalInstance', 'selectedCategory',
+  function(mainService, categoryManager, $uibModalInstance, selectedCategory) {
     var vm = this;
 
     vm.categories = [];
-    vm.categories.unshift({'name': 'All'}, {'name': 'OtherOtherOtherOther'});
 
-    vm.selectedCategory = vm.categories[0];
-    // categoryManager.init(function(categories) {
-    //   vm.categories = [categories];
-    //   vm.categories.unshift({'name': 'All'});
-    // });
+    categoryManager.init(function(categories) {
+      categories.$promise.then(function(data) {
+        vm.categories = data;
+        Array.prototype.unshift.call(vm.categories, {name: 'All'});
+        var selected = Array.prototype.find.call(vm.categories, function(elem) {
+          return elem.name === selectedCategory.name;
+        });
+        vm.selectedCategory = selected ? selected : vm.categories[0];
+      });
+    });
+
+    vm.select = function() {
+      mainService.newCategory(vm.selectedCategory);
+      vm.close();
+    };
 
     vm.close = function() {
       $uibModalInstance.close();

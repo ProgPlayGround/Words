@@ -3,7 +3,7 @@
 
     angular.module('words').factory('selectCategoryModalManager', ['$uibModal', function($uibModal) {
       return {
-        open: function() {
+        open: function(selectedCategory) {
           $uibModal.open({
             templateUrl: 'main/selectCategory.html',
             animation: false,
@@ -11,6 +11,11 @@
             controller: 'SelectCategoryModalCtrl',
             controllerAs: 'cm',
             windowClass: 'category',
+            resolve: {
+              selectedCategory: function() {
+                return selectedCategory;
+              }
+            }
           });
         }
       };
