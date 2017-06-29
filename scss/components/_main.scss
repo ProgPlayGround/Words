@@ -87,11 +87,13 @@
 }
 
 .main-modal-select {
+  border: 1px solid $main-color;
+  border-radius: 7px;
+  font-family: $cursive;
   width: 65%;
 }
 
 .main-selected-category-header {
   font-size: .8rem;
-  font-style: italic;
-  font-weight: bold;
+  font-family: $cursive;
 }
