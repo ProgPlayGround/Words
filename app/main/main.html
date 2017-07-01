@@ -17,7 +17,6 @@
       Select category
     </div>
 
-    <hr class="category-header-divider"/>
   </div>
   <div class="row">
     <div class="col-sm-4">
@@ -37,18 +36,25 @@
   </div>
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="spelling.question">
+      <a ui-sref="dictionary({category: main.currentCategory().name})">
         <div class="main-game-container">
-          <span>Spelling</span>
+          <span>Dictionary</span>
         </div>
       </a>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-offset-4 col-sm-4">
+    <div class="col-sm-4">
       <a ui-sref="sprint">
         <div class="main-game-container">
           <span>Sprint</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-offset-4 col-sm-4">
+      <a ui-sref="spelling.question">
+        <div class="main-game-container">
+          <span>Spelling</span>
         </div>
       </a>
     </div>
