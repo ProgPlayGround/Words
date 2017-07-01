@@ -417,7 +417,7 @@ img, iframe, video, object {
   padding-top: 1%;
   text-align: center; }
 
-.btn-base, .btn-solution, .btn-next, .btn-select-img, .btn-sprint, .btn-category, .btn-modal-add-category, .btn-main-categories, .btn-main-select-category, .btn-main-modal-select {
+.btn-base, .btn-solution, .btn-next, .btn-select-img, .btn-sprint, .btn-category, .btn-modal-add-category, .btn-main, .btn-main-categories, .btn-main-select-category, .btn-main-modal-select {
   border: 1px solid #74afad;
   border-radius: 7px;
   color: #000;
@@ -431,7 +431,7 @@ img, iframe, video, object {
   text-overflow: ellipsis;
   transition: all .25s ease-in-out;
   white-space: nowrap; }
-  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover, .btn-category:hover, .btn-modal-add-category:hover, .btn-main-categories:hover, .btn-main-select-category:hover, .btn-main-modal-select:hover {
+  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover, .btn-category:hover, .btn-modal-add-category:hover, .btn-main:hover, .btn-main-categories:hover, .btn-main-select-category:hover, .btn-main-modal-select:hover {
     background-color: #74afad; }
 
 .input-base, .input-category {
@@ -464,7 +464,7 @@ img, iframe, video, object {
 .center {
   text-align: center; }
 
-.vertical-center, .btn-main-categories, .btn-main-select-category {
+.vertical-center, .btn-main, .btn-main-categories, .btn-main-select-category {
   position: absolute;
   top: 50%;
   transform: translateY(-50%); }
@@ -774,24 +774,17 @@ img, iframe, video, object {
   .main-game-container > span > sup {
     font-size: 1rem; }
 
-.btn-main-categories {
+.btn-main, .btn-main-categories, .btn-main-select-category {
   font-size: .8rem;
-  padding: 1%;
-  right: 0%; }
-  .btn-main-categories:hover {
+  padding: 1%; }
+  .btn-main:hover, .btn-main-categories:hover, .btn-main-select-category:hover {
     background-color: #abcfcd; }
+
+.btn-main-categories {
+  right: 0%; }
 
 .btn-main-select-category {
-  font-size: .8rem;
-  padding: 1%;
-  position: absolute;
   left: 0%; }
-  .btn-main-select-category:hover {
-    background-color: #abcfcd; }
-
-.btn-main-modal-select {
-  font-size: .8rem;
-  margin-top: 2%; }
 
 .main-selected-category {
   font-size: 1.1rem;
@@ -802,6 +795,10 @@ img, iframe, video, object {
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: default; }
+
+.btn-main-modal-select {
+  font-size: .8rem;
+  margin-top: 2%; }
 
 .main-modal-select-layout {
   text-align: center;
