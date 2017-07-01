@@ -10,8 +10,7 @@
     categoryManager.init(function(categories) {
       categories.$promise.then(function(data) {
         vm.categories = data;
-        Array.prototype.unshift.call(vm.categories, {name: 'All'});
-        var selected = Array.prototype.find.call(vm.categories, function(elem) {
+        var selected = Array.prototype.find.call(vm.categories, function(elem, idx) {
           return elem.name === selectedCategory.name;
         });
         vm.selectedCategory = selected ? selected : vm.categories[0];

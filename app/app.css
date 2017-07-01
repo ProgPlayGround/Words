@@ -469,12 +469,11 @@ img, iframe, video, object {
   top: 50%;
   transform: translateY(-50%); }
 
-.disable {
-  opacity: .5;
+.disable-click, .disable {
   pointer-events: none; }
 
-.disable-click {
-  pointer-events: none; }
+.disable {
+  opacity: .5; }
 
 .divider {
   border-color: #74afad;
@@ -815,6 +814,11 @@ img, iframe, video, object {
   border-radius: 7px;
   font-family: Cursive, Monospace;
   width: 65%; }
+  .main-modal-select > option:first-child {
+    background-color: #ccc; }
+
+.main-modal-select-all {
+  background-color: #CCC; }
 
 .main-selected-category-header {
   font-size: .8rem;

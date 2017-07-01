@@ -134,13 +134,13 @@
   transform: translateY(-50%);
 }
 
-.disable {
-  opacity: .5;
+.disable-click {
   pointer-events: none;
 }
 
-.disable-click {
-  pointer-events: none;
+.disable {
+  @extend .disable-click;
+  opacity: .5;
 }
 
 .divider {

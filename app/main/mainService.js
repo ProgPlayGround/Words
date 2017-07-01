@@ -3,7 +3,7 @@
 
   angular.module('words').factory('mainService', function() {
 
-    var currentCategory = {name: 'All'};
+    var currentCategory = {name: 'All Categories'};
 
     return {
       selectedCategory: function() {

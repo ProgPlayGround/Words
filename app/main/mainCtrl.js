@@ -4,7 +4,7 @@
     var vm = this;
 
     vm.currentCategory = mainService.selectedCategory;
-
+    
     vm.selectCategory = function() {
       selectCategoryModalManager.open(vm.currentCategory());
     };

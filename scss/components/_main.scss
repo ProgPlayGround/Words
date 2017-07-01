@@ -87,6 +87,14 @@
   border-radius: 7px;
   font-family: $cursive;
   width: 65%;
+
+  > option:first-child {
+    background-color: $gray;
+  }
+}
+
+.main-modal-select-all {
+  background-color: #CCC;
 }
 
 .main-selected-category-header {
