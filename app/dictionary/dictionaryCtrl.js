@@ -5,8 +5,7 @@
   function($stateParams, $window, $log, dictionaryManager, translationManager, dictionaryModalManager) {
     var vm = this;
 
-    vm.category = $stateParams.category;
-    console.log(vm.category);
+    vm.category = $stateParams.category;  
     vm.words = dictionaryManager.load(vm.category);
     vm.allChecked = false;
     vm.audios = {};

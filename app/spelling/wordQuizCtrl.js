@@ -1,10 +1,12 @@
 (function() {
   'use strict';
-  angular.module('words').controller('WordQuizCtrl', ['spellingManager', 'quizModalManager', 'scoreManager',
-  function(spellingManager, quizModalManager, scoreManager) {
+  angular.module('words').controller('WordQuizCtrl', ['$stateParams', 'spellingManager', 'quizModalManager', 'scoreManager',
+  function($stateParams, spellingManager, quizModalManager, scoreManager) {
     var vm = this;
     vm.loadingText = 'Loading...';
-    spellingManager.init(afterLoad);
+
+    vm.category = $stateParams.category;
+    spellingManager.init(vm.category, afterLoad);
 
     vm.loadQuestion = function() {
       spellingManager.onLoad();

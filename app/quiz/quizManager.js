@@ -1,12 +1,12 @@
 (function() {
   'use strict';
-  angular.module('words').factory('quizManager', ['wordManager', 'config', function(wordManager, config) {
-    var quiz;
-    var quizUrl = config.apiUrl + '/quiz/'
+  angular.module('words').factory('quizManager', ['userService', 'wordManager', 'config', function(userService, wordManager, config) {
+    var quiz, quizUrl;
 
     var factory = {
-      init: function(lang, callback) {
-        wordManager.init(quizUrl + lang, function() {
+      init: function(category, lang, callback) {
+        var quizUrl = config.apiUrl + '/quiz/' + userService.get() + '/';
+        wordManager.init(quizUrl + category + '/' + lang, function() {
           factory.onLoad();
           callback();
         });

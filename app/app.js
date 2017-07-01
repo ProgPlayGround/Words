@@ -20,7 +20,7 @@
       templateUrl: 'user/profile.html'
     }).state('spelling', {
       abstract: true,
-      url: '/spelling',
+      url: '/spelling/:category',
       templateUrl: 'spelling/word-quiz.html',
       controller: 'WordQuizCtrl',
       controllerAs: 'quiz'
@@ -49,17 +49,17 @@
       template: '<ui-view/>',
       abstract: true
     }).state('quiz.en', {
-      url:'/quiz/en',
+      url:'/quiz/en/:category',
       templateUrl: 'quiz/quiz.html',
       controller: 'EnQuizCtrl',
       controllerAs: 'quiz'
     }).state('quiz.ua', {
-      url:'/quiz/ua',
+      url:'/quiz/ua/:category',
       templateUrl: 'quiz/quiz.html',
       controller: 'UaQuizCtrl',
       controllerAs: 'quiz'
     }).state('sprint', {
-      url:'/sprint',
+      url:'/sprint/:category',
       templateUrl: 'sprint/sprint.html',
       controller: 'SprintCtrl',
       controllerAs: 'sprint'

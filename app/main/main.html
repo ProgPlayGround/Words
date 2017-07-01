@@ -20,14 +20,14 @@
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <a ui-sref="quiz.en">
+      <a ui-sref="quiz.en({category: main.currentCategory().name})">
         <div class="main-game-container">
           <span>Quiz<sup>eng</sup></span>
         </div>
       </a>
     </div>
     <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="quiz.ua">
+      <a ui-sref="quiz.ua({category: main.currentCategory().name})">
         <div class="main-game-container">
           <span>Quiz<sup>ua</sup></span>
         </div>
@@ -45,14 +45,14 @@
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <a ui-sref="sprint">
+      <a ui-sref="sprint({category: main.currentCategory().name})">
         <div class="main-game-container">
           <span>Sprint</span>
         </div>
       </a>
     </div>
     <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="spelling.question">
+      <a ui-sref="spelling.question({category: main.currentCategory().name})">
         <div class="main-game-container">
           <span>Spelling</span>
         </div>
