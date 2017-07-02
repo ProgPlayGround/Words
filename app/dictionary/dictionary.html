@@ -12,7 +12,7 @@
     </div>
     <div class="search-cell" ng-show="!dictionary.checked()">
       <input class="search" type="text" placeholder="Search" ng-model="dictionary.search">
-      <i class="btn-add fa fa-plus-square-o" ng-hide="!dictionary.search"
+      <i class="btn-add fa fa-plus-square-o" ng-hide="!dictionary.search || dictionary.all"
       popover-trigger="'outsideClick'" popover-is-open="dictionary.addPopover.isOpen"
       uib-popover-template="dictionary.addPopover.templateUrl" popover-placement="bottom"
       ng-click="dictionary.add()"></i>
@@ -47,7 +47,7 @@
     </div>
   </div>
   <div class="empty-list-cell" ng-show="dictionary.search && !filteredWords.length">
-    Word <span class="dictionary-search-word">{{dictionary.search}}</span> wasn't found. Add it to dictionary.
+    Word <span class="dictionary-search-word">{{dictionary.search}}</span> wasn't found. {{dictionary.all ? '': 'Add it to dictionary.'}}
   </div>
   <div class="empty-list-cell" ng-show="!dictionary.search && !filteredWords.length">
     Dictionary is empty.
