@@ -674,7 +674,8 @@ img, iframe, video, object {
   vertical-align: top;
   margin: 1%;
   padding: 0 5px;
-  position: relative; }
+  position: relative;
+  white-space: nowrap; }
   .category-container .text {
     font-size: .8rem;
     text-overflow: ellipsis;
