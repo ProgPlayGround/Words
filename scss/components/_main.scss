@@ -1,3 +1,8 @@
+.main-header {
+  position: relative;
+  text-align: center;
+}
+
 .main-layout {
   padding: 0 15%;
 }
@@ -25,4 +30,74 @@
       font-size: 1rem;
     }
   }
+}
+
+.btn-main {
+  @extend .btn-base;
+  @extend .vertical-center;
+  font-size: .8rem;
+  padding: 1%;
+
+  &:hover {
+    background-color: $selection-main-color;
+  }
+}
+
+.btn-main-categories {
+  @extend .btn-main;
+  right: 0%;
+}
+
+.btn-main-select-category {
+  @extend .btn-main;
+  left: 0%;
+}
+
+.main-selected-category {
+  font-size: 1.1rem;
+  display: inline-block;
+  overflow: hidden;
+  padding: 1%;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.btn-main-modal-select {
+  @extend .btn-base;
+  font-size: .8rem;
+  margin-top: 2%;
+}
+
+.main-modal-select-layout {
+  text-align: center;
+  clear: both;
+  display: inline;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.main-modal-text {
+  width: 30%;
+}
+
+.main-modal-select {
+  border: 1px solid $main-color;
+  border-radius: 7px;
+  font-family: $cursive;
+  width: 65%;
+
+  > option:first-child {
+    background-color: $gray;
+  }
+}
+
+.main-modal-select-all {
+  background-color: #CCC;
+}
+
+.main-selected-category-header {
+  font-size: .8rem;
+  font-family: $cursive;
 }

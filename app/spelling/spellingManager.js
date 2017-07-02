@@ -1,11 +1,11 @@
 (function() {
   'use strict';
-  angular.module('words').factory('spellingManager', ['wordManager', 'config', function(wordManager, config) {
-    var quiz, answer, answerState;
-    var dictionaryUrl = config.apiUrl + '/dictionary';
+  angular.module('words').factory('spellingManager', ['userService', 'wordManager', 'config', function(userService, wordManager, config) {
+    var quiz, answer, answerState, dictionaryUrl;
 
     var factory = {
-      init: function(callback) {
+      init: function(category, callback) {
+        dictionaryUrl = config.apiUrl + '/dictionary/' + userService.get() + '/' + category;
         wordManager.init(dictionaryUrl, function() {
           factory.onLoad();
           callback();

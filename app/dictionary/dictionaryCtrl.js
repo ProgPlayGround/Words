@@ -6,6 +6,7 @@
     var vm = this;
 
     vm.category = $stateParams.category;
+    vm.all = vm.category === 'All Categories' ? true : false;
     vm.words = dictionaryManager.load(vm.category);
     vm.allChecked = false;
     vm.audios = {};

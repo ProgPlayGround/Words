@@ -14,6 +14,7 @@
   margin: 1%;
   padding: 0 5px;
   position: relative;
+  white-space: nowrap;
 
   .text {
     font-size: .8rem;
@@ -24,6 +25,7 @@
   &:hover {
     background-color: $selection-main-color;
   }
+
 }
 
 .category-img {
@@ -48,20 +50,10 @@
 }
 
 .btn-category {
-  border: 1px solid $main-color;
-  border-radius: 7px;
-  color: $black;
-  cursor: pointer;
-  display: inline-block;
-  font-family: $arial;
+  @extend .btn-base;
   font-size: .6rem;
-  overflow: hidden;
   padding: 1%;
   margin-left: 1%;
-  text-align: center;
-  text-overflow: ellipsis;
-  transition: all .25s ease-in-out;
-  white-space: nowrap;
 
   &:hover {
     background-color: $selection-main-color;
@@ -97,13 +89,11 @@
   font-style: normal;
 }
 
-.btn-remove-category {
+.btn-category-thumbnail {
   cursor: pointer;
   display: inline-block;
   position: absolute;
-  top: -4px;
-  right: -4px;
-  font-size: .8rem;
+  font-size: 1rem;
   opacity: .3;
 
   &:hover {
@@ -111,16 +101,16 @@
   }
 }
 
+.btn-remove-category {
+  @extend .btn-category-thumbnail;
+  top: -4px;
+  right: -4px;
+  font-size: .8rem;
+}
+
 .btn-edit-category {
-  cursor: pointer;
-  display: inline-block;
-  position: absolute;
+  @extend .btn-category-thumbnail;
   bottom: -4px;
   right: -4px;
   font-size: .9rem;
-  opacity: .3;
-
-  &:hover {
-    opacity: 1;
-  }
 }

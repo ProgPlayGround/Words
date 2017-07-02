@@ -14,7 +14,7 @@
 
     return {
       load: function(category) {
-        dictionaryUrl = config.apiUrl + '/dictionary' + '/' + userService.get() + '/' + category;
+        dictionaryUrl = config.apiUrl + '/dictionary/' + userService.get() + '/' + category;
         words = wordEndpoint.load(dictionaryUrl);
         return words;
       },

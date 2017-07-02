@@ -1,10 +1,10 @@
 (function() {
-  angular.module('words').factory('sprintManager', ['wordManager', 'config', function(wordManager, config) {
-    var current;
-    var sprintUrl = config.apiUrl + '/sprint';
+  angular.module('words').factory('sprintManager', ['userService', 'wordManager', 'config', function(userService, wordManager, config) {
+    var current, sprintUrl;
 
     var factory = {
-      init: function(callback) {
+      init: function(category, callback) {
+        sprintUrl = config.apiUrl + '/sprint/' + userService.get() + '/' + category;
         wordManager.init(sprintUrl, function() {
           factory.onLoad();
           callback();

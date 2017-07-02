@@ -1,14 +1,16 @@
 (function() {
-  angular.module('words').controller('SprintCtrl', ['$scope', 'sprintManager', 'scoreManager', 'quizModalManager', function($scope, sprintManager, scoreManager, quizModalManager) {
+  angular.module('words').controller('SprintCtrl', ['$scope', '$stateParams', 'sprintManager', 'scoreManager', 'quizModalManager',
+   function($scope, $stateParams, sprintManager, scoreManager, quizModalManager) {
     var vm = this;
     vm.loadingText = 'Loading...';
 
+    vm.category = $stateParams.category;
     vm.word = sprintManager.word;
     vm.answer = sprintManager.answer;
     vm.score = scoreManager.get;
     vm.isLoaded = sprintManager.isLoaded;
 
-    sprintManager.init(onLoad);
+    sprintManager.init(vm.category, onLoad);
 
     vm.loadQuestion = function() {
       sprintManager.onLoad();

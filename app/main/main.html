@@ -1,15 +1,33 @@
 <div ng-include src="'navbar/navbar.html'"></div>
 <div class="main-layout">
+  <div class="main-header">
+    <a ui-sref="category">
+      <div class="btn-main-categories">
+        Categories
+      </div>
+    </a>
+
+    <div class="main-selected-category">
+      <div class="main-selected-category-header">Category:</div>
+      <hr class="category-header-divider"/>
+      <span>{{main.currentCategory().name}}</span>
+    </div>
+
+    <div class="btn-main-select-category" ng-click="main.selectCategory()">
+      Select category
+    </div>
+
+  </div>
   <div class="row">
     <div class="col-sm-4">
-      <a ui-sref="quiz.en">
+      <a ui-sref="quiz.en({category: main.currentCategory().name})">
         <div class="main-game-container">
           <span>Quiz<sup>eng</sup></span>
         </div>
       </a>
     </div>
     <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="quiz.ua">
+      <a ui-sref="quiz.ua({category: main.currentCategory().name})">
         <div class="main-game-container">
           <span>Quiz<sup>ua</sup></span>
         </div>
@@ -18,38 +36,27 @@
   </div>
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="spelling.question">
+      <a ui-sref="dictionary({category: main.currentCategory().name})">
         <div class="main-game-container">
-          <span>Spelling</span>
+          <span>Dictionary</span>
         </div>
       </a>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <a ui-sref="category">
-        <div class="main-game-container">
-          <span>Dictionary</span>
-        </div>
-      </a>
-    </div>
-    <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="sprint">
+      <a ui-sref="sprint({category: main.currentCategory().name})">
         <div class="main-game-container">
           <span>Sprint</span>
         </div>
       </a>
     </div>
-  </div>
-  <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="">
-        <div class="main-game-container main_rank_container">
-          Dashboard
+      <a ui-sref="spelling.question({category: main.currentCategory().name})">
+        <div class="main-game-container">
+          <span>Spelling</span>
         </div>
       </a>
-    </div>
-    <div class="col-sm-5">
     </div>
   </div>
 </div>

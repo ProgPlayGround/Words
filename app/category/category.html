@@ -18,10 +18,10 @@
             <figcaption class="text">{{category.name}}</figcaption>
           </figure>
         </a>
-        <div class="btn-remove-category">
+        <div ng-hide="$index === 0" class="btn-remove-category">
           <i class="fa fa-times" ng-click="vm.removeCategory(category)"></i>
         </div>
-        <div class="btn-edit-category">
+        <div ng-hide="$index === 0" class="btn-edit-category">
           <i class="fa fa-pencil" ng-click="vm.editCategory(category)"></i>
         </div>
       </div>

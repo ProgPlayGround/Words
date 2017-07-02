@@ -2,12 +2,13 @@
   'use strict';
 
   function quizController(lang) {
-    return function($scope, scoreManager, quizManager, quizModalManager) {
+    return function($scope, $stateParams, scoreManager, quizManager, quizModalManager) {
       var vm = this;
       vm.loadingText = 'Loading...';
       vm.userAnswer = null;
 
-      quizManager.init(lang, onLoad);
+      vm.category = $stateParams.category;
+      quizManager.init(vm.category, lang, onLoad);
 
       vm.word = quizManager.word;
       vm.options = quizManager.options;
@@ -49,6 +50,6 @@
     }
   }
 
-  angular.module('words').controller('EnQuizCtrl', ['$scope', 'scoreManager', 'quizManager', 'quizModalManager', quizController('en')]);
-  angular.module('words').controller('UaQuizCtrl', ['$scope', 'scoreManager', 'quizManager', 'quizModalManager', quizController('ua')]);
+  angular.module('words').controller('EnQuizCtrl', ['$scope', '$stateParams', 'scoreManager', 'quizManager', 'quizModalManager', quizController('en')]);
+  angular.module('words').controller('UaQuizCtrl', ['$scope', '$stateParams', 'scoreManager', 'quizManager', 'quizModalManager', quizController('ua')]);
 }());

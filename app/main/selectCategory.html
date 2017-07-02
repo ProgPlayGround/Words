@@ -1,0 +1,10 @@
+<div class="dictionary-modal">
+  <div class="main-modal-select-layout">
+    <span class="main-modal-text">Category:</span>
+    <select class="main-modal-select" ng-options="category.name for category in cm.categories" ng-model="cm.selectedCategory"></select>
+  </div>
+  <hr class="category-header-divider"/>
+  <div class="btn-main-modal-select" ng-click="cm.select()">
+    Select
+  </div>
+</div>
