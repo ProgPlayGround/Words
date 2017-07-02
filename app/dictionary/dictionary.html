@@ -14,7 +14,7 @@
       <input class="search" type="text" placeholder="Search" ng-model="dictionary.search">
       <i class="btn-add fa fa-plus-square-o" ng-hide="!dictionary.search || dictionary.all"
       popover-trigger="'outsideClick'" popover-is-open="dictionary.addPopover.isOpen"
-      uib-popover-template="dictionary.addPopover.templateUrl" popover-placement="bottom"
+      uib-popover-template="'dictionary/addPopover.html'" popover-placement="bottom"
       ng-click="dictionary.add()"></i>
     </div>
     <div class="batch-cell" ng-show="dictionary.checked()">

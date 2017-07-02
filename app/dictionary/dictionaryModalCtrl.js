@@ -9,9 +9,7 @@
     vm.selectionError = {};
     vm.selectedImg = null;
 
-    vm.addPopover = {
-      templateUrl: 'dictionary/addTranslationPopover.html'
-    };
+    vm.addPopover = {};
 
     vm.addTranslation = function() {
       vm.addPopover.isOpen = false;

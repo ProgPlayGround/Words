@@ -8,7 +8,7 @@
     {{translation}}
     <i class="btn-dictionary-cross fa fa-times" ng-click="dm.removeTranslation($index)" ng-show="dm.selectedWord.translation.length > 1"></i>
   </div>
-  <div class="btn-add-translation" uib-popover-template="dm.addPopover.templateUrl" popover-placement="bottom"
+  <div class="btn-add-translation" uib-popover-template="'dictionary/addTranslationPopover.html'" popover-placement="bottom"
   popover-trigger="'outsideClick'" popover-is-open="dm.addPopover.isOpen">
     Add translation
   </div>

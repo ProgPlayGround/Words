@@ -11,9 +11,7 @@
     vm.allChecked = false;
     vm.audios = {};
 
-    vm.addPopover = {
-      templateUrl: 'dictionary/addPopover.html'
-    };
+    vm.addPopover = {};
 
     vm.checkAll = function() {
       _.each(vm.words, function(elem) {
