@@ -1,12 +1,9 @@
-<div ng-include src="'navbar/navbar.html'"></div>
 <div class="container">
   <div class="score-container col-sm-12">
-    <div class="col-sm-4">
-      <div class="center">
-        <loading>
-          <span item class="letter animated" ng-repeat="char in quiz.loadingText track by $index">{{char}}</span>
-        </loading>
-      </div>
+    <div class="col-sm-4 center">
+      <loading>
+        <span item class="letter animated" ng-repeat="char in quiz.loadingText track by $index">{{char}}</span>
+      </loading>
     </div>
     <span class="score-text">{{quiz.score()}}</span>
     <span class="score-icon glyphicon glyphicon-star"></span>

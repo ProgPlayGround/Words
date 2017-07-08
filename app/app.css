@@ -490,6 +490,14 @@ img, iframe, video, object {
   padding-left: 0;
   padding-right: 0; }
 
+.translation-animation {
+  -webkit-transition: all .1s ease;
+  -moz-transition: all .1s ease;
+  -o-transition: all .1s ease;
+  transition: all .1s ease; }
+  .translation-animation.ng-leave {
+    display: none; }
+
 .dictionary-table {
   border-collapse: collapse;
   display: table;
