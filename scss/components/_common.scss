@@ -173,9 +173,9 @@
   -o-transition: all .1s ease;
   transition: all .1s ease;
 
-  // &.ng-enter {
-  //   @include effect(fadeIn);
-  // }
+  &.ng-enter {
+    @include effect(fadeIn);
+  }
 
   &.ng-leave {
     display: none;
