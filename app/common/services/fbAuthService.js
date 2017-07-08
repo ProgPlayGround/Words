@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('words').constant('fbAppId', '1225456694157240')
-  .factory('fbAuthService', ['$window', '$cookies', '$log', 'config', 'userService', 'fbAppId', function($window, $cookies, $log, config, userService, fbAppId) {
+  .factory('fbAuthService', ['$window', '$cookies', 'config', 'userService', 'fbAppId', function($window, $cookies, config, userService, fbAppId) {
 
     var clearUserData = function() {
       userService.clear();

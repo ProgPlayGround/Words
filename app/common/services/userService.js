@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('words').factory('userService', ['$rootScope', function($rootScope) {
+  angular.module('words').factory('userService', function() {
 
     return {
       set: function(id) {
@@ -14,5 +14,5 @@
         return sessionStorage.userId;
       }
     };
-  }]);
+  });
 }());

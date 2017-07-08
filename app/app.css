@@ -495,6 +495,9 @@ img, iframe, video, object {
   -moz-transition: all .1s ease;
   -o-transition: all .1s ease;
   transition: all .1s ease; }
+  .translation-animation.ng-enter {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn; }
   .translation-animation.ng-leave {
     display: none; }
 

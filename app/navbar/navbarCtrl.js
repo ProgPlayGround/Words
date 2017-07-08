@@ -1,7 +1,8 @@
 (function() {
   'use strict';
 
-  angular.module('words').controller('NavbarCtrl', ['$cookies', 'authService', 'fbAuthService', 'vkAuthService', function($cookies, authService, fbAuthService, vkAuthService) {
+  angular.module('words').controller('NavbarCtrl', ['$cookies', '$scope', 'authService', 'fbAuthService', 'vkAuthService', 'logoutService',
+  function($cookies, $scope, authService, fbAuthService, vkAuthService, logoutService) {
     var vm = this;
 
     vm.logout = function() {
@@ -17,5 +18,11 @@
           break;
       }
     };
+
+    $scope.$on('$stateChangeStart', function(event, toState) {
+      if(toState.name === 'auth.login') {
+        logoutService.logout();
+      }
+    });
   }]);
 }());

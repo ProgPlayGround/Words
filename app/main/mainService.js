@@ -3,7 +3,8 @@
 
   angular.module('words').factory('mainService', function() {
 
-    var currentCategory = {name: 'All Categories'};
+    var all = {name: 'All Categories'};
+    var currentCategory = all;
 
     return {
       selectedCategory: function() {
@@ -11,6 +12,9 @@
       },
       newCategory: function(newCategory) {
         currentCategory = newCategory;
+      },
+      clear: function() {
+        currentCategory = all;
       }
     };
   });
