@@ -1,7 +1,8 @@
 (function() {
   'use strict';
 
-  angular.module('words').factory('dictionaryManager', ['wordEndpoint', 'config', 'userService', function(wordEndpoint, config, userService) {
+  angular.module('words').factory('dictionaryManager', ['$log', 'wordEndpoint', 'config', 'userService',
+   function($log, wordEndpoint, config, userService) {
     var imageUrl = config.apiUrl + '/image';
 
     var dictionaryUrl, words;
@@ -41,23 +42,35 @@
         wordsToRemove.forEach(function(elem) {
           var index = words.indexOf(elem);
           if(index !== -1) {
+            wordEndpoint.delete(dictionaryUrl + '/' + elem.word).then(function(res) {
+              if(!res.success) {
+                $log.error('Error has occured %s', res.err);
+              }
+            });
             words.splice(index, 1);
-            wordEndpoint.delete(dictionaryUrl + '/' + elem.word);
           }
         });
       },
       addTranslation: function(word, translation) {
         var wordCard = find(word);
         if(wordCard && wordCard.translation.indexOf(translation) === -1) {
+          wordEndpoint.patch(dictionaryUrl, {'word': word, 'translation': translation}).then(function(res) {
+            if(!res.success) {
+              $log.error('Error has occured %s', res.err);
+            }
+          });
           wordCard.translation.push(translation);
-          wordEndpoint.patch(dictionaryUrl, {'word': word, 'translation': translation});
         }
       },
       removeTranslation: function(word, translation) {
         var wordCard = find(word);
         if(wordCard) {
+          wordCard.translation = _.without(wordCard.translation, translation).then(function(res) {
+            if(!res.success) {
+              $log.error('Error has occured %s', res.err);
+            }
+          });
           wordEndpoint.delete(dictionaryUrl + '/' + word + '/' + translation);
-          wordCard.translation = _.without(wordCard.translation, translation);
         }
       },
       uploadImg: function(word, img) {
