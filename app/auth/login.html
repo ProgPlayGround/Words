@@ -8,17 +8,19 @@
 <div class="col-sm-offset-2 col-sm-8">
   <form name="loginForm" ng-submit="auth.login()" role="form">
     <div class="form-group">
-      <input type="email" name="username" class="form-control input-base" ng-model="auth.email" error-message message="auth.error.login" required-on-condition="auth.errorClick" placeholder="Email" novalidate/>
+      <input type="email" name="username" class="form-control input-base" ng-model="auth.email"
+      error-message message="auth.error.message" required-on-condition="auth.errorClick" placeholder="Email" novalidate/>
       <div class="auth-help-block" ng-messages="loginForm.username.$error" role="alert">
-        <div ng-if="auth.errorClick" ng-message="required">The field is required</div>
+        <div ng-message="required">The field is required</div>
         <div ng-message="email">Your email address is invalid</div>
-        <div ng-message="error">{{auth.error.login}}</div>
+        <div ng-message="error">{{auth.error.type === 'email' ? auth.error.message: ''}}</div>
       </div>
-      <span class="auth-help-block help-block" ng-if="">Email is required</span>
-      <input type="password" name="password" class="form-control input-base auth-margin" ng-model="auth.password" error-message message="auth.error.password" required-on-condition="auth.errorClick" placeholder="Password" novalidate/>
+      <input type="password" name="password" class="form-control input-base auth-margin"
+      ng-model="auth.password" error-message message="auth.error.message"
+      required-on-condition="auth.errorClick" placeholder="Password" novalidate/>
       <div class="auth-help-block" ng-messages="loginForm.password.$error" role="alert">
         <div ng-message="required">The field is required</div>
-        <div ng-message="error">{{auth.error.password}}</div>
+        <div ng-message="error">{{auth.error.type === 'password' ? auth.error.message: ''}}</div>
       </div>
     </div>
     <div class="center">
