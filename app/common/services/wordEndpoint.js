@@ -1,14 +1,15 @@
 (function() {
   'use strict';
+  
   angular.module('words').factory('wordEndpoint', ['$resource', 'httpAuthHeaders', function($resource, httpAuthHeaders) {
 
     function transformFormRequest(data) {
-      if(data == undefined) {
-        return data;
+      if(angular.isDefined(data)) {
+        var fd = new FormData();
+        fd.append('file', data);
+        return fd;
       }
-      var fd = new FormData();
-      fd.append('file', data);
-      return fd;
+      return data;
     }
 
     return {
@@ -35,7 +36,7 @@
           'post': {
             method: 'POST',
             transformRequest: transformFormRequest,
-            headers: _.extend(httpAuthHeaders.header(), {'Content-Type': undefined})
+            headers: httpAuthHeaders.header({'Content-Type': undefined})
           }
         }).post(data);
       },
@@ -44,7 +45,7 @@
           'put': {
             method: 'PUT',
             transformRequest: transformFormRequest,
-            headers: _.extend(httpAuthHeaders.header(), {'Content-Type': undefined})
+            headers: httpAuthHeaders.header({'Content-Type': undefined})
           }
         }).put(data);
       },
