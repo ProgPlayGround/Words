@@ -2,8 +2,8 @@
   'use strict';
 
   angular.module('words').constant('fbAppId', '1225456694157240')
-  .factory('fbAuthService', ['$window', '$cookies', '$resource', 'config', 'userService', 'fbAppId', 'wordEndpoint',
-   function($window, $cookies, $resource, config, userService, fbAppId, wordEndpoint) {
+  .factory('fbAuthService', ['$window', '$cookies', 'config', 'userService', 'fbAppId', 'wordEndpoint',
+   function($window, $cookies, config, userService, fbAppId, wordEndpoint) {
 
     var clearUserData = function() {
       userService.clear();
@@ -34,10 +34,6 @@
             xfbml: true,
             version: 'v2.8'
           });
-
-          // FB.Event.subscribe('auth.authResponseChange', function(res) {
-          //   onConnection(res, callback);
-          // });
         };
       },
       login: function(callback) {
