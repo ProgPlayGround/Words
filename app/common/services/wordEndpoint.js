@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  
+
   angular.module('words').factory('wordEndpoint', ['$resource', 'httpAuthHeaders', function($resource, httpAuthHeaders) {
 
     function transformFormRequest(data) {

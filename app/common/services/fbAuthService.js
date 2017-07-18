@@ -2,7 +2,8 @@
   'use strict';
 
   angular.module('words').constant('fbAppId', '1225456694157240')
-  .factory('fbAuthService', ['$window', '$cookies', 'config', 'userService', 'fbAppId', function($window, $cookies, config, userService, fbAppId) {
+  .factory('fbAuthService', ['$window', '$cookies', '$resource', 'config', 'userService', 'fbAppId', 'wordEndpoint',
+   function($window, $cookies, $resource, config, userService, fbAppId, wordEndpoint) {
 
     var clearUserData = function() {
       userService.clear();
@@ -13,12 +14,11 @@
     function onConnection(res, callback) {
       if(res.status === 'connected') {
         var accessToken = res.authResponse.accessToken;
-        FB.api('/me', function(res) {
-          userService.set(res.id);
-          $cookies.put('auth-type', 'fb');
-          $cookies.put('token', accessToken);
-          callback();
-        });
+        userService.set('fb' + res.authResponse.userID);
+        $cookies.put('auth-type', 'fb');
+        $cookies.put('token', accessToken);
+        wordEndpoint.post(config.apiUrl + '/authenticate/fb/registration', {'userId': userService.get()});
+        callback();
       } else {
         clearUserData();
       }
@@ -35,9 +35,9 @@
             version: 'v2.8'
           });
 
-          FB.Event.subscribe('auth.authResponseChange', function(res) {
-            onConnection(res, callback);
-          });
+          // FB.Event.subscribe('auth.authResponseChange', function(res) {
+          //   onConnection(res, callback);
+          // });
         };
       },
       login: function(callback) {
