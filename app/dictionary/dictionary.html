@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  <div class="dictionary-row" ng-repeat="word in filteredWords = (dictionary.words | filter:dictionary.search) track by $index">
+  <div class="dictionary-row" ng-repeat="word in filteredWords = (dictionary.words | wordSearchFilter:dictionary.search) track by $index">
     <div class="checkbox-cell">
       <input class="checkbox" type="checkbox" ng-model="word.checked">
     </div>

@@ -9,6 +9,7 @@
     vm.all = vm.category === 'All Categories' ? true : false;
     vm.words = dictionaryManager.load(vm.category);
     vm.allChecked = false;
+    vm.search = '';
     vm.audios = {};
 
     vm.addPopover = {};
