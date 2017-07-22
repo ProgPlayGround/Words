@@ -507,8 +507,8 @@ img, iframe, video, object {
   margin-top: 10px; }
 
 .dictionary-row {
-  width: 100%;
   display: table-row;
+  width: 100%;
   border-bottom: 1px dashed #74afad; }
 
 .dictionary-caption {
@@ -517,13 +517,19 @@ img, iframe, video, object {
   border-bottom: 1px solid #74afad; }
 
 .dictionary-category-caption {
-  font: Arial, Helvetica, sans-serif;
+  position: relative;
   color: #467A78;
   font-size: 2rem;
   font-style: italic;
   font-weight: bold;
   cursor: default;
   text-align: center; }
+
+.dictionary-loading {
+  position: absolute;
+  left: 10%;
+  top: 30%;
+  font-size: 0.5rem; }
 
 .checkbox-cell {
   cursor: pointer;

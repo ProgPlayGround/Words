@@ -31,10 +31,10 @@ angular.module('words').directive('loading', ['$animate', '$interval', 'requestC
       }
 
       scope.$watch(requestCounter.requestCount, function(newValue) {
-        if(newValue === 0 ) {
+        if(newValue === 0) {
           if(scope.animation) {
             $interval.cancel(scope.animation);
-            scope.animation = undefined;
+            scope.animation = null;
           }
           $animate.addClass(element, 'fadeOut animated');
         } else if(element.hasClass('fadeOut')) {

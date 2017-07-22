@@ -5,8 +5,8 @@
 }
 
 .dictionary-row {
-  width: 100%;
   display: table-row;
+  width: 100%;
   border-bottom: 1px dashed $main-color;
 }
 
@@ -17,13 +17,20 @@
 }
 
 .dictionary-category-caption {
-  font: $arial;
+  position: relative;
   color: $category-caption;
   font-size: 2rem;
   font-style: italic;
   font-weight: bold;
   cursor: default;
   text-align: center;
+}
+
+.dictionary-loading {
+  position: absolute;
+  left: 10%;
+  top: 30%;
+  font-size: 0.5rem;
 }
 
 .checkbox-cell {
