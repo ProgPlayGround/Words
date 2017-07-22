@@ -42,35 +42,35 @@
         wordsToRemove.forEach(function(elem) {
           var index = words.indexOf(elem);
           if(index !== -1) {
-            wordEndpoint.delete(dictionaryUrl + '/' + elem.word).then(function(res) {
+            words.splice(index, 1);
+            wordEndpoint.delete(dictionaryUrl + '/' + elem.word).$promise.then(function(res) {
               if(!res.success) {
                 $log.error('Error has occured %s', res.err);
               }
             });
-            words.splice(index, 1);
           }
         });
       },
       addTranslation: function(word, translation) {
         var wordCard = find(word);
         if(wordCard && wordCard.translation.indexOf(translation) === -1) {
-          wordEndpoint.patch(dictionaryUrl, {'word': word, 'translation': translation}).then(function(res) {
+          wordCard.translation.push(translation);
+          wordEndpoint.patch(dictionaryUrl, {'word': word, 'translation': translation}).$promise.then(function(res) {
             if(!res.success) {
               $log.error('Error has occured %s', res.err);
             }
           });
-          wordCard.translation.push(translation);
         }
       },
       removeTranslation: function(word, translation) {
         var wordCard = find(word);
         if(wordCard) {
-          wordCard.translation = _.without(wordCard.translation, translation).then(function(res) {
+          wordCard.translation = _.without(wordCard.translation, translation);
+          wordEndpoint.delete(dictionaryUrl + '/' + word + '/' + translation).$promise.then(function(res) {
             if(!res.success) {
               $log.error('Error has occured %s', res.err);
             }
           });
-          wordEndpoint.delete(dictionaryUrl + '/' + word + '/' + translation);
         }
       },
       uploadImg: function(word, img) {
