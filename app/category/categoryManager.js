@@ -15,6 +15,9 @@
         categoryUrl = config.apiUrl + '/category/' + userService.get();
         categories = wordEndpoint.load(categoryUrl);
         categories.$promise.then(function(data) {
+          data.forEach(function(elem) {
+            elem.imageUrl = elem.imageUrl + '?' + Date.now();
+          });
           Array.prototype.unshift.call(data, {name: 'All Categories', imageUrl: '/images/all_categories.png'});
           callback(data);
         });
