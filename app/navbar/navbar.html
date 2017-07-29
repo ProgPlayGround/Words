@@ -1,13 +1,13 @@
-<nav class="navbar navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-left btn-brand" ui-sref="main">
-        <img alt="Q" src="images/quiz-logo.png"/>
-      </a>
-    </div>
-    <ul class="nav navbar-nav navbar-right" ng-controller="NavbarCtrl as nav">
+<div class="header-layout">
+  <div class="nav-brand">
+    <a ui-sref="main">English quiz</a>
+    <img class="nav-brand-image" alt="Q" src="images/quiz-logo.png"/>
+  </div>
+  <nav class="nav-container">
+    <ul class="nav-right" ng-controller="NavbarCtrl as nav">
+      <li><a ui-sref="user.profile">Rank</a></li>
       <li><a ui-sref="user.profile">User</a></li>
       <li><a ui-sref="auth.login" ng-click="nav.logout()">Logout</a></li>
     </ul>
-  </div>
-</nav>
+  </nav>
+</div>

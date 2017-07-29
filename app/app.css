@@ -55,21 +55,53 @@ table {
 img, iframe, video, object {
   max-width: 100%; }
 
-.btn-brand {
-  cursor: pointer;
-  margin-top: 2px; }
+.header-layout {
+  background-color: #a2c9c8;
+  margin: auto;
+  min-height: 40px;
+  padding: 10px 20px;
+  border-bottom: #b3b5b8 3px solid; }
+  .header-layout a {
+    color: #fff;
+    font-family: Cursive, Monospace, Arial, Helvetica, sans-serif;
+    font-style: italic;
+    text-decoration: none; }
+    .header-layout a:hover, .header-layout a:focus, .header-layout a:active {
+      color: #000;
+      font-weight: bold; }
 
-.navbar-right li a {
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: italic; }
-  .navbar-right li a:hover, .navbar-right li a:focus, .navbar-right li a:active {
-    background-color: #74afad;
-    color: #000; }
+.nav-brand {
+  float: left; }
+  .nav-brand img {
+    width: 20px; }
+  .nav-brand a {
+    margin-left: 10px;
+    float: left;
+    cursor: pointer; }
 
-.navbar-custom {
-  vertical-align: middle;
-  background-color: #a2c9c8; }
+.nav-brand-image {
+  position: absolute;
+  left: 5px; }
+
+.nav-container {
+  padding: 0 10px;
+  float: right; }
+
+.nav-right li {
+  float: left;
+  display: inline;
+  padding-left: 15px; }
+
+@media (max-width: 768px) {
+  .nav-container,
+  .nav-brand {
+    float: none;
+    text-align: center; }
+  .nav-brand a,
+  .nav-right li {
+    float: none; }
+  .nav-brand img {
+    width: 40px; } }
 
 .auth-tab, .auth-tab-selected {
   border-radius: 0;
@@ -771,7 +803,7 @@ img, iframe, video, object {
   text-align: center; }
 
 .main-layout {
-  padding: 0 15%; }
+  padding: 0 10%; }
 
 .main-game-container {
   background-color: #f4f2f2;
