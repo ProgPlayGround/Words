@@ -33,10 +33,8 @@
         var letters = _.countBy(answer, function(letter, index) {
           if(!letter.char) {
             return 'empty';
-          } else if(letter.char !== factory.translation().charAt(index)) {
+          } else if(letter.char.toLowerCase() !== factory.translation().charAt(index).toLowerCase()) {
             return 'error';
-          } else {
-            return 'right';
           }
         });
 
@@ -55,10 +53,10 @@
         return angular.isDefined(quiz);
       },
       word: function() {
-        return quiz.word;
+        return quiz.word.toLowerCase();
       },
       translation: function() {
-        return quiz.translation[0];
+        return quiz.translation[0].toLowerCase();
       },
       definitions: function() {
         return quiz.samples;

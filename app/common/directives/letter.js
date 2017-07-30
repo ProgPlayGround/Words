@@ -29,7 +29,7 @@
               element.removeClass('correct-answer');
               focusCtrl.previous(scope.index);
             } else {
-              if(scope.char === value) {
+              if(scope.char.toLowerCase() === value.toLowerCase()) {
                 element.removeClass('wrong-answer');
                 element.addClass('correct-answer');
               } else {
