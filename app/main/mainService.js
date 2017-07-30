@@ -2,7 +2,6 @@
   'use strict';
 
   angular.module('words').factory('mainService', function() {
-
     var all = {name: 'All Categories'};
     var currentCategory = all;
 

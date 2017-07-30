@@ -427,7 +427,7 @@ img, iframe, video, object {
   padding-top: 1%;
   text-align: center; }
 
-.btn-base, .btn-solution, .btn-next, .btn-select-img, .btn-sprint, .btn-category, .btn-modal-add-category, .btn-main, .btn-main-categories, .btn-main-select-category, .btn-main-modal-select {
+.btn-base, .btn-solution, .btn-next, .btn-select-img, .btn-sprint, .btn-category, .btn-modal-add-category, .btn-main, .btn-main-categories, .btn-main-select-category {
   border: 1px solid #74afad;
   border-radius: 7px;
   color: #000;
@@ -441,7 +441,7 @@ img, iframe, video, object {
   text-overflow: ellipsis;
   transition: all .25s ease-in-out;
   white-space: nowrap; }
-  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover, .btn-category:hover, .btn-modal-add-category:hover, .btn-main:hover, .btn-main-categories:hover, .btn-main-select-category:hover, .btn-main-modal-select:hover {
+  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover, .btn-category:hover, .btn-modal-add-category:hover, .btn-main:hover, .btn-main-categories:hover, .btn-main-select-category:hover {
     background-color: #74afad; }
 
 .input-base, .input-category {
@@ -829,6 +829,10 @@ img, iframe, video, object {
   right: -4px;
   font-size: .9rem; }
 
+@media (max-width: 414px) {
+  .category-header {
+    text-align: center; } }
+
 .main-header {
   position: relative;
   text-align: center; }
@@ -876,40 +880,30 @@ img, iframe, video, object {
   white-space: nowrap;
   cursor: default; }
 
-.btn-main-modal-select {
-  font-size: .8rem;
-  margin-top: 2%; }
+.main-select-category-layout {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  padding: 5%;
+  text-align: center; }
 
-.main-modal-select-layout {
-  text-align: center;
-  clear: both;
-  display: inline;
-  overflow: hidden;
-  white-space: nowrap; }
-
-.main-modal-text {
-  width: 30%; }
-
-.main-modal-select {
+.main-category-select {
   border: 1px solid #74afad;
   border-radius: 7px;
   font-family: Cursive, Monospace;
-  width: 65%; }
-  .main-modal-select > option:first-child {
+  text-align: center; }
+  .main-category-select > option:first-child {
     background-color: #ccc; }
-
-.main-modal-select-all {
-  background-color: #CCC; }
 
 .main-selected-category-header {
   font-size: .8rem;
   font-family: Cursive, Monospace; }
 
 @media (max-width: 768px) {
-  .main-min-layout, .main-selected-category, .btn-main-categories, .btn-main-select-category {
+  .main-min-layout, .btn-main-categories, .main-selected-category-header {
     display: block;
-    position: relative; }
-  .btn-main-categories {
-    margin-top: 5px; }
-  .btn-main-select-category {
+    position: relative;
     margin-top: 10px; } }
+
+.quiz-item {
+  width: 50%; }

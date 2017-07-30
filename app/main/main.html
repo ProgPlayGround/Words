@@ -2,29 +2,22 @@
   <div class="main-header">
     <div class="main-selected-category">
       <div class="main-selected-category-header">Category:</div>
-      <hr class="category-header-divider"/>
-      <span>{{main.currentCategory().name}}</span>
+      <select class="main-category-select" ng-options="category.name for category in main.categories" ng-change="main.selectCategory()" ng-model="main.currentCategory"></select>
     </div>
-
-    <div class="btn-main-select-category" ng-click="main.selectCategory()">
-      Select category
-    </div>
-
     <a class="btn-main-categories" ui-sref="category">
         Categories
     </a>
-
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <a ui-sref="quiz.en({category: main.currentCategory().name})">
+      <a ui-sref="quiz.en({category: main.currentCategory.name})">
         <div class="main-game-container">
           <span>Quiz<sup>eng</sup></span>
         </div>
       </a>
     </div>
     <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="quiz.ua({category: main.currentCategory().name})">
+      <a ui-sref="quiz.ua({category: main.currentCategory.name})">
         <div class="main-game-container">
           <span>Quiz<sup>ua</sup></span>
         </div>
@@ -33,7 +26,7 @@
   </div>
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="dictionary({category: main.currentCategory().name})">
+      <a ui-sref="dictionary({category: main.currentCategory.name})">
         <div class="main-game-container">
           <span>Dictionary</span>
         </div>
@@ -42,14 +35,14 @@
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <a ui-sref="sprint({category: main.currentCategory().name})">
+      <a ui-sref="sprint({category: main.currentCategory.name})">
         <div class="main-game-container">
           <span>Sprint</span>
         </div>
       </a>
     </div>
     <div class="col-sm-offset-4 col-sm-4">
-      <a ui-sref="spelling.question({category: main.currentCategory().name})">
+      <a ui-sref="spelling.question({category: main.currentCategory.name})">
         <div class="main-game-container">
           <span>Spelling</span>
         </div>

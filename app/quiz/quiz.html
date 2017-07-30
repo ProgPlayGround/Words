@@ -15,13 +15,13 @@
     <div class="center">
       <span class="letter" ng-repeat="char in quiz.word() track by $index">{{char}}</span>
     </div>
-    <div class="col-sm-12 divider-margin">
+    <div class="divider-margin">
       <div class="strike">
         <span>Translation</span>
       </div>
     </div>
-    <div class="col-sm-12" ng-class="{'disable-click':quiz.correctAnswer != null}">
-      <div class="btn btn-base col-sm-6" ng-class="[{'correct-answer':quiz.correctAnswer === $index},{'wrong-answer':quiz.userAnswer === $index && quiz.userAnswer !== quiz.correctAnswer}]"
+    <div class="quiz-answers" ng-class="{'disable-click':quiz.correctAnswer != null}">
+      <div class="btn btn-base quiz-item" ng-class="[{'correct-answer':quiz.correctAnswer === $index},{'wrong-answer':quiz.userAnswer === $index && quiz.userAnswer !== quiz.correctAnswer}]"
        ng-repeat="option in quiz.options() track by $index" ng-click="quiz.applyAnswer($index)">
         <span>{{option}}</span>
       </div>
