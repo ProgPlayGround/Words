@@ -92,6 +92,14 @@
   border-radius: 4px;
 }
 
+.loading {
+  color: $main-color;
+  display: inline-block;
+  font-size: 1rem;
+  font-family: $cursive, $arial;
+  margin-top: 5px;
+}
+
 .correct-answer {
   background-color: $solution-color;
   color: $white;
@@ -109,6 +117,69 @@
   &:hover {
     color: $white;
     background-color: $wrong-color;
+  }
+}
+
+.finish-modal {
+  font-family: $arial;
+  font-size: 2rem;
+  font-style: italic;
+  padding: 2%;
+  text-align: center;
+
+  .divider {
+    border-color: $gray;
+  }
+
+  .score-text {
+    color: $score-color;
+  }
+
+  .score-icon {
+    color: $score-color;
+    font-size: 1.5rem;
+  }
+}
+
+.score-container {
+  color: $main-color;
+  font-family: $arial;
+
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: center;
+}
+
+.score-layout {
+  float: right;
+  font-size: 1.5rem;
+  margin-top: .5rem;
+}
+
+.score-text {
+  font-size: 2rem;
+}
+
+.finish-modal-layout .modal-dialog {
+  width: 300px;
+}
+
+@media (max-width: 414px) {
+
+  .finish-modal-layout .modal-dialog {
+    width: 150px;
+  }
+
+  .loading {
+    font-size: 0.6rem;
+  }
+
+  .score-layout {
+    font-size: 1rem;
+  }
+
+  .score-text {
+    font-size: 1.2rem;
   }
 }
 

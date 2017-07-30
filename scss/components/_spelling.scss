@@ -2,27 +2,6 @@
   margin-top: 15%;
 }
 
-.quiz-modal {
-  font-family: $arial;
-  font-size: 2em;
-  font-style: italic;
-  padding: 2%;
-  text-align: center;
-
-  .divider {
-    border-color: $gray;
-  }
-
-  .score-text {
-    color: $score-color;
-  }
-
-  .score-icon {
-    color: $score-color;
-    font-size: 1.5em;
-  }
-}
-
 .modal {
   text-align: center;
 
@@ -50,24 +29,6 @@
   margin-left: 3px;
 }
 
-.score-container {
-  color: $main-color;
-  font-family: $arial;
-  margin-top: .5%;
-  text-align: right;
-  white-space: nowrap;
-}
-
-.score-icon {
-  font-size: 2em;
-  vertical-align: middle;
-}
-
-.score-text {
-  font-size: 1.5em;
-  vertical-align: bottom;
-}
-
 .word {
   border-color: $main-color;
   border-radius: 20px;
@@ -84,8 +45,8 @@
   font-size: 2em;
   margin-bottom: 1%;
   margin-top: 1%;
-  min-width: 6%;
-  padding: 1%;
+  min-width: 1.1em;
+  padding: 0.1em;
 
   &:not(:first-child) {
     margin-left: 1%;

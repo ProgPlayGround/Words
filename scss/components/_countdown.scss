@@ -1,8 +1,8 @@
 .countdown {
   border-radius: 50%;
   border: 2px solid $navbar-bg-color;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   position: relative;
 }
 
@@ -13,4 +13,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+
+@media (max-width: 414px) {
+  .countdown {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .count {
+    font-size: 1rem;
+  }
 }

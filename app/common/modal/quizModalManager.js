@@ -6,15 +6,14 @@
         $uibModal.open({
           templateUrl: 'common/modal/finishModal.html',
           backdrop: 'static',
-          size: 'md',
           controller: 'QuizFinishModalCtrl',
           controllerAs: 'mc',
+          windowClass: 'finish-modal-layout',
           resolve: {
             nextState: function() {
               return nextState;
             }
-          },
-          windowClass: 'quiz_modal_window'
+          }
         });
       }
     }

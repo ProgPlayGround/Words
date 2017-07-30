@@ -1,12 +1,14 @@
-<div class="container">
-  <div class="score-container col-sm-12">
-    <div class="col-sm-4 center">
-      <loading>
-        <span item class="letter animated" ng-repeat="char in quiz.loadingText track by $index">{{char}}</span>
-      </loading>
-    </div>
-    <span class="score-text">{{quiz.score()}}</span>
-    <span class="score-icon glyphicon glyphicon-star"></span>
+<div class="main-layout">
+  <div class="score-container">
+      <div class="score-layout">
+        <span class="score-text">{{quiz.score()}}</span>
+        <span class="score-icon glyphicon glyphicon-star"></span>
+      </div>
+  </div>
+  <div class="loading">
+    <loading>
+      <span item class="letter animated">{{quiz.loadingText}}</span>
+    </loading>
   </div>
 
   <div ng-if="quiz.isLoaded()" class="question-container animation-duration animated" next-word-nav="quiz.nav" nav-callback="quiz.loadQuestion()" nav-animation="fade">

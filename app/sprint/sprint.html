@@ -1,19 +1,20 @@
-<div class="container">
-  <div class="row score-container col-sm-12">
-    <div class="row">
-      <div class="col-sm-2">
+<div class="main-layout">
+  <div class="score-container">
+    <div class="spring-countdown">
       <countdown ng-if="sprint.isLoaded()" count='60' callback='sprint.onTimeFinished()'>
       </countdown>
     </div>
-    <div class="col-sm-6">
-        <loading>
-          <span item class="letter animated" ng-repeat="char in sprint.loadingText track by $index">{{char}}</span>
-        </loading>
-    </div>
-    <span class="score-text">{{sprint.score()}}</span>
-    <span class="score-icon glyphicon glyphicon-star"></span>
+    <div class="score-layout">
+      <span class="score-text">{{sprint.score()}}</span>
+      <span class="score-icon glyphicon glyphicon-star"></span>
     </div>
   </div>
+  <div class="loading">
+    <loading>
+      <span item class="letter animated">{{sprint.loadingText}}</span>
+    </loading>
+  </div>
+
   <div ng-if="sprint.isLoaded()" class="question-container animation-duration animated" next-word-nav="sprint.nav" nav-callback="sprint.loadQuestion()" nav-animation="fade">
     <div class="center">
       <span class="letter" ng-repeat="char in sprint.word() track by $index">{{char}}</span>
