@@ -101,3 +101,21 @@
   font-size: .8rem;
   font-family: $cursive;
 }
+
+@media(max-width: 768px) {
+  .main-min-layout {
+    display: block;
+    position: relative;
+  }
+  .main-selected-category {
+    @extend .main-min-layout;
+  }
+  .btn-main-categories {
+    @extend .main-min-layout;
+    margin-top: 5px;
+  }
+  .btn-main-select-category {
+    @extend .main-min-layout;
+    margin-top: 10px;
+  }
+}

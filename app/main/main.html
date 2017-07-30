@@ -1,11 +1,5 @@
 <div class="main-layout">
   <div class="main-header">
-    <a ui-sref="category">
-      <div class="btn-main-categories">
-        Categories
-      </div>
-    </a>
-
     <div class="main-selected-category">
       <div class="main-selected-category-header">Category:</div>
       <hr class="category-header-divider"/>
@@ -15,6 +9,10 @@
     <div class="btn-main-select-category" ng-click="main.selectCategory()">
       Select category
     </div>
+
+    <a class="btn-main-categories" ui-sref="category">
+        Categories
+    </a>
 
   </div>
   <div class="row">

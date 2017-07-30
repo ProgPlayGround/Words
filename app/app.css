@@ -873,3 +873,12 @@ img, iframe, video, object {
 .main-selected-category-header {
   font-size: .8rem;
   font-family: Cursive, Monospace; }
+
+@media (max-width: 768px) {
+  .main-min-layout, .main-selected-category, .btn-main-categories, .btn-main-select-category {
+    display: block;
+    position: relative; }
+  .btn-main-categories {
+    margin-top: 5px; }
+  .btn-main-select-category {
+    margin-top: 10px; } }
