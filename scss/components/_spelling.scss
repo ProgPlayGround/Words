@@ -67,12 +67,8 @@
   }
 }
 
-.btn-ok {
-  border: 2px solid $main-color;
-  color: $black;
-  font-weight: bold;
-  padding-left: 5%;
-  padding-right: 5%;
+.btn-finish {
+  @extend .btn-base;
   transition: all .25s ease-in-out;
 
   &:hover {

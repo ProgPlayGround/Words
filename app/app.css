@@ -300,14 +300,9 @@ img, iframe, video, object {
     background-color: #558c89;
     color: #fff; }
 
-.btn-ok {
-  border: 2px solid #74afad;
-  color: #000;
-  font-weight: bold;
-  padding-left: 5%;
-  padding-right: 5%;
+.btn-finish {
   transition: all .25s ease-in-out; }
-  .btn-ok:hover {
+  .btn-finish:hover {
     transform: scale(1.1); }
 
 .btn-solution {
@@ -427,7 +422,7 @@ img, iframe, video, object {
   padding-top: 1%;
   text-align: center; }
 
-.btn-base, .btn-solution, .btn-next, .btn-select-img, .btn-sprint, .btn-category, .btn-modal-add-category, .btn-main, .btn-main-categories, .btn-main-select-category {
+.btn-base, .btn-finish, .btn-solution, .btn-next, .btn-select-img, .btn-sprint, .btn-category, .btn-modal-add-category, .btn-main, .btn-main-categories, .btn-main-select-category {
   border: 1px solid #74afad;
   border-radius: 7px;
   color: #000;
@@ -441,7 +436,7 @@ img, iframe, video, object {
   text-overflow: ellipsis;
   transition: all .25s ease-in-out;
   white-space: nowrap; }
-  .btn-base:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover, .btn-category:hover, .btn-modal-add-category:hover, .btn-main:hover, .btn-main-categories:hover, .btn-main-select-category:hover {
+  .btn-base:hover, .btn-finish:hover, .btn-solution:hover, .btn-next:hover, .btn-select-img:hover, .btn-sprint:hover, .btn-category:hover, .btn-modal-add-category:hover, .btn-main:hover, .btn-main-categories:hover, .btn-main-select-category:hover {
     background-color: #74afad; }
 
 .input-base, .input-category {
