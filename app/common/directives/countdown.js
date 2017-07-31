@@ -6,12 +6,14 @@
         '<div class="count">{{count}}</div>' +
         '</div>',
       scope: {
-        callback: '&'
+        callback: '&',
+        isFinished: '='
       },
       link: function(scope, element, attrs) {
+
         scope.count = parseInt(attrs.count) || 30;
         var interval = $interval(function() {
-          if(scope.count === 0) {
+          if(scope.count === 0 || scope.isFinished) {
             $interval.cancel(interval);
             scope.callback();
           } else {

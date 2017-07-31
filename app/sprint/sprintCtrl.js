@@ -3,6 +3,7 @@
    function($scope, $stateParams, sprintManager, scoreManager, quizModalManager) {
     var vm = this;
     vm.loadingText = 'Loading...';
+    vm.isFinished = false;
 
     vm.category = $stateParams.category;
     vm.word = sprintManager.word;
@@ -28,12 +29,15 @@
       if(sprintManager.next()) {
         vm.nav = true;
       } else {
+        vm.isFinished = true;
         quizModalManager.finishModal('main');
       }
     };
 
     vm.onTimeFinished = function() {
-      quizModalManager.finishModal('main');
+      if(!vm.isFinished) {
+        quizModalManager.finishModal('main');
+      }
     };
 
     $scope.$on('$stateChangeStart', function() {

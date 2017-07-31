@@ -1,7 +1,7 @@
 <div class="main-layout">
   <div class="score-container">
     <div class="spring-countdown">
-      <countdown ng-if="sprint.isLoaded()" count='60' callback='sprint.onTimeFinished()'>
+      <countdown ng-if="sprint.isLoaded()" count='60' callback='sprint.onTimeFinished()' is-finished='sprint.isFinished'>
       </countdown>
     </div>
     <div class="score-layout">
