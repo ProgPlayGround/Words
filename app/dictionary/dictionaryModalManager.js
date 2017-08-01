@@ -6,22 +6,21 @@
         $uibModal.open({
           templateUrl: 'dictionary/dictionaryCard.html',
           animation: false,
-          size: 'sm',
+          size: 'md',
           controller: 'DictionaryModalCtrl',
-          controllerAs: 'dm',
+          controllerAs: 'sm',
           resolve: {
             selectedWord: function() {
               return word;
             }
           },
-          windowClass: 'dictionary_word_window'
+          windowClass: 'dictionary-word-layout'
         });
       },
       addImg: function(word) {
         $uibModal.open({
           templateUrl: 'dictionary/addImg.html',
           animation: false,
-          size: 'sm',
           controller: 'DictionaryModalCtrl',
           controllerAs: 'dm',
           resolve: {
@@ -29,7 +28,7 @@
               return word;
             }
           },
-          windowClass: 'dictionary_add_img_window'
+          windowClass: 'dictionary-add-img-layout'
         });
       }
     };

@@ -558,17 +558,18 @@ img, iframe, video, object {
 .dictionary-table {
   border-collapse: collapse;
   display: table;
-  margin-top: 10px; }
+  margin-top: 10px;
+  width: 100%; }
 
 .dictionary-row {
+  border-bottom: 1px dashed #74afad;
   display: table-row;
-  width: 100%;
-  border-bottom: 1px dashed #74afad; }
+  width: 100%; }
 
 .dictionary-caption {
-  width: 100%;
+  border-bottom: 1px solid #74afad;
   display: table-caption;
-  border-bottom: 1px solid #74afad; }
+  width: 100%; }
 
 .dictionary-category-caption {
   position: relative;
@@ -688,22 +689,26 @@ img, iframe, video, object {
   .dictionary-modal .btn-add-translation {
     font-size: 0.5rem; }
 
-.dictionary-img, .dictionary-add-img {
+.dictionary-img, .dictionary-add-img, .dictionary-preview-img {
   display: inline-block;
   width: 2rem;
   height: 2rem;
   object-fit: fill; }
-  .dictionary-img.selectable, .selectable.dictionary-add-img {
+  .dictionary-img.selectable, .selectable.dictionary-add-img, .selectable.dictionary-preview-img {
     cursor: pointer; }
-    .dictionary-img.selectable:hover, .selectable.dictionary-add-img:hover {
+    .dictionary-img.selectable:hover, .selectable.dictionary-add-img:hover, .selectable.dictionary-preview-img:hover {
       border: 1px solid #74afad; }
 
 .dictionary-add-img {
   display: none; }
 
+.dictionary-preview-img {
+  width: 3rem;
+  height: 3rem; }
+
 .btn-select-img {
-  padding: 2%;
-  font-size: 0.5rem; }
+  padding: .5rem;
+  font-size: .7rem; }
 
 .empty-list-cell {
   text-align: center;
@@ -726,6 +731,12 @@ img, iframe, video, object {
   width: 3rem;
   text-align: center;
   vertical-align: middle; }
+
+@media (max-width: 768px) {
+  .search {
+    width: 150px; }
+  .dictionary-add-img-layout .modal-dialog {
+    width: 150px; } }
 
 .btn-sprint {
   padding: 2%;

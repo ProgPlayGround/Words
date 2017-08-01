@@ -2,18 +2,19 @@
   border-collapse: collapse;
   display: table;
   margin-top: 10px;
+  width: 100%;
 }
 
 .dictionary-row {
+  border-bottom: 1px dashed $main-color;
   display: table-row;
   width: 100%;
-  border-bottom: 1px dashed $main-color;
 }
 
 .dictionary-caption {
-  width: 100%;
-  display: table-caption;
   border-bottom: 1px solid $main-color;
+  display: table-caption;
+  width: 100%;
 }
 
 .dictionary-category-caption {
@@ -195,10 +196,16 @@
   display: none;
 }
 
+.dictionary-preview-img {
+  @extend .dictionary-img;
+  width: 3rem;
+  height: 3rem;
+}
+
 .btn-select-img {
   @extend .btn-base;
-  padding: 2%;
-  font-size: 0.5rem;
+  padding: .5rem;
+  font-size: .7rem;
 }
 
 .empty-list-cell {
@@ -226,4 +233,14 @@
   width: 3rem;
   text-align: center;
   vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .search {
+    width: 150px;
+  }
+  
+  .dictionary-add-img-layout .modal-dialog {
+    width: 150px;
+  }
 }

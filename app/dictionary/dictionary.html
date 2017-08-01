@@ -1,57 +1,59 @@
-<div class="dictionary-category-caption">
-  <div class="btn-dictionary batch-base">
-    <i class="fa fa-arrow-left" ng-click="dictionary.back()"></i>
+<div class="main-layout">
+  <div class="dictionary-category-caption">
+    <div class="btn-dictionary batch-base">
+      <i class="fa fa-arrow-left" ng-click="dictionary.back()"></i>
+    </div>
+    <span>{{dictionary.category}}</span>
+    <loading class="dictionary-loading">
+      <span item class="letter animated">loading...</span>
+    </loading>
   </div>
-  <span>{{dictionary.category}}</span>
-  <loading class="dictionary-loading">
-    <span item class="letter animated">loading...</span>
-  </loading>
-</div>
-<div class="container dictionary-table">
-  <div class="dictionary-caption">
-    <div class="checkbox-cell">
-      <input class="checkbox" type="checkbox" ng-model="dictionary.allChecked" ng-click="dictionary.checkAll()">
-    </div>
-    <div class="search-cell" ng-show="!dictionary.checked()">
-      <input class="search" type="text" placeholder="Search" ng-model="dictionary.search">
-      <i class="btn-add fa fa-plus-square-o" ng-hide="!dictionary.search || dictionary.all"
-      popover-trigger="'outsideClick'" popover-is-open="dictionary.addPopover.isOpen"
-      uib-popover-template="'dictionary/addPopover.html'" popover-placement="bottom"
-      ng-click="dictionary.add()"></i>
-    </div>
-    <div class="batch-cell" ng-show="dictionary.checked()">
-      <div class="batch-group">
-        <div class="btn-dictionary batch-item">
-          <i class="fa fa-graduation-cap" ng-click="dictionary.trainChecked()"></i>
-        </div>
-        <div class="btn-dictionary batch-item">
-          <i class="fa fa-trash" ng-click="dictionary.removeChecked()"></i>
+  <div class="dictionary-table">
+    <div class="dictionary-caption">
+      <div class="checkbox-cell">
+        <input class="checkbox" type="checkbox" ng-model="dictionary.allChecked" ng-click="dictionary.checkAll()">
+      </div>
+      <div class="search-cell" ng-show="!dictionary.checked()">
+        <input class="search" type="text" placeholder="Search" ng-model="dictionary.search">
+        <i class="btn-add fa fa-plus-square-o" ng-hide="!dictionary.search || dictionary.all"
+        popover-trigger="'outsideClick'" popover-is-open="dictionary.addPopover.isOpen"
+        uib-popover-template="'dictionary/addPopover.html'" popover-placement="bottom"
+        ng-click="dictionary.add()"></i>
+      </div>
+      <div class="batch-cell" ng-show="dictionary.checked()">
+        <div class="batch-group">
+          <div class="btn-dictionary batch-item">
+            <i class="fa fa-graduation-cap" ng-click="dictionary.trainChecked()"></i>
+          </div>
+          <div class="btn-dictionary batch-item">
+            <i class="fa fa-trash" ng-click="dictionary.removeChecked()"></i>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="dictionary-row" ng-repeat="word in filteredWords = (dictionary.words | wordSearchFilter:dictionary.search) track by $index">
-    <div class="checkbox-cell">
-      <input class="checkbox" type="checkbox" ng-model="word.checked">
+    <div class="dictionary-row" ng-repeat="word in filteredWords = (dictionary.words | wordSearchFilter:dictionary.search) track by $index">
+      <div class="checkbox-cell">
+        <input class="checkbox" type="checkbox" ng-model="word.checked">
+      </div>
+      <div class="sound-cell" ng-click="dictionary.sound(word)">
+        <i class="btn-dictionary fa fa-volume-up"></i>
+      </div>
+      <div class="word-cell" ng-click="dictionary.showCard(word)">
+        {{word.word}} - <span ng-repeat="translation in word.translation track by $index">{{translation}}{{$last ? '' : ', '}}<span/>
+      </div>
+      <div class="img-cell">
+        <img class="dictionary-add-img clickable" src="../images/add.png" ng-click="dictionary.changeImg(word)">
+        <img class="dictionary-img" ng-src="{{word.imageUrl}}">
+      </div>
+      <div class="remove-cell" ng-click="dictionary.remove(word)">
+        <i class="btn-dictionary fa fa-trash"></i>
+      </div>
     </div>
-    <div class="sound-cell" ng-click="dictionary.sound(word)">
-      <i class="btn-dictionary fa fa-volume-up"></i>
+    <div class="empty-list-cell" ng-show="dictionary.search && !filteredWords.length">
+      Word <span class="dictionary-search-word">{{dictionary.search}}</span> wasn't found. {{dictionary.all ? '': 'Add it to dictionary.'}}
     </div>
-    <div class="word-cell" ng-click="dictionary.showCard(word)">
-      {{word.word}} - <span ng-repeat="translation in word.translation track by $index">{{translation}}{{$last ? '' : ', '}}<span/>
+    <div class="empty-list-cell" ng-show="!dictionary.search && !filteredWords.length">
+      Dictionary is empty.
     </div>
-    <div class="img-cell">
-      <img class="dictionary-add-img clickable" src="../images/add.png" ng-click="dictionary.changeImg(word)">
-      <img class="dictionary-img" ng-src="{{word.imageUrl}}">
-    </div>
-    <div class="remove-cell" ng-click="dictionary.remove(word)">
-      <i class="btn-dictionary fa fa-trash"></i>
-    </div>
-  </div>
-  <div class="empty-list-cell" ng-show="dictionary.search && !filteredWords.length">
-    Word <span class="dictionary-search-word">{{dictionary.search}}</span> wasn't found. {{dictionary.all ? '': 'Add it to dictionary.'}}
-  </div>
-  <div class="empty-list-cell" ng-show="!dictionary.search && !filteredWords.length">
-    Dictionary is empty.
   </div>
 </div>
