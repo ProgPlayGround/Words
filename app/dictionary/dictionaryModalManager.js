@@ -8,7 +8,7 @@
           animation: false,
           size: 'md',
           controller: 'DictionaryModalCtrl',
-          controllerAs: 'sm',
+          controllerAs: 'dm',
           resolve: {
             selectedWord: function() {
               return word;

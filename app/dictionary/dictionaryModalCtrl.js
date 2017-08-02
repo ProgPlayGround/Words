@@ -4,7 +4,6 @@
   angular.module('words').controller('DictionaryModalCtrl', ['dictionaryManager', 'selectedWord', '$uibModalInstance',
   function(dictionaryManager, selectedWord, $uibModalInstance) {
     var vm = this;
-
     vm.selectedWord = selectedWord;
     vm.selectionError = {};
     vm.selectedImg = null;

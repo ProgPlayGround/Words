@@ -736,7 +736,11 @@ img, iframe, video, object {
   .search {
     width: 150px; }
   .dictionary-add-img-layout .modal-dialog {
-    width: 150px; } }
+    width: 150px; }
+  .dictionary-category-caption {
+    font-size: 1.5rem; }
+  .word-cell {
+    font-size: .7rem; } }
 
 .btn-sprint {
   padding: 2%;
