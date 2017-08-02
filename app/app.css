@@ -712,7 +712,7 @@ img, iframe, video, object {
 
 .empty-list-cell {
   text-align: center;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: .5rem 0 .5rem 0;
   background-color: #e0e0dd;
   border-radius: 0 0 5px 5px; }
 
@@ -720,10 +720,10 @@ img, iframe, video, object {
   color: #558c89; }
 
 .add-image-info {
-  font-size: 0.4rem; }
+  font-size: .4rem; }
 
 .add-image-error {
-  font-size: 0.4rem;
+  font-size: .4rem;
   color: #af7375; }
 
 .remove-cell {
@@ -735,10 +735,18 @@ img, iframe, video, object {
 @media (max-width: 768px) {
   .search {
     width: 150px; }
+  .dictionary-word-layout .modal-dialog,
   .dictionary-add-img-layout .modal-dialog {
     width: 150px; }
+  .btn-dictionary, .btn-add, .btn-save, .dictionary-modal .btn-dictionary-cross, .dictionary-modal .btn-add-translation {
+    font-size: .7rem; }
   .dictionary-category-caption {
-    font-size: 1.5rem; }
+    font-size: 1rem; }
+  .dictionary-loading {
+    left: -5%;
+    top: 20%; }
+    .dictionary-loading .letter, .dictionary-loading .input-letter {
+      font-size: .5rem; }
   .word-cell {
     font-size: .7rem; } }
 
@@ -910,6 +918,8 @@ img, iframe, video, object {
   font-family: Cursive, Monospace; }
 
 @media (max-width: 768px) {
+  .main-layout {
+    padding: 0 5%; }
   .main-min-layout, .btn-main-categories, .main-selected-category-header {
     display: block;
     position: relative;

@@ -210,7 +210,7 @@
 
 .empty-list-cell {
   text-align: center;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: .5rem 0 .5rem 0;
   background-color: $bg-monochromatic;
   border-radius: 0 0 5px 5px;
 }
@@ -220,11 +220,11 @@
 }
 
 .add-image-info {
-  font-size: 0.4rem;
+  font-size: .4rem;
 }
 
 .add-image-error {
-  font-size: 0.4rem;
+  font-size: .4rem;
   color: $wrong-color;
 }
 
@@ -236,16 +236,30 @@
 }
 
 @media (max-width: 768px) {
+
   .search {
     width: 150px;
   }
 
+  .dictionary-word-layout .modal-dialog,
   .dictionary-add-img-layout .modal-dialog {
     width: 150px;
   }
 
+  .btn-dictionary {
+    font-size: .7rem;
+  }
+
   .dictionary-category-caption {
-    font-size: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .dictionary-loading {
+    left: -5%;
+    top: 20%;
+    .letter {
+      font-size: .5rem;
+    }
   }
 
   .word-cell {

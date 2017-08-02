@@ -89,6 +89,10 @@
 }
 
 @media(max-width: 768px) {
+  .main-layout {
+    padding: 0 5%;
+  }
+
   .main-min-layout {
     display: block;
     position: relative;
