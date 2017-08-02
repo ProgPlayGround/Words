@@ -590,6 +590,7 @@ img, iframe, video, object {
   cursor: pointer;
   display: table-cell;
   height: 3rem;
+  min-width: 3rem;
   width: 3rem;
   border-right: 1px solid #74afad;
   text-align: center;
@@ -645,6 +646,7 @@ img, iframe, video, object {
 .sound-cell {
   display: table-cell;
   width: 3rem;
+  min-width: 3rem;
   text-align: center;
   vertical-align: middle; }
 
@@ -693,6 +695,7 @@ img, iframe, video, object {
   display: inline-block;
   width: 2rem;
   height: 2rem;
+  min-width: 2rem;
   object-fit: fill; }
   .dictionary-img.selectable, .selectable.dictionary-add-img, .selectable.dictionary-preview-img {
     cursor: pointer; }

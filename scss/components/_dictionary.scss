@@ -38,6 +38,7 @@
   cursor: pointer;
   display: table-cell;
   height: 3rem;
+  min-width: 3rem;
   width: 3rem;
   border-right: 1px solid $main-color;
   text-align: center;
@@ -111,6 +112,7 @@
 .sound-cell {
   display: table-cell;
   width: 3rem;
+  min-width: 3rem;
   text-align: center;
   vertical-align: middle;
 }
@@ -180,6 +182,7 @@
   display: inline-block;
   width: 2rem;
   height: 2rem;
+  min-width: 2rem;
   object-fit: fill;
 
   &.selectable {
@@ -257,6 +260,7 @@
   .dictionary-loading {
     left: -5%;
     top: 20%;
+
     .letter {
       font-size: .5rem;
     }
