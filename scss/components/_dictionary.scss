@@ -64,6 +64,10 @@
   border-bottom-right-radius: 8px;
 }
 
+.search-add-popover {
+  @extend .search;
+}
+
 .btn-add {
   @extend .btn-dictionary;
   font-size: 0.9rem;
@@ -131,7 +135,10 @@
   display: table-cell;
   text-align: left;
   text-overflow: ellipsis;
+  overflow: hidden;
   vertical-align: middle;
+  width: inherit;
+  max-width: inherit;
 }
 
 .img-cell {
@@ -175,6 +182,13 @@
   .btn-add-translation {
     @extend .btn-dictionary;
     font-size: 0.5rem;
+  }
+
+  .dictionary-card-translation {
+    width: inherit;
+    max-width: inherit;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 
@@ -233,6 +247,7 @@
 
 .remove-cell {
   display: table-cell;
+  min-width: 3rem;
   width: 3rem;
   text-align: center;
   vertical-align: middle;
@@ -242,6 +257,12 @@
 
   .search {
     width: 150px;
+    max-width: 150px;
+  }
+
+  .search-add-popover {
+    width: 100px;
+    max-width: 100px;
   }
 
   .dictionary-word-layout .modal-dialog,
@@ -256,17 +277,36 @@
   .dictionary-category-caption {
     font-size: 1rem;
   }
+}
 
-  .dictionary-loading {
-    left: -5%;
-    top: 20%;
+@media (max-width: 414px) {
 
-    .letter {
-      font-size: .5rem;
+    .checkbox-cell {
+      min-width: 1.5rem;
+      width: 1.5rem;
     }
-  }
 
-  .word-cell {
-    font-size: .7rem;
-  }
+    .sound-cell {
+      width: 1.5rem;
+      min-width: 1.5rem;
+    }
+
+    .remove-cell {
+      width: 1.5rem;
+      min-width: 1.5rem;
+    }
+
+    .word-cell {
+      font-size: .6rem;
+      max-width: 1rem;
+    }
+
+    .dictionary-loading {
+      left: -5%;
+      top: 20%;
+
+      .letter {
+        font-size: .5rem;
+      }
+    }
 }

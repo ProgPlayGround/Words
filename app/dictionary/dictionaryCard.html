@@ -4,7 +4,7 @@
   <hr class="divider"/>
   {{dm.selectedWord.word}}
   <hr class="divider"/>
-  <div ng-repeat="translation in dm.selectedWord.translation track by $index">
+  <div class="dictionary-card-translation"ng-repeat="translation in dm.selectedWord.translation track by $index">
     {{translation}}
     <i class="btn-dictionary-cross fa fa-times" ng-click="dm.removeTranslation($index)" ng-show="dm.selectedWord.translation.length > 1"></i>
   </div>

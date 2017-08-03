@@ -605,7 +605,7 @@ img, iframe, video, object {
   vertical-align: middle;
   padding-left: 0.8rem; }
 
-.search {
+.search, .search-add-popover {
   border: 1px solid #74afad;
   font-size: 1.1rem;
   font-family: Arial, Helvetica, sans-serif;
@@ -661,7 +661,10 @@ img, iframe, video, object {
   display: table-cell;
   text-align: left;
   text-overflow: ellipsis;
-  vertical-align: middle; }
+  overflow: hidden;
+  vertical-align: middle;
+  width: inherit;
+  max-width: inherit; }
 
 .img-cell {
   display: table-cell;
@@ -690,6 +693,11 @@ img, iframe, video, object {
       top: 8px; }
   .dictionary-modal .btn-add-translation {
     font-size: 0.5rem; }
+  .dictionary-modal .dictionary-card-translation {
+    width: inherit;
+    max-width: inherit;
+    text-overflow: ellipsis;
+    overflow: hidden; }
 
 .dictionary-img, .dictionary-add-img, .dictionary-preview-img {
   display: inline-block;
@@ -731,27 +739,44 @@ img, iframe, video, object {
 
 .remove-cell {
   display: table-cell;
+  min-width: 3rem;
   width: 3rem;
   text-align: center;
   vertical-align: middle; }
 
 @media (max-width: 768px) {
-  .search {
-    width: 150px; }
+  .search, .search-add-popover {
+    width: 150px;
+    max-width: 150px; }
+  .search-add-popover {
+    width: 100px;
+    max-width: 100px; }
   .dictionary-word-layout .modal-dialog,
   .dictionary-add-img-layout .modal-dialog {
     width: 150px; }
   .btn-dictionary, .btn-add, .btn-save, .dictionary-modal .btn-dictionary-cross, .dictionary-modal .btn-add-translation {
     font-size: .7rem; }
   .dictionary-category-caption {
-    font-size: 1rem; }
+    font-size: 1rem; } }
+
+@media (max-width: 414px) {
+  .checkbox-cell {
+    min-width: 1.5rem;
+    width: 1.5rem; }
+  .sound-cell {
+    width: 1.5rem;
+    min-width: 1.5rem; }
+  .remove-cell {
+    width: 1.5rem;
+    min-width: 1.5rem; }
+  .word-cell {
+    font-size: .6rem;
+    max-width: 1rem; }
   .dictionary-loading {
     left: -5%;
     top: 20%; }
     .dictionary-loading .letter, .dictionary-loading .input-letter {
-      font-size: .5rem; }
-  .word-cell {
-    font-size: .7rem; } }
+      font-size: .5rem; } }
 
 .btn-sprint {
   padding: 2%;
