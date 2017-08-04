@@ -1,6 +1,7 @@
 .dictionary-table {
   border-collapse: collapse;
   display: table;
+  table-layout: fixed;
   margin-top: 10px;
   width: 100%;
 }
@@ -31,7 +32,7 @@
   position: absolute;
   left: 10%;
   top: 30%;
-  font-size: 0.5rem;
+  font-size: .5rem;
 }
 
 .checkbox-cell {
@@ -88,7 +89,7 @@
   font-size: 1rem;
 
   > i {
-    margin-top: 0.25rem;
+    margin-top: .25rem;
   }
 }
 
@@ -137,14 +138,12 @@
   text-overflow: ellipsis;
   overflow: hidden;
   vertical-align: middle;
-  width: inherit;
-  max-width: inherit;
+  width: 70%;
 }
 
 .img-cell {
   display: table-cell;
   text-align: right;
-  width: 5rem;
   vertical-align: middle;
   transition: all .25s ease-in-out;
 
@@ -169,7 +168,7 @@
 
   .btn-dictionary-cross {
     @extend .btn-dictionary;
-    font-size: 0.5rem;
+    font-size: .5rem;
     vertical-align: top;
 
     &.btn-close {
@@ -181,7 +180,7 @@
 
   .btn-add-translation {
     @extend .btn-dictionary;
-    font-size: 0.5rem;
+    font-size: .5rem;
   }
 
   .dictionary-card-translation {
@@ -265,6 +264,10 @@
     max-width: 100px;
   }
 
+  .word-cell {
+    width: 55%;
+  }
+
   .dictionary-word-layout .modal-dialog,
   .dictionary-add-img-layout .modal-dialog {
     width: 150px;
@@ -281,32 +284,42 @@
 
 @media (max-width: 414px) {
 
-    .checkbox-cell {
-      min-width: 1.5rem;
-      width: 1.5rem;
-    }
+  .search {
+    width: 120px;
+    max-width: 120px;
+  }
 
-    .sound-cell {
-      width: 1.5rem;
-      min-width: 1.5rem;
-    }
+  .search-add-popover {
+    width: 80px;
+    max-width: 80px;
+  }
 
-    .remove-cell {
-      width: 1.5rem;
-      min-width: 1.5rem;
-    }
+  .checkbox-cell {
+    min-width: 1.5rem;
+    width: 1.5rem;
+  }
 
-    .word-cell {
-      font-size: .6rem;
-      max-width: 1rem;
-    }
+  .sound-cell {
+    width: 1.5rem;
+    min-width: 1.5rem;
+  }
 
-    .dictionary-loading {
-      left: -5%;
-      top: 20%;
+  .remove-cell {
+    width: 1.5rem;
+    min-width: 1.5rem;
+  }
 
-      .letter {
-        font-size: .5rem;
-      }
+  .word-cell {
+    font-size: .6rem;
+    max-width: 1rem;
+  }
+
+  .dictionary-loading {
+    left: -5%;
+    top: 20%;
+
+    .letter {
+      font-size: .5rem;
     }
+  }
 }

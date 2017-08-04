@@ -558,6 +558,7 @@ img, iframe, video, object {
 .dictionary-table {
   border-collapse: collapse;
   display: table;
+  table-layout: fixed;
   margin-top: 10px;
   width: 100%; }
 
@@ -584,7 +585,7 @@ img, iframe, video, object {
   position: absolute;
   left: 10%;
   top: 30%;
-  font-size: 0.5rem; }
+  font-size: .5rem; }
 
 .checkbox-cell {
   cursor: pointer;
@@ -627,7 +628,7 @@ img, iframe, video, object {
   width: 2rem;
   font-size: 1rem; }
   .batch-base > i, .batch-item > i {
-    margin-top: 0.25rem; }
+    margin-top: .25rem; }
 
 .batch-cell {
   display: table-cell;
@@ -663,13 +664,11 @@ img, iframe, video, object {
   text-overflow: ellipsis;
   overflow: hidden;
   vertical-align: middle;
-  width: inherit;
-  max-width: inherit; }
+  width: 70%; }
 
 .img-cell {
   display: table-cell;
   text-align: right;
-  width: 5rem;
   vertical-align: middle;
   transition: all .25s ease-in-out; }
   .img-cell:hover > .dictionary-add-img {
@@ -685,14 +684,14 @@ img, iframe, video, object {
   .dictionary-modal .divider {
     border-color: #ccc; }
   .dictionary-modal .btn-dictionary-cross {
-    font-size: 0.5rem;
+    font-size: .5rem;
     vertical-align: top; }
     .dictionary-modal .btn-dictionary-cross.btn-close {
       position: absolute;
       right: 10px;
       top: 8px; }
   .dictionary-modal .btn-add-translation {
-    font-size: 0.5rem; }
+    font-size: .5rem; }
   .dictionary-modal .dictionary-card-translation {
     width: inherit;
     max-width: inherit;
@@ -751,6 +750,8 @@ img, iframe, video, object {
   .search-add-popover {
     width: 100px;
     max-width: 100px; }
+  .word-cell {
+    width: 55%; }
   .dictionary-word-layout .modal-dialog,
   .dictionary-add-img-layout .modal-dialog {
     width: 150px; }
@@ -760,6 +761,12 @@ img, iframe, video, object {
     font-size: 1rem; } }
 
 @media (max-width: 414px) {
+  .search, .search-add-popover {
+    width: 120px;
+    max-width: 120px; }
+  .search-add-popover {
+    width: 80px;
+    max-width: 80px; }
   .checkbox-cell {
     min-width: 1.5rem;
     width: 1.5rem; }
