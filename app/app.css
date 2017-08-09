@@ -159,6 +159,10 @@ img, iframe, video, object {
   padding-top: 1%;
   position: relative; }
 
+.profile-user-info-layout {
+  display: inline-block;
+  width: 80%; }
+
 .profile-edit {
   cursor: pointer;
   font-size: .8rem; }
@@ -166,7 +170,7 @@ img, iframe, video, object {
     color: #74afad; }
 
 .profile-avatar-layout {
-  float: left;
+  display: inline-block;
   margin: 2% 2%; }
 
 .profile-avatar {
@@ -180,8 +184,7 @@ img, iframe, video, object {
   font-size: 1rem; }
 
 .progress-container {
-  margin-left: 160px;
-  margin-top: 10px; }
+  margin-top: 15px; }
 
 .rank-level {
   background: url("images/level.png");
@@ -527,10 +530,6 @@ img, iframe, video, object {
 
 .hidden {
   display: none; }
-
-.no-padding {
-  padding-left: 0;
-  padding-right: 0; }
 
 .translation-animation {
   -webkit-transition: all .1s ease;

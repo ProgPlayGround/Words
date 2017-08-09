@@ -228,11 +228,6 @@
   display: none;
 }
 
-.no-padding {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 @mixin effect($effect) {
   -webkit-animation-name: $effect;
   animation-name: $effect;

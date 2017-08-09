@@ -10,6 +10,11 @@
   position: relative;
 }
 
+.profile-user-info-layout {
+  display: inline-block;
+  width: 80%;
+}
+
 .profile-edit {
   cursor: pointer;
   font-size: .8rem;
@@ -20,7 +25,7 @@
 }
 
 .profile-avatar-layout {
-  float: left;
+  display: inline-block;
   margin: 2% 2%;
 }
 
@@ -38,8 +43,7 @@
 }
 
 .progress-container {
-  margin-left: 160px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .rank-level {

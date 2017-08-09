@@ -1,16 +1,16 @@
 <div class="main-layout">
-    <div class="user-data-container no-padding">
-      <div class="profile-avatar-layout">
-        <img class="profile-avatar" alt="avatar" ng-src="{{user.profile.avatar || user.defaultImg}}"/>
-      </div>
-      <div class="center">
-        <div class="profile-username">{{user.profile.info.name || 'Username'}} <i class="profile-edit fa fa-pencil" ng-click="user.edit()"></i></div>
-        <div class="profile-info">Age: {{user.profile.info.age || 'Unknown'}}, status: {{user.profile.rank.status || 'Active'}}</div>
-      </div>
-      <div class="progress-container">
-        <div class="rank-level">{{user.profile.rank.level}}</div>
-        <uib-progressbar class="rank-bar" value="user.profile.rank.progress" type="success"></uib-progressbar>
-      </div>
+    <div class="user-data-container">
+        <div class="profile-avatar-layout">
+          <img class="profile-avatar" alt="avatar" ng-src="{{user.profile.avatar || user.defaultImg}}"/>
+        </div>
+        <div class="profile-user-info-layout center">
+          <div class="profile-username">{{user.profile.info.name || 'Username'}} <i class="profile-edit fa fa-pencil" ng-click="user.edit()"></i></div>
+          <div class="profile-info">Age: {{user.profile.info.age || 'Unknown'}}, status: {{user.profile.rank.status || 'Active'}}</div>
+          <div class="progress-container">
+            <div class="rank-level">{{user.profile.rank.level}}</div>
+            <uib-progressbar class="rank-bar" value="user.profile.rank.progress" type="success"></uib-progressbar>
+          </div>
+        </div>
       <img class="profile-background-img" src="images/education.png"/>
       <div class="center profile-activity">
           <div class="profile-activity-header">Activities</div>
