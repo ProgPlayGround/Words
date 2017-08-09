@@ -1,62 +1,40 @@
-.user-container {
-  font-family: $papyrus;
-  margin-left: 3%;
-}
-
 .user-data-container {
+  font-family: $cursive;
   background-color: $white;
-  height: 80vh;
+  height: 90vh;
   overflow: hidden;
+  margin-top: 1%;
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 1%;
   position: relative;
 }
 
-.nav-tabs {
-  border-bottom: 0;
+.profile-edit {
+  cursor: pointer;
+  font-size: .8rem;
 
-  > li {
-    > a {
-      border: 0;
-      border-radius: 0;
-      margin-right: 0;
-    }
-
-    &.active {
-      > a {
-        border: 0;
-
-        &:focus, &:hover {
-          border: 0;
-        }
-      }
-    }
+  &:hover {
+    color: $main-color;
   }
 }
 
-.tabs {
+.profile-avatar-layout {
   float: left;
+  margin: 2% 2%;
 }
 
-.tab-img {
-  display: block;
-  margin: auto;
-}
-
-.avatar {
-  float: left;
+.profile-avatar {
   position: relative;
-  width: 160px;
-  z-index: 3;
+  width: 80px;
 }
 
 .profile-username {
-  font-size: 1.6em;
+  font-size: 1.3rem;
 }
 
 .profile-info {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .progress-container {
@@ -67,7 +45,7 @@
 .rank-level {
   background: url('images/level.png');
   float: left;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   height: 48px;
   margin-left: 8%;
   margin-right: -15px;
@@ -92,7 +70,7 @@
 }
 
 .profile-activity-header {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .profile-activity-body {
@@ -100,7 +78,7 @@
 }
 
 .profile-activity-body-timeline {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .profile-activity-body-info {
@@ -117,10 +95,10 @@
   padding-top: 10px;
 }
 
-.background-img {
+.profile-background-img {
   bottom: 0;
   left: 0;
-  overflow: hidden;
   position: absolute;
-  z-index: 1;
+  overflow: hidden;
+  height: 50%;
 }

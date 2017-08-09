@@ -63,7 +63,7 @@ img, iframe, video, object {
   border-bottom: #b3b5b8 3px solid; }
   .header-layout a {
     color: #fff;
-    font-family: Cursive, Monospace, Arial, Helvetica, sans-serif;
+    font-family: Cursive, Monospace, sans-serif, Arial, Helvetica, sans-serif;
     font-style: italic;
     text-decoration: none; }
     .header-layout a:hover, .header-layout a:focus, .header-layout a:active {
@@ -148,48 +148,36 @@ img, iframe, video, object {
   min-height: .8em;
   opacity: .6; }
 
-.user-container {
-  font-family: Papyrus, fantasy;
-  margin-left: 3%; }
-
 .user-data-container {
+  font-family: Cursive, Monospace, sans-serif;
   background-color: #fff;
-  height: 80vh;
+  height: 90vh;
   overflow: hidden;
+  margin-top: 1%;
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 1%;
   position: relative; }
 
-.nav-tabs {
-  border-bottom: 0; }
-  .nav-tabs > li > a {
-    border: 0;
-    border-radius: 0;
-    margin-right: 0; }
-  .nav-tabs > li.active > a {
-    border: 0; }
-    .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
-      border: 0; }
+.profile-edit {
+  cursor: pointer;
+  font-size: .8rem; }
+  .profile-edit:hover {
+    color: #74afad; }
 
-.tabs {
-  float: left; }
-
-.tab-img {
-  display: block;
-  margin: auto; }
-
-.avatar {
+.profile-avatar-layout {
   float: left;
+  margin: 2% 2%; }
+
+.profile-avatar {
   position: relative;
-  width: 160px;
-  z-index: 3; }
+  width: 80px; }
 
 .profile-username {
-  font-size: 1.6em; }
+  font-size: 1.3rem; }
 
 .profile-info {
-  font-size: 1em; }
+  font-size: 1rem; }
 
 .progress-container {
   margin-left: 160px;
@@ -198,7 +186,7 @@ img, iframe, video, object {
 .rank-level {
   background: url("images/level.png");
   float: left;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   height: 48px;
   margin-left: 8%;
   margin-right: -15px;
@@ -219,13 +207,13 @@ img, iframe, video, object {
   margin-top: 5px; }
 
 .profile-activity-header {
-  font-size: 1.5em; }
+  font-size: 1.5rem; }
 
 .profile-activity-body {
   margin-bottom: 10px; }
 
 .profile-activity-body-timeline {
-  font-size: 1em; }
+  font-size: 1rem; }
 
 .profile-activity-body-info {
   background-color: #ececea;
@@ -239,12 +227,12 @@ img, iframe, video, object {
   padding-bottom: 2px;
   padding-top: 10px; }
 
-.background-img {
+.profile-background-img {
   bottom: 0;
   left: 0;
-  overflow: hidden;
   position: absolute;
-  z-index: 1; }
+  overflow: hidden;
+  height: 50%; }
 
 .question-container {
   margin-top: 15%; }
@@ -428,7 +416,7 @@ img, iframe, video, object {
   color: #000;
   cursor: pointer;
   display: inline-block;
-  font-family: Cursive, Monospace;
+  font-family: Cursive, Monospace, sans-serif;
   font-size: 1rem;
   overflow: hidden;
   padding: 3%;
@@ -447,7 +435,7 @@ img, iframe, video, object {
   color: #74afad;
   display: inline-block;
   font-size: 1rem;
-  font-family: Cursive, Monospace, Arial, Helvetica, sans-serif;
+  font-family: Cursive, Monospace, sans-serif, Arial, Helvetica, sans-serif;
   margin-top: 5px; }
 
 .correct-answer {
@@ -943,14 +931,14 @@ img, iframe, video, object {
 .main-category-select {
   border: 1px solid #74afad;
   border-radius: 7px;
-  font-family: Cursive, Monospace;
+  font-family: Cursive, Monospace, sans-serif;
   text-align: center; }
   .main-category-select > option:first-child {
     background-color: #ccc; }
 
 .main-selected-category-header {
   font-size: .8rem;
-  font-family: Cursive, Monospace; }
+  font-family: Cursive, Monospace, sans-serif; }
 
 @media (max-width: 768px) {
   .main-layout {

@@ -1,26 +1,26 @@
-<div class="user-container" ng-if="user.profile.info">
-  <div class="row">
-      <ul class="tabs nav nav-tabs nav-stacked">
-          <li ng-class="{'active': user.isActive('profile')}">
-              <a class="tab-img" ng-click="user.select('profile')"
-              ui-sref="user.profile">
-                <figure>
-                  <img class="tab-img" alt="profile" src="images/profile.png"/>
-                  <figcaption>My profile</figcaption>
-                </figure>
-              </a>
-          </li>
-          <li ng-class="{'active': user.isActive('dictionary')}">
-              <a ng-click="user.select('dictionary')" ui-sref="user.profile">
-                <figure>
-                  <img class="tab-img" alt="dictionary" src="images/dictionary.png"/>
-                  <figcaption>Dictionary</figcaption>
-                </figure>
-              </a>
-          </li>
-      </ul>
-    <div class="col-sm-10 no-padding">
-        <div class="user-data-container" ui-view></div>
+<div class="main-layout">
+    <div class="user-data-container no-padding">
+      <div class="profile-avatar-layout">
+        <img class="profile-avatar" alt="avatar" ng-src="{{user.profile.avatar || user.defaultImg}}"/>
+      </div>
+      <div class="center">
+        <div class="profile-username">{{user.profile.info.name || 'Username'}} <i class="profile-edit fa fa-pencil" ng-click="user.edit()"></i></div>
+        <div class="profile-info">Age: {{user.profile.info.age || 'Unknown'}}, status: {{user.profile.rank.status || 'Active'}}</div>
+      </div>
+      <div class="progress-container">
+        <div class="rank-level">{{user.profile.rank.level}}</div>
+        <uib-progressbar class="rank-bar" value="user.profile.rank.progress" type="success"></uib-progressbar>
+      </div>
+      <img class="profile-background-img" src="images/education.png"/>
+      <div class="center profile-activity">
+          <div class="profile-activity-header">Activities</div>
+          <hr class="profile-divider"/>
+          <div class="profile-activity-body" ng-repeat="activity in user.profile.activities">
+            <div class="profile-activity-body-timeline">{{activity.date}}</div>
+            <div class="profile-activity-body-info">
+              <div ng-repeat="info in activity.info" class="profile-activity-body-info-description">{{info}}</div>
+            </div>
+          </div>
+      </div>
     </div>
-  </div>
 </div>

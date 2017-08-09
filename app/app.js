@@ -10,14 +10,10 @@
       controller: 'MainCtrl',
       controllerAs: 'main'
     }).state('user', {
-      abstract:true,
       url: '/user',
       templateUrl: 'user/user.html',
       controller: 'UserProfileCtrl',
       controllerAs: 'user'
-    }).state('user.profile', {
-      url: '/profile',
-      templateUrl: 'user/profile.html'
     }).state('spelling', {
       abstract: true,
       url: '/spelling/:category',
