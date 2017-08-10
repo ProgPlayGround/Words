@@ -171,7 +171,7 @@ img, iframe, video, object {
 
 .profile-avatar-layout {
   display: inline-block;
-  margin: 2% 2%; }
+  margin: auto 2%; }
 
 .profile-avatar {
   position: relative;
@@ -184,14 +184,15 @@ img, iframe, video, object {
   font-size: 1rem; }
 
 .progress-container {
-  margin-top: 15px; }
+  margin-top: 25px; }
+  .progress-container .progress {
+    margin-bottom: 0; }
 
 .rank-level {
   background: url("images/level.png");
   float: left;
   font-size: 1.1rem;
   height: 48px;
-  margin-left: 8%;
   margin-right: -15px;
   margin-top: -12px;
   padding-top: 15px;
@@ -202,11 +203,9 @@ img, iframe, video, object {
   margin-right: 10%; }
 
 .profile-activity {
-  margin-left: 160px;
-  margin-top: 50px; }
+  margin-top: 30px; }
 
 .profile-divider {
-  margin-left: 20px;
   margin-top: 5px; }
 
 .profile-activity-header {
@@ -235,7 +234,11 @@ img, iframe, video, object {
   left: 0;
   position: absolute;
   overflow: hidden;
-  height: 50%; }
+  height: 30%; }
+
+@media (max-width: 1024px) {
+  .user-data-container {
+    text-align: center; } }
 
 .question-container {
   margin-top: 15%; }
