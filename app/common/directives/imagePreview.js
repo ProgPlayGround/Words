@@ -16,6 +16,8 @@
           if(angular.isDefined(newValue) && newValue !== oldValue) {
             if(newValue === null) {
               element[0].src = '';
+            } else if(typeof newValue === "string") {
+              element[0].src = newValue;
             } else {
               var reader = new FileReader();
               reader.addEventListener("load", function() {

@@ -16,7 +16,6 @@
                 scope.selectionError.maxSize = false;
                 scope.fileSelector = file;
               } else {
-                scope.fileSelector = null;
                 scope.selectionError.maxSize = true;
               }
             }

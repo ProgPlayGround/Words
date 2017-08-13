@@ -31,6 +31,15 @@
           }
         }).post(data);
       },
+      multpart: function(url, method, data, transformRequest) {
+        return $resource(url, {}, {
+          'exec': {
+            method: method,
+            transformRequest: transformRequest,
+            headers: httpAuthHeaders.header({'Content-Type': undefined})
+          }
+        }).exec(data);
+      },
       uploadImg: function(url, data) {
         return $resource(url, {}, {
           'post': {

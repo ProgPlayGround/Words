@@ -1,0 +1,31 @@
+<div class="center">
+  <div class="profile-edit-avatar-layout">
+    <label for="selectImg" class="btn-select-img" ng-click="user.selectImg()">
+        <img class="profile-avatar" alt="avatar" image-preview="user.edit.profile.avatar" initial-image-url="user.edit.profile.avatar || user.defaultImg"/>
+    </label>
+    <input id="selectImg" class="hidden" type="file" file-selector="user.edit.profile.avatar" selection-error="user.edit.error"/>
+    <div class="add-image-error" ng-messages="user.edit.error">
+      <div ng-message="maxSize">Size should be less then 100kb</div>
+    </div>
+  </div>
+  <i class="profile-icon-cross fa fa-times" ui-sref="user.view" ng-click="user.cancel()"></i>
+  <div class="profile-user-edit-info-layout">
+    <div class="profile-user-edit-info-text">
+      <label for="name">Name:</label>
+      <input type="text" name="name" class="form-control input-base center" ng-model="user.edit.profile.name" novalidate/>
+    </div>
+    <div class="profile-user-edit-info-text">
+      <label for="name">Surname:</label>
+      <input type="text" name="surname" class="form-control input-base center" ng-model="user.edit.profile.surname" novalidate/>
+    </div>
+    <div class="profile-user-edit-info-date">
+      <label for="name">Birthday:</label>
+      <input type="date" name="surname" class="form-control input-base" ng-model="user.edit.profile.birthday"
+      min="{{'1900-01-01'}}" max="{{ user.edit.maxDate | date:'yyyy-MM-dd'}}" novalidate/>
+    </div>
+  </div>
+  <div class="button-block">
+    <div type="button" class="btn-edit-profile" ng-click="user.submit()">Submit</div>
+    <div type="button" class="btn-edit-profile" ui-sref="user.view" ng-click="user.cancel()">Cancel</div>
+  </div>
+</div>

@@ -11,9 +11,16 @@
       controllerAs: 'main'
     }).state('user', {
       url: '/user',
+      abstract: true,
       templateUrl: 'user/user.html',
       controller: 'UserProfileCtrl',
       controllerAs: 'user'
+    }).state('user.view', {
+      url: '/view',
+      templateUrl: 'user/viewProfile.html'
+    }).state('user.edit', {
+      url: '/edit',
+      templateUrl: 'user/editProfile.html'
     }).state('spelling', {
       abstract: true,
       url: '/spelling/:category',

@@ -1,9 +1,22 @@
 (function() {
   angular.module('words').factory('profileManager', ['wordEndpoint', 'config', 'userService', function(wordEndpoint, config, userService) {
-    var profileUrl = config.apiUrl + '/profile'
+    var profileUrl = config.apiUrl + '/profile/' + userService.get();
     return {
       profile: function() {
-        return wordEndpoint.load(profileUrl + '/' + userService.get(), false);
+        return wordEndpoint.load(profileUrl, false);
+      },
+      edit: function(profile) {
+        wordEndpoint.multpart(profileUrl, 'PUT', profile, function (data) {
+              if(angular.isDefined(data)) {
+                var fd = new FormData();
+                fd.append('file', data.avatar);
+                fd.append('name', data.name);
+                fd.append('surname', data.surname);
+                fd.append('birthday', data.birthday);
+                return fd;
+              }
+              return data;
+            });
       }
     }
   }]);

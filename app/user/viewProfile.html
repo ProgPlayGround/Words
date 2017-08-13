@@ -1,0 +1,22 @@
+<div class="profile-avatar-layout">
+  <img class="profile-avatar" alt="avatar" ng-src="{{user.profile.avatar || user.defaultImg}}"/>
+</div>
+<div class="profile-user-info-layout">
+  <div class="profile-username">{{user.profile.name || 'Unknown'}} {{user.profile.surname || ''}} <i class="profile-icon fa fa-pencil" ui-sref="user.edit"></i></div>
+  <div class="profile-info">Age: {{user.profile.age || 'Unknown'}}, status: {{user.profile.rank.status || 'Active'}}</div>
+  <div class="progress-container">
+    <div class="rank-level">{{user.profile.rank.level || 1}}</div>
+    <uib-progressbar class="rank-bar" value="user.profile.rank.progress || 0" type="success"></uib-progressbar>
+  </div>
+</div>
+<img class="profile-background-img" src="images/education.png"/>
+<div class="center profile-activity">
+  <div class="profile-activity-header">Activities</div>
+  <hr class="profile-divider"/>
+  <div class="profile-activity-body" ng-repeat="activity in user.profile.activities">
+    <div class="profile-activity-body-timeline">{{activity.date}}</div>
+    <div class="profile-activity-body-info">
+      <div ng-repeat="info in activity.info" class="profile-activity-body-info-description">{{info}}</div>
+    </div>
+  </div>
+</div>
