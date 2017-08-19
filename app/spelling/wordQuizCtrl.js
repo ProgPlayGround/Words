@@ -3,6 +3,9 @@
   angular.module('words').controller('WordQuizCtrl', ['$stateParams', 'spellingManager', 'quizModalManager', 'scoreManager',
   function($stateParams, spellingManager, quizModalManager, scoreManager) {
     var vm = this;
+
+    var score = 2;
+
     vm.loadingText = 'Loading...';
 
     vm.category = $stateParams.category;
@@ -15,11 +18,11 @@
 
     vm.applyAnswer = function() {
       spellingManager.applyAnswer();
-      scoreManager.useSolution();
+      score = 0;
     };
 
     vm.onNavigation = function() {
-      scoreManager.onAnswer(spellingManager.state());
+      vm.rank();
       if(spellingManager.next()) {
         vm.nav = true;
       } else {
@@ -27,7 +30,15 @@
       }
     };
 
-    vm.hint = scoreManager.useHint;
+    vm.hint = function() {
+      score = 1;
+    };
+
+    vm.rank = function() {
+      scoreManager.onAnswer(score);
+      score = 2;
+    };
+
     vm.score = scoreManager.get;
     vm.isCorrect = spellingManager.isCorrect;
     vm.checkAnswer = spellingManager.checkAnswer;

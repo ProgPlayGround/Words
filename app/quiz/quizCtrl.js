@@ -23,6 +23,7 @@
       vm.applyAnswer = function(answer) {
         vm.userAnswer = angular.isDefined(answer) ? answer : -1;
         vm.correctAnswer = quizManager.answer(answer);
+        scoreManager.onAnswer(vm.userAnswer === vm.correctAnswer ? 1 : 0);
       };
 
       vm.isAnswered = function() {
@@ -30,7 +31,6 @@
       };
 
       vm.onNavigation = function() {
-        scoreManager.onAnswer(vm.userAnswer === null ? 'NA' : vm.userAnswer === vm.correctAnswer ? 'CORRECT': 'INCORRECT');
         if(quizManager.next()) {
           vm.nav = true;
           vm.correctAnswer = null;

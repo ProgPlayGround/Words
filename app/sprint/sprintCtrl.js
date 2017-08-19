@@ -20,7 +20,7 @@
 
     vm.onAnswer = function(answer) {
       if(sprintManager.isCorrect(answer)) {
-        scoreManager.onAnswer('CORRECT');
+        scoreManager.onAnswer(1);
       }
       vm.navigate();
     };

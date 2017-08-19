@@ -1,24 +1,18 @@
 (function() {
   'use strict';
-  angular.module('words').factory('scoreManager', function() {
-    var score = 0;
-    var points = 50;
+  angular.module('words').factory('scoreManager', ['config', 'userService', 'wordEndpoint', function(config, userService, wordEndpoint) {
+    var rankingUrl = config.apiUrl + '/profile/' + userService.get() + '/ranking';
+    var score = wordEndpoint.load(rankingUrl, false);
     return {
       get: function() {
-        return score;
+        return score.rank;
       },
-      onAnswer: function(state) {
-        if(state === 'CORRECT') {
-          score += points;
+      onAnswer: function(points) {
+        if(points > 0) {
+          wordEndpoint.patch(rankingUrl, {'points': points});
+          score.rank += points;
         }
-        points = 50;
-      },
-      useSolution: function() {
-        points = 0;
-      },
-      useHint: function() {
-        points = 25;
       }
     };
-  });
+  }]);
 }());
