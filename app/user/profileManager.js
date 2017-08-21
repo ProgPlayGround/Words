@@ -6,7 +6,7 @@
         return wordEndpoint.load(profileUrl, false);
       },
       edit: function(profile) {
-        wordEndpoint.multpart(profileUrl, 'PUT', profile, function (data) {
+        return wordEndpoint.multpart(profileUrl, 'PUT', profile, function (data) {
               if(angular.isDefined(data)) {
                 var fd = new FormData();
                 fd.append('file', data.avatar);

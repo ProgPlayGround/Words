@@ -9,7 +9,12 @@
     });
 
     vm.submit = function() {
-      profileManager.edit(vm.edit.profile);
+      profileManager.edit(vm.edit.profile).$promise.then(function(result) {
+        vm.profile.name = result.name;
+        vm.profile.surname = result.surname;
+        vm.profile.age = result.age;
+        vm.profile.avatar = result.avatar + '?' + Date.now();
+      });
       $state.go('user.view');
     };
 
