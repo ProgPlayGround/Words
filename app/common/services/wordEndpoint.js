@@ -13,14 +13,18 @@
     }
 
     return {
-      load: function(url, isArray) {
-        var requiredArray = isArray !== false;
+      load: function(url, isArray, transformResponse) {
+        var query = {
+          'method': 'GET',
+          'headers': httpAuthHeaders.header(),
+          'isArray': isArray !== false
+        };
+
+        if(transformResponse) {
+          query.transformResponse = transformResponse;
+        }
         return $resource(url, {}, {
-          'query': {
-            'method': 'GET',
-            'headers': httpAuthHeaders.header(),
-            'isArray': requiredArray
-          }
+          'query': query
         }).query();
       },
       post: function(url, data) {

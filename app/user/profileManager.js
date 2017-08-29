@@ -3,7 +3,11 @@
     var profileUrl = config.apiUrl + '/profile/' + userService.get();
     return {
       profile: function() {
-        return wordEndpoint.load(profileUrl, false);
+        return wordEndpoint.load(profileUrl, false, function(data, headers) {
+          var data = angular.fromJson(data);
+          data.avatar = data.avatar + '?' + Date.now();
+          return data;
+        });
       },
       edit: function(profile) {
         return wordEndpoint.multpart(profileUrl, 'PUT', profile, function (data) {
