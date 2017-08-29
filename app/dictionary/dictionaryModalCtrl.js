@@ -26,6 +26,10 @@
       });
     };
 
+    vm.uploadDisabled = function() {
+      return angular.isUndefined(vm.selectedImg) || vm.selectedImg === null;
+    };
+
     vm.close = function() {
       $uibModalInstance.close();
     };

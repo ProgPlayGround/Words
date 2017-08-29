@@ -11,7 +11,7 @@
         element.bind('change', function() {
           scope.$apply(function() {
             var file = element[0].files[0];
-            if(file !== undefined) {
+            if(angular.isDefined(file)) {
               if(file.size < maxFileSize) {
                 scope.selectionError.maxSize = false;
                 scope.fileSelector = file;

@@ -3,7 +3,7 @@
 
   angular.module('words').factory('dictionaryManager', ['$log', 'wordEndpoint', 'config', 'userService',
    function($log, wordEndpoint, config, userService) {
-    var imageUrl = config.apiUrl + '/image';
+    var imageUrl = config.apiUrl + '/image/';
 
     var dictionaryUrl, words, category;
 
@@ -77,7 +77,7 @@
       uploadImg: function(word, img) {
         var wordCard = find(word);
         if(wordCard) {
-          return wordEndpoint.uploadImg(imageUrl + '/' + wordCard.word, img).$promise.then(function(res) {
+          return wordEndpoint.uploadImg(imageUrl + userService.get() + '/' + wordCard.category + '/' + wordCard.word, img).$promise.then(function(res) {
             wordCard.imageUrl = res.url + '?' + Date.now();
           });
         }
