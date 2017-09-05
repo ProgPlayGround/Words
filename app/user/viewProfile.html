@@ -6,7 +6,7 @@
   <div class="profile-info">Age: {{user.profile.age || 'Unknown'}}, status: {{user.profile.rank.status || 'Active'}}</div>
   <div class="progress-container">
     <div class="rank-level">{{user.profile.rank.level || 1}}</div>
-    <uib-progressbar class="rank-bar" value="user.profile.rank.progress || 0" type="success"></uib-progressbar>
+    <uib-progressbar class="rank-bar" max="1" value="user.profile.rank.progress || 0" type="success"></uib-progressbar>
   </div>
 </div>
 <img class="profile-background-img" src="images/education.png"/>

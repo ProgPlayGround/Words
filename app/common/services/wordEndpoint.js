@@ -23,6 +23,7 @@
         if(transformResponse) {
           query.transformResponse = transformResponse;
         }
+        
         return $resource(url, {}, {
           'query': query
         }).query();
