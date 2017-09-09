@@ -1,9 +1,12 @@
 <div class="finish-modal">
   <p>Score</p>
   <hr class="divider"/>
-  <div class="score-text">{{mc.score}}</div>
-  <div>
+  <div class="score-text">
+    {{mc.score.rank}}
     <span class="score-icon score-icon-margin glyphicon glyphicon-star"></span>
+  </div>
+  <div class="score-up-points">
+    of {{mc.score.upPoints}}
   </div>
   <hr class="divider"/>
   <div type="button" class="btn-finish" ng-click="mc.close()">Ok</div>

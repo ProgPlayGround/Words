@@ -5,8 +5,11 @@
       </countdown>
     </div>
     <div class="score-layout">
-      <span class="score-text">{{sprint.score()}}</span>
+      <span class="score-text">{{sprint.score().rank}}</span>
       <span class="score-icon glyphicon glyphicon-star"></span>
+      <div class="score-up-points">
+        of {{sprint.score().upPoints}}
+      </div>
     </div>
   </div>
   <div class="loading">
