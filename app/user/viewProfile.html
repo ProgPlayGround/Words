@@ -14,9 +14,8 @@
   <div class="profile-activity-header">Activities</div>
   <hr class="profile-divider"/>
   <div class="profile-activity-body" ng-repeat="activity in user.profile.activities track by $index">
-    <div class="profile-activity-body-timeline">{{activity.date}}</div>
     <div class="profile-activity-body-info">
-      <div ng-repeat="info in activity.info track by $index" class="profile-activity-body-info-description">{{info}}</div>
+      <p ng-bind-html="activity"></p>
     </div>
   </div>
 </div>
