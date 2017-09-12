@@ -455,15 +455,19 @@ img, iframe, video, object {
 
 .user-data-container {
   font-family: Cursive, Monospace, sans-serif;
-  background-color: #fff;
-  height: 90vh;
+  min-height: 70vh;
   overflow: hidden;
   margin-top: 1%;
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 1%;
   position: relative;
-  border-radius: 5%; }
+  border-radius: 5%;
+  background: url("images/education.png");
+  background-repeat: no-repeat;
+  background-size: 150px;
+  background-position: left bottom;
+  background-color: #fff; }
 
 .profile-user-info-layout {
   display: inline-block;
@@ -531,7 +535,9 @@ img, iframe, video, object {
   margin-right: 10%; }
 
 .profile-activity {
-  margin-top: 30px; }
+  margin-top: 30px;
+  margin-bottom: 30px;
+  overflow: hidden; }
 
 .profile-divider {
   margin-top: 5px; }
@@ -556,13 +562,6 @@ img, iframe, video, object {
 .profile-activity-body-info-description {
   padding-bottom: 2px;
   padding-top: 10px; }
-
-.profile-background-img {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  overflow: hidden;
-  height: 30%; }
 
 @media (max-width: 1024px) {
   .user-data-container {
