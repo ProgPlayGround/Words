@@ -603,8 +603,8 @@ img, iframe, video, object {
   cursor: pointer;
   display: table-cell;
   height: 3rem;
-  min-width: 3rem;
-  width: 3rem;
+  min-width: 2rem;
+  width: 2rem;
   border-right: 1px solid #74afad;
   text-align: center;
   vertical-align: middle; }
@@ -614,9 +614,9 @@ img, iframe, video, object {
 
 .search-cell {
   display: table-cell;
-  text-align: center;
+  text-align: right;
   vertical-align: middle;
-  padding-left: 0.8rem; }
+  padding-left: .8rem; }
 
 .search, .search-add-popover {
   border: 1px solid #74afad;
@@ -682,10 +682,19 @@ img, iframe, video, object {
   display: table-cell;
   text-align: right;
   vertical-align: middle;
+  width: 5rem;
+  min-width: 5rem;
   transition: all .25s ease-in-out; }
   .img-cell:hover > .dictionary-add-img {
     display: inline-block;
     cursor: pointer; }
+
+.progress-cell {
+  display: table-cell;
+  width: 2rem;
+  min-width: 2rem;
+  text-align: center;
+  vertical-align: middle; }
 
 .dictionary-modal {
   font-family: Arial, Helvetica, sans-serif;
