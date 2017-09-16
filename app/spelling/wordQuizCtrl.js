@@ -1,7 +1,7 @@
 (function() {
   'use strict';
-  angular.module('words').controller('WordQuizCtrl', ['$stateParams', 'spellingManager', 'quizModalManager', 'scoreManager',
-  function($stateParams, spellingManager, quizModalManager, scoreManager) {
+  angular.module('words').controller('WordQuizCtrl', ['$stateParams', 'spellingManager', 'wordAnswerManager', 'quizModalManager', 'scoreManager',
+  function($stateParams, spellingManager, wordAnswerManager, quizModalManager, scoreManager) {
     var vm = this;
 
     var score = 2;
@@ -36,6 +36,7 @@
 
     vm.rank = function() {
       scoreManager.onAnswer(score);
+      wordAnswerManager.onAnswer(vm.word(), vm.category, score > 0 ? 'quiz': '');
       score = 2;
     };
 

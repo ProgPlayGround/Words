@@ -1,6 +1,7 @@
 (function() {
   'use strict';
-  angular.module('words').factory('scoreManager', ['config', 'userService', 'wordEndpoint', function(config, userService, wordEndpoint) {
+  angular.module('words')
+  .factory('scoreManager', ['config', 'userService', 'wordEndpoint', function(config, userService, wordEndpoint) {
     var rankingUrl = config.apiUrl + '/profile/' + userService.get() + '/ranking';
     var score = wordEndpoint.load(rankingUrl, false);
     return {
@@ -13,5 +14,14 @@
         }
       }
     };
-  }]);
+  }])
+  .factory('wordAnswerManager', ['config', 'userService', 'wordEndpoint', function(config, userService, wordEndpoint) {
+    var wordAnswerUrl = config.apiUrl + '/dictionary/' + userService.get() + '/learned/';
+    return {
+      onAnswer: function(word, category, game) {
+        console.log(1);
+        wordEndpoint.patch(wordAnswerUrl + category + '/' + word, {'game': game});
+      }
+    };
+  }])
 }());

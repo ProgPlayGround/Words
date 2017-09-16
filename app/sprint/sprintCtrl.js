@@ -1,6 +1,7 @@
 (function() {
-  angular.module('words').controller('SprintCtrl', ['$scope', '$stateParams', 'sprintManager', 'scoreManager', 'quizModalManager',
-   function($scope, $stateParams, sprintManager, scoreManager, quizModalManager) {
+  angular.module('words').controller('SprintCtrl',
+  ['$scope', '$stateParams', 'sprintManager', 'scoreManager', 'wordAnswerManager', 'quizModalManager',
+   function($scope, $stateParams, sprintManager, scoreManager, wordAnswerManager, quizModalManager) {
     var vm = this;
     vm.loadingText = 'Loading...';
     vm.isFinished = false;
@@ -21,6 +22,7 @@
     vm.onAnswer = function(answer) {
       if(sprintManager.isCorrect(answer)) {
         scoreManager.onAnswer(1);
+        wordAnswerManager.onAnswer(vm.word(), vm.category, 'sprint');
       }
       vm.navigate();
     };
