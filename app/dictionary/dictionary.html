@@ -8,6 +8,7 @@
       <span item class="letter animated">loading...</span>
     </loading>
   </div>
+
   <div class="dictionary-table">
     <div class="dictionary-caption">
       <div class="checkbox-cell">
@@ -23,40 +24,29 @@
       <div class="batch-cell" ng-show="dictionary.checked()">
         <div class="batch-group">
           <div class="btn-dictionary batch-item">
-            <i class="fa fa-graduation-cap" ng-click="dictionary.trainChecked()"></i>
-          </div>
-          <div class="btn-dictionary batch-item">
             <i class="fa fa-trash" ng-click="dictionary.removeChecked()"></i>
           </div>
         </div>
       </div>
     </div>
-    <div class="dictionary-row" ng-repeat="word in filteredWords = (dictionary.words | wordSearchFilter:dictionary.search) track by $index">
-      <div class="checkbox-cell">
-        <input class="checkbox" type="checkbox" ng-model="word.checked">
-      </div>
-      <div class="sound-cell" ng-click="dictionary.sound(word)">
-        <i class="btn-dictionary fa fa-volume-up"></i>
-      </div>
-      <div class="word-cell" ng-click="dictionary.showCard(word)">
-        {{word.word}} - <span ng-repeat="translation in word.translation track by $index">{{translation}}{{$last ? '' : ', '}}<span/>
-      </div>
-      <div class="progress-cell">
-        <round-progress max="100" current="word.answered" bgcolor="#c9dfdf" color="#74afad" radius="12" stroke="5"></round-progress>
-      </div>
-      <div class="img-cell">
-        <img class="dictionary-add-img clickable" src="../images/add.png" ng-click="dictionary.changeImg(word)">
-        <img class="dictionary-img" ng-src="{{word.imageUrl}}">
-      </div>
-      <div class="remove-cell" ng-click="dictionary.remove(word)">
-        <i class="btn-dictionary fa fa-trash"></i>
-      </div>
+    <div class="dictionary-row" ng-repeat="word in filteredWords = (dictionary.words | learned:false | wordSearchFilter:dictionary.search) track by $index"
+    ng-include="'dictionary/word.html'">
     </div>
     <div class="empty-list-cell" ng-show="dictionary.search && !filteredWords.length">
       Word <span class="dictionary-search-word">{{dictionary.search}}</span> wasn't found. {{dictionary.all ? '': 'Add it to dictionary.'}}
     </div>
     <div class="empty-list-cell" ng-show="!dictionary.search && !filteredWords.length">
       Dictionary is empty.
+    </div>
+  </div>
+  <div ng-show="learnedWords.length">
+    <div class="learned-caption">
+        <span>Learned words<span>
+    </div>
+    <div class="dictionary-table">
+      <div class="dictionary-row" ng-repeat="word in learnedWords = (dictionary.words | learned:true | wordSearchFilter:dictionary.search) track by $index"
+      ng-include="'dictionary/word.html'">
+      </div>
     </div>
   </div>
 </div>

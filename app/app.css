@@ -569,19 +569,16 @@ img, iframe, video, object {
 
 .dictionary-table {
   border-collapse: collapse;
-  display: table;
   table-layout: fixed;
-  margin-top: 10px;
   width: 100%; }
 
 .dictionary-row {
   border-bottom: 1px dashed #74afad;
-  display: table-row;
+  display: inline-block;
   width: 100%; }
 
 .dictionary-caption {
   border-bottom: 1px solid #74afad;
-  display: table-caption;
   width: 100%; }
 
 .dictionary-category-caption {
@@ -603,8 +600,8 @@ img, iframe, video, object {
   cursor: pointer;
   display: table-cell;
   height: 3rem;
-  min-width: 2rem;
-  width: 2rem;
+  min-width: 3rem;
+  width: 3rem;
   border-right: 1px solid #74afad;
   text-align: center;
   vertical-align: middle; }
@@ -614,9 +611,10 @@ img, iframe, video, object {
 
 .search-cell {
   display: table-cell;
-  text-align: right;
+  text-align: left;
   vertical-align: middle;
-  padding-left: .8rem; }
+  height: 3rem;
+  padding-left: 1rem; }
 
 .search, .search-add-popover {
   border: 1px solid #74afad;
@@ -676,7 +674,7 @@ img, iframe, video, object {
   text-overflow: ellipsis;
   overflow: hidden;
   vertical-align: middle;
-  width: 70%; }
+  width: 80%; }
 
 .img-cell {
   display: table-cell;
@@ -746,6 +744,11 @@ img, iframe, video, object {
   padding: .5rem 0 .5rem 0;
   background-color: #e0e0dd;
   border-radius: 0 0 5px 5px; }
+
+.learned-caption {
+  text-align: center;
+  padding: .5rem 0 .5rem 0;
+  background-color: #e0e0dd; }
 
 .dictionary-search-word {
   color: #558c89; }

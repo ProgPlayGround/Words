@@ -60,10 +60,6 @@
       $window.history.back()
     };
 
-    vm.trainChecked = function() {
-      $log.info(vm.words);
-    };
-
     vm.checked = function() {
       return _.some(vm.words, function(elem) {
         return elem.checked;
