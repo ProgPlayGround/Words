@@ -4,9 +4,9 @@
     var quiz, quizUrl;
 
     var factory = {
-      init: function(category, lang, callback) {
+      init: function(category, lang, duplicates, callback) {
         var quizUrl = config.apiUrl + '/quiz/' + userService.get() + '/';
-        wordManager.init(quizUrl + category + '/' + lang, function() {
+        wordManager.init(quizUrl + category + '/' + lang + '/' + duplicates, function() {
           factory.onLoad();
           callback();
         });
