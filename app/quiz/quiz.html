@@ -8,11 +8,9 @@
         </div>
       </div>
   </div>
-  <div class="loading">
-    <loading>
-      <span item class="letter animated">{{quiz.loadingText}}</span>
-    </loading>
-  </div>
+  <loading class="loading">
+    <span item class="letter animated">{{quiz.loadingText}}</span>
+  </loading>
 
   <div ng-if="quiz.isLoaded()" class="question-container animation-duration animated" next-word-nav="quiz.nav" nav-callback="quiz.loadQuestion()" nav-animation="fade">
     <div class="center">
