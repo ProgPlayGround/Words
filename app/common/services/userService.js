@@ -12,6 +12,12 @@
       },
       get: function() {
         return sessionStorage.userId;
+      },
+      changeMode: function(mode) {
+        sessionStorage.mode = mode;
+      },
+      mode: function() {
+        return sessionStorage.mode;
       }
     };
   });

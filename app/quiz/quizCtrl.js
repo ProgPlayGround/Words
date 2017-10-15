@@ -8,7 +8,7 @@
       vm.userAnswer = null;
 
       vm.category = $stateParams.category;
-      quizManager.init(vm.category, lang, false, onLoad);
+      quizManager.init(vm.category, lang, onLoad);
 
       vm.word = quizManager.word;
       vm.options = quizManager.options;

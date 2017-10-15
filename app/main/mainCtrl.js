@@ -1,6 +1,7 @@
 (function() {
   'use strict';
-  angular.module('words').controller('MainCtrl', ['mainService', 'categoryManager', function(mainService, categoryManager) {
+  angular.module('words').controller('MainCtrl', ['mainService', 'categoryManager', 'userService',
+  function(mainService, categoryManager, userService) {
     var vm = this;
 
     vm.categories = [];
@@ -9,10 +10,12 @@
       on: 'Learn',
       off: 'Review'
     };
-    vm.mode = vm.switch.on;
+    vm.mode = userService.mode() || vm.switch.on;
+    vm.initialState = vm.mode === vm.switch.on ? true : false;
 
     vm.modeChanged = function(state) {
       vm.mode = state ? vm.switch.on : vm.switch.off;
+      userService.changeMode(vm.mode);
     };
 
     categoryManager.init(function(categories) {
