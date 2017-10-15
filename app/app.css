@@ -420,7 +420,7 @@ img, iframe, video, object {
 .center {
   text-align: center; }
 
-.vertical-center, .main-duplicates-switch, .btn-main, .btn-main-categories {
+.vertical-center, .main-duplicates-layout, .main-duplicates-text, .btn-main, .btn-main-categories {
   position: absolute;
   top: 50%;
   transform: translateY(-50%); }
@@ -935,8 +935,22 @@ img, iframe, video, object {
   .main-game-container > span > sup {
     font-size: 1rem; }
 
+.main-duplicates-layout {
+  left: 0; }
+
+.main-duplicates-text {
+  top: 45%;
+  left: 3.2rem;
+  font-family: Cursive, Monospace, sans-serif;
+  font-weight: bold; }
+  .main-duplicates-text.on {
+    color: #74afad; }
+  .main-duplicates-text.off {
+    color: #ccc; }
+
 .main-duplicates-switch {
-  left: 0;
+  position: relative;
+  display: inline-block;
   width: 3rem;
   height: 1.4rem; }
   .main-duplicates-switch input {

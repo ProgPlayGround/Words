@@ -5,6 +5,15 @@
 
     vm.categories = [];
     vm.currentCategory = mainService.selectedCategory();
+    vm.switch = {
+      on: 'Learn',
+      off: 'Review'
+    };
+    vm.mode = vm.switch.on;
+
+    vm.modeChanged = function(state) {
+      vm.mode = state ? vm.switch.on : vm.switch.off;
+    };
 
     categoryManager.init(function(categories) {
       categories.$promise.then(function(data) {

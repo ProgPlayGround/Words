@@ -32,9 +32,30 @@
   }
 }
 
-.main-duplicates-switch {
+.main-duplicates-layout {
   @extend .vertical-center;
   left: 0;
+}
+
+.main-duplicates-text {
+  @extend .vertical-center;
+  top: 45%;
+  left: 3.2rem;
+  font-family: $cursive;
+  font-weight: bold;
+
+  &.on {
+    color: $main-color;
+  }
+
+  &.off {
+    color: $gray;
+  }
+}
+
+.main-duplicates-switch {
+  position: relative;
+  display: inline-block;
   width: 3rem;
   height: 1.4rem;
 

@@ -1,9 +1,6 @@
 <div class="main-layout">
   <div class="main-header">
-    <label class="main-duplicates-switch">
-      <input type="checkbox">
-      <span class="slider round"></span>
-    </label>
+    <switch on="{{main.switch.on}}" off="{{main.switch.off}}" on-change="main.modeChanged(state)"></switch>
     <div class="main-selected-category">
       <div class="main-selected-category-header">Category:</div>
       <select class="main-category-select" ng-options="category.name for category in main.categories" ng-change="main.selectCategory()" ng-model="main.currentCategory"></select>
