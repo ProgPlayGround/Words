@@ -11,10 +11,10 @@
       off: 'Review'
     };
     vm.mode = userService.mode() || vm.switch.on;
-    vm.initialState = vm.mode === vm.switch.on ? true : false;
+    vm.initialState = vm.mode !== vm.switch.on ? true : false;
 
     vm.modeChanged = function(state) {
-      vm.mode = state ? vm.switch.on : vm.switch.off;
+      vm.mode = state ? vm.switch.off : vm.switch.on;
       userService.changeMode(vm.mode);
     };
 

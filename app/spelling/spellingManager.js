@@ -5,7 +5,8 @@
 
     var factory = {
       init: function(category, callback) {
-        dictionaryUrl = config.apiUrl + '/dictionary/' + userService.get() + '/' + category;
+        var allowDuplicates = userService.allowDuplicates();
+        dictionaryUrl = config.apiUrl + '/dictionary/' + userService.get() + '/' + category + '/' + allowDuplicates;
         wordManager.init(dictionaryUrl, function() {
           factory.onLoad();
           callback();

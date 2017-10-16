@@ -19,7 +19,6 @@
     var wordAnswerUrl = config.apiUrl + '/dictionary/' + userService.get() + '/learned/';
     return {
       onAnswer: function(word, category, game) {
-        console.log(1);
         wordEndpoint.patch(wordAnswerUrl + category + '/' + word, {'game': game});
       }
     };

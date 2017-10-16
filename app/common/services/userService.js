@@ -18,6 +18,9 @@
       },
       mode: function() {
         return sessionStorage.mode;
+      },
+      allowDuplicates: function() {
+        return sessionStorage.mode !== 'Learn';
       }
     };
   });

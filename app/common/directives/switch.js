@@ -13,12 +13,14 @@
       },
       link: function(scope, element) {
         scope.state = scope.initialState == 'true';
-
         var textElement = element[0].getElementsByClassName('main-duplicates-text')[0];
         textElement = angular.element(textElement);
+        if(!scope.state) {
+          textElement.addClass('on');
+        }
         element.on('change', function(event) {
           scope.state = !scope.state;
-          if(scope.state) {
+          if(!scope.state) {
             textElement.addClass('on');
           } else {
             textElement.removeClass('on');
