@@ -20,7 +20,7 @@
         return sessionStorage.mode;
       },
       allowDuplicates: function() {
-        return sessionStorage.mode !== 'Learn';
+        return angular.isDefined(sessionStorage.mode) && sessionStorage.mode !== 'Learn';
       }
     };
   });
