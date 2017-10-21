@@ -9,7 +9,6 @@
     vm.category = $stateParams.category;
     vm.word = sprintManager.word;
     vm.answer = sprintManager.answer;
-    vm.score = scoreManager.get;
     vm.isLoaded = sprintManager.isLoaded;
 
     sprintManager.init(vm.category, onLoad);

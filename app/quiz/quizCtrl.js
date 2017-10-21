@@ -12,7 +12,6 @@
 
       vm.word = quizManager.word;
       vm.options = quizManager.options;
-      vm.score = scoreManager.get;
       vm.isLoaded = quizManager.isLoaded;
 
       vm.loadQuestion = function() {

@@ -4,13 +4,7 @@
       <countdown ng-if="sprint.isLoaded()" count='60' callback='sprint.onTimeFinished()' is-finished='sprint.isFinished'>
       </countdown>
     </div>
-    <div class="score-layout">
-      <span class="score-text">{{sprint.score().rank}}</span>
-      <span class="score-icon glyphicon glyphicon-star"></span>
-      <div class="score-up-points">
-        of {{sprint.score().upPoints}}
-      </div>
-    </div>
+    <score-view></score-view>
   </div>
   <div class="loading">
     <loading>

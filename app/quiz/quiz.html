@@ -1,12 +1,6 @@
 <div class="main-layout">
   <div class="score-container">
-      <div class="score-layout">
-        <span class="score-text">{{quiz.score().rank}}</span>
-        <span class="score-icon glyphicon glyphicon-star"></span>
-        <div class="score-up-points">
-          of {{quiz.score().upPoints}}
-        </div>
-      </div>
+    <score-view></score-view>
   </div>
   <loading class="loading">
     <span item class="letter animated">{{quiz.loadingText}}</span>

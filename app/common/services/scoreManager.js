@@ -10,7 +10,10 @@
       },
       onAnswer: function(points) {
         if(points > 0) {
-          score = wordEndpoint.patch(rankingUrl, {'points': points});
+          wordEndpoint.patch(rankingUrl, {'points': points}).$promise.then(function(data) {
+              score.rank = data.rank;
+              score.upPoints = data.upPoints;
+          });
         }
       }
     };

@@ -40,7 +40,6 @@
       score = 2;
     };
 
-    vm.score = scoreManager.get;
     vm.isCorrect = spellingManager.isCorrect;
     vm.checkAnswer = spellingManager.checkAnswer;
     vm.isLoaded = spellingManager.isLoaded;
