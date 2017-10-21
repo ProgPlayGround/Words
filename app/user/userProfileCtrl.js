@@ -14,6 +14,7 @@
         vm.profile.surname = result.surname;
         vm.profile.age = result.age;
         vm.profile.avatar = result.avatar + '?' + Date.now();
+        editForm();
       });
       $state.go('user.view');
     };
