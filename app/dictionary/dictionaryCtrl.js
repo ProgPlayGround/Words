@@ -10,6 +10,7 @@
     vm.words = dictionaryManager.load(vm.category);
     vm.allChecked = false;
     vm.search = '';
+    vm.defaultImg = '../images/default-img.png';
     vm.audios = {};
 
     vm.addPopover = {};
