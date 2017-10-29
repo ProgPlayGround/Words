@@ -16,7 +16,7 @@
     return {
       load: function(currentCategory) {
         dictionaryUrl = config.apiUrl + '/dictionary/' + userService.get() + '/';
-        words = wordEndpoint.load(dictionaryUrl + currentCategory);
+        words = wordEndpoint.load(dictionaryUrl + currentCategory + '/false');
         category = currentCategory;
         return words;
       },
