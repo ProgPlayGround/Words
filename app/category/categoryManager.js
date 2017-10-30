@@ -16,7 +16,7 @@
         categories = wordEndpoint.load(categoryUrl);
         categories.$promise.then(function(data) {
           data.forEach(function(elem) {
-            elem.imageUrl = elem.imageUrl + '?' + Date.now();
+            elem.imageUrl = angular.isDefined(elem.imageUrl) && elem.imageUrl != null ? elem.imageUrl + '?' + Date.now() : '../images/default-img.png';
           });
           Array.prototype.unshift.call(data, {name: 'All Categories', imageUrl: '/images/all_categories.png'});
           callback(data);
@@ -36,6 +36,7 @@
           wordEndpoint.uploadImg(categoryUrl + '/' + category, img)
           .$promise.then(function(res) {
             if(res.success) {
+              res.category.imageUrl = angular.isDefined(res.category.imageUrl) && res.category.imageUrl != null ? res.category.imageUrl + '?' + Date.now() : '../images/default-img.png';
               categories.push(res.category);
             } else {
               $log.error('Error occured %s', res.err);
@@ -56,7 +57,7 @@
           .$promise.then(function(res) {
             if(res.success) {
               categories[index].name = res.category.name;
-              categories[index].imageUrl = res.category.imageUrl + '?' + Date.now();
+              categories[index].imageUrl = angular.isDefined(res.category.imageUrl) && res.category.imageUrl != null ? res.category.imageUrl + '?' + Date.now() : '../images/default-img.png';
             } else {
               $log.error('Error occured %s', res.err);
             }
