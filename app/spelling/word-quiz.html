@@ -8,4 +8,5 @@
     </loading>
   </div>
   <div class="question-container" ng-if="quiz.isLoaded()" ui-view></div>
+  <div ng-if="!quiz.isLoaded()" ng-include src="'common/noContent.html'"/>
 </div>

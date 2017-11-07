@@ -205,6 +205,20 @@
   transform: translateY(-50%);
 }
 
+.center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.no-content-layout {
+  @extend .center-absolute;
+  font-size: 2rem;
+  font-family: $cursive, $arial;
+  font-style: italic;
+}
+
 .disable-click {
   pointer-events: none;
 }

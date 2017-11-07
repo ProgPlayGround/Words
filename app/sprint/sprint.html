@@ -27,4 +27,5 @@
       <div type="button" class="btn-sprint" ng-click="sprint.onAnswer(false)">No</div>
     </div>
   </div>
+  <div ng-if="!sprint.isLoaded()" ng-include src="'common/noContent.html'"/>
 </div>
