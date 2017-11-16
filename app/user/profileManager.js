@@ -1,6 +1,6 @@
 (function() {
-  angular.module('words').factory('profileManager', ['wordEndpoint', 'config', 'userService', function(wordEndpoint, config, userService) {
-    var profileUrl = config.apiUrl + '/profile/' + userService.get();
+  angular.module('words').factory('profileManager', ['wordEndpoint', 'config', 'userService', function(wordEndpoint, config) {
+    var profileUrl = config.apiUrl + '/profile';
     return {
       profile: function() {
         return wordEndpoint.load(profileUrl, false, function(data, headers) {

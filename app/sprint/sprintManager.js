@@ -5,7 +5,7 @@
     var factory = {
       init: function(category, callback) {
         var allowDuplicates = userService.allowDuplicates();
-        sprintUrl = config.apiUrl + '/sprint/' + userService.get() + '/' + category + '/' + allowDuplicates;
+        sprintUrl = config.apiUrl + '/sprint/' + category + '/' + allowDuplicates;
         wordManager.init(sprintUrl, function() {
           factory.onLoad();
           callback();

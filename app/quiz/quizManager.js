@@ -5,7 +5,7 @@
 
     var factory = {
       init: function(category, lang, callback) {
-        var quizUrl = config.apiUrl + '/quiz/' + userService.get() + '/';
+        var quizUrl = config.apiUrl + '/quiz/';
         var allowDuplicates = userService.allowDuplicates();
         wordManager.init(quizUrl + category + '/' + lang + '/' + allowDuplicates, function() {
           factory.onLoad();

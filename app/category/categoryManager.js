@@ -1,6 +1,7 @@
 (function() {
   'use strict';
-  angular.module('words').factory('categoryManager', ['$log', 'wordEndpoint', 'userService', 'config', function($log, wordEndpoint, userService, config) {
+  angular.module('words').factory('categoryManager', ['$log', 'wordEndpoint', 'config',
+  function($log, wordEndpoint, config) {
 
     var categoryUrl, categories;
 
@@ -12,7 +13,7 @@
 
     return {
       init: function(callback) {
-        categoryUrl = config.apiUrl + '/category/' + userService.get();
+        categoryUrl = config.apiUrl + '/category';
         categories = wordEndpoint.load(categoryUrl);
         categories.$promise.then(function(data) {
           data.forEach(function(elem) {

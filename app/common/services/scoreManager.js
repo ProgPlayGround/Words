@@ -1,8 +1,8 @@
 (function() {
   'use strict';
   angular.module('words')
-  .factory('scoreManager', ['config', 'userService', 'wordEndpoint', function(config, userService, wordEndpoint) {
-    var rankingUrl = config.apiUrl + '/profile/' + userService.get() + '/ranking';
+  .factory('scoreManager', ['config', 'wordEndpoint', function(config, wordEndpoint) {
+    var rankingUrl = config.apiUrl + '/profile/ranking';
     var score = wordEndpoint.load(rankingUrl, false);
     return {
       get: function() {
@@ -18,8 +18,8 @@
       }
     };
   }])
-  .factory('wordAnswerManager', ['config', 'userService', 'wordEndpoint', function(config, userService, wordEndpoint) {
-    var wordAnswerUrl = config.apiUrl + '/dictionary/' + userService.get() + '/learned/';
+  .factory('wordAnswerManager', ['config', 'wordEndpoint', function(config, wordEndpoint) {
+    var wordAnswerUrl = config.apiUrl + '/dictionary/learned/';
     return {
       onAnswer: function(word, category, game) {
         wordEndpoint.patch(wordAnswerUrl + category + '/' + word, {'game': game});
